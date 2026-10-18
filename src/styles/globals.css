@@ -1,0 +1,470 @@
+@import '@fontsource-variable/noto-sans-sc';
+@import '@fontsource/archivo-black/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+/* ============================================================================
+   设计令牌 — BRAND-t_963484d6.md §1.2
+   ============================================================================ */
+:root {
+  /* 色彩 — 方案 A 暗夜荧光 */
+  --c-ink: #050505;
+  --c-ink-2: #0B0B0B;
+  --c-panel: #141414;
+  --c-panel-2: #1A1A1A;
+  --c-line: #323232;
+  --c-line-strong: #6A6A6A;
+  --c-txt: #F5F5F5;
+  --c-txt-2: #9A9EA6;
+  --c-txt-3: #888C92;
+  --c-accent: #D4FF3F;
+  --c-accent-ink: #0A0A0A;
+
+  /* 语义色 */
+  --c-ok: #7DFF6A;
+  --c-warn: #FFB020;
+  --c-err: #FF4D6D;
+  --c-info: #7FE3FF;
+
+  /* 字体 */
+  --font-display: 'Archivo Black', 'Noto Sans SC', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-sans: 'Noto Sans SC', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* 圆角 */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* 阴影 */
+  --sh-1: 0 1px 2px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.32);
+  --sh-2: 0 4px 12px rgba(0,0,0,.44), 0 12px 32px rgba(0,0,0,.30);
+  --sh-focus: 0 0 0 3px #050505, 0 0 0 5px #D4FF3F;
+
+  /* 间距 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 40px;
+  --sp-6: 64px;
+  --sp-7: 104px;
+  --sp-8: 160px;
+
+  /* 动效 */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur-micro: 180ms;
+  --dur-standard: 420ms;
+  --dur-slow: 800ms;
+
+  /* 字体层级 */
+  --fs-display: clamp(56px, 9.2vw, 132px);
+  --fs-h1: clamp(40px, 5.6vw, 76px);
+  --fs-h2: clamp(24px, 3.2vw, 36px);
+  --fs-h3: 20px;
+  --fs-body-lg: clamp(17px, 1.5vw, 21px);
+  --fs-body: 16px;
+  --fs-body-sm: 14px;
+  --fs-label: 12px;
+
+  /* 液态玻璃 */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-hover: rgba(255, 255, 255, 0.11);
+  --glass-bg-active: rgba(255, 255, 255, 0.16);
+  --glass-blur: blur(24px) saturate(180%) brightness(108%);
+}
+
+/* ============================================================================
+   Reset & Base
+   ============================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--c-txt);
+  background: var(--c-ink);
+  min-height: 100vh;
+}
+
+/* ============================================================================
+   焦点环 — UI-UX §5.1
+   ============================================================================ */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   工具类
+   ============================================================================ */
+.container {
+  max-width: 1224px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+}
+
+.glass {
+  backdrop-filter: var(--hyalite, var(--glass-blur));
+  -webkit-backdrop-filter: var(--hyalite, var(--glass-blur));
+  box-shadow: var(--hyalite-edge, 0 0 0 0 transparent);
+  background: var(--glass-bg);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+}
+
+.glass:hover {
+  background: var(--glass-bg-hover);
+}
+
+/* ============================================================================
+   按钮 — UI-UX §2.3
+   ============================================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--dur-micro) ease,
+              border-color var(--dur-micro) ease,
+              color var(--dur-micro) ease,
+              box-shadow var(--dur-micro) ease;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--sm { height: 36px; padding: 0 16px; font-size: 14px; border-radius: var(--r-sm); }
+.btn--md { height: 44px; padding: 0 24px; font-size: 16px; border-radius: var(--r-md); }
+.btn--lg { height: 52px; padding: 0 32px; font-size: 18px; border-radius: var(--r-md); }
+
+.btn--primary {
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+}
+
+.btn--primary:hover {
+  background: #E4FF70;
+  box-shadow: var(--sh-2);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--c-txt);
+  border: 1px solid var(--c-line-strong);
+}
+
+.btn--secondary:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--c-txt-2);
+  border: 1px solid var(--c-line-strong);
+}
+
+.btn--ghost:hover {
+  color: var(--c-txt);
+  border-color: var(--c-accent);
+}
+
+/* Button ripple element */
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   区块标题
+   ============================================================================ */
+.section {
+  padding: var(--sp-7) 0;
+  position: relative;
+}
+
+.section--ink2 {
+  background: var(--c-ink-2);
+}
+
+.section-head {
+  margin-bottom: var(--sp-6);
+}
+
+.section-head__title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: var(--fs-h1);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--c-txt);
+}
+
+.section-head__prefix {
+  color: var(--c-accent);
+  margin-right: var(--sp-2);
+  font-weight: 400;
+}
+
+.section-head__sub {
+  font-size: var(--fs-body);
+  color: var(--c-txt-2);
+  margin-top: var(--sp-2);
+}
+
+/* ============================================================================
+   标签
+   ============================================================================ */
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-txt-3);
+}
+
+/* ============================================================================
+   折射源 — 全局蓝图层
+   ============================================================================ */
+.refract-global {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.24) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.24) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.34) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,0.34) 2px, transparent 2px);
+  background-size: 96px 96px, 96px 96px, 288px 288px, 288px 288px;
+  animation: refract-drift 32s linear infinite;
+}
+
+@keyframes refract-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(32px, 18px, 0); }
+}
+
+/* ============================================================================
+   滚动引导线
+   ============================================================================ */
+.scroll-cue__line {
+  display: block;
+  width: 2px;
+  height: 48px;
+  background: var(--c-accent);
+  margin: var(--sp-2) auto 0;
+  transform-origin: top;
+  animation: scroll-breathe 2s var(--ease-in-out-quart) infinite;
+}
+
+@keyframes scroll-breathe {
+  0%, 100% { transform: scaleY(0.34); opacity: 0.6; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* ============================================================================
+   脉冲点
+   ============================================================================ */
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  animation: pulse 2s var(--ease-in-out-quart) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ============================================================================
+   响应式 — UI-UX §3 + BRAND §3.1 规则 RESP-1
+   ============================================================================ */
+
+/* ---- 服务能力网格 ---- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+}
+
+/* ---- Hero 网格 ---- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--sp-6);
+  align-items: start;
+}
+
+/* ---- 导航基础样式（桌面端） ---- */
+.nav__links {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.nav__cta {
+  display: inline-flex;
+}
+
+.nav__burger {
+  display: none;
+}
+
+.nav__inner {
+  padding: 0 var(--sp-5);
+}
+
+.glass-hero {
+  padding: var(--sp-7);
+}
+
+/* ---- 导航响应式 ---- */
+@media (max-width: 1023px) {
+  .container { padding: 0 var(--sp-4); }
+  .nav__inner { padding: 0 var(--sp-4); }
+  .nav__links { display: none; }
+  .nav__cta { display: none; }
+  .nav__burger { display: block; }
+  .glass-hero { padding: var(--sp-5); }
+}
+
+@media (max-width: 767px) {
+  .container { padding: 0 var(--sp-3); }
+  .section { padding: var(--sp-6) 0; }
+  .glass-hero { padding: var(--sp-4); }
+  .hero-grid { gap: var(--sp-4); }
+  .hero-grid > div:last-child dl { flex-wrap: wrap; gap: var(--sp-1) var(--sp-3); }
+}
+
+/* ---- 服务能力响应式 ---- */
+@media (max-width: 1023px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 479px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Hero 响应式 ---- */
+@media (max-width: 1023px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- 作品展示响应式 ---- */
+@media (max-width: 767px) {
+  .work-card { grid-template-columns: 1fr; }
+  .works-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- 联系方式响应式 ---- */
+@media (max-width: 1023px) {
+  .glass-contact { padding: var(--sp-5); }
+  .contact-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ---- 导航滚动态 ---- */
+.glass-nav--scrolled {
+  background: rgba(20, 20, 20, 0.85);
+}
+
+/* ============================================================================
+   Form placeholder — BRAND §1.3 规则 G5
+   ============================================================================ */
+::placeholder {
+  color: var(--c-txt-3);
+  opacity: 1;
+}
+
+/* ============================================================================
+   Button halo — BRAND §3.3 触点光晕
+   ============================================================================ */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--btn-spec-x, 50%) var(--btn-spec-y, 50%), rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+/* ============================================================================
+   Work card hint — hover 时淡出
+   ============================================================================ */
+.work-card:hover .work-card__hint {
+  opacity: 0 !important;
+}
+
+/* ============================================================================
+   Skip link — M-10
+   ============================================================================ */
+.skip-link:focus {
+  top: 0 !important;
+}
+
+/* ============================================================================
+   prefers-reduced-motion 降级 — UI-UX §5.2
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .refract-global { animation: none !important; }
+  .scroll-cue__line { animation: none !important; }
+  .pulse-dot { animation: none !important; }
+}
+
+/* ============================================================================
+   prefers-contrast: more — BRAND §1.4
+   ============================================================================ */
+@media (prefers-contrast: more) {
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.14);
+    --glass-bg-hover: rgba(255, 255, 255, 0.22);
+    --glass-bg-active: rgba(255, 255, 255, 0.30);
+    --c-line: var(--c-line-strong);
+  }
+}
