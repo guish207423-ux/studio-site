@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [master, gh-pages]
   workflow_dispatch:
 
 permissions:
@@ -21,17 +21,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node & Build (master only)
+        if: github.ref == 'refs/heads/master'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
       - name: Install dependencies
+        if: github.ref == 'refs/heads/master'
         run: npm ci
 
       - name: Build
+        if: github.ref == 'refs/heads/master'
         run: npm run build
+
+      - name: Prepare deploy directory
+        run: |
+          mkdir -p ./_deploy
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            cp -r ./dist/* ./_deploy/
+          else
+            # gh-pages branch: copy everything except .git and .github
+            for item in $(ls -A | grep -v '^\.git$' | grep -v '^\.github$' | grep -v '^_deploy$'); do
+              cp -r "$item" ./_deploy/
+            done
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -39,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./_deploy
 
   deploy:
     environment:
