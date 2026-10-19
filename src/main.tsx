@@ -39,7 +39,7 @@ function applyHyalite() {
   const mobile = window.matchMedia('(max-width: 767px)').matches
   const panelParams = {
     bevel: 37, thickness: 59, shape: 'lip', slope: 2.7, blur: 1,
-    dispersion: 1.6, shade: 0.46, rim: 1.76, edgeW: 2.5, sat: 1.4,
+    dispersion: 1.6, shade: 0.54, rim: 2.1, edgeW: 2.5, sat: 1.4,
     edge: 0.08, light: -140, materialize: 600, settle: 200,
   }
   const buttonParams = {

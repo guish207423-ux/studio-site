@@ -25,6 +25,11 @@
   --c-err: #FF4D6D;
   --c-info: #7FE3FF;
 
+  /* 折射源大气色层 — 光影载体 */
+  --c-atm-blue: #0D1220;
+  --c-atm-purple: #100A1A;
+  --c-atm-teal: #0C1815;
+
   /* 字体 */
   --font-display: 'Archivo Black', 'Noto Sans SC', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --font-sans: 'Noto Sans SC', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
@@ -61,6 +66,14 @@
   --dur-micro: 180ms;
   --dur-standard: 420ms;
   --dur-slow: 800ms;
+
+  /* 折射源动效 */
+  --dur-atmosphere: 36s;
+  --dur-grid-fine: 24s;
+  --dur-grid-coarse: 36s;
+  --dur-halo: 8s;
+  --dur-color-shift: 60s;
+  --ease-linear: linear;
 
   /* 字体层级 */
   --fs-display: clamp(56px, 9.2vw, 132px);
@@ -252,25 +265,76 @@ body {
 }
 
 /* ============================================================================
-   折射源 — 全局蓝图层
+   折射源 — 大气色层 + 网格拆分
    ============================================================================ */
-.refract-global {
+
+/* ---- 大气色层 ---- */
+.refract-atmosphere {
   position: fixed;
-  inset: 0;
+  inset: -80px;
   z-index: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.24) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.24) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.34) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(255,255,255,0.34) 2px, transparent 2px);
-  background-size: 96px 96px, 96px 96px, 288px 288px, 288px 288px;
-  animation: refract-drift 32s linear infinite;
+  background:
+    radial-gradient(ellipse 90% 70% at 25% 20%, rgba(13,18,32,0.85) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 60% at 75% 75%, rgba(16,10,26,0.75) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(12,24,21,0.70) 0%, transparent 55%),
+    var(--c-ink);
+  animation:
+    atmosphere-drift var(--dur-atmosphere) var(--ease-linear) infinite,
+    halo-breathe var(--dur-halo) ease-in-out infinite,
+    color-shift var(--dur-color-shift) var(--ease-linear) infinite;
 }
 
-@keyframes refract-drift {
+/* ---- 细网格 64px ---- */
+.refract-grid-fine {
+  position: fixed;
+  inset: -60px;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.30) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(255,255,255,0.30) 1.5px, transparent 1.5px);
+  background-size: 64px 64px;
+  animation: grid-fine-drift var(--dur-grid-fine) var(--ease-linear) infinite;
+}
+
+/* ---- 粗直尺 144px ---- */
+.refract-grid-coarse {
+  position: fixed;
+  inset: -60px;
+  z-index: 2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.42) 2.5px, transparent 2.5px),
+    linear-gradient(90deg, rgba(255,255,255,0.42) 2.5px, transparent 2.5px);
+  background-size: 144px 144px;
+  animation: grid-coarse-drift var(--dur-grid-coarse) var(--ease-linear) infinite;
+}
+
+/* ---- 关键帧 ---- */
+@keyframes atmosphere-drift {
   0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(32px, 18px, 0); }
+  100% { transform: translate3d(-36px, 24px, 0); }
+}
+
+@keyframes halo-breathe {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+@keyframes color-shift {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(10deg); }
+}
+
+@keyframes grid-fine-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(48px, 27px, 0); }
+}
+
+@keyframes grid-coarse-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-42px, 36px, 0); }
 }
 
 /* ============================================================================
@@ -365,6 +429,20 @@ body {
   .glass-hero { padding: var(--sp-4); }
   .hero-grid { gap: var(--sp-4); }
   .hero-grid > div:last-child dl { flex-wrap: wrap; gap: var(--sp-1) var(--sp-3); }
+
+  /* 折射源移动端降级 */
+  .refract-atmosphere {
+    background:
+      radial-gradient(ellipse 90% 70% at 25% 20%, rgba(13,18,32,0.85) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 60% at 75% 75%, rgba(16,10,26,0.75) 0%, transparent 60%),
+      var(--c-ink);
+    animation:
+      atmosphere-drift 48s var(--ease-linear) infinite,
+      halo-breathe var(--dur-halo) ease-in-out infinite,
+      color-shift var(--dur-color-shift) var(--ease-linear) infinite;
+  }
+  .refract-grid-fine { animation-duration: 36s; }
+  .refract-grid-coarse { animation-duration: 48s; }
 }
 
 /* ---- 服务能力响应式 ---- */
@@ -452,7 +530,9 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .refract-global { animation: none !important; }
+  .refract-atmosphere,
+  .refract-grid-fine,
+  .refract-grid-coarse { animation: none !important; }
   .scroll-cue__line { animation: none !important; }
   .pulse-dot { animation: none !important; }
 }

@@ -155,4 +155,14 @@ export function setupMicroInteractions() {
       el.style.setProperty('--btn-spec-y', `${y}px`)
     })
   })
+
+  // 8. visibilitychange 暂停折射源动画
+  const refractLayers = document.querySelectorAll('.refract-atmosphere, .refract-grid-fine, .refract-grid-coarse')
+  function pauseRefractAnimations(hidden: boolean) {
+    refractLayers.forEach(el => {
+      if (hidden) { (el as HTMLElement).style.animationPlayState = 'paused'; }
+      else { (el as HTMLElement).style.animationPlayState = 'running'; }
+    })
+  }
+  document.addEventListener('visibilitychange', () => pauseRefractAnimations(document.hidden))
 }
