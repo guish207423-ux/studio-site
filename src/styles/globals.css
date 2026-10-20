@@ -63,7 +63,7 @@
   --dur-slow: 800ms;
 
   /* 折射源动效 */
-  --dur-grid-fine: 24s;
+  --dur-grid-fine: 32s;
   --ease-linear: linear;
 
   /* 字体层级 */
@@ -104,7 +104,7 @@ body {
   font-size: var(--fs-body);
   line-height: 1.75;
   color: var(--c-txt);
-  background: var(--c-ink);
+  background: radial-gradient(60% 40% at 50% 40%, rgba(13, 18, 32, 0.35), transparent 70%), var(--c-ink);
   min-height: 100vh;
 }
 
@@ -259,23 +259,39 @@ body {
    折射源 — 细网格
    ============================================================================ */
 
-/* ---- 细网格 64px — 唯一折射源 ---- */
+/* ---- 双层折射源网格：96px 细线 + 288px 粗直尺 ---- */
 .refract-grid-fine {
   position: fixed;
   inset: -60px;
   z-index: 1;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.30) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, rgba(255,255,255,0.30) 1.5px, transparent 1.5px);
-  background-size: 64px 64px;
   animation: grid-fine-drift var(--dur-grid-fine) var(--ease-linear) infinite;
+}
+
+.refract-grid-fine::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.24) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.24) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+.refract-grid-fine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.34) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,0.34) 2px, transparent 2px);
+  background-size: 288px 288px;
 }
 
 /* ---- 关键帧 — 仅保留 1 个网格漂移 ---- */
 @keyframes grid-fine-drift {
   0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(48px, 27px, 0); }
+  100% { transform: translate3d(30px, 30px, 0); }
 }
 
 /* ============================================================================
