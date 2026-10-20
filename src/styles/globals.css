@@ -256,45 +256,28 @@ body {
 }
 
 /* ============================================================================
-   折射源 — 细网格
+   折射源 — 单个大尺度软光团（替代网格）
    ============================================================================ */
 
-/* ---- 双层折射源网格：96px 细线 + 288px 粗直尺 ---- */
-.refract-grid-fine {
+/* ---- 单个大尺度软光团 blob：覆盖视口 ~60-80%，32s 漂移 ---- */
+.refract-blob {
   position: fixed;
-  inset: -60px;
+  inset: -20%;
   z-index: 1;
   pointer-events: none;
-  animation: grid-fine-drift var(--dur-grid-fine) var(--ease-linear) infinite;
+  background: radial-gradient(ellipse 70% 60% at 40% 35%, rgba(13, 18, 32, 0.40) 0%, transparent 70%);
+  animation: blob-drift 32s var(--ease-linear) infinite;
+  will-change: transform;
 }
 
-.refract-grid-fine::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.24) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.24) 1px, transparent 1px);
-  background-size: 96px 96px;
+/* ---- 关键帧 — 单 blob 漂移 ---- */
+@keyframes blob-drift {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(40px, -24px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
-.refract-grid-fine::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.34) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(255,255,255,0.34) 2px, transparent 2px);
-  background-size: 288px 288px;
-}
-
-/* ---- 关键帧 — 仅保留 1 个网格漂移 ---- */
-@keyframes grid-fine-drift {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(30px, 30px, 0); }
-}
-
-/* ============================================================================
+/* ============================================================================ 
    滚动引导线
    ============================================================================ */
 .scroll-cue__line {
@@ -387,8 +370,8 @@ body {
   .hero-grid { gap: var(--sp-4); }
   .hero-grid > div:last-child dl { flex-wrap: wrap; gap: var(--sp-1) var(--sp-3); }
 
-  /* 折射源移动端降级 — 网格减速 */
-  .refract-grid-fine { animation-duration: 36s; }
+  /* 折射源移动端降级 — blob 减速 */
+  .refract-blob { animation-duration: 48s; }
 }
 
 /* ---- 服务能力响应式 ---- */
@@ -476,7 +459,7 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .refract-grid-fine { animation: none !important; }
+  .refract-blob { animation: none !important; }
   .scroll-cue__line { animation: none !important; }
   .pulse-dot { animation: none !important; }
 }

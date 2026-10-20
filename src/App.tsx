@@ -40,7 +40,7 @@ export default function App() {
       onFocus={e => { e.currentTarget.style.top = '0' }}
       onBlur={e => { e.currentTarget.style.top = '-100%' }}
       >跳转到主要内容</a>
-      <div className="refract-grid-fine" aria-hidden="true" />
+      <div className="refract-blob" aria-hidden="true" />
       <Navigation />
       <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
         <Hero />

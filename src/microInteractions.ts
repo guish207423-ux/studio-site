@@ -157,7 +157,7 @@ export function setupMicroInteractions() {
   })
 
   // 8. visibilitychange 暂停折射源动画
-  const refractLayers = document.querySelectorAll('.refract-grid-fine')
+  const refractLayers = document.querySelectorAll('.refract-blob')
   function pauseRefractAnimations(hidden: boolean) {
     refractLayers.forEach(el => {
       if (hidden) { (el as HTMLElement).style.animationPlayState = 'paused'; }
