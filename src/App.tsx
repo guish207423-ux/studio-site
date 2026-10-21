@@ -18,29 +18,27 @@ function SectionSkeleton() {
 export default function App() {
   useEffect(() => {
     setupMicroInteractions()
-    // Apply hyalite after React mounts
-    const timer = setTimeout(() => {
-      if (typeof (window as any).Hyalite !== 'undefined') {
-        const Hyalite = (window as any).Hyalite
-        const mobile = window.matchMedia('(max-width: 767px)').matches
-        const panelSelector = mobile
-          ? '.glass-nav, .glass-hero'
-          : '.glass-nav, .glass-hero, .glass-contact, .glass-modal'
-        Hyalite.watch(document.body, panelSelector, {
-          bevel: 37, thickness: 59, shape: 'lip', slope: 2.7, blur: 1,
-          dispersion: 1.6, shade: 0.46, rim: 1.76, edgeW: 2.5, sat: 1.4,
-          edge: 0.08, light: 1.35, materialize: 600, settle: 200,
+    // Apply hyalite
+    if (typeof (window as any).Hyalite !== 'undefined') {
+      const Hyalite = (window as any).Hyalite
+      const mobile = window.matchMedia('(max-width: 767px)').matches
+      const panelSelector = mobile
+        ? '.glass-nav, .glass-hero'
+        : '.glass-nav, .glass-hero, .glass-contact, .glass-modal'
+      Hyalite.watch(document.body, panelSelector, {
+        bevel: 37, thickness: 59, shape: 'lip', slope: 2.7, blur: 1,
+        dispersion: 1.6, shade: 0.46, rim: 1.76, edgeW: 2.5, sat: 1.4,
+        edge: 0.08, light: 1.35, materialize: 600, settle: 200,
+      })
+      if (!mobile) {
+        Hyalite.watch(document.body, '.glass-btn', {
+          bevel: 14, thickness: 24, shape: 'squircle', slope: 1.5, blur: 1,
+          dispersion: 1.4, shade: 0.40, rim: 1.5, edgeW: 1.5, sat: 1.3,
+          edge: 0.08, light: 1.35, materialize: 600, settle: 150,
         })
-        if (!mobile) {
-          Hyalite.watch(document.body, '.glass-btn', {
-            bevel: 14, thickness: 24, shape: 'squircle', slope: 1.5, blur: 1,
-            dispersion: 1.4, shade: 0.40, rim: 1.5, edgeW: 1.5, sat: 1.3,
-            edge: 0.08, light: 1.35, materialize: 600, settle: 150,
-          })
-        }
       }
-    }, 2000)
-    return () => clearTimeout(timer)
+    }
+    return () => {}
   }, [])
 
   return (
