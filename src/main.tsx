@@ -4,7 +4,6 @@ import './styles/globals.css'
 import { initTheme } from './styles/theme'
 import { currentTheme, hyaliteLightForTheme } from './lib/hyalite'
 initTheme()
-setTimeout(() => { if (typeof applyHyalite === "function") applyHyalite() }, 0)
 import App from './App'
 // Lenis smooth scroll integration
 import Lenis from 'lenis'
@@ -74,6 +73,7 @@ if (document.readyState === 'complete') {
 }
 
 window.addEventListener('themechange', applyHyalite)
+window.addEventListener('load', applyHyalite)
 
 // Micro-interactions are set up in App.tsx useEffect (after React mounts)
 // to ensure #root has children before querySelectorAll runs
