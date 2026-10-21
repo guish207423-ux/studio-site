@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/globals.css'
+import { initTheme } from './styles/theme'
+initTheme()
 import App from './App'
 // Lenis smooth scroll integration
 import Lenis from 'lenis'

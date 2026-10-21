@@ -38,10 +38,22 @@
   --r-xl: 28px;
   --r-pill: 999px;
 
-  /* 阴影 */
-  --sh-1: 0 1px 2px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.32);
-  --sh-2: 0 4px 12px rgba(0,0,0,.44), 0 12px 32px rgba(0,0,0,.30);
+  /* 阴影层级 */
+  --sh-0: 0 1px 2px rgba(0,0,0,.35);
+  --sh-1: 0 2px 6px rgba(0,0,0,.4), 0 8px 20px rgba(0,0,0,.28);
+  --sh-2: 0 4px 12px rgba(0,0,0,.44), 0 16px 40px rgba(0,0,0,.30);
+  --sh-3: 0 8px 24px rgba(0,0,0,.5), 0 24px 60px rgba(0,0,0,.36);
   --sh-focus: 0 0 0 3px #050505, 0 0 0 5px #D4FF3F;
+
+  /* Z 轴层级 */
+  --z-bg: -1;
+  --z-content: 0;
+  --z-card: 10;
+  --z-float: 20;
+  --z-nav: 40;
+  --z-overlay: 60;
+  --z-modal: 80;
+  --z-toast: 100;
 
   /* 间距 */
   --sp-1: 4px;
@@ -472,4 +484,61 @@ body {
     --glass-bg-active: rgba(255, 255, 255, 0.30);
     --c-line: var(--c-line-strong);
   }
+}
+
+/* ============================================================================ 
+   v6 additions — light theme, glass float, works grid, perspective
+   ============================================================================ */
+:root[data-theme="light"] {
+  --c-ink: #F7F8FA;
+  --c-ink-2: #FFFFFF;
+  --c-panel: #FFFFFF;
+  --c-panel-2: #F1F3F7;
+  --c-line: #E2E5EB;
+  --c-line-strong: #B8BCC6;
+  --c-txt: #0A0B0D;
+  --c-txt-2: #4A4F5A;
+  --c-txt-3: #6B7180;
+  --c-accent: #2B6BFF;
+  --c-accent-ink: #FFFFFF;
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-bg-hover: rgba(255,255,255,0.70);
+  --glass-bg-active: rgba(255,255,255,0.85);
+  --glass-blur: blur(16px) saturate(140%) brightness(102%);
+  --sh-0: 0 1px 2px rgba(0,0,0,.12);
+  --sh-1: 0 2px 6px rgba(0,0,0,.18), 0 8px 20px rgba(0,0,0,.12);
+  --sh-2: 0 4px 12px rgba(0,0,0,.24), 0 16px 40px rgba(0,0,0,.16);
+  --sh-3: 0 8px 24px rgba(0,0,0,.28), 0 24px 60px rgba(0,0,0,.20);
+  --sh-focus: 0 0 0 3px #F7F8FA, 0 0 0 5px #2B6BFF;
+}
+
+html, body { transition: background-color 240ms ease, color 240ms ease; }
+
+.perspective-root { perspective: 1200px; }
+@media (max-width: 1023px) { .perspective-root { perspective: none; } }
+
+.glass-float {
+  transition: transform var(--dur-micro) var(--ease-out-expo),
+              box-shadow var(--dur-micro) var(--ease-out-expo),
+              background-color var(--dur-micro) ease,
+              border-color var(--dur-micro) ease;
+}
+.glass-float:hover { transform: translateY(-4px); box-shadow: var(--sh-2); background: var(--glass-bg-hover); border-color: var(--c-line-strong); }
+.glass-float:active { transform: translateY(-1px) scale(0.985); box-shadow: var(--sh-1); background: var(--glass-bg-active); }
+.glass-float:focus-visible { box-shadow: var(--sh-focus); }
+
+.works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--sp-3); }
+.work-card { transition: transform var(--dur-micro) var(--ease-out-expo), box-shadow var(--dur-micro) var(--ease-out-expo); z-index: var(--z-card); }
+.work-card:hover { transform: translateY(-4px) translateZ(12px) rotateX(1deg) rotateY(-1deg); box-shadow: var(--sh-2); z-index: var(--z-float); }
+.work-card__preview img, .work-card__preview video { transition: transform 240ms var(--ease-out-expo); }
+.work-card:hover .work-card__preview img, .work-card:hover .work-card__preview video { transform: scale(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-float, .work-card { transition: none; }
+  .work-card:hover { transform: none; }
+}
+
+@media (max-width: 767px) {
+  .works-grid { grid-template-columns: 1fr; }
+  .work-card:hover { transform: translateY(-2px); }
 }
