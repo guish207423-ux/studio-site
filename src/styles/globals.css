@@ -78,7 +78,7 @@
   --glass-bg: rgba(255, 255, 255, 0.04);
   --glass-bg-hover: rgba(255, 255, 255, 0.08);
   --glass-bg-active: rgba(255, 255, 255, 0.12);
-  --glass-blur: blur(24px) saturate(160%) brightness(105%);
+  --glass-blur: blur(20px) saturate(160%) brightness(105%);
 }
 
 /* ============================================================================
@@ -112,6 +112,30 @@ body {
 :focus-visible {
   outline: 2px solid var(--c-accent);
   outline-offset: 2px;
+}
+
+/* ============================================================================
+   背景方案 1 — 单一折射源 (v5)
+   ============================================================================ */
+.refract-blob {
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 960px;
+  max-height: 960px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(127, 227, 255, 0.10) 0%, rgba(127, 227, 255, 0.04) 35%, transparent 70%);
+  animation: blob-drift 32s var(--ease-in-out-quart) infinite;
+  will-change: transform;
+}
+
+@keyframes blob-drift {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(30px, -24px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 /* ============================================================================
