@@ -136,9 +136,10 @@ export default function Works() {
         start: 'top 85%',
         once: true,
         onEnter: (batch) => {
-          gsap.to(batch, { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'expo.out' })
+          gsap.to(batch, { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'expo.out', clearProps: 'transform' })
         },
       })
+      // 兜底：低帧率下掠过触发点的卡片会被永久留在 opacity: 0
       const ticker = () => {
         cards.forEach((el) => {
           const rect = el.getBoundingClientRect()
@@ -162,36 +163,11 @@ export default function Works() {
           <p className="section-head__sub">开源项目编排</p>
         </header>
 
-        <div ref={gridRef} className="works-grid">
+        <div ref={gridRef} className="works-grid perspective-root">
           {projects.map((p) => (
-            <article key={p.name} className="work-card" style={{
-              background: 'var(--c-panel)',
-              borderRadius: 'var(--r-lg)',
-              border: '1px solid var(--c-line)',
-              overflow: 'hidden',
-              transition: 'background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease',
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget
-              el.style.background = 'var(--c-panel-2)'
-              el.style.borderColor = 'var(--c-line-strong)'
-              el.style.boxShadow = 'var(--sh-2)'
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget
-              el.style.background = 'var(--c-panel)'
-              el.style.borderColor = 'var(--c-line)'
-              el.style.boxShadow = 'var(--sh-1)'
-            }}
-            >
+            <article key={p.name} className="work-card glass-float">
               {/* Preview area with real video */}
-              <div className="work-card__preview" style={{
-                aspectRatio: '16 / 9',
-                borderBottom: '1px solid var(--c-line)',
-                overflow: 'hidden',
-                position: 'relative',
-                borderRadius: 'var(--r-md) var(--r-md) 0 0',
-              }}>
+              <div className="work-card__preview">
                 <video
                   data-hover-play
                   muted
@@ -199,81 +175,29 @@ export default function Works() {
                   playsInline
                   preload="metadata"
                   poster={p.poster}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                  }}
                 >
                   <source src={p.video} type="video/webm" />
                 </video>
-                <span className="work-card__hint" style={{
-                  position: 'absolute',
-                  bottom: 'var(--sp-3)',
-                  right: 'var(--sp-3)',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  color: 'var(--c-txt-3)',
-                  background: 'rgba(5,5,5,0.7)',
-                  padding: '4px 10px',
-                  borderRadius: 'var(--r-pill)',
-                  pointerEvents: 'none',
-                  transition: 'opacity 0.3s ease',
-                }}>悬停播放</span>
+                <span className="work-card__hint">悬停播放</span>
               </div>
 
               {/* Content */}
-              <div style={{ padding: 'var(--sp-4)' }}>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: 'var(--sp-2)',
-                }}>
-                  <span style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '18px',
-                    fontWeight: 500,
-                    color: 'var(--c-txt)',
-                  }}>{p.name}</span>
-                  <span style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '12px',
-                    color: 'var(--c-txt-3)',
-                  }}>⭐ {p.stars} · {p.license}</span>
+              <div className="work-card__body">
+                <div className="work-card__row">
+                  <span className="work-card__name">{p.name}</span>
+                  <span className="work-card__meta">⭐ {p.stars} · {p.license}</span>
                 </div>
-                <p style={{
-                  fontSize: 'var(--fs-body-sm)',
-                  color: 'var(--c-txt-2)',
-                  marginBottom: 'var(--sp-3)',
-                  lineHeight: 1.7,
-                }}>{p.desc}</p>
-                <div style={{
-                  display: 'flex',
-                  gap: 'var(--sp-2)',
-                  flexWrap: 'wrap',
-                  marginBottom: 'var(--sp-3)',
-                }}>
+                <p className="work-card__desc">{p.desc}</p>
+                <div className="work-card__tags">
                   {p.tags.map(t => (
-                    <span key={t} style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '12px',
-                      color: 'var(--c-txt-3)',
-                      background: 'var(--c-panel-2)',
-                      padding: '4px 12px',
-                      borderRadius: 'var(--r-pill)',
-                    }}>{t}</span>
+                    <span key={t} className="work-card__tag">{t}</span>
                   ))}
                 </div>
-                <div style={{
-                  display: 'flex',
-                  gap: 'var(--sp-3)',
-                }}>
-                  <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--ghost" style={{ textDecoration: 'none' }}>
+                <div className="work-card__actions">
+                  <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--ghost">
                     GitHub
                   </a>
-                  <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--ghost" style={{ textDecoration: 'none' }}>
+                  <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--ghost">
                     在线演示
                   </a>
                 </div>

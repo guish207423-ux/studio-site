@@ -50,53 +50,15 @@ export default function Services() {
           {services.map(s => {
             const Icon = s.icon
             return (
-            <article key={s.title} className="service-card" style={{
-              background: 'var(--c-panel)',
-              borderRadius: 'var(--r-lg)',
-              border: '1px solid var(--c-line)',
-              padding: 'var(--sp-5)',
-              transition: 'background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease',
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget
-              el.style.background = 'var(--c-panel-2)'
-              el.style.borderColor = 'var(--c-line-strong)'
-              el.style.boxShadow = 'var(--sh-2)'
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget
-              el.style.background = 'var(--c-panel)'
-              el.style.borderColor = 'var(--c-line)'
-              el.style.boxShadow = 'var(--sh-1)'
-            }}
-            >
-              <span aria-hidden="true" style={{
-                display: 'inline-flex',
-                color: 'var(--c-accent)',
-                marginBottom: 'var(--sp-3)',
-              }}><Icon size={32} strokeWidth={1.5} /></span>
-              <h3 style={{
-                fontWeight: 700,
-                fontSize: '20px',
-                color: 'var(--c-txt)',
-                marginBottom: 'var(--sp-2)',
-              }}>{s.title}</h3>
-              <p style={{
-                fontSize: 'var(--fs-body-sm)',
-                color: 'var(--c-txt-2)',
-                marginBottom: 'var(--sp-3)',
-                lineHeight: 1.7,
-              }}>{s.desc}</p>
-              <div style={{ display: 'flex', gap: 'var(--sp-2)', flexWrap: 'wrap' }}>
+            <article key={s.title} className="service-card glass-float">
+              <span className="service-card__icon" aria-hidden="true">
+                <Icon size={32} strokeWidth={1.5} />
+              </span>
+              <h3 className="service-card__title">{s.title}</h3>
+              <p className="service-card__desc">{s.desc}</p>
+              <div className="service-card__tags">
                 {s.tags.map(t => (
-                  <span key={t} style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '12px',
-                    color: 'var(--c-txt-3)',
-                    background: 'var(--c-panel-2)',
-                    padding: '4px 12px',
-                    borderRadius: 'var(--r-pill)',
-                  }}>{t}</span>
+                  <span key={t} className="service-card__tag">{t}</span>
                 ))}
               </div>
             </article>

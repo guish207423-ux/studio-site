@@ -534,8 +534,80 @@ body {
 .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--sp-3); }
 .work-card { transition: transform var(--dur-micro) var(--ease-out-expo), box-shadow var(--dur-micro) var(--ease-out-expo); z-index: var(--z-card); }
 .work-card:hover { transform: translateY(-4px) translateZ(12px) rotateX(1deg) rotateY(-1deg); box-shadow: var(--sh-2); z-index: var(--z-float); }
-.work-card__preview img, .work-card__preview video { transition: transform 240ms var(--ease-out-expo); }
-.work-card:hover .work-card__preview img, .work-card:hover .work-card__preview video { transform: scale(1.04); }
+.work-card__preview img,
+.work-card__preview video {
+  transition: transform 240ms var(--ease-out-expo);
+}
+.work-card:hover .work-card__preview img,
+.work-card:hover .work-card__preview video { transform: scale(1.04); }
+
+/* 作品卡内容区（内联样式迁移到 CSS，避免与 hover 规则互相覆盖） */
+.work-card__preview {
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid var(--c-line);
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--r-md) var(--r-md) 0 0;
+}
+.work-card__preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.work-card__hint {
+  position: absolute;
+  bottom: var(--sp-3);
+  right: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #F5F5F5;
+  background: rgba(5, 5, 5, 0.7);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.work-card__body { padding: var(--sp-4); }
+.work-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sp-2);
+}
+.work-card__name {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--c-txt);
+}
+.work-card__meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-txt-3);
+}
+.work-card__desc {
+  font-size: var(--fs-body-sm);
+  color: var(--c-txt-2);
+  margin-bottom: var(--sp-3);
+  line-height: 1.7;
+}
+.work-card__tags {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-3);
+}
+.work-card__tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-txt-3);
+  background: var(--c-panel-2);
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+}
+.work-card__actions { display: flex; gap: var(--sp-3); }
+.work-card__actions a { text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .glass-float, .work-card { transition: none; }
@@ -545,6 +617,57 @@ body {
 @media (max-width: 767px) {
   .works-grid { grid-template-columns: 1fr; }
   .work-card:hover { transform: translateY(-2px); }
+}
+
+/* ============================================================================
+   服务卡（.v6 浮起 + 内联样式迁移）
+   ============================================================================ */
+.service-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+}
+.service-card__icon {
+  display: inline-flex;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-3);
+}
+.service-card__title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--c-txt);
+  margin-bottom: var(--sp-2);
+}
+.service-card__desc {
+  font-size: var(--fs-body-sm);
+  color: var(--c-txt-2);
+  margin-bottom: var(--sp-3);
+  line-height: 1.7;
+  flex: 1;
+}
+.service-card__tags {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+.service-card__tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-txt-3);
+  background: var(--c-panel-2);
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+}
+
+/* 服务卡网格下的 CTA */
+.services-grid + div {
+  margin-top: var(--sp-6);
+  text-align: center;
+}
+.services-grid + div p {
+  font-size: 14px;
+  color: var(--c-txt-3);
+  margin-top: var(--sp-3);
 }
 
 /* ============================================================================
