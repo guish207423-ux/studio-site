@@ -66,3 +66,14 @@ function applyHyalite() {
     console.error('applyHyalite error:', e.message, e.stack);
   }
 }
+
+// Apply hyalite after delay
+setTimeout(() => { applyHyalite(); }, 1000);
+
+window.addEventListener('themechange', applyHyalite);
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
