@@ -169,15 +169,17 @@ html body {
   max-height: 960px;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(127, 227, 255, 0.10) 0%, rgba(127, 227, 255, 0.04) 35%, transparent 70%);
-  animation: blob-drift 32s var(--ease-in-out-quart) infinite;
+  background: radial-gradient(circle, rgba(127, 227, 255, 0.15) 0%, rgba(127, 227, 255, 0.06) 35%, transparent 70%);
+  animation: blob-drift 24s var(--ease-in-out-quart) infinite;
   will-change: transform;
+  filter: blur(40px);
 }
 
 @keyframes blob-drift {
-  0%   { transform: translate3d(0, 0, 0); }
-  50%  { transform: translate3d(30px, -24px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  33%  { transform: translate3d(40px, -30px, 0) scale(1.05); }
+  66%  { transform: translate3d(-20px, 20px, 0) scale(0.98); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
 /* ============================================================================
@@ -192,7 +194,12 @@ html body {
 .glass {
   backdrop-filter: var(--hyalite, var(--glass-blur));
   -webkit-backdrop-filter: var(--hyalite, var(--glass-blur));
-  box-shadow: var(--hyalite-edge, 0 0 0 0 transparent), 0 4px 12px rgba(0,0,0,.2);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0,0,0,.2),
+    0 8px 32px rgba(0,0,0,.15);
   background: var(--glass-bg);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--r-lg);
@@ -200,6 +207,12 @@ html body {
 
 .glass:hover {
   background: var(--glass-bg-hover);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0,0,0,.25),
+    0 16px 48px rgba(0,0,0,.2);
 }
 
 /* ============================================================================
