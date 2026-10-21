@@ -68,7 +68,7 @@ function applyHyalite() {
 }
 
 // Apply hyalite after delay
-setTimeout(() => { console.log("TIMEOUT FIRED, hyalite=", typeof window.Hyalite); (window as any).__hyaliteApplied = false; if (typeof window.Hyalite === "undefined") { console.log("hyalite still undefined, retrying"); let a=0; const r=()=>{ if(typeof window.Hyalite!=="undefined"){applyHyalite();(window as any).__hyaliteApplied=true;} else if(a<50){a++;setTimeout(r,100);} }; r(); } else { applyHyalite(); (window as any).__hyaliteApplied = true; } }, 1000);
+window.addEventListener("load", () => { console.log("LOAD EVENT, hyalite=", typeof window.Hyalite); (window as any).__hyaliteApplied = false; let a=0; const r=()=>{ if(typeof window.Hyalite!=="undefined"){applyHyalite();(window as any).__hyaliteApplied=true;console.log("hyalite applied");} else if(a<100){a++;setTimeout(r,50);} }; r(); });
 
 window.addEventListener('themechange', applyHyalite);
 
