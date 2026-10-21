@@ -120,7 +120,7 @@
 }
 
 /* 主题切换过渡：浅色/深色之间平滑换色 */
-html, body { transition: background-color 240ms ease, color 240ms ease; }
+html, body { /* transition removed: was blocking theme switch */ }
 
 /* ============================================================================
    Reset & Base
