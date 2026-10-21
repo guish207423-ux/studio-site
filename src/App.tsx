@@ -63,6 +63,8 @@ export default function App() {
       >跳转到主要内容</a>
       <div className="refract-blob" aria-hidden="true" />
       <div className="refract-blob refract-blob--2" aria-hidden="true" />
+      <div className="refract-blob refract-blob--3" aria-hidden="true" />
+      <div className="light-sweep" aria-hidden="true" />
       <Navigation />
       <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
         <Hero />

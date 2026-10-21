@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 
-import ThemeToggle from '../ui/ThemeToggle'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -32,26 +31,28 @@ export default function Navigation() {
         className={`glass glass-nav ${scrolled ? 'glass-nav--scrolled' : ''}`}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
+          top: scrolled ? '12px' : '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: scrolled ? 'min(92vw, 1100px)' : 'min(96vw, 1224px)',
           zIndex: 100,
-          borderRadius: 0,
-          borderLeft: 'none',
-          borderRight: 'none',
-          borderTop: 'none',
-          transition: 'box-shadow 0.3s ease',
-          boxShadow: scrolled ? 'var(--sh-1)' : 'none',
+          borderRadius: 'var(--r-pill)',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          transition: 'all 0.4s var(--ease-out-expo)',
+          boxShadow: scrolled ? 'var(--sh-2)' : 'var(--sh-1)',
+          backdropFilter: 'var(--hyalite, var(--glass-blur))',
+          WebkitBackdropFilter: 'var(--hyalite, var(--glass-blur))',
         }}
       >
         <nav className="nav__inner" aria-label="主导航" style={{
-          maxWidth: '1224px',
+          maxWidth: '100%',
           margin: '0 auto',
-
-          height: '72px',
+          height: scrolled ? '56px' : '64px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          padding: '0 var(--sp-4)',
+          transition: 'height 0.4s var(--ease-out-expo)',
         }}>
           <a className="brand" href="#top" aria-label="屿作所 首页" style={{
             display: 'flex',
@@ -60,16 +61,17 @@ export default function Navigation() {
             textDecoration: 'none',
           }}>
             <span className="brand__mark" aria-hidden="true" style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: 'var(--r-lg)',
+              width: '32px',
+              height: '32px',
+              borderRadius: 'var(--r-md)',
               background: 'var(--c-accent)',
               color: 'var(--c-accent-ink)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontWeight: 900,
-              fontSize: '20px',
+              fontSize: '16px',
+              boxShadow: '0 0 20px rgba(212, 255, 63, 0.3)',
             }}>屿</span>
             <span style={{ display: 'flex', flexDirection: 'column' }}>
               <span className="brand__name" style={{
@@ -89,23 +91,34 @@ export default function Navigation() {
           </a>
 
           <div className="nav__links" style={{
-            gap: 'var(--sp-5)',
+            display: 'flex',
+            gap: 'var(--sp-1)',
+            padding: '4px',
+            borderRadius: 'var(--r-pill)',
+            background: 'rgba(255, 255, 255, 0.04)',
+            border: '1px solid rgba(255, 255, 255, 0.06)',
           }}>
             {links.map(l => (
               <a key={l.href} href={l.href} className="nav__link" style={{
                 color: 'var(--c-txt-2)',
                 textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: 400,
-                transition: 'color 0.2s ease',
+                fontSize: '13px',
+                fontWeight: 500,
+                padding: '6px 16px',
+                borderRadius: 'var(--r-pill)',
+                transition: 'all 0.2s var(--ease-out-expo)',
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-accent)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-txt-2)')}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = 'var(--c-txt)'
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = 'var(--c-txt-2)'
+                e.currentTarget.style.background = 'transparent'
+              }}
               >{l.label}</a>
             ))}
           </div>
-
-          <ThemeToggle />
 
           <a href="#contact" className="btn btn--sm btn--primary nav__cta">
             <span>开始一个项目</span>
