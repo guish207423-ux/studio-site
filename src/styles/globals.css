@@ -138,13 +138,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+html body {
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   line-height: 1.75;
   color: var(--c-txt);
   background-color: var(--c-ink);
   min-height: 100vh;
+
 }
 
 /* ============================================================================
@@ -729,6 +730,8 @@ body {
   outline: none;
   box-shadow: var(--sh-focus);
 }
+.nav__theme-toggle__icon { transition: transform 240ms var(--ease-out-expo); }
+.nav__theme-toggle[aria-pressed='true'] .nav__theme-toggle__icon { transform: rotate(180deg); }
 
 /* 动效降级：关闭浮起与折射源漂移 */
 @media (prefers-reduced-motion: reduce) {
