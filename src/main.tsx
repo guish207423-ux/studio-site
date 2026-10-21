@@ -48,6 +48,7 @@ function hyaliteParams(kind: 'panel' | 'button') {
 const stopWatchers: Array<() => void> = []
 
 function applyHyalite() {
+  console.log('applyHyalite called, hyalite=', typeof window.Hyalite);
   if (typeof window.Hyalite === 'undefined') return
 
   // 主题切换会重建 watcher（滤镜缓存键含 light，必须重新建）
