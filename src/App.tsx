@@ -18,6 +18,13 @@ function SectionSkeleton() {
 export default function App() {
   useEffect(() => {
     setupMicroInteractions()
+    // Apply hyalite after React mounts
+    const timer = setTimeout(() => {
+      if (typeof (window as any).applyHyalite === 'function') {
+        (window as any).applyHyalite()
+      }
+    }, 1000)
+    return () => clearTimeout(timer)
   }, [])
 
   return (

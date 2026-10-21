@@ -46,6 +46,7 @@ function hyaliteParams(kind: 'panel' | 'button') {
 }
 
 const stopWatchers: Array<() => void> = []
+;(window as any).applyHyalite = applyHyalite;
 
 function applyHyalite() {
   console.log('applyHyalite called, hyalite=', typeof window.Hyalite); (window as any).__hyaliteType = typeof window.Hyalite;
@@ -68,7 +69,7 @@ function applyHyalite() {
 }
 
 // Apply hyalite after delay
-window.addEventListener("load", () => { console.log("LOAD EVENT, hyalite=", typeof window.Hyalite); (window as any).__hyaliteApplied = false; setTimeout(() => { let a=0; const r=()=>{ if(typeof window.Hyalite!=="undefined"){applyHyalite();(window as any).__hyaliteApplied=true;console.log("hyalite applied, filters=", document.querySelectorAll("svg filter[id^=hyalite]").length);} else if(a<100){a++;setTimeout(r,50);} }; r(); }, 2000); });
+
 
 window.addEventListener('themechange', applyHyalite);
 
@@ -77,3 +78,4 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+;(window as any).applyHyalite = applyHyalite;
