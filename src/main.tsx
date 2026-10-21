@@ -28,14 +28,6 @@ if (!reduced) {
 }
 
 // Hyalite liquid glass integration
-declare global {
-  interface Window {
-    Hyalite: {
-      watch: (root: HTMLElement, selector: string, params: Record<string, unknown>) => { stop: () => void }
-    }
-  }
-}
-
 function applyHyalite() {
   if (typeof window.Hyalite === 'undefined') return
 
