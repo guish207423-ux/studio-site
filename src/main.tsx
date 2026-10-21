@@ -68,7 +68,7 @@ function applyHyalite() {
 }
 
 // Apply hyalite after delay
-setTimeout(() => { applyHyalite(); }, 1000);
+setTimeout(() => { console.log("TIMEOUT FIRED, hyalite=", typeof window.Hyalite); (window as any).__hyaliteApplied = false; applyHyalite(); (window as any).__hyaliteApplied = true; }, 1000);
 
 window.addEventListener('themechange', applyHyalite);
 
