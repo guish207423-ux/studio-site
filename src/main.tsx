@@ -67,23 +67,18 @@ function applyHyalite() {
   }
 }
 
-if (document.readyState === 'complete') {
-  let attempts = 0;
-  const tryApply = () => {
-    if (typeof window.Hyalite !== 'undefined') { applyHyalite(); }
-    else if (attempts < 20) { attempts++; setTimeout(tryApply, 100); }
-  };
-  tryApply();
-} else {
-  window.addEventListener('load', () => {
+// Apply hyalite after a short delay to ensure hyalite.js is loaded
+setTimeout(() => {
+  if (typeof window.Hyalite !== 'undefined') { applyHyalite(); }
+  else {
     let attempts = 0;
     const tryApply = () => {
       if (typeof window.Hyalite !== 'undefined') { applyHyalite(); }
       else if (attempts < 20) { attempts++; setTimeout(tryApply, 100); }
     };
     tryApply();
-  });
-}
+  }
+}, 500);
 
 window.addEventListener('themechange', applyHyalite)
 
