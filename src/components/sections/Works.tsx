@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -11,6 +11,7 @@ const projects = [
     tags: ['React', 'TypeScript', 'SVG', 'WebGL'],
     stars: '4.2k',
     license: 'MIT',
+    category: 'UI 组件',
     video: './videos/liquid-glass-react.webm',
     poster: './videos/liquid-glass-react-poster.jpg',
     github: 'https://github.com/nousresearch/liquid-glass-react',
@@ -22,6 +23,7 @@ const projects = [
     tags: ['3D', '建模', '渲染'],
     stars: '12.3k',
     license: 'GPL',
+    category: '3D 创作',
     video: './videos/blender.webm',
     poster: './videos/blender-poster.jpg',
     github: 'https://github.com/blender/blender',
@@ -33,6 +35,7 @@ const projects = [
     tags: ['TypeScript', 'React', '可视化'],
     stars: '68.1k',
     license: 'AGPL',
+    category: '数据可视化',
     video: './videos/grafana.webm',
     poster: './videos/grafana-poster.jpg',
     github: 'https://github.com/grafana/grafana',
@@ -44,6 +47,7 @@ const projects = [
     tags: ['C++', '音频', '多轨'],
     stars: '12.8k',
     license: 'GPL',
+    category: '音频编辑',
     video: './videos/audacity.webm',
     poster: './videos/audacity-poster.jpg',
     github: 'https://github.com/audacity/audacity',
@@ -55,6 +59,7 @@ const projects = [
     tags: ['Clojure', 'SVG', '协作'],
     stars: '31.5k',
     license: 'AGPL',
+    category: '设计协作',
     video: './videos/penpot.webm',
     poster: './videos/penpot-poster.jpg',
     github: 'https://github.com/penpot/penpot',
@@ -66,6 +71,7 @@ const projects = [
     tags: ['Python', 'Qt', '视频'],
     stars: '5.2k',
     license: 'GPL',
+    category: '视频编辑',
     video: './videos/openshot.webm',
     poster: './videos/openshot-poster.jpg',
     github: 'https://github.com/OpenShot/openshot-qt',
@@ -73,8 +79,16 @@ const projects = [
   },
 ]
 
+const categories = ['全部', ...Array.from(new Set(projects.map(p => p.category)))]
+
 export default function Works() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const [activeCategory, setActiveCategory] = useState('全部')
+  const [expanded, setExpanded] = useState<string | null>(null)
+
+  const filtered = activeCategory === '全部'
+    ? projects
+    : projects.filter(p => p.category === activeCategory)
 
   useEffect(() => {
     if (!gridRef.current) return
@@ -122,7 +136,7 @@ export default function Works() {
         card.replaceWith(card.cloneNode(true))
       })
     }
-  }, [])
+  }, [filtered])
 
   useEffect(() => {
     if (!gridRef.current) return
@@ -139,7 +153,6 @@ export default function Works() {
           gsap.to(batch, { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'expo.out', clearProps: 'transform' })
         },
       })
-      // 兜底：低帧率下掠过触发点的卡片会被永久留在 opacity: 0
       const ticker = () => {
         cards.forEach((el) => {
           const rect = el.getBoundingClientRect()
@@ -153,18 +166,33 @@ export default function Works() {
       return () => { gsap.ticker.remove(ticker) }
     })
     return () => ctx.revert()
-  }, [])
+  }, [filtered])
 
   return (
     <section className="section section--ink2 zone" id="works" aria-labelledby="works-title">
       <div className="container">
         <header className="section-head">
           <h2 id="works-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 作品展示</h2>
-          <p className="section-head__sub">开源项目编排</p>
+          <p className="section-head__sub">开源项目编排 · {filtered.length} 个项目</p>
         </header>
 
+        {/* Category filter */}
+        <div className="works-filter" role="tablist" aria-label="作品分类">
+          {categories.map(cat => (
+            <button
+              key={cat}
+              role="tab"
+              aria-selected={activeCategory === cat}
+              className={`works-filter__btn ${activeCategory === cat ? 'works-filter__btn--active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div ref={gridRef} className="works-grid perspective-root">
-          {projects.map((p) => (
+          {filtered.map((p) => (
             <article key={p.name} className="work-card glass-float">
               {/* Preview area with real video */}
               <div className="work-card__preview">
@@ -179,6 +207,8 @@ export default function Works() {
                   <source src={p.video} type="video/webm" />
                 </video>
                 <span className="work-card__hint">悬停播放</span>
+                {/* Category badge */}
+                <span className="work-card__category">{p.category}</span>
               </div>
 
               {/* Content */}
@@ -200,7 +230,32 @@ export default function Works() {
                   <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--ghost">
                     在线演示
                   </a>
+                  <button
+                    className="btn btn--sm btn--ghost"
+                    onClick={() => setExpanded(expanded === p.name ? null : p.name)}
+                    aria-expanded={expanded === p.name}
+                  >
+                    {expanded === p.name ? '收起' : '详情'}
+                  </button>
                 </div>
+
+                {/* Expandable detail */}
+                {expanded === p.name && (
+                  <div className="work-card__detail">
+                    <p className="work-card__detail-text">
+                      {p.name} 是一个开源项目，拥有 {p.stars} GitHub Stars，采用 {p.license} 许可证。
+                      分类：{p.category}。技术栈：{p.tags.join('、')}。
+                    </p>
+                    <div className="work-card__detail-links">
+                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--primary">
+                        查看源码
+                      </a>
+                      <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--secondary">
+                        访问官网
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
             </article>
           ))}

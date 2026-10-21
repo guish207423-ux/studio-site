@@ -157,27 +157,63 @@ html body {
 }
 
 /* ============================================================================
-   背景方案 1 — 单一折射源 (v5)
+   背景方案 v8 — 动态光影 + 立体感 (v8)
    ============================================================================ */
 .refract-blob {
   position: fixed;
   top: -20%;
   left: -10%;
-  width: 60vw;
-  height: 60vw;
-  max-width: 960px;
-  max-height: 960px;
+  width: 70vw;
+  height: 70vw;
+  max-width: 1200px;
+  max-height: 1200px;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(127, 227, 255, 0.10) 0%, rgba(127, 227, 255, 0.04) 35%, transparent 70%);
-  animation: blob-drift 32s var(--ease-in-out-quart) infinite;
+  background: radial-gradient(circle, rgba(127, 227, 255, 0.18) 0%, rgba(127, 227, 255, 0.08) 30%, transparent 65%);
+  animation: blob-drift 24s var(--ease-in-out-quart) infinite;
   will-change: transform;
+  filter: blur(40px);
+}
+
+.refract-blob--2 {
+  top: 40%;
+  left: 60%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(212, 255, 63, 0.12) 0%, rgba(212, 255, 63, 0.05) 30%, transparent 65%);
+  animation: blob-drift-2 30s var(--ease-in-out-quart) infinite;
+}
+
+.refract-blob--3 {
+  top: 10%;
+  left: 30%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, rgba(180, 120, 255, 0.10) 0%, rgba(180, 120, 255, 0.04) 30%, transparent 65%);
+  animation: blob-drift-3 36s var(--ease-in-out-quart) infinite;
 }
 
 @keyframes blob-drift {
-  0%   { transform: translate3d(0, 0, 0); }
-  50%  { transform: translate3d(30px, -24px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  33%  { transform: translate3d(40px, -30px, 0) scale(1.05); }
+  66%  { transform: translate3d(-20px, 20px, 0) scale(0.98); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes blob-drift-2 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-50px, 40px, 0) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes blob-drift-3 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(30px, -20px, 0) scale(1.03); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
 /* ============================================================================
@@ -192,14 +228,30 @@ html body {
 .glass {
   backdrop-filter: var(--hyalite, var(--glass-blur));
   -webkit-backdrop-filter: var(--hyalite, var(--glass-blur));
-  box-shadow: var(--hyalite-edge, 0 0 0 0 transparent), 0 4px 12px rgba(0,0,0,.2);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0,0,0,.2),
+    0 8px 32px rgba(0,0,0,.15);
   background: var(--glass-bg);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--r-lg);
+  transform: translateZ(0);
+  transition: transform var(--dur-micro) var(--ease-out-expo),
+              box-shadow var(--dur-micro) var(--ease-out-expo),
+              background-color var(--dur-micro) ease;
 }
 
 .glass:hover {
   background: var(--glass-bg-hover);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0,0,0,.25),
+    0 16px 48px rgba(0,0,0,.2);
+  transform: translateY(-2px) translateZ(4px);
 }
 
 /* ============================================================================
@@ -528,19 +580,86 @@ html body {
               background-color var(--dur-micro) ease,
               border-color var(--dur-micro) ease;
 }
-.glass-float:hover { transform: translateY(-4px); box-shadow: var(--sh-2); background: var(--glass-bg-hover); border-color: var(--c-line-strong); }
+.glass-float:hover { transform: translateY(-6px) translateZ(8px) rotateX(1deg) rotateY(-1deg); box-shadow: var(--sh-3); background: var(--glass-bg-hover); border-color: var(--c-line-strong); }
 .glass-float:active { transform: translateY(-1px) scale(0.985); box-shadow: var(--sh-1); background: var(--glass-bg-active); }
 .glass-float:focus-visible { box-shadow: var(--sh-focus); }
 
 .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--sp-3); }
+
+/* 作品分类筛选 */
+.works-filter {
+  display: flex;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-4);
+  flex-wrap: wrap;
+}
+.works-filter__btn {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--c-line);
+  background: transparent;
+  color: var(--c-txt-2);
+  cursor: pointer;
+  transition: all var(--dur-micro) ease;
+}
+.works-filter__btn:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+.works-filter__btn--active {
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+  border-color: var(--c-accent);
+}
+
+/* 作品卡分类标签 */
+.work-card__category {
+  position: absolute;
+  top: var(--sp-2);
+  left: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #F5F5F5;
+  background: rgba(5, 5, 5, 0.7);
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 作品卡详情展开 */
+.work-card__detail {
+  margin-top: var(--sp-3);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--c-panel-2);
+  border: 1px solid var(--c-line);
+  animation: detail-expand 240ms var(--ease-out-expo);
+}
+@keyframes detail-expand {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.work-card__detail-text {
+  font-size: var(--fs-body-sm);
+  color: var(--c-txt-2);
+  line-height: 1.7;
+  margin-bottom: var(--sp-3);
+}
+.work-card__detail-links {
+  display: flex;
+  gap: var(--sp-2);
+}
 .work-card { transition: transform var(--dur-micro) var(--ease-out-expo), box-shadow var(--dur-micro) var(--ease-out-expo); z-index: var(--z-card); }
-.work-card:hover { transform: translateY(-4px) translateZ(12px) rotateX(1deg) rotateY(-1deg); box-shadow: var(--sh-2); z-index: var(--z-float); }
+.work-card:hover { transform: translateY(-8px) translateZ(16px) rotateX(1.5deg) rotateY(-1.5deg); box-shadow: var(--sh-3); z-index: var(--z-float); }
 .work-card__preview img,
 .work-card__preview video {
   transition: transform 240ms var(--ease-out-expo);
 }
 .work-card:hover .work-card__preview img,
-.work-card:hover .work-card__preview video { transform: scale(1.04); }
+.work-card:hover .work-card__preview video { transform: scale(1.06) translateZ(4px); }
 
 /* 作品卡内容区（内联样式迁移到 CSS，避免与 hover 规则互相覆盖） */
 .work-card__preview {
@@ -695,11 +814,23 @@ html body {
 
 /* 浅色主题下让折射场显色：同一折射源改用蓝-青渐变（深色主题沿用原有青色） */
 :root[data-theme='light'] .refract-blob {
-  background: radial-gradient(circle, rgba(43, 107, 255, 0.14) 0%, rgba(127, 227, 255, 0.08) 35%, transparent 70%);
+  background: radial-gradient(circle, rgba(43, 107, 255, 0.20) 0%, rgba(127, 227, 255, 0.10) 30%, transparent 65%);
+  filter: blur(40px);
+}
+:root[data-theme='light'] .refract-blob--2 {
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.15) 0%, rgba(100, 200, 255, 0.06) 30%, transparent 65%);
+}
+:root[data-theme='light'] .refract-blob--3 {
+  background: radial-gradient(circle, rgba(180, 120, 255, 0.12) 0%, rgba(180, 120, 255, 0.05) 30%, transparent 65%);
 }
 
 /* 玻璃上的胶囊标签：浅底上用深色底，保证可读 */
 :root[data-theme='light'] .work-card__hint {
+  background: rgba(10, 11, 13, 0.72);
+  color: #F7F8FA;
+}
+
+:root[data-theme='light'] .work-card__category {
   background: rgba(10, 11, 13, 0.72);
   color: #F7F8FA;
 }
