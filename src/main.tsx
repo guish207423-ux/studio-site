@@ -49,44 +49,20 @@ const stopWatchers: Array<() => void> = []
 
 function applyHyalite() {
   console.log('applyHyalite called, hyalite=', typeof window.Hyalite);
-  if (typeof window.Hyalite === 'undefined') return
-
-  // 主题切换会重建 watcher（滤镜缓存键含 light，必须重新建）
-  stopWatchers.forEach((stop) => stop())
-  stopWatchers.length = 0
-
-  const mobile = window.matchMedia('(max-width: 767px)').matches
-  const panelSelector = mobile
-    ? '.glass-nav, .glass-hero'
-    : '.glass-nav, .glass-hero, .glass-contact, .glass-modal'
-
-  stopWatchers.push(() => window.Hyalite.watch(document.body, panelSelector, hyaliteParams('panel')).stop())
-
-  if (!mobile) {
-    stopWatchers.push(() => window.Hyalite.watch(document.body, '.glass-btn', hyaliteParams('button')).stop())
+  try {
+    if (typeof window.Hyalite === 'undefined') { console.log('hyalite undefined'); return; }
+    stopWatchers.forEach((stop) => stop());
+    stopWatchers.length = 0;
+    const mobile = window.matchMedia('(max-width: 767px)').matches;
+    const panelSelector = mobile
+      ? '.glass-nav, .glass-hero'
+      : '.glass-nav, .glass-hero, .glass-contact, .glass-modal';
+    stopWatchers.push(() => window.Hyalite.watch(document.body, panelSelector, hyaliteParams('panel')).stop());
+    if (!mobile) {
+      stopWatchers.push(() => window.Hyalite.watch(document.body, '.glass-btn', hyaliteParams('button')).stop());
+    }
+    console.log('applyHyalite done');
+  } catch(e) {
+    console.error('applyHyalite error:', e.message, e.stack);
   }
 }
-
-// Apply hyalite after a short delay to ensure hyalite.js is loaded
-setTimeout(() => {
-  if (typeof window.Hyalite !== 'undefined') { applyHyalite(); }
-  else {
-    let attempts = 0;
-    const tryApply = () => {
-      if (typeof window.Hyalite !== 'undefined') { applyHyalite(); }
-      else if (attempts < 20) { attempts++; setTimeout(tryApply, 100); }
-    };
-    tryApply();
-  }
-}, 500);
-
-window.addEventListener('themechange', applyHyalite)
-
-// Micro-interactions are set up in App.tsx useEffect (after React mounts)
-// to ensure #root has children before querySelectorAll runs
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
