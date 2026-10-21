@@ -67,13 +67,24 @@ function applyHyalite() {
 }
 
 if (document.readyState === 'complete') {
-  applyHyalite()
+  let attempts = 0;
+  const tryApply = () => {
+    if (typeof window.Hyalite !== 'undefined') { applyHyalite(); }
+    else if (attempts < 20) { attempts++; setTimeout(tryApply, 100); }
+  };
+  tryApply();
 } else {
-  window.addEventListener('load', applyHyalite)
+  window.addEventListener('load', () => {
+    let attempts = 0;
+    const tryApply = () => {
+      if (typeof window.Hyalite !== 'undefined') { applyHyalite(); }
+      else if (attempts < 20) { attempts++; setTimeout(tryApply, 100); }
+    };
+    tryApply();
+  });
 }
 
 window.addEventListener('themechange', applyHyalite)
-window.addEventListener('load', applyHyalite)
 
 // Micro-interactions are set up in App.tsx useEffect (after React mounts)
 // to ensure #root has children before querySelectorAll runs
