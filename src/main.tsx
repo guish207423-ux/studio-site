@@ -48,7 +48,7 @@ function hyaliteParams(kind: 'panel' | 'button') {
 const stopWatchers: Array<() => void> = []
 
 function applyHyalite() {
-  console.log('applyHyalite called, hyalite=', typeof window.Hyalite);
+  console.log('applyHyalite called, hyalite=', typeof window.Hyalite); (window as any).__hyaliteType = typeof window.Hyalite;
   try {
     if (typeof window.Hyalite === 'undefined') { console.log('hyalite undefined'); return; }
     stopWatchers.forEach((stop) => stop());
