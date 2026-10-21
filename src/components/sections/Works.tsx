@@ -193,7 +193,7 @@ export default function Works() {
 
         <div ref={gridRef} className="works-grid perspective-root">
           {filtered.map((p) => (
-            <article key={p.name} className="work-card">
+            <article key={p.name} className="work-card glass-float">
               {/* Preview area with real video */}
               <div className="work-card__preview">
                 <video
