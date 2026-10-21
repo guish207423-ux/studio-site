@@ -18,6 +18,17 @@ function SectionSkeleton() {
 export default function App() {
   useEffect(() => {
     setupMicroInteractions()
+    // Scroll progress
+    const progressBar = document.getElementById('scroll-progress')
+    const onScroll = () => {
+      if (!progressBar) return
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      progressBar.style.width = progress + '%'
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
     // Apply hyalite
     if (typeof (window as any).Hyalite !== 'undefined') {
       const Hyalite = (window as any).Hyalite
@@ -65,6 +76,18 @@ export default function App() {
       <div className="refract-blob refract-blob--2" aria-hidden="true" />
       <div className="refract-blob refract-blob--3" aria-hidden="true" />
       <div className="light-sweep" aria-hidden="true" />
+      {/* Scroll progress bar */}
+      <div id="scroll-progress" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '2px',
+        background: 'var(--c-accent)',
+        zIndex: 200,
+        width: '0%',
+        transition: 'width 0.1s linear',
+        boxShadow: '0 0 8px var(--c-accent)',
+      }} />
       <Navigation />
       <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
         <Hero />

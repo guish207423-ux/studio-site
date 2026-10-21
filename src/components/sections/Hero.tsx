@@ -50,7 +50,19 @@ export default function Hero() {
       <div className="container hero-grid">
         <div ref={panelRef} className="glass glass-hero" style={{
           borderRadius: 'var(--r-xl)',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
+          {/* Animated gradient accent line */}
+          <div aria-hidden="true" style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '2px',
+            background: 'linear-gradient(90deg, transparent, var(--c-accent), transparent)',
+            animation: 'hero-accent-sweep 4s var(--ease-in-out-quart) infinite',
+          }} />
           <p style={{
             display: 'flex',
             alignItems: 'center',

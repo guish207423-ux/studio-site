@@ -50,8 +50,11 @@ export default function Services() {
           {services.map(s => {
             const Icon = s.icon
             return (
-            <article key={s.title} className="service-card glass-float">
-              <span className="service-card__icon" aria-hidden="true">
+            <article key={s.title} className="service-card glass-float" style={{ cursor: 'default' }}>
+              <span className="service-card__icon" aria-hidden="true" style={{ transition: 'transform 0.3s var(--ease-out-expo)' }}
+                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.15) rotate(5deg)')}
+                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1) rotate(0deg)')}
+              >
                 <Icon size={32} strokeWidth={1.5} />
               </span>
               <h3 className="service-card__title">{s.title}</h3>

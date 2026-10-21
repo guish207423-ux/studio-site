@@ -686,6 +686,22 @@ html body {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s var(--ease-out-expo), filter 0.4s ease;
+}
+.work-card:hover .work-card__preview video {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+.work-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,5,5,0.6) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.work-card:hover .work-card__overlay {
+  opacity: 1;
 }
 .work-card__hint {
   position: absolute;
@@ -858,4 +874,11 @@ html body {
 @media (prefers-reduced-motion: reduce) {
   html, body { transition: none; }
   .refract-blob { animation: none; }
+}
+
+/* Hero accent sweep */
+@keyframes hero-accent-sweep {
+  0% { transform: translateX(-100%); opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0.6; }
 }

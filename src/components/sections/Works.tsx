@@ -206,6 +206,8 @@ export default function Works() {
                 >
                   <source src={p.video} type="video/webm" />
                 </video>
+                {/* Hover overlay */}
+                <div className="work-card__overlay" aria-hidden="true" />
                 <span className="work-card__hint">悬停播放</span>
                 {/* Category badge */}
                 <span className="work-card__category">{p.category}</span>
