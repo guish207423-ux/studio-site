@@ -75,10 +75,10 @@
   --fs-label: 12px;
 
   /* 液态玻璃 */
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-bg-hover: rgba(255, 255, 255, 0.08);
-  --glass-bg-active: rgba(255, 255, 255, 0.12);
-  --glass-blur: blur(20px) saturate(160%) brightness(105%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-bg-active: rgba(255, 255, 255, 0.16);
+  --glass-blur: blur(24px) saturate(180%) brightness(108%);
 }
 
 /* ============================================================================
@@ -150,9 +150,9 @@ body {
 .glass {
   backdrop-filter: var(--hyalite, var(--glass-blur));
   -webkit-backdrop-filter: var(--hyalite, var(--glass-blur));
-  box-shadow: var(--hyalite-edge, 0 0 0 0 transparent);
+  box-shadow: var(--hyalite-edge, 0 0 0 0 transparent), 0 4px 12px rgba(0,0,0,.2);
   background: var(--glass-bg);
-  border: 1px solid var(--c-line);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--r-lg);
 }
 
