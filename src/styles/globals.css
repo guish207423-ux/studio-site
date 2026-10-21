@@ -94,6 +94,35 @@
 }
 
 /* ============================================================================
+   浅色主题令牌（v6）— 提到顶部，避免与下方同名规则产生顺序歧义
+   ============================================================================ */
+:root[data-theme='light'] {
+  --c-ink: #F7F8FA;
+  --c-ink-2: #FFFFFF;
+  --c-panel: #FFFFFF;
+  --c-panel-2: #F1F3F7;
+  --c-line: #E2E5EB;
+  --c-line-strong: #B8BCC6;
+  --c-txt: #0A0B0D;
+  --c-txt-2: #4A4F5A;
+  --c-txt-3: #6B7180;
+  --c-accent: #2B6BFF;
+  --c-accent-ink: #FFFFFF;
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-bg-hover: rgba(255,255,255,0.70);
+  --glass-bg-active: rgba(255,255,255,0.85);
+  --glass-blur: blur(16px) saturate(140%) brightness(102%);
+  --sh-0: 0 1px 2px rgba(0,0,0,.12);
+  --sh-1: 0 2px 6px rgba(0,0,0,.18), 0 8px 20px rgba(0,0,0,.12);
+  --sh-2: 0 4px 12px rgba(0,0,0,.24), 0 16px 40px rgba(0,0,0,.16);
+  --sh-3: 0 8px 24px rgba(0,0,0,.28), 0 24px 60px rgba(0,0,0,.20);
+  --sh-focus: 0 0 0 3px #F7F8FA, 0 0 0 5px #2B6BFF;
+}
+
+/* 主题切换过渡：浅色/深色之间平滑换色 */
+html, body { transition: background-color 240ms ease, color 240ms ease; }
+
+/* ============================================================================
    Reset & Base
    ============================================================================ */
 *, *::before, *::after {
@@ -487,33 +516,8 @@ body {
 }
 
 /* ============================================================================ 
-   v6 additions — light theme, glass float, works grid, perspective
+   v6 additions — 规则保留在文件末尾（浅色令牌已上移至顶部）
    ============================================================================ */
-:root[data-theme="light"] {
-  --c-ink: #F7F8FA;
-  --c-ink-2: #FFFFFF;
-  --c-panel: #FFFFFF;
-  --c-panel-2: #F1F3F7;
-  --c-line: #E2E5EB;
-  --c-line-strong: #B8BCC6;
-  --c-txt: #0A0B0D;
-  --c-txt-2: #4A4F5A;
-  --c-txt-3: #6B7180;
-  --c-accent: #2B6BFF;
-  --c-accent-ink: #FFFFFF;
-  --glass-bg: rgba(255,255,255,0.55);
-  --glass-bg-hover: rgba(255,255,255,0.70);
-  --glass-bg-active: rgba(255,255,255,0.85);
-  --glass-blur: blur(16px) saturate(140%) brightness(102%);
-  --sh-0: 0 1px 2px rgba(0,0,0,.12);
-  --sh-1: 0 2px 6px rgba(0,0,0,.18), 0 8px 20px rgba(0,0,0,.12);
-  --sh-2: 0 4px 12px rgba(0,0,0,.24), 0 16px 40px rgba(0,0,0,.16);
-  --sh-3: 0 8px 24px rgba(0,0,0,.28), 0 24px 60px rgba(0,0,0,.20);
-  --sh-focus: 0 0 0 3px #F7F8FA, 0 0 0 5px #2B6BFF;
-}
-
-html, body { transition: background-color 240ms ease, color 240ms ease; }
-
 .perspective-root { perspective: 1200px; }
 @media (max-width: 1023px) { .perspective-root { perspective: none; } }
 
@@ -541,4 +545,70 @@ html, body { transition: background-color 240ms ease, color 240ms ease; }
 @media (max-width: 767px) {
   .works-grid { grid-template-columns: 1fr; }
   .work-card:hover { transform: translateY(-2px); }
+}
+
+/* ============================================================================
+   v6 接线补全（t_1b016f55）
+   ---------------------------------------------------------------------------
+   v6 的 CSS 规则本身正确，但没有任何元素消费它们：perspective-root / glass-float
+   命中数为 0，work-card 的 hover 又被 React 内联 style 完全覆盖。以下规则把
+   v6 的四个设计令牌接到真实 DOM 上。
+   ============================================================================ */
+
+/* 玻璃卡片未接线时的可见态（浅色主题下 --sh-0/--sh-1 过轻，需补一层） */
+.work-card,
+.service-card {
+  background: var(--c-panel);
+  border: 1px solid var(--c-line);
+  box-shadow: var(--sh-0);
+}
+
+/* 浅色主题：hyalite 的 CSS 边光是写死的白色半透明，浅底上不可见 → 换成深色描边 */
+:root[data-theme='light'] .glass {
+  border: 1px solid rgba(15, 20, 30, 0.12);
+  box-shadow: var(--hyalite-edge, none), var(--sh-1);
+}
+
+/* 浅色主题下让折射场显色：同一折射源改用蓝-青渐变（深色主题沿用原有青色） */
+:root[data-theme='light'] .refract-blob {
+  background: radial-gradient(circle, rgba(43, 107, 255, 0.14) 0%, rgba(127, 227, 255, 0.08) 35%, transparent 70%);
+}
+
+/* 玻璃上的胶囊标签：浅底上用深色底，保证可读 */
+:root[data-theme='light'] .work-card__hint {
+  background: rgba(10, 11, 13, 0.72);
+  color: #F7F8FA;
+}
+
+/* 导航主题切换按钮 */
+.nav__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--r-md);
+  background: none;
+  border: 1px solid var(--c-line-strong);
+  color: var(--c-txt-2);
+  cursor: pointer;
+  transition: background-color var(--dur-micro) ease,
+              border-color var(--dur-micro) ease,
+              color var(--dur-micro) ease;
+}
+.nav__theme-toggle:hover {
+  background: var(--c-panel-2);
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+.nav__theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--sh-focus);
+}
+
+/* 动效降级：关闭浮起与折射源漂移 */
+@media (prefers-reduced-motion: reduce) {
+  html, body { transition: none; }
+  .refract-blob { animation: none; }
 }

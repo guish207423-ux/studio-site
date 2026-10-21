@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/globals.css'
 import { initTheme } from './styles/theme'
+import { refreshHyalite } from './lib/hyalite'
 initTheme()
 import App from './App'
 // Lenis smooth scroll integration
@@ -61,7 +62,10 @@ function applyHyalite() {
   }
 }
 
-// Wait for hyalite.js to load
+window.addEventListener('themechange', () => {
+  applyHyalite()
+  refreshHyalite()
+})
 if (document.readyState === 'complete') {
   applyHyalite()
 } else {

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+import ThemeToggle from '../ui/ThemeToggle'
+
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
@@ -102,6 +104,8 @@ export default function Navigation() {
               >{l.label}</a>
             ))}
           </div>
+
+          <ThemeToggle />
 
           <a href="#contact" className="btn btn--sm btn--primary nav__cta">
             <span>开始一个项目</span>
