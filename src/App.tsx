@@ -23,14 +23,30 @@ function SectionSkeleton() {
 export default function App() {
   useEffect(() => {
     setupMicroInteractions()
-    // Scroll progress
+    // Pause heavy animations during scroll for better performance
+    let scrollTimer: ReturnType<typeof setTimeout> | null = null
+    const onScrollPause = () => {
+      document.body.classList.add('is-scrolling')
+      if (scrollTimer) clearTimeout(scrollTimer)
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove('is-scrolling')
+      }, 150)
+    }
+    window.addEventListener('scroll', onScrollPause, { passive: true })
+
+    // Scroll progress (throttled via rAF)
     const progressBar = document.getElementById('scroll-progress')
+    let ticking = false
     const onScroll = () => {
-      if (!progressBar) return
-      const scrollTop = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
-      progressBar.style.width = progress + '%'
+      if (ticking || !progressBar) return
+      ticking = true
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+        progressBar.style.width = progress + '%'
+        ticking = false
+      })
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
@@ -42,15 +58,15 @@ export default function App() {
         ? '.glass-nav, .glass-hero'
         : '.glass-nav, .glass-hero, .glass-contact, .glass-modal'
       Hyalite.watch(document.body, panelSelector, {
-        bevel: 37, thickness: 59, shape: 'lip', slope: 2.7, blur: 1,
-        dispersion: 1.6, shade: 0.46, rim: 1.76, edgeW: 2.5, sat: 1.4,
-        edge: 0.08, light: 1.35, materialize: 600, settle: 200,
+        bevel: 24, thickness: 36, shape: 'lip', slope: 2.0, blur: 0.5,
+        dispersion: 1.2, shade: 0.46, rim: 1.76, edgeW: 1.5, sat: 1.2,
+        edge: 0.08, light: 1.35, materialize: 400, settle: 150,
       })
       if (!mobile) {
         Hyalite.watch(document.body, '.glass-btn', {
-          bevel: 14, thickness: 24, shape: 'squircle', slope: 1.5, blur: 1,
-          dispersion: 1.4, shade: 0.40, rim: 1.5, edgeW: 1.5, sat: 1.3,
-          edge: 0.08, light: 1.35, materialize: 600, settle: 150,
+          bevel: 10, thickness: 16, shape: 'squircle', slope: 1.2, blur: 0.5,
+          dispersion: 1.2, shade: 0.40, rim: 1.5, edgeW: 1.0, sat: 1.2,
+          edge: 0.08, light: 1.35, materialize: 300, settle: 100,
         })
       }
     }

@@ -7,7 +7,15 @@ export default function Navigation() {
   const navRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50)
+        ticking = false
+      })
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -18,9 +26,10 @@ export default function Navigation() {
   }, [drawerOpen])
 
   const links = [
+    { href: '#about', label: '关于我们' },
     { href: '#services', label: '服务能力' },
     { href: '#works', label: '作品展示' },
-    { href: '#stack', label: '技术栈' },
+    { href: '#process', label: '工作流程' },
     { href: '#contact', label: '联系方式' },
   ]
 
@@ -38,7 +47,7 @@ export default function Navigation() {
           zIndex: 100,
           borderRadius: 'var(--r-pill)',
           border: '1px solid rgba(255, 255, 255, 0.12)',
-          transition: 'all 0.4s var(--ease-out-expo)',
+          transition: 'top 0.4s var(--ease-out-expo), width 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo)',
           boxShadow: scrolled ? 'var(--sh-2)' : 'var(--sh-1)',
           backdropFilter: 'var(--hyalite, var(--glass-blur))',
           WebkitBackdropFilter: 'var(--hyalite, var(--glass-blur))',
