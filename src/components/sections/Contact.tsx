@@ -330,6 +330,51 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+        {/* FAQ */}
+        <div style={{ marginTop: 'var(--sp-7)' }}>
+          <h3 style={{
+            fontWeight: 700,
+            fontSize: 'var(--fs-h2)',
+            color: 'var(--c-txt)',
+            marginBottom: 'var(--sp-4)',
+          }}>常见问题</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-2)' }}>
+            {[
+              { q: '项目周期一般多长？', a: '根据项目复杂度，通常 4-12 周。简单页面 2-4 周，完整产品 8-12 周。' },
+              { q: '是否支持远程协作？', a: '完全支持。我们全程远程协作，通过视频会议、Figma、GitHub 等工具保持高效沟通。' },
+              { q: '如何保证项目质量？', a: '每阶段都有验收节点，代码审查、性能测试、无障碍检查，确保交付质量。' },
+              { q: '是否提供售后支持？', a: '交付后提供 30 天免费支持，后续可按需签约维护。' },
+            ].map((faq, i) => (
+              <details key={i} style={{
+                background: 'var(--c-panel)',
+                border: '1px solid var(--c-line)',
+                borderRadius: 'var(--r-md)',
+                padding: 'var(--sp-4)',
+                cursor: 'pointer',
+              }}>
+                <summary style={{
+                  fontWeight: 600,
+                  fontSize: 'var(--fs-body)',
+                  color: 'var(--c-txt)',
+                  listStyle: 'none',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}>
+                  {faq.q}
+                  <span style={{ color: 'var(--c-accent)', fontSize: '20px' }}>+</span>
+                </summary>
+                <p style={{
+                  marginTop: 'var(--sp-3)',
+                  fontSize: 'var(--fs-body-sm)',
+                  color: 'var(--c-txt-2)',
+                  lineHeight: 1.7,
+                }}>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

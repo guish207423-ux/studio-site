@@ -123,6 +123,41 @@ export default function Hero() {
           gap: 'var(--sp-4)',
           paddingTop: 'var(--sp-4)',
         }}>
+          {/* Animated stats */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 'var(--sp-3)',
+            marginBottom: 'var(--sp-4)',
+            padding: 'var(--sp-4)',
+            background: 'rgba(255, 255, 255, 0.03)',
+            borderRadius: 'var(--r-lg)',
+            border: '1px solid var(--c-line)',
+          }}>
+            {[
+              { value: '50+', label: '项目交付' },
+              { value: '8', label: '服务类型' },
+              { value: '6', label: '开源作品' },
+              { value: '24h', label: '响应时间' },
+            ].map(stat => (
+              <div key={stat.label} style={{ textAlign: 'center' }}>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '28px',
+                  fontWeight: 900,
+                  color: 'var(--c-accent)',
+                  lineHeight: 1,
+                  marginBottom: '4px',
+                }}>{stat.value}</p>
+                <p style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11px',
+                  color: 'var(--c-txt-3)',
+                  letterSpacing: '0.05em',
+                }}>{stat.label}</p>
+              </div>
+            ))}
+          </div>
           {[
             { dt: '交付周期', dd: '4 – 12 周' },
             { dt: '协作模式', dd: '远程 · 全程可追' },
