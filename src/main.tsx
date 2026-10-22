@@ -57,8 +57,8 @@ function applyHyalite() {
     stopWatchers.length = 0;
     const mobile = window.matchMedia('(max-width: 767px)').matches;
     const panelSelector = mobile
-      ? '.glass-nav, .glass-hero'
-      : '.glass-nav, .glass-hero, .glass-contact, .glass-modal';
+      ? '.glass-nav'
+      : '.glass-nav, .glass-contact, .glass-modal';
     stopWatchers.push(() => window.Hyalite.watch(document.body, panelSelector, hyaliteParams('panel')).stop());
     if (!mobile) {
       stopWatchers.push(() => window.Hyalite.watch(document.body, '.glass-btn', hyaliteParams('button')).stop());

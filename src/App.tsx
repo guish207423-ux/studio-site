@@ -55,8 +55,8 @@ export default function App() {
       const Hyalite = (window as any).Hyalite
       const mobile = window.matchMedia('(max-width: 767px)').matches
       const panelSelector = mobile
-        ? '.glass-nav, .glass-hero'
-        : '.glass-nav, .glass-hero, .glass-contact, .glass-modal'
+        ? '.glass-nav'
+        : '.glass-nav, .glass-contact, .glass-modal'
       Hyalite.watch(document.body, panelSelector, {
         bevel: 24, thickness: 36, shape: 'lip', slope: 2.0, blur: 0.5,
         dispersion: 1.2, shade: 0.46, rim: 1.76, edgeW: 1.5, sat: 1.2,
