@@ -10,6 +10,8 @@ const Works = lazy(() => import('./components/sections/Works'))
 const Stack = lazy(() => import('./components/sections/Stack'))
 const Process = lazy(() => import('./components/sections/Process'))
 const Testimonials = lazy(() => import('./components/sections/Testimonials'))
+const About = lazy(() => import('./components/sections/About'))
+const Partners = lazy(() => import('./components/sections/Partners'))
 const Contact = lazy(() => import('./components/sections/Contact'))
 
 function SectionSkeleton() {
@@ -96,10 +98,14 @@ export default function App() {
       <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
         <Hero />
         <Suspense fallback={<SectionSkeleton />}>
+          <About />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
           <Services />
           <Works />
           <Process />
           <Testimonials />
+          <Partners />
           <Stack />
           <Contact />
         </Suspense>
