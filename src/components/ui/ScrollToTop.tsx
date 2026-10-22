@@ -4,11 +4,16 @@ export default function ScrollToTop() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => {
+    const check = () => {
       setVisible(window.scrollY > 600)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    check()
+    const interval = setInterval(check, 500)
+    window.addEventListener('scroll', check, { passive: true })
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('scroll', check)
+    }
   }, [])
 
   if (!visible) return null
