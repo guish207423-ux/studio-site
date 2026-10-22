@@ -16,6 +16,7 @@ const CaseStudies = lazy(() => import('./components/sections/CaseStudies'))
 const Pricing = lazy(() => import('./components/sections/Pricing'))
 const Blog = lazy(() => import('./components/sections/Blog'))
 const Timeline = lazy(() => import('./components/sections/Timeline'))
+const Showcase3D = lazy(() => import('./components/sections/Showcase3D'))
 const Contact = lazy(() => import('./components/sections/Contact'))
 
 function SectionSkeleton() {
@@ -130,6 +131,7 @@ export default function App() {
           <Pricing />
           <Timeline />
           <Blog />
+          <Showcase3D />
           <Stack />
           <Contact />
         </Suspense>

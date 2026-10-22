@@ -13,6 +13,7 @@
     "@fontsource-variable/noto-sans-sc": "^5.3.1",
     "@fontsource/archivo-black": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.3.0",
+    "@types/three": "^0.186.0",
     "framer-motion": "^14.3.0",
     "gsap": "^3.15.0",
     "iconsax-react": "^0.0.8",
@@ -20,7 +21,8 @@
     "liquid-glass-react": "^1.1.1",
     "morphicons": "^2.0.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",
