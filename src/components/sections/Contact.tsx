@@ -39,7 +39,7 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!validate()) {
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -48,7 +48,23 @@ export default function Contact() {
       }
       return
     }
-    setSubmitted(true)
+    // Submit to Formspree
+    try {
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        alert('提交失败，请稍后重试或直接发邮件联系我们。')
+      }
+    } catch {
+      // Fallback: mailto link
+      window.location.href = `mailto:3629748383@qq.com?subject=项目咨询&body=${encodeURIComponent(formData.message)}`
+      setSubmitted(true)
+    }
   }
 
   const handleReset = () => {
