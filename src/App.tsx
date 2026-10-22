@@ -3,10 +3,13 @@ import Navigation from './components/layout/Navigation'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import { setupMicroInteractions } from './microInteractions'
+import LoadingScreen from './components/ui/LoadingScreen'
 
 const Services = lazy(() => import('./components/sections/Services'))
 const Works = lazy(() => import('./components/sections/Works'))
 const Stack = lazy(() => import('./components/sections/Stack'))
+const Process = lazy(() => import('./components/sections/Process'))
+const Testimonials = lazy(() => import('./components/sections/Testimonials'))
 const Contact = lazy(() => import('./components/sections/Contact'))
 
 function SectionSkeleton() {
@@ -72,6 +75,7 @@ export default function App() {
       onFocus={e => { e.currentTarget.style.top = '0' }}
       onBlur={e => { e.currentTarget.style.top = '-100%' }}
       >跳转到主要内容</a>
+      <LoadingScreen />
       <div className="refract-blob" aria-hidden="true" />
       <div className="refract-blob refract-blob--2" aria-hidden="true" />
       <div className="refract-blob refract-blob--3" aria-hidden="true" />
@@ -94,6 +98,8 @@ export default function App() {
         <Suspense fallback={<SectionSkeleton />}>
           <Services />
           <Works />
+          <Process />
+          <Testimonials />
           <Stack />
           <Contact />
         </Suspense>

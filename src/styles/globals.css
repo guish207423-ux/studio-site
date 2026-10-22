@@ -882,3 +882,9 @@ html body {
   50% { opacity: 1; }
   100% { transform: translateX(100%); opacity: 0.6; }
 }
+
+/* Loading bar */
+@keyframes loading-bar {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
