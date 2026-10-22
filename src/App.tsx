@@ -12,6 +12,10 @@ const Process = lazy(() => import('./components/sections/Process'))
 const Testimonials = lazy(() => import('./components/sections/Testimonials'))
 const About = lazy(() => import('./components/sections/About'))
 const Partners = lazy(() => import('./components/sections/Partners'))
+const CaseStudies = lazy(() => import('./components/sections/CaseStudies'))
+const Pricing = lazy(() => import('./components/sections/Pricing'))
+const Blog = lazy(() => import('./components/sections/Blog'))
+const Timeline = lazy(() => import('./components/sections/Timeline'))
 const Contact = lazy(() => import('./components/sections/Contact'))
 
 function SectionSkeleton() {
@@ -122,6 +126,10 @@ export default function App() {
           <Process />
           <Testimonials />
           <Partners />
+          <CaseStudies />
+          <Pricing />
+          <Timeline />
+          <Blog />
           <Stack />
           <Contact />
         </Suspense>

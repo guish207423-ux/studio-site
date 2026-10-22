@@ -29,7 +29,8 @@ export default function Navigation() {
     { href: '#about', label: '关于我们' },
     { href: '#services', label: '服务能力' },
     { href: '#works', label: '作品展示' },
-    { href: '#process', label: '工作流程' },
+    { href: '#cases', label: '案例研究' },
+    { href: '#pricing', label: '服务定价' },
     { href: '#contact', label: '联系方式' },
   ]
 
