@@ -101,9 +101,10 @@ export default function Footer() {
               }}>导航</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-2)' }}>
                 {[
+                  { href: '#about', label: '关于我们' },
                   { href: '#services', label: '服务能力' },
                   { href: '#works', label: '作品展示' },
-                  { href: '#stack', label: '技术栈' },
+                  { href: '#process', label: '工作流程' },
                   { href: '#contact', label: '联系方式' },
                 ].map(l => (
                   <a key={l.href} href={l.href} style={{

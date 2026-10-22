@@ -90,7 +90,7 @@
   --glass-bg: rgba(255, 255, 255, 0.08);
   --glass-bg-hover: rgba(255, 255, 255, 0.12);
   --glass-bg-active: rgba(255, 255, 255, 0.16);
-  --glass-blur: blur(24px) saturate(180%) brightness(108%);
+  --glass-blur: blur(16px) saturate(160%) brightness(108%);
 }
 
 /* ============================================================================
@@ -153,8 +153,7 @@ html body {
   pointer-events: none;
   background: radial-gradient(circle, rgba(127, 227, 255, 0.35) 0%, rgba(127, 227, 255, 0.15) 30%, transparent 65%);
   animation: blob-drift 20s var(--ease-in-out-quart) infinite;
-  will-change: transform;
-  filter: blur(50px);
+  filter: blur(30px);
 }
 
 .refract-blob--2 {
@@ -169,14 +168,12 @@ html body {
   pointer-events: none;
   background: radial-gradient(circle, rgba(212, 255, 63, 0.20) 0%, rgba(212, 255, 63, 0.08) 35%, transparent 65%);
   animation: blob-drift-2 26s var(--ease-in-out-quart) infinite;
-  will-change: transform;
-  filter: blur(60px);
+  filter: blur(35px);
 }
 
 @keyframes blob-drift-2 {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  33%  { transform: translate3d(-30px, 20px, 0) scale(1.03); }
-  66%  { transform: translate3d(25px, -15px, 0) scale(0.97); }
+  50%  { transform: translate3d(-20px, 15px, 0) scale(1.02); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
@@ -192,15 +189,12 @@ html body {
   pointer-events: none;
   background: radial-gradient(circle, rgba(180, 127, 255, 0.18) 0%, rgba(180, 127, 255, 0.06) 40%, transparent 70%);
   animation: blob-drift-3 35s var(--ease-in-out-quart) infinite;
-  will-change: transform;
-  filter: blur(70px);
+  filter: blur(40px);
 }
 
 @keyframes blob-drift-3 {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  25%  { transform: translate3d(20px, -25px, 0) scale(1.08); }
-  50%  { transform: translate3d(-15px, 15px, 0) scale(0.95); }
-  75%  { transform: translate3d(10px, 20px, 0) scale(1.02); }
+  50%  { transform: translate3d(15px, -12px, 0) scale(1.04); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
@@ -214,20 +208,18 @@ html body {
     radial-gradient(ellipse 80% 50% at 20% 40%, rgba(127, 227, 255, 0.06) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 60%, rgba(212, 255, 63, 0.04) 0%, transparent 50%);
   animation: light-sweep-drift 45s var(--ease-in-out-quart) infinite;
-  will-change: transform, opacity;
+
 }
 
 @keyframes light-sweep-drift {
-  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.6; }
-  33%  { transform: translate3d(30px, -20px, 0) scale(1.05); opacity: 0.8; }
-  66%  { transform: translate3d(-20px, 15px, 0) scale(0.98); opacity: 0.7; }
-  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.6; }
+  0%   { transform: translate3d(0, 0, 0); opacity: 0.5; }
+  50%  { transform: translate3d(20px, -15px, 0); opacity: 0.7; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0.5; }
 }
 
 @keyframes blob-drift {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  33%  { transform: translate3d(40px, -30px, 0) scale(1.05); }
-  66%  { transform: translate3d(-20px, 20px, 0) scale(0.98); }
+  50%  { transform: translate3d(30px, -20px, 0) scale(1.03); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
@@ -243,6 +235,7 @@ html body {
 .glass {
   backdrop-filter: var(--hyalite, var(--glass-blur));
   -webkit-backdrop-filter: var(--hyalite, var(--glass-blur));
+  contain: layout style paint;
   box-shadow:
     var(--hyalite-edge, 0 0 0 0 transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
@@ -339,6 +332,8 @@ html body {
 .section {
   padding: var(--sp-7) 0;
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 .section--ink2 {
@@ -612,7 +607,7 @@ html body {
   background: transparent;
   color: var(--c-txt-2);
   cursor: pointer;
-  transition: all var(--dur-micro) ease;
+  transition: border-color var(--dur-micro) ease, color var(--dur-micro) ease;
 }
 .works-filter__btn:hover {
   border-color: var(--c-accent);
@@ -887,4 +882,18 @@ html body {
 @keyframes loading-bar {
   0% { transform: scaleX(0); }
   100% { transform: scaleX(1); }
+}
+
+/* ============================================================================ */
+/* Scroll performance — pause heavy animations while scrolling                    */
+/* ============================================================================ */
+body.is-scrolling .refract-blob,
+body.is-scrolling .light-sweep,
+body.is-scrolling .hero-accent-sweep {
+  animation-play-state: paused;
+}
+
+body.is-scrolling .glass {
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
 }

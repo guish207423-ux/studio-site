@@ -12,9 +12,10 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 if (!reduced) {
   const lenis = new Lenis({
-    lerp: 0.08,
-    wheelMultiplier: 1,
+    lerp: 0.12,
+    wheelMultiplier: 1.2,
     touchMultiplier: 1.5,
+    smoothWheel: true,
   })
 
   function raf(time: number) {
