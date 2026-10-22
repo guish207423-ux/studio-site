@@ -150,6 +150,57 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Newsletter */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--sp-3)',
+          maxWidth: 480,
+        }}>
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '11px',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: 'var(--c-txt-3)',
+          }}>订阅更新</p>
+          <p style={{
+            fontSize: '14px',
+            color: 'var(--c-txt-2)',
+            lineHeight: 1.5,
+          }}>获取最新技术文章、设计洞察与项目动态。</p>
+          <form onSubmit={(e) => {
+            e.preventDefault()
+            const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value
+            if (email) {
+              window.location.href = `mailto:guish207423@gmail.com?subject=Newsletter订阅&body=邮箱: ${encodeURIComponent(email)}`
+            }
+          }} style={{
+            display: 'flex',
+            gap: 'var(--sp-2)',
+          }}>
+            <input
+              name="email"
+              type="email"
+              placeholder="your@email.com"
+              required
+              style={{
+                flex: 1,
+                padding: '10px 16px',
+                background: 'var(--c-panel)',
+                border: '1px solid var(--c-line)',
+                borderRadius: 'var(--r-pill)',
+                color: 'var(--c-txt)',
+                fontSize: '14px',
+                outline: 'none',
+              }}
+            />
+            <button type="submit" className="btn btn--sm btn--primary">
+              <span>订阅</span>
+            </button>
+          </form>
+        </div>
+
         <hr style={{ border: 'none', borderTop: '1px solid var(--c-line)' }} />
 
         <div style={{
