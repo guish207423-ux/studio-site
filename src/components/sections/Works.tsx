@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -84,7 +85,7 @@ const categories = ['全部', ...Array.from(new Set(projects.map(p => p.category
 export default function Works() {
   const gridRef = useRef<HTMLDivElement>(null)
   const [activeCategory, setActiveCategory] = useState('全部')
-  const [expanded, setExpanded] = useState<string | null>(null)
+  const [expanded] = useState<string | null>(null)
 
   const filtered = activeCategory === '全部'
     ? projects
@@ -232,13 +233,12 @@ export default function Works() {
                   <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--ghost">
                     在线演示
                   </a>
-                  <button
+                  <Link
+                    to={`/works/${encodeURIComponent(p.name)}`}
                     className="btn btn--sm btn--ghost"
-                    onClick={() => setExpanded(expanded === p.name ? null : p.name)}
-                    aria-expanded={expanded === p.name}
                   >
-                    {expanded === p.name ? '收起' : '详情'}
-                  </button>
+                    详情
+                  </Link>
                 </div>
 
                 {/* Expandable detail */}
