@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://guish207423-ux.github.io/studio-site/sitemap.xml
