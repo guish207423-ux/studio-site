@@ -135,6 +135,41 @@ export default function App() {
         </Suspense>
       </main>
       <Footer />
+
+      {/* Floating chat widget */}
+      <div style={{
+        position: 'fixed',
+        bottom: '24px',
+        right: '24px',
+        zIndex: 150,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        alignItems: 'flex-end',
+      }}>
+        <a
+          href="mailto:3629748383@qq.com?subject=项目咨询"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '12px 20px',
+            background: 'var(--c-accent)',
+            color: 'var(--c-accent-ink)',
+            borderRadius: 'var(--r-pill)',
+            textDecoration: 'none',
+            fontWeight: 600,
+            fontSize: '14px',
+            boxShadow: '0 4px 20px rgba(212, 255, 63, 0.3)',
+            transition: 'transform 0.2s var(--ease-out-expo)',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+        >
+          <span>💬</span>
+          <span>在线咨询</span>
+        </a>
+      </div>
     </>
   )
 }
