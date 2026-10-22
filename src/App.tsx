@@ -6,6 +6,7 @@ import { setupMicroInteractions } from './microInteractions'
 import LoadingScreen from './components/ui/LoadingScreen'
 import FloatingChat from './components/ui/FloatingChat'
 import ScrollToTop from './components/ui/ScrollToTop'
+import CookieConsent from './components/ui/CookieConsent'
 
 const Services = lazy(() => import('./components/sections/Services'))
 const Works = lazy(() => import('./components/sections/Works'))
@@ -143,6 +144,7 @@ export default function App() {
       {/* Floating chat widget */}
       <FloatingChat />
       <ScrollToTop />
+      <CookieConsent />
       <div style={{
         position: 'fixed',
         bottom: '24px',
