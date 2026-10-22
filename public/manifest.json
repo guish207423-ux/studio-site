@@ -2,13 +2,13 @@
   "name": "屿作所 — 综合数字产品工作室",
   "short_name": "屿作所",
   "description": "以光学与形变，构建数字产品的视觉语言",
-  "start_url": "/studio-site/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#D4FF3F",
   "icons": [
     {
-      "src": "/studio-site/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
