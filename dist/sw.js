@@ -1,7 +1,7 @@
 const CACHE_NAME = 'studio-site-v1';
 const urlsToCache = [
-  '/studio-site/',
-  '/studio-site/hyalite.js',
+  '/',
+  '/hyalite.js',
 ];
 
 self.addEventListener('install', (event) => {
