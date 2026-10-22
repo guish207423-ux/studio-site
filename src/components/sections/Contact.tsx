@@ -344,6 +344,16 @@ export default function Contact() {
                 lineHeight: 1.7,
               }}>工作日 24 小时内回复<br />项目咨询请附需求描述</p>
             </div>
+
+            <a
+              href="https://cal.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--lg btn--primary glass-btn"
+              style={{ width: '100%', justifyContent: 'center' }}
+            >
+              <span>📅 预约咨询</span>
+            </a>
           </div>
         </div>
 
@@ -361,6 +371,10 @@ export default function Contact() {
               { q: '是否支持远程协作？', a: '完全支持。我们全程远程协作，通过视频会议、Figma、GitHub 等工具保持高效沟通。' },
               { q: '如何保证项目质量？', a: '每阶段都有验收节点，代码审查、性能测试、无障碍检查，确保交付质量。' },
               { q: '是否提供售后支持？', a: '交付后提供 30 天免费支持，后续可按需签约维护。' },
+              { q: '定价是否可议？', a: '基础方案价格固定，企业方案可根据需求定制。长期合作可享折扣。' },
+              { q: '是否支持分期付款？', a: '支持。通常按里程碑分期：启动 30%、中期 40%、交付 30%。' },
+              { q: '源码是否交付？', a: '所有项目均交付完整源码与文档，客户拥有全部知识产权。' },
+              { q: '是否可以只做设计不开发？', a: '可以。我们支持设计-only、开发-only 或全栈交付，按需组合。' },
             ].map((faq, i) => (
               <details key={i} style={{
                 background: 'var(--c-panel)',
