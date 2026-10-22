@@ -11,32 +11,7 @@ export default function Hero() {
     if (reduced) return
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(panelRef.current, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out' })
-
-      if (titleRef.current) {
-        // SplitText: split the Chinese title into per-character spans
-        const titleEl = titleRef.current
-        const chineseText = titleEl.childNodes[1] // text node "屿作所"
-        if (chineseText && chineseText.nodeType === Node.TEXT_NODE) {
-          const text = chineseText.textContent || ''
-          const chars = text.split('')
-          const fragment = document.createDocumentFragment()
-          chars.forEach((ch) => {
-            const span = document.createElement('span')
-            span.textContent = ch
-            span.style.display = 'inline-block'
-            fragment.appendChild(span)
-          })
-          titleEl.replaceChild(fragment, chineseText)
-
-          // Animate each char
-          const charSpans = titleEl.querySelectorAll('span[style*="inline-block"]')
-          gsap.fromTo(charSpans, 
-            { y: 40, opacity: 0 }, 
-            { y: 0, opacity: 1, duration: 0.6, ease: 'expo.out', delay: 0.2, stagger: 0.08 }
-          )
-        }
-      }
+      gsap.fromTo(panelRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'expo.out' })
     })
     return () => ctx.revert()
   }, [])
@@ -48,10 +23,13 @@ export default function Hero() {
       zIndex: 1,
     }}>
       <div className="container hero-grid">
-        <div ref={panelRef} className="glass glass-hero" style={{
+        <div ref={panelRef} style={{
           borderRadius: 'var(--r-xl)',
           position: 'relative',
           overflow: 'hidden',
+          padding: 'var(--sp-7)',
+          background: 'rgba(255, 255, 255, 0.02)',
+          border: '1px solid var(--c-line)',
         }}>
           {/* Animated gradient accent line */}
           <div aria-hidden="true" style={{
