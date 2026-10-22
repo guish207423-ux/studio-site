@@ -8,6 +8,9 @@ const testimonials = [
   { name: 'Alex Chen', role: 'Product Lead, NovaTech', text: '屿作所的交付质量超出预期，玻璃动效与交互细节让产品体验提升了一个档次。' },
   { name: 'Sarah Lin', role: 'Founder, Lumina Studio', text: '从品牌 VI 到前端落地，全程高效。设计系统文档完善，后续迭代成本大幅降低。' },
   { name: 'Marcus Wei', role: 'CTO, DataPulse', text: '技术栈现代，代码质量高，性能优化到位。团队沟通顺畅，交付准时。' },
+  { name: 'Emily Zhang', role: 'Design Director, PixelCraft', text: '对开源生态的编排能力令人印象深刻。液态玻璃组件库的 API 设计优雅，文档清晰。' },
+  { name: 'David Liu', role: 'CEO, CloudMatrix', text: '全栈交付能力强大，从设计到部署一气呵成。性能预算控制严格，Lighthouse 全绿。' },
+  { name: 'Nina Wang', role: 'PM, StreamFlow', text: '沟通透明，进度可追。每周更新让项目始终在可控范围内，最终交付超出预期。' },
 ]
 
 export default function Testimonials() {
