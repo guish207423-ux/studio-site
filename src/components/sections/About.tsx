@@ -1,0 +1,131 @@
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const team = [
+  { name: '屿作', role: '创始人 / 全栈', desc: '10年数字产品经验，专注光学动效与前端架构' },
+  { name: '小林', role: 'UI/UX 设计师', desc: '品牌 VI 与交互原型专家，Figma 深度用户' },
+  { name: '阿杰', role: '前端工程师', desc: 'React/TypeScript/Vite，性能优化与动效实现' },
+  { name: '小美', role: '动效设计师', desc: 'GSAP/After Effects，品牌视频与交互动效' },
+]
+
+export default function About() {
+  const gridRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!gridRef.current) return
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+
+    const cards = gridRef.current.querySelectorAll('.team-card')
+    const ctx = gsap.context(() => {
+      gsap.set(cards, { y: 40, opacity: 0 })
+      ScrollTrigger.batch(cards, {
+        start: 'top 85%',
+        once: true,
+        onEnter: (batch) => {
+          gsap.to(batch, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'expo.out' })
+        },
+      })
+    })
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section className="section zone" id="about" aria-labelledby="about-title">
+      <div className="container">
+        <header className="section-head">
+          <h2 id="about-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 关于我们</h2>
+          <p className="section-head__sub">小而精的团队，大而全的能力</p>
+        </header>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 'var(--sp-6)',
+          marginBottom: 'var(--sp-6)',
+        }}>
+          <div style={{ gridColumn: 'span 2' }}>
+            <p style={{
+              fontSize: 'var(--fs-body-lg)',
+              color: 'var(--c-txt-2)',
+              lineHeight: 1.8,
+              marginBottom: 'var(--sp-4)',
+            }}>
+              屿作所是一个综合数字产品工作室，专注于以光学与形变构建数字产品的视觉语言。
+              我们相信好的设计不仅是美观，更是功能与体验的完美结合。
+            </p>
+            <p style={{
+              fontSize: 'var(--fs-body)',
+              color: 'var(--c-txt-3)',
+              lineHeight: 1.7,
+            }}>
+              从品牌识别到前端交付，我们提供全谱系数字产品服务。
+              团队成员 backgrounds 涵盖设计、开发、动效、视频，能够独立完成从 0 到 1 的产品构建。
+            </p>
+          </div>
+          <div style={{
+            background: 'var(--c-panel)',
+            border: '1px solid var(--c-line)',
+            borderRadius: 'var(--r-lg)',
+            padding: 'var(--sp-5)',
+          }}>
+            <h3 style={{ fontWeight: 700, fontSize: '18px', color: 'var(--c-txt)', marginBottom: 'var(--sp-3)' }}>工作室数据</h3>
+            {[
+              { label: '成立年份', value: '2024' },
+              { label: '团队规模', value: '4 人' },
+              { label: '服务客户', value: '20+' },
+              { label: '交付项目', value: '50+' },
+            ].map(item => (
+              <div key={item.label} style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                padding: 'var(--sp-2) 0',
+                borderBottom: '1px solid var(--c-line)',
+              }}>
+                <span style={{ fontSize: '14px', color: 'var(--c-txt-3)' }}>{item.label}</span>
+                <span style={{ fontSize: '14px', color: 'var(--c-accent)', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{item.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div ref={gridRef} style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: 'var(--sp-4)',
+        }}>
+          {team.map(member => (
+            <div key={member.name} className="team-card glass-float" style={{
+              background: 'var(--c-panel)',
+              border: '1px solid var(--c-line)',
+              borderRadius: 'var(--r-lg)',
+              padding: 'var(--sp-5)',
+              textAlign: 'center',
+            }}>
+              <div style={{
+                width: 64,
+                height: 64,
+                borderRadius: '50%',
+                background: 'var(--c-accent)',
+                color: 'var(--c-accent-ink)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 900,
+                fontSize: 24,
+                margin: '0 auto var(--sp-3)',
+                boxShadow: '0 0 20px rgba(212, 255, 63, 0.2)',
+              }}>{member.name[0]}</div>
+              <h3 style={{ fontWeight: 700, fontSize: '18px', color: 'var(--c-txt)', marginBottom: '4px' }}>{member.name}</h3>
+              <p style={{ fontSize: '13px', color: 'var(--c-accent)', fontFamily: 'var(--font-mono)', marginBottom: 'var(--sp-2)' }}>{member.role}</p>
+              <p style={{ fontSize: 'var(--fs-body-sm)', color: 'var(--c-txt-3)', lineHeight: 1.6 }}>{member.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
