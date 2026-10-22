@@ -4,6 +4,8 @@ import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import { setupMicroInteractions } from './microInteractions'
 import LoadingScreen from './components/ui/LoadingScreen'
+import FloatingChat from './components/ui/FloatingChat'
+import ScrollToTop from './components/ui/ScrollToTop'
 
 const Services = lazy(() => import('./components/sections/Services'))
 const Works = lazy(() => import('./components/sections/Works'))
@@ -139,6 +141,8 @@ export default function App() {
       <Footer />
 
       {/* Floating chat widget */}
+      <FloatingChat />
+      <ScrollToTop />
       <div style={{
         position: 'fixed',
         bottom: '24px',
