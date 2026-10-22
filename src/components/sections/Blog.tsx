@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const articles = [
   {
-    title: '液态玻璃的 CSS 实现：从 SVG 滤镜到 Apple 设计语言',
+    title: '液态玻璃的 CSS 实现：从 SVG 滤镜 to Apple 设计语言',
     date: '2026-10-15',
     category: '技术',
     readTime: '8 分钟',
@@ -36,6 +36,38 @@ const articles = [
     readTime: '12 分钟',
     excerpt: 'React 19 新特性、Vite 构建优化、代码分割策略，以及如何构建高性能 SPA。',
     tags: ['React', 'Vite', 'Architecture'],
+  },
+  {
+    title: '无障碍设计实践：WCAG AA 合规指南',
+    date: '2026-09-28',
+    category: '无障碍',
+    readTime: '9 分钟',
+    excerpt: '键盘导航、屏幕阅读器、色彩对比度，构建人人可用的 Web 体验。',
+    tags: ['Accessibility', 'WCAG', 'A11y'],
+  },
+  {
+    title: '动效设计心理学：微交互如何影响用户感知',
+    date: '2026-09-22',
+    category: '设计',
+    readTime: '7 分钟',
+    excerpt: '从按钮按压到卡片浮起，微交互如何在潜意识层面塑造品牌印象。',
+    tags: ['Motion', 'UX', 'Psychology'],
+  },
+  {
+    title: 'GitHub Pages 部署陷阱与解决方案',
+    date: '2026-09-18',
+    category: 'DevOps',
+    readTime: '5 分钟',
+    excerpt: 'TLS 连接失败、资源路径、SPA 路由，GitHub Pages 部署的常见问题与解决。',
+    tags: ['GitHub Pages', 'Deploy', 'CI/CD'],
+  },
+  {
+    title: '设计系统从 0 到 1：Token、组件与文档',
+    date: '2026-09-12',
+    category: '设计',
+    readTime: '11 分钟',
+    excerpt: '从色彩 token 到组件库，构建可维护、可扩展的设计系统。',
+    tags: ['Design System', 'Tokens', 'Components'],
   },
 ]
 
