@@ -1,5 +1,4 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navigation from './components/layout/Navigation'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
@@ -18,7 +17,6 @@ const Pricing = lazy(() => import('./components/sections/Pricing'))
 const Blog = lazy(() => import('./components/sections/Blog'))
 const Timeline = lazy(() => import('./components/sections/Timeline'))
 const Contact = lazy(() => import('./components/sections/Contact'))
-const WorkDetail = lazy(() => import('./components/pages/WorkDetail'))
 
 function SectionSkeleton() {
   return (
@@ -80,14 +78,6 @@ export default function App() {
   }, [])
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/works/:name" element={
-          <Suspense fallback={<SectionSkeleton />}>
-            <WorkDetail />
-          </Suspense>
-        } />
-        <Route path="/*" element={
     <>
       <a href="#main" className="skip-link" style={{
         position: 'fixed',
@@ -181,8 +171,5 @@ export default function App() {
         </a>
       </div>
     </>
-        } />
-      </Routes>
-    </BrowserRouter>
   )
 }
