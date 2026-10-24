@@ -78,7 +78,45 @@ export default function App() {
         })
       }
     }
-    return () => {}
+    // 兜底：入场动画（GSAP）万一卡住（标签页失焦/浏览器节流），不能把内容永久留在 opacity:0。
+    // 只处理「已在视口内且卡住超过 1.2s」的元素，不影响正常的滚动入场。
+    const stuckSeen = new WeakMap<Element, number>()
+    const revealWatchdog = () => {
+      const now = performance.now()
+      const vh = window.innerHeight
+      const sel = '.team-card, .testimonial-card, .case-card, .partner-item, .service-card, .pricing-card, .timeline-item, .blog-card, .stack-tag, .work-card'
+      document.querySelectorAll<HTMLElement>(sel).forEach(el => {
+        const rect = el.getBoundingClientRect()
+        // 已经划过屏幕上沿的元素：直接补齐，避免快速滚动时永久停在 opacity:0
+        if (rect.bottom <= 0) {
+          if (parseFloat(getComputedStyle(el).opacity) < 0.98) {
+            el.style.opacity = '1'
+            el.style.transform = 'none'
+          }
+          stuckSeen.delete(el)
+          return
+        }
+        const inView = rect.top < vh - 40
+        if (!inView) { stuckSeen.delete(el); return }
+        const op = parseFloat(getComputedStyle(el).opacity)
+        if (op >= 0.98) { stuckSeen.delete(el); return }
+        const first = stuckSeen.get(el)
+        if (first === undefined) { stuckSeen.set(el, now); return }
+        if (now - first > 1200) {
+          el.style.opacity = '1'
+          el.style.transform = 'none'
+          stuckSeen.delete(el)
+        }
+      })
+    }
+    const watchdogTimer = window.setInterval(revealWatchdog, 400)
+
+    return () => {
+      window.removeEventListener('scroll', onScrollPause)
+      window.removeEventListener('scroll', onScroll)
+      window.clearInterval(watchdogTimer)
+      if (scrollTimer) clearTimeout(scrollTimer)
+    }
   }, [])
 
   return (
