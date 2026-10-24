@@ -86,7 +86,7 @@ export default function Stack() {
       <div className="container">
         <header className="section-head">
           <h2 id="stack-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 技术栈</h2>
-          <p className="section-head__sub">全谱系技术储备与工具链</p>
+          <p className="section-head__sub">平时真正在用的工具，没什么神秘</p>
         </header>
 
         <div ref={gridRef} style={{

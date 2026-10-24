@@ -4,24 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// 这里放的是第三方开源项目，不是我们开发的。视频是我们实际使用时的界面录制。
+// 星数会变、也容易过期，所以不写死数字；许可证和仓库地址都是可查的。
 const projects = [
-  {
-    name: 'liquid-glass-react',
-    desc: 'React 液态玻璃组件库，SVG feDisplacementMap 驱动',
-    tags: ['React', 'TypeScript', 'SVG', 'WebGL'],
-    stars: '4.2k',
-    license: 'MIT',
-    category: 'UI 组件',
-    video: './videos/liquid-glass-react.webm',
-    poster: './videos/liquid-glass-react-poster.jpg',
-    github: 'https://github.com/nousresearch/liquid-glass-react',
-    demo: 'https://www.nousresearch.com',
-  },
   {
     name: 'Blender',
     desc: '开源 3D 创作套件，建模 / 动画 / 渲染全流程',
     tags: ['3D', '建模', '渲染'],
-    stars: '12.3k',
     license: 'GPL',
     category: '3D 创作',
     video: './videos/blender.webm',
@@ -33,7 +22,6 @@ const projects = [
     name: 'Grafana',
     desc: '开放可视化平台，实时数据监控与仪表盘',
     tags: ['TypeScript', 'React', '可视化'],
-    stars: '68.1k',
     license: 'AGPL',
     category: '数据可视化',
     video: './videos/grafana.webm',
@@ -42,10 +30,20 @@ const projects = [
     demo: 'https://grafana.com',
   },
   {
+    name: 'Metabase',
+    desc: '开源商业智能工具，把数据库里的数据变成能看懂的图表',
+    tags: ['Clojure', 'React', 'BI'],
+    license: 'AGPL',
+    category: '数据可视化',
+    video: './videos/metabase.webm',
+    poster: './videos/metabase-poster.jpg',
+    github: 'https://github.com/metabase/metabase',
+    demo: 'https://www.metabase.com',
+  },
+  {
     name: 'Audacity',
     desc: '开源音频编辑器，多轨录制与波形处理',
     tags: ['C++', '音频', '多轨'],
-    stars: '12.8k',
     license: 'GPL',
     category: '音频编辑',
     video: './videos/audacity.webm',
@@ -57,7 +55,6 @@ const projects = [
     name: 'Penpot',
     desc: '开源设计协作工具，矢量原型与交付',
     tags: ['Clojure', 'SVG', '协作'],
-    stars: '31.5k',
     license: 'AGPL',
     category: '设计协作',
     video: './videos/penpot.webm',
@@ -69,7 +66,6 @@ const projects = [
     name: 'OpenShot',
     desc: '开源视频编辑器，多轨时间线剪辑',
     tags: ['Python', 'Qt', '视频'],
-    stars: '5.2k',
     license: 'GPL',
     category: '视频编辑',
     video: './videos/openshot.webm',
@@ -172,12 +168,12 @@ export default function Works() {
     <section className="section section--ink2 zone" id="works" aria-labelledby="works-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="works-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 作品展示</h2>
-          <p className="section-head__sub">开源项目编排 · {filtered.length} 个项目</p>
+          <h2 id="works-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 开源生态</h2>
+          <p className="section-head__sub">我们日常在用的开源项目 · 视频为真实界面录制 · {filtered.length} 个</p>
         </header>
 
         {/* Category filter */}
-        <div className="works-filter" role="tablist" aria-label="作品分类">
+        <div className="works-filter" role="tablist" aria-label="开源项目分类">
           {categories.map(cat => (
             <button
               key={cat}
@@ -217,7 +213,7 @@ export default function Works() {
               <div className="work-card__body">
                 <div className="work-card__row">
                   <span className="work-card__name">{p.name}</span>
-                  <span className="work-card__meta">⭐ {p.stars} · {p.license}</span>
+                  <span className="work-card__meta">{p.license} · 第三方开源</span>
                 </div>
                 <p className="work-card__desc">{p.desc}</p>
                 <div className="work-card__tags">
@@ -230,7 +226,7 @@ export default function Works() {
                     GitHub
                   </a>
                   <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--ghost">
-                    在线演示
+                    官网
                   </a>
                   <button
                     className="btn btn--sm btn--ghost"
@@ -245,15 +241,16 @@ export default function Works() {
                 {expanded === p.name && (
                   <div className="work-card__detail">
                     <p className="work-card__detail-text">
-                      {p.name} 是一个开源项目，拥有 {p.stars} GitHub Stars，采用 {p.license} 许可证。
-                      分类：{p.category}。技术栈：{p.tags.join('、')}。
+                      {p.name} 是第三方开源项目，采用 {p.license} 许可证，版权归原作者所有。
+                      这里的视频是我们日常使用时录的界面，不是我们开发的产品。
+                      放上来是因为它做得够好，值得被更多人知道。
                     </p>
                     <div className="work-card__detail-links">
                       <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--primary">
-                        查看源码
+                        源码仓库
                       </a>
                       <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn--sm btn--secondary">
-                        访问官网
+                        官方站点
                       </a>
                     </div>
                   </div>

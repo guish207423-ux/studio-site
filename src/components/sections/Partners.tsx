@@ -4,13 +4,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const partners = [
-  { name: 'NovaTech', category: 'SaaS' },
-  { name: 'Lumina Studio', category: '设计' },
-  { name: 'DataPulse', category: '数据' },
-  { name: 'PixelForge', category: '游戏' },
-  { name: 'CloudSync', category: '云服务' },
-  { name: 'Artisan Co', category: '电商' },
+// 不编合作公司。这里列的是真的在用的工具——都是公开的技术和软件，可查。
+const tools = [
+  { name: 'React 19', category: '前端框架' },
+  { name: 'TypeScript', category: '类型系统' },
+  { name: 'Vite', category: '构建工具' },
+  { name: 'GSAP', category: '动效' },
+  { name: 'Lenis', category: '平滑滚动' },
+  { name: 'Figma', category: '设计协作' },
+  { name: 'Blender', category: '3D / 渲染' },
+  { name: 'Cloudflare', category: '边缘部署' },
 ]
 
 export default function Partners() {
@@ -39,8 +42,8 @@ export default function Partners() {
     <section className="section zone" id="partners" aria-labelledby="partners-title" style={{ padding: 'var(--sp-6) 0' }}>
       <div className="container">
         <header className="section-head" style={{ marginBottom: 'var(--sp-5)' }}>
-          <h2 id="partners-title" className="section-head__title" style={{ fontSize: 'var(--fs-h2)' }}><span className="section-head__prefix">⌁</span> 合作伙伴</h2>
-          <p className="section-head__sub">与优秀团队共同成长</p>
+          <h2 id="partners-title" className="section-head__title" style={{ fontSize: 'var(--fs-h2)' }}><span className="section-head__prefix">⌁</span> 常用工具链</h2>
+          <p className="section-head__sub">这几样几乎每个项目都会用到</p>
         </header>
 
         <div ref={gridRef} style={{
@@ -49,7 +52,7 @@ export default function Partners() {
           gap: 'var(--sp-3)',
           justifyContent: 'center',
         }}>
-          {partners.map(p => (
+          {tools.map(p => (
             <div key={p.name} className="partner-item" style={{
               background: 'var(--c-panel)',
               border: '1px solid var(--c-line)',

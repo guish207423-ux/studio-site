@@ -98,7 +98,7 @@ export default function Blog() {
       <div className="container">
         <header className="section-head">
           <h2 id="blog-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 洞察与文章</h2>
-          <p className="section-head__sub">技术分享 · 设计思考 · 行业洞察</p>
+          <p className="section-head__sub">平时记的笔记，还没整理成完整文章</p>
         </header>
 
         <div ref={gridRef} className="blog-grid">
@@ -116,7 +116,7 @@ export default function Blog() {
                   <span key={t} className="blog-card__tag">{t}</span>
                 ))}
               </div>
-              <a href="#" className="blog-card__link">阅读全文 →</a>
+              <span className="blog-card__link" style={{ opacity: 0.55, cursor: 'default' }}>笔记 · 全文暂未公开</span>
             </article>
           ))}
         </div>

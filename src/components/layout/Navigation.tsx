@@ -28,8 +28,8 @@ export default function Navigation() {
   const links = [
     { href: '#about', label: '关于我们' },
     { href: '#services', label: '服务能力' },
-    { href: '#works', label: '作品展示' },
-    { href: '#cases', label: '案例研究' },
+    { href: '#works', label: '开源生态' },
+    { href: '#cases', label: '典型场景' },
     { href: '#pricing', label: '服务定价' },
     { href: '#contact', label: '联系方式' },
   ]
@@ -101,7 +101,6 @@ export default function Navigation() {
           </a>
 
           <div className="nav__links" style={{
-            display: 'flex',
             gap: 'var(--sp-1)',
             padding: '4px',
             borderRadius: 'var(--r-pill)',

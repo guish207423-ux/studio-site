@@ -113,10 +113,10 @@ export default function Hero() {
             border: '1px solid var(--c-line)',
           }}>
             {[
-              { value: '50+', label: '项目交付' },
-              { value: '8', label: '服务类型' },
-              { value: '6', label: '开源作品' },
-              { value: '24h', label: '响应时间' },
+              { value: '4–12', label: '周交付周期' },
+              { value: '3', label: '类主力项目' },
+              { value: '100%', label: '源码交付' },
+              { value: '24h', label: '内回复' },
             ].map(stat => (
               <div key={stat.label} style={{ textAlign: 'center' }}>
                 <p style={{

@@ -1,0 +1,15 @@
+{
+  "site": "china",
+  "token": "492407824d5008062df82708a83b4ff0",
+  "tokenExpired": "1792675208",
+  "projectName": "studio-site-ez5w46yt",
+  "targetPath": "492407824d5008062df82708a83b4ff0/studio-site-ez5w46yt/1792671609018",
+  "bucket": "eop-trans-sh-prod-1256816668",
+  "region": "ap-shanghai",
+  "cosExpiredTime": 1792673408,
+  "cosExpiration": "2026-10-22T12:50:08Z",
+  "createdAt": "2026-10-22T12:20:09.246Z",
+  "projectId": "makers-ntkahrbvy38c",
+  "deploymentId": "dppks83s2v88",
+  "siteUrl": "https://studio-site-ez5w46yt-vvxtgwm5.edgeone.cool?eo_token=a50076c5dcafd1f9e3b6120b8cd00873&eo_time=1792671634"
+}

@@ -43,7 +43,7 @@ export default function Services() {
       <div className="container">
         <header className="section-head">
           <h2 id="services-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 服务能力</h2>
-          <p className="section-head__sub">全谱系数字产品服务</p>
+          <p className="section-head__sub">能自己做完的部分，才写在这里</p>
         </header>
 
         <div ref={gridRef} className="services-grid">

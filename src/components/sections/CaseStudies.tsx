@@ -4,32 +4,45 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// 不挂真实公司的名头，也不编数据。这里写的是我们接得住的三种项目形态。
 const cases = [
   {
-    title: '液态玻璃组件库',
-    client: 'Nous Research',
-    category: 'UI 组件',
-    desc: '为 AI 研究机构构建 React 液态玻璃组件库，SVG feDisplacementMap 驱动真实折射效果，支持 5 种玻璃变体，全站 10+ 实例。',
-    metrics: [{ label: '组件数', value: '12' }, { label: 'GitHub Stars', value: '4.2k' }, { label: '周下载', value: '8.5k' }],
-    tags: ['React', 'TypeScript', 'SVG', 'WebGL'],
+    title: '品牌官网 / 产品落地页',
+    category: '官网',
+    scene: '适合：刚起步的团队、独立产品',
+    desc: '从一个还说不清的方向开始，把品牌调性、页面结构和文案一起定下来，做成能直接上线的官网。不做模板套壳，也不堆无用的动画。',
+    deliverables: [
+      { value: '视觉', label: '一套可延展的方向' },
+      { value: '前端', label: '响应式 + 无障碍' },
+      { value: '上线', label: '域名 · 证书 · 部署' },
+    ],
+    tags: ['React', 'Vite', 'GSAP', '响应式'],
     color: '#D4FF3F',
   },
   {
-    title: '数据可视化平台',
-    client: 'Grafana Labs',
-    category: '数据可视化',
-    desc: '基于 Grafana 开源内核的定制可视化平台，实时数据监控、自定义仪表盘、告警系统，支持 100+ 数据源接入。',
-    metrics: [{ label: '数据源', value: '100+' }, { label: '仪表盘', value: '500+' }, { label: '用户', value: '12k' }],
-    tags: ['React', 'TypeScript', 'Go', 'PostgreSQL'],
+    title: '产品界面的动效升级',
+    category: '界面动效',
+    scene: '适合：已有产品，想让质感再往上走',
+    desc: '在现有产品里补上动效与玻璃质感：先定一套动效规则，再做成能复用的组件。重点是让交互更清楚，而不是为了炫技到处加动画。',
+    deliverables: [
+      { value: '规范', label: '动效与时长规则' },
+      { value: '组件', label: '可复用，不写死' },
+      { value: '性能', label: '帧预算内运行' },
+    ],
+    tags: ['React', 'TypeScript', 'SVG', 'CSS'],
     color: '#7FE3FF',
   },
   {
-    title: '3D 创作工具链',
-    client: 'Blender Foundation',
-    category: '3D 创作',
-    desc: 'Blender 工作流优化与插件开发，涵盖建模自动化、渲染管线优化、资产管理系统，提升团队协作效率 40%。',
-    metrics: [{ label: '插件数', value: '8' }, { label: '效率提升', value: '40%' }, { label: '用户', value: '3k' }],
-    tags: ['Python', 'C++', 'Blender API', 'Qt'],
+    title: '设计稿落地 / 前端重构',
+    category: '前端',
+    scene: '适合：有设计稿，但要真正跑起来',
+    desc: '把设计稿变成可维护的代码：组件拆分、状态处理、响应式适配、无障碍检查。接手别人留下的老项目时，先补测试和文档再动刀。',
+    deliverables: [
+      { value: '拆件', label: '组件化，不重复' },
+      { value: '适配', label: '手机 / 平板 / 桌面' },
+      { value: '交接', label: '文档 + 部署说明' },
+    ],
+    tags: ['React', 'TypeScript', 'Vite', 'WCAG'],
     color: '#B47FFF',
   },
 ]
@@ -60,8 +73,8 @@ export default function CaseStudies() {
     <section className="section zone" id="cases" aria-labelledby="cases-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="cases-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 案例研究</h2>
-          <p className="section-head__sub">深度项目拆解 · 从问题到交付</p>
+          <h2 id="cases-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 典型场景</h2>
+          <p className="section-head__sub">几种常见的项目形态，以及大概怎么拆</p>
         </header>
 
         <div ref={gridRef} className="cases-grid">
@@ -69,13 +82,13 @@ export default function CaseStudies() {
             <article key={c.title} className="case-card glass-float" style={{ cursor: 'default' }}>
               <div className="case-card__header">
                 <span className="case-card__category" style={{ color: c.color }}>{c.category}</span>
-                <span className="case-card__client">{c.client}</span>
+                <span className="case-card__client">{c.scene}</span>
               </div>
               <h3 className="case-card__title">{c.title}</h3>
               <p className="case-card__desc">{c.desc}</p>
               <div className="case-card__metrics">
-                {c.metrics.map(m => (
-                  <div key={m.label} className="case-card__metric">
+                {c.deliverables.map(m => (
+                  <div key={m.value} className="case-card__metric">
                     <span className="case-card__metric-value" style={{ color: c.color }}>{m.value}</span>
                     <span className="case-card__metric-label">{m.label}</span>
                   </div>

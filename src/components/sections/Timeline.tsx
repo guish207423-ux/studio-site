@@ -4,14 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// 不编发展史。这里是一个 6 周项目实际的推进节奏。
 const milestones = [
-  { year: '2024', title: '工作室成立', desc: '屿作所正式成立，开始提供数字产品设计与开发服务', icon: '🚀' },
-  { year: '2024 Q2', title: '首个开源项目', desc: '发布 liquid-glass-react 组件库，GitHub Stars 突破 1k', icon: '📦' },
-  { year: '2024 Q3', title: '团队扩展', desc: '团队扩展至 4 人，开始提供全栈开发服务', icon: '👥' },
-  { year: '2024 Q4', title: '50+ 项目交付', desc: '累计交付 50+ 数字产品项目，客户满意度 98%', icon: '🎯' },
-  { year: '2025 Q1', title: '液态玻璃技术栈', desc: '建立完整的液态玻璃视觉技术栈，hyalite.js v0.5.0 发布', icon: '💎' },
-  { year: '2025 Q2', title: '开源贡献', desc: '向 Blender、Grafana 等开源项目提交 PR，累计 20+ 贡献', icon: '🌐' },
-  { year: '2026', title: '官网 v2.0', desc: '全新品牌官网上线，液态玻璃视觉系统全面应用', icon: '✨' },
+  { year: '第 1 周', title: '对齐与拆解', desc: '需求、受众、验收标准三件事定下来，拆成可排期的任务清单。', icon: '①' },
+  { year: '第 2 周', title: '方向与原型', desc: '先出两三个方向，确认一个之后再往下做，不在错的方向上堆时间。', icon: '②' },
+  { year: '第 3–4 周', title: '设计与实现并行', desc: '页面往下推的同时，前端把骨架和组件搭起来，不等设计全定稿。', icon: '③' },
+  { year: '第 5 周', title: '联调与打磨', desc: '动效、响应式、无障碍逐项过一遍，性能和加载也在这周收尾。', icon: '④' },
+  { year: '第 6 周', title: '上线与交接', desc: '部署、域名与证书配好，交付文档，30 天缺陷修复期从这天开始。', icon: '⑤' },
 ]
 
 export default function Timeline() {
@@ -40,8 +39,8 @@ export default function Timeline() {
     <section className="section section--ink2 zone" id="timeline" aria-labelledby="timeline-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="timeline-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 发展历程</h2>
-          <p className="section-head__sub">从成立到现在的每一步</p>
+          <h2 id="timeline-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 项目怎么推进</h2>
+          <p className="section-head__sub">以 6 周的项目为例，实际大概是这个节奏</p>
         </header>
 
         <div ref={lineRef} className="timeline">
