@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Contact() {
   const formRef = useRef<HTMLDivElement>(null)
   const sideRef = useRef<HTMLDivElement>(null)
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', budget: '', message: '' })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
   const reduced = useReducedMotion()
@@ -48,27 +48,23 @@ export default function Contact() {
       }
       return
     }
-    // Submit to Formspree
-    try {
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-      if (res.ok) {
-        setSubmitted(true)
-      } else {
-        alert('提交失败，请稍后重试或直接发邮件联系我们。')
-      }
-    } catch {
-      // Fallback: mailto link
-      window.location.href = `mailto:3629748383@qq.com?subject=项目咨询&body=${encodeURIComponent(formData.message)}`
+    // 直接走邮件：没有后端也能用，字段全部带上，不依赖第三方表单服务
+    {
+      const body = [
+        `姓名：${formData.name}`,
+        `邮箱：${formData.email}`,
+        formData.budget ? `预算：${formData.budget}` : '',
+        '',
+        formData.message,
+      ].filter(Boolean).join('\n')
+      const subject = formData.budget ? `项目咨询 · ${formData.budget}` : '项目咨询'
+      window.location.href = `mailto:3629748383@qq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
       setSubmitted(true)
     }
   }
 
   const handleReset = () => {
-    setFormData({ name: '', email: '', message: '' })
+    setFormData({ name: '', email: '', budget: '', message: '' })
     setErrors({})
     setSubmitted(false)
   }
@@ -223,6 +219,45 @@ export default function Contact() {
                 {errors.email && (
                   <p style={{ fontSize: '13px', color: 'var(--c-err)', marginTop: 'var(--sp-1)' }}>{errors.email}</p>
                 )}
+              </div>
+
+              <div style={{ marginBottom: 'var(--sp-4)' }}>
+                <label htmlFor="contact-budget" style={{
+                  display: 'block',
+                  fontSize: 'var(--fs-body-sm)',
+                  fontWeight: 500,
+                  color: 'var(--c-txt-2)',
+                  marginBottom: 'var(--sp-2)',
+                }}>预算范围<span style={{ color: 'var(--c-txt-3)', fontWeight: 400 }}>（选填，方便直接给方案）</span></label>
+                <select
+                  id="contact-budget"
+                  value={formData.budget}
+                  onChange={e => handleChange('budget', e.target.value)}
+                  style={{
+                    width: '100%',
+                    height: 48,
+                    background: 'var(--c-panel-2)',
+                    border: '1px solid var(--c-line-strong)',
+                    borderRadius: 'var(--r-md)',
+                    padding: '0 var(--sp-3)',
+                    color: formData.budget ? 'var(--c-txt)' : 'var(--c-txt-3)',
+                    fontSize: 'var(--fs-body)',
+                    fontFamily: 'var(--font-sans)',
+                    outline: 'none',
+                    appearance: 'none',
+                    paddingRight: 'var(--sp-6)',
+                    backgroundImage:
+                      "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23828282' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 16px center',
+                  }}
+                >
+                  <option value="">还没定</option>
+                  <option value="1 万以内">1 万以内</option>
+                  <option value="1–3 万">1–3 万</option>
+                  <option value="3–5 万">3–5 万</option>
+                  <option value="5 万以上">5 万以上</option>
+                </select>
               </div>
 
               <div style={{ marginBottom: 'var(--sp-5)' }}>
