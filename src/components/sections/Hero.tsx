@@ -17,17 +17,12 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="hero" aria-labelledby="hero-title" style={{
-      padding: 'calc(72px + var(--sp-7)) 0 var(--sp-7)',
-      position: 'relative',
-      zIndex: 1,
-    }}>
+    <section className="hero" aria-labelledby="hero-title">
       <div className="container hero-grid">
-        <div ref={panelRef} style={{
+        <div ref={panelRef} className="hero-panel" style={{
           borderRadius: 'var(--r-xl)',
           position: 'relative',
           overflow: 'hidden',
-          padding: 'var(--sp-7)',
           background: 'rgba(255, 255, 255, 0.02)',
           border: '1px solid var(--c-line)',
         }}>
@@ -79,9 +74,9 @@ export default function Hero() {
             color: 'var(--c-txt-3)',
             marginBottom: 'var(--sp-5)',
           }}>
-            从品牌识别到前端交付，一次到位。液态玻璃视觉由成熟折射引擎驱动，全站 5 个玻璃实例，参数经 A/B 差分验证。
+            从品牌识别到前端交互，一次做完。页面上的玻璃质感用成熟渲染库实现，不是贴图。
           </p>
-          <div style={{
+          <div className="hero-cta" style={{
             display: 'flex',
             gap: 'var(--sp-3)',
             flexWrap: 'wrap',
@@ -138,11 +133,11 @@ export default function Hero() {
           </div>
           {[
             { dt: '交付周期', dd: '4 – 12 周' },
-            { dt: '协作模式', dd: '远程 · 全程可追' },
-            { dt: '玻璃实例', dd: '5 / 5 上限' },
-            { dt: '折射引擎', dd: 'hyalite.js v0.5.0' },
-            { dt: '性能预算', dd: '20ms / 帧上限' },
-            { dt: '无障碍', dd: 'WCAG AA' },
+            { dt: '协作方式', dd: '远程 · 每周可见' },
+            { dt: '源码归属', dd: '全部交付给你' },
+            { dt: '缺陷修复', dd: '上线后 30 天' },
+            { dt: '付款节奏', dd: '按里程碑分三次' },
+            { dt: '无障碍', dd: 'WCAG AA 基线' },
           ].map(item => (
             <dl key={item.dt} style={{
               display: 'flex',

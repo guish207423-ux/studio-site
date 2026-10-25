@@ -15,7 +15,7 @@
   --c-line-strong: #3A3A3A;
   --c-txt: #F5F5F5;
   --c-txt-2: #B8B8B8;
-  --c-txt-3: #7A7A7A;
+  --c-txt-3: #828282;
   --c-accent: #D4FF3F;
   --c-accent-ink: #050505;
 
@@ -126,7 +126,9 @@ html body {
   line-height: 1.75;
   color: var(--c-txt);
   background-color: var(--c-ink);
+  /* 移动端地址栏伸缩时 100vh 会跳动，用 dvh 兜底 */
   min-height: 100vh;
+  min-height: 100dvh;
 
 }
 
@@ -151,7 +153,7 @@ html body {
   max-height: 1100px;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(127, 227, 255, 0.35) 0%, rgba(127, 227, 255, 0.15) 30%, transparent 65%);
+  background: radial-gradient(circle, rgba(127, 227, 255, 0.42) 0%, rgba(127, 227, 255, 0.18) 30%, transparent 65%);
   animation: blob-drift 20s var(--ease-in-out-quart) infinite;
   filter: blur(30px);
 }
@@ -166,7 +168,7 @@ html body {
   max-height: 960px;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(212, 255, 63, 0.20) 0%, rgba(212, 255, 63, 0.08) 35%, transparent 65%);
+  background: radial-gradient(circle, rgba(212, 255, 63, 0.26) 0%, rgba(212, 255, 63, 0.11) 35%, transparent 65%);
   animation: blob-drift-2 26s var(--ease-in-out-quart) infinite;
   filter: blur(35px);
 }
@@ -315,6 +317,19 @@ html body {
   border-color: var(--c-accent);
 }
 
+/* 按压反馈（design-taste Rule 5 触感） */
+.btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* 触屏设备：可点区域不小于 44px，避免误触 */
+@media (pointer: coarse) {
+  .btn--sm { min-height: 44px; padding-left: 18px; padding-right: 18px; }
+  .nav__burger { min-width: 44px; min-height: 44px; }
+  .works-filter__btn { min-height: 44px; }
+  .partner-item { min-height: 44px; }
+}
+
 /* Button ripple element */
 .btn-ripple {
   position: absolute;
@@ -430,6 +445,72 @@ html body {
   align-items: start;
 }
 
+/* Hero 主卡片内边距：桌面 104px，窄屏必须收，否则内容被挤成 150px 宽导致标题断行 */
+.hero {
+  padding: calc(72px + var(--sp-7)) 0 var(--sp-7);
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 767px) {
+  /* 手机首屏要塞下标题 + 正文 + CTA，上下留白从 104px 收到 24/40px */
+  .hero { padding: calc(72px + var(--sp-4)) 0 var(--sp-5); }
+  /* 两个 CTA 等宽，避免宽度不齐 */
+  .hero-cta { display: grid !important; grid-template-columns: 1fr 1fr; gap: var(--sp-2); }
+  .hero-cta > .btn { width: 100%; }
+}
+
+.hero-panel {
+  padding: var(--sp-7);
+  /* 品牌主张就是液态玻璃：主卡必须有真实折射，否则只是一块深色板 */
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  backdrop-filter: blur(14px) saturate(125%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    0 24px 64px -32px rgba(0, 0, 0, 0.9);
+}
+
+/* 玻璃边缘：镜面渐变描边 + 顶部高光（玻璃靠边缘反光被看见，不靠模糊） */
+.hero-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(165deg,
+    rgba(255, 255, 255, 0.30) 0%,
+    rgba(255, 255, 255, 0.07) 20%,
+    rgba(255, 255, 255, 0.02) 45%,
+    rgba(212, 255, 63, 0.14) 72%,
+    rgba(255, 255, 255, 0.18) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  pointer-events: none;
+}
+@media (max-width: 1023px) {
+  .hero-panel { padding: var(--sp-5); }
+}
+@media (max-width: 767px) {
+  .hero-panel {
+    padding: var(--sp-4);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    backdrop-filter: blur(10px) saturate(120%);
+  }
+}
+
 /* ---- 导航基础样式（桌面端） ---- */
 .nav__links {
   display: flex;
@@ -497,9 +578,13 @@ html body {
 }
 
 /* ---- 联系方式响应式 ---- */
+.glass-contact { padding: var(--sp-6); }
 @media (max-width: 1023px) {
   .glass-contact { padding: var(--sp-5); }
   .contact-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 767px) {
+  .glass-contact { padding: var(--sp-4); }
 }
 
 /* ---- 导航滚动态 ---- */
@@ -538,6 +623,13 @@ html body {
    ============================================================================ */
 .work-card:hover .work-card__hint {
   opacity: 0 !important;
+}
+
+/* 触屏设备没有 hover：把「悬停播放」换成「点按播放」 */
+.work-card__hint--touch { display: none; }
+@media (hover: none) {
+  .work-card__hint--hover { display: none !important; }
+  .work-card__hint--touch { display: inline; }
 }
 
 /* ============================================================================
@@ -1231,4 +1323,14 @@ body.is-scrolling .glass {
 
 @media (max-width: 767px) {
   .cases-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Cookie 条：手机端压缩成单行，减少遮挡 ---- */
+.cookie-text--short { display: none; }
+@media (max-width: 767px) {
+  .cookie-text--full { display: none; }
+  .cookie-text--short { display: inline; }
+  .cookie-bar { padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)) !important; gap: 8px !important; }
+  .cookie-bar .cookie-text { font-size: 12px !important; min-width: 0 !important; }
+  .cookie-bar button { min-height: 40px !important; padding: 0 12px !important; font-size: 12px !important; }
 }

@@ -1,12 +1,29 @@
 import { useState } from 'react'
 
+function ChatIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+  )
+}
+
+function MailIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  )
+}
+
 export default function FloatingChat() {
   const [open, setOpen] = useState(false)
 
   return (
     <div style={{
       position: 'fixed',
-      bottom: '24px',
+      bottom: 'calc(24px + var(--cookie-h, 0px))',
       right: '24px',
       zIndex: 150,
       display: 'flex',
@@ -20,38 +37,44 @@ export default function FloatingChat() {
           border: '1px solid var(--c-line)',
           borderRadius: 'var(--r-lg)',
           padding: 'var(--sp-4)',
-          width: '280px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+          width: '264px',
+          boxShadow: '0 16px 40px -12px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06)',
         }}>
-          <p style={{ fontSize: '14px', marginBottom: 'var(--sp-3)', color: 'var(--c-txt-2)' }}>
-            选择联系方式：
+          <p style={{ fontSize: '13px', marginBottom: 'var(--sp-3)', color: 'var(--c-txt-3)' }}>
+            选择联系方式
           </p>
           <a href="mailto:3629748383@qq.com?subject=项目咨询" style={{
-            display: 'block',
-            padding: '10px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            padding: '11px 16px',
+            minHeight: '44px',
             background: 'var(--c-accent)',
             color: 'var(--c-accent-ink)',
             borderRadius: 'var(--r-md)',
             textDecoration: 'none',
             fontWeight: 600,
             fontSize: '14px',
-            textAlign: 'center',
             marginBottom: '8px',
-          }}>📧 发送邮件</a>
+          }}><MailIcon /> 发送邮件</a>
           <a href="mailto:guish207423@gmail.com?subject=Project Inquiry" style={{
-            display: 'block',
-            padding: '10px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            padding: '11px 16px',
+            minHeight: '44px',
             background: 'transparent',
-            color: 'var(--c-txt-1)',
+            color: 'var(--c-txt)',
             border: '1px solid var(--c-line)',
             borderRadius: 'var(--r-md)',
             textDecoration: 'none',
             fontWeight: 500,
             fontSize: '14px',
-            textAlign: 'center',
-          }}>📧 Gmail</a>
+          }}><MailIcon /> Gmail</a>
           <p style={{ fontSize: '12px', marginTop: 'var(--sp-3)', color: 'var(--c-txt-3)', textAlign: 'center' }}>
-            微信: qqwwlfy2423
+            微信 qqwwlfy2423
           </p>
         </div>
       )}
@@ -63,20 +86,32 @@ export default function FloatingChat() {
           borderRadius: '50%',
           background: 'var(--c-accent)',
           color: 'var(--c-accent-ink)',
-          border: 'none',
+          border: '1px solid rgba(255,255,255,0.14)',
           cursor: 'pointer',
-          fontSize: '24px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 4px 20px rgba(212, 255, 63, 0.3)',
-          transition: 'transform 0.2s ease',
+          boxShadow: '0 8px 24px -8px rgba(0,0,0,0.6)',
+          transition: 'transform 0.18s var(--ease-out-expo), box-shadow 0.18s ease',
         }}
-        onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.1)')}
-        onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-        aria-label="在线咨询"
+        onMouseEnter={e => {
+          e.currentTarget.style.transform = 'translateY(-2px)'
+          e.currentTarget.style.boxShadow = '0 12px 28px -8px rgba(0,0,0,0.7)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.transform = 'translateY(0)'
+          e.currentTarget.style.boxShadow = '0 8px 24px -8px rgba(0,0,0,0.6)'
+        }}
+        onMouseDown={e => { e.currentTarget.style.transform = 'scale(0.96)' }}
+        onMouseUp={e => { e.currentTarget.style.transform = 'translateY(-2px)' }}
+        aria-label={open ? '关闭联系方式' : '打开联系方式'}
+        aria-expanded={open}
       >
-        💬
+        {open ? (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        ) : <ChatIcon />}
       </button>
     </div>
   )

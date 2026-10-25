@@ -81,7 +81,7 @@ export default function Navigation() {
               justifyContent: 'center',
               fontWeight: 900,
               fontSize: '16px',
-              boxShadow: '0 0 20px rgba(212, 255, 63, 0.3)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 2px rgba(0,0,0,0.25)',
             }}>屿</span>
             <span style={{ display: 'flex', flexDirection: 'column' }}>
               <span className="brand__name" style={{
@@ -115,7 +115,7 @@ export default function Navigation() {
                 fontWeight: 500,
                 padding: '6px 16px',
                 borderRadius: 'var(--r-pill)',
-                transition: 'all 0.2s var(--ease-out-expo)',
+                transition: 'color 0.2s var(--ease-out-expo), background-color 0.2s var(--ease-out-expo)',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.color = 'var(--c-txt)'

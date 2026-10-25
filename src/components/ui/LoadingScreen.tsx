@@ -40,7 +40,7 @@ export default function LoadingScreen() {
         justifyContent: 'center',
         fontWeight: 900,
         fontSize: 24,
-        boxShadow: '0 0 40px rgba(212, 255, 63, 0.4)',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.22), 0 6px 18px -6px rgba(0,0,0,0.5)',
         animation: 'pulse 1.5s var(--ease-in-out-quart) infinite',
       }}>屿</div>
       <div style={{

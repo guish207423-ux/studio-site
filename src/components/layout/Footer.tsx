@@ -67,10 +67,13 @@ export default function Footer() {
                   fontSize: '12px',
                   color: 'var(--c-txt-3)',
                   textDecoration: 'none',
-                  padding: '6px 12px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  minHeight: '44px',
+                  padding: '0 14px',
                   borderRadius: 'var(--r-pill)',
                   border: '1px solid var(--c-line)',
-                  transition: 'all 0.2s ease',
+                  transition: 'color 0.2s ease, border-color 0.2s ease',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.color = 'var(--c-accent)'

@@ -95,7 +95,6 @@ export default function Contact() {
           <div className="glass glass-contact" style={{
             maxWidth: 600,
             margin: '0 auto',
-            padding: 'var(--sp-7)',
             textAlign: 'center',
           }}>
             <div style={{
@@ -142,9 +141,7 @@ export default function Contact() {
 
         <div className="contact-grid">
           {/* Form */}
-          <div ref={formRef} className="glass glass-contact" style={{
-            padding: 'var(--sp-6)',
-          }}>
+          <div ref={formRef} className="glass glass-contact">
             <form onSubmit={handleSubmit} noValidate>
               <div style={{ marginBottom: 'var(--sp-4)' }}>
                 <label htmlFor="contact-name" style={{
@@ -352,7 +349,13 @@ export default function Contact() {
               className="btn btn--lg btn--primary glass-btn"
               style={{ width: '100%', justifyContent: 'center' }}
             >
-              <span>📅 预约咨询</span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="16" rx="2" />
+                  <path d="M8 3v4M16 3v4M3 11h18" />
+                </svg>
+                预约咨询
+              </span>
             </a>
           </div>
         </div>

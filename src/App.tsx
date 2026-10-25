@@ -154,7 +154,8 @@ export default function App() {
         zIndex: 200,
         width: '0%',
         transition: 'width 0.1s linear',
-        boxShadow: '0 0 8px var(--c-accent)',
+        /* 细光，不用霓虹外发光 */
+        boxShadow: '0 0 0 0.5px rgba(212, 255, 63, 0.35)',
       }} />
       <Navigation />
       <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
@@ -183,39 +184,7 @@ export default function App() {
       <FloatingChat />
       <ScrollToTop />
       <CookieConsent />
-      <div style={{
-        position: 'fixed',
-        bottom: '24px',
-        right: '24px',
-        zIndex: 150,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        alignItems: 'flex-end',
-      }}>
-        <a
-          href="mailto:3629748383@qq.com?subject=项目咨询"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '12px 20px',
-            background: 'var(--c-accent)',
-            color: 'var(--c-accent-ink)',
-            borderRadius: 'var(--r-pill)',
-            textDecoration: 'none',
-            fontWeight: 600,
-            fontSize: '14px',
-            boxShadow: '0 4px 20px rgba(212, 255, 63, 0.3)',
-            transition: 'transform 0.2s var(--ease-out-expo)',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
-          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-        >
-          <span>💬</span>
-          <span>在线咨询</span>
-        </a>
-      </div>
+      {/* 悬浮联系方式由 FloatingChat 组件统一提供，此处不再重复放置 */}
     </>
   )
 }

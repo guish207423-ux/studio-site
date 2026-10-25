@@ -204,7 +204,8 @@ export default function Works() {
                 </video>
                 {/* Hover overlay */}
                 <div className="work-card__overlay" aria-hidden="true" />
-                <span className="work-card__hint">悬停播放</span>
+                <span className="work-card__hint work-card__hint--hover">悬停播放</span>
+                <span className="work-card__hint work-card__hint--touch">点按播放</span>
                 {/* Category badge */}
                 <span className="work-card__category">{p.category}</span>
               </div>
