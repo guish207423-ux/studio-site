@@ -124,6 +124,11 @@ export default function Pricing() {
           </div>
           <a href="#contact" className="btn btn--md btn--secondary">问问维护</a>
         </div>
+
+        {/* 同行合作：不面向终端客户的一条现金流，放在最后，不抢主报价 */}
+        <p className="pricing-note pricing-note--b2b">
+          同行合作：给设计公司、广告公司做前端交付。你们对客户，我们不出面，可以按项目或按月结算。
+        </p>
       </div>
     </section>
   )
