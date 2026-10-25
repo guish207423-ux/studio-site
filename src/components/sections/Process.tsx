@@ -7,11 +7,41 @@ import { useReducedMotion } from '../../lib/motion'
 gsap.registerPlugin(ScrollTrigger)
 
 const steps = [
-  { num: '01', title: '需求对齐', desc: '深度沟通项目目标、受众与期望，输出需求文档' },
-  { num: '02', title: '方案设计', desc: '品牌策略、视觉方向、交互原型，多轮迭代确认' },
-  { num: '03', title: '开发实现', desc: '前端/后端/动效全栈开发，持续预览与反馈' },
-  { num: '04', title: '测试验收', desc: '多端测试、性能调优、无障碍检查，确保质量' },
-  { num: '05', title: '交付上线', desc: '部署、文档、培训，全程可追，持续支持' },
+  {
+    num: '01',
+    title: '对齐与报价',
+    time: '1–3 天',
+    desc: '聊清目标、预算和上线时间，出一页需求说明 + 分项报价。不签就不往下走。',
+    need: '你需要：说清要解决什么问题，谁能拍板。',
+  },
+  {
+    num: '02',
+    title: '结构与线框',
+    time: '第 1 周',
+    desc: '定页面清单、内容结构和线框。这一步改结构最便宜，之后改就要动设计稿了。',
+    need: '你需要：确认页面范围，指定内容由谁提供。',
+  },
+  {
+    num: '03',
+    title: '视觉定稿',
+    time: '第 2–3 周',
+    desc: '首页与内页视觉稿，含动效说明。修改按轮计，一轮内意见请一次给全。',
+    need: '你需要：一次性给出完整修改意见。',
+  },
+  {
+    num: '04',
+    title: '前端实现',
+    time: '第 3–5 周',
+    desc: '可访问的预览链接，每周更新一次。你在预览上直接标问题，不用等邮件。',
+    need: '你需要：每周花半小时看预览并反馈。',
+  },
+  {
+    num: '05',
+    title: '上线交付',
+    time: '第 6 周',
+    desc: '部署上线，交付源码和使用文档，附 30 天缺陷修复。之后要不要维护，你定。',
+    need: '你需要：提供域名、服务器或第三方账号。',
+  },
 ]
 
 export default function Process() {
@@ -40,7 +70,7 @@ export default function Process() {
       <div className="container">
         <header className="section-head">
           <h2 id="process-title" className="section-head__title">工作流程</h2>
-          <p className="section-head__sub"><SectionIcon name="process" size={16} /> 从需求到交付，每个节点你都能看到</p>
+          <p className="section-head__sub"><SectionIcon name="process" size={16} /> 按官网重做（4–6 周）排的节点；设计稿转前端会压到 2–3 周</p>
         </header>
 
         <div ref={gridRef} style={{
@@ -80,19 +110,34 @@ export default function Process() {
                 top: 'var(--sp-3)',
                 right: 'var(--sp-3)',
               }}>{step.num}</span>
-              <h3 style={{
-                fontWeight: 700,
-                fontSize: '18px',
-                color: 'var(--c-txt)',
-                marginBottom: 'var(--sp-2)',
-                position: 'relative',
-              }}>{step.title}</h3>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--sp-2)', marginBottom: 'var(--sp-2)', position: 'relative' }}>
+                <h3 style={{
+                  fontWeight: 700,
+                  fontSize: '18px',
+                  color: 'var(--c-txt)',
+                }}>{step.title}</h3>
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '12px',
+                  color: 'var(--c-txt-3)',
+                  whiteSpace: 'nowrap',
+                }}>{step.time}</span>
+              </div>
               <p style={{
                 fontSize: 'var(--fs-body-sm)',
                 color: 'var(--c-txt-2)',
                 lineHeight: 1.7,
                 position: 'relative',
               }}>{step.desc}</p>
+              <p style={{
+                fontSize: '13px',
+                color: 'var(--c-txt-3)',
+                lineHeight: 1.6,
+                marginTop: 'var(--sp-3)',
+                paddingTop: 'var(--sp-3)',
+                borderTop: '1px solid var(--c-line)',
+                position: 'relative',
+              }}>{step.need}</p>
             </div>
           ))}
         </div>
