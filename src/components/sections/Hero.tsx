@@ -110,7 +110,7 @@ export default function Hero() {
             {[
               { value: '4–12', label: '周交付周期' },
               { value: '3', label: '类常见项目' },
-              { value: '0', label: '转包' },
+              { value: '100%', label: '自己做' },
               { value: '24h', label: '内回复' },
             ].map(stat => (
               <div key={stat.label} style={{ textAlign: 'center' }}>
@@ -159,7 +159,7 @@ export default function Hero() {
         transform: 'translateX(-50%)',
         textAlign: 'center',
       }}>
-        <span className="label">Scroll</span>
+        <span className="label">向下看</span>
         <span className="scroll-cue__line" />
       </div>
     </section>

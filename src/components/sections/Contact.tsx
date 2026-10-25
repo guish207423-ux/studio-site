@@ -197,7 +197,7 @@ export default function Contact() {
                   type="email"
                   value={formData.email}
                   onChange={e => handleChange('email', e.target.value)}
-                  placeholder="you@example.com"
+                  placeholder="你的邮箱"
                   style={{
                     width: '100%',
                     height: 48,

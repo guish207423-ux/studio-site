@@ -49,7 +49,7 @@ export default function LoadingScreen() {
         letterSpacing: '0.2em',
         color: 'var(--c-txt-3)',
         textTransform: 'uppercase',
-      }}>Loading</div>
+      }}>加载中</div>
       <div style={{
         width: 120,
         height: 2,
