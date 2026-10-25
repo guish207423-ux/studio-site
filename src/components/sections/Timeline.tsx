@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,11 +17,10 @@ const milestones = [
 
 export default function Timeline() {
   const lineRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!lineRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!lineRef.current || reduced) return
 
     const items = lineRef.current.querySelectorAll('.timeline-item')
     const ctx = gsap.context(() => {
@@ -34,15 +34,14 @@ export default function Timeline() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section section--ink2 zone" id="timeline" aria-labelledby="timeline-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="timeline" />
           <h2 id="timeline-title" className="section-head__title">项目怎么推进</h2>
-          <p className="section-head__sub">以 6 周的项目为例，实际大概是这个节奏</p>
+          <p className="section-head__sub"><SectionIcon name="timeline" size={16} /> 以 6 周的项目为例，实际大概是这个节奏</p>
         </header>
 
         <div ref={lineRef} className="timeline">

@@ -55,7 +55,7 @@ export default function Footer() {
               color: 'var(--c-txt-2)',
               marginTop: 'var(--sp-2)',
               lineHeight: 1.6,
-            }}>Yu Studio · 综合数字产品工作室<br />以光学与形变，构建数字产品的视觉语言</p>
+            }}>Yu Studio · 综合数字产品工作室<br />做界面、做前端、把设计稿变成能跑的代码</p>
             <div style={{
               display: 'flex',
               gap: 'var(--sp-3)',
@@ -105,9 +105,10 @@ export default function Footer() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-2)' }}>
                 {[
                   { href: '#about', label: '关于我们' },
-                  { href: '#services', label: '服务能力' },
-                  { href: '#works', label: '作品展示' },
-                  { href: '#process', label: '工作流程' },
+                  { href: '#services', label: '能做什么' },
+                  { href: '#works', label: '技术资产' },
+                  { href: '#cases', label: '做过哪些项目' },
+                  { href: '#pricing', label: '价格' },
                   { href: '#contact', label: '联系方式' },
                 ].map(l => (
                   <a key={l.href} href={l.href} style={{
@@ -206,7 +207,6 @@ export default function Footer() {
         </div>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--c-line)' }} />
-
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -214,13 +214,14 @@ export default function Footer() {
           flexWrap: 'wrap',
           gap: 'var(--sp-2)',
         }}>
+          {/* D7：页脚字号手机 13 / 平板 14，用 CSS 变量接管，便于按断点覆盖 */}
           <p style={{
-            fontSize: '12px',
+            fontSize: 'var(--fs-footer)',
             color: 'var(--c-txt-3)',
             fontFamily: 'var(--font-mono)',
           }}>© 2026 屿作所 · 保留所有权利</p>
           <p style={{
-            fontSize: '12px',
+            fontSize: 'var(--fs-footer)',
             color: 'var(--c-txt-3)',
             fontFamily: 'var(--font-mono)',
           }}>Built with React + Vite + hyalite.js</p>

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,11 +16,10 @@ const steps = [
 
 export default function Process() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const items = gridRef.current.querySelectorAll('.process-step')
     const ctx = gsap.context(() => {
@@ -33,15 +33,14 @@ export default function Process() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="process" aria-labelledby="process-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="process" />
           <h2 id="process-title" className="section-head__title">工作流程</h2>
-          <p className="section-head__sub">从需求到交付，全程透明可追</p>
+          <p className="section-head__sub"><SectionIcon name="process" size={16} /> 从需求到交付，每个节点你都能看到</p>
         </header>
 
         <div ref={gridRef} style={{

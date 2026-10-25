@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,11 +38,10 @@ const plans = [
 
 export default function Pricing() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const cards = gridRef.current.querySelectorAll('.pricing-card')
     const ctx = gsap.context(() => {
@@ -55,15 +55,14 @@ export default function Pricing() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section section--ink2 zone" id="pricing" aria-labelledby="pricing-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="pricing" />
-          <h2 id="pricing-title" className="section-head__title">服务定价</h2>
-          <p className="section-head__sub">价格写清楚，组合灵活，进度随时看</p>
+          <h2 id="pricing-title" className="section-head__title">价格</h2>
+          <p className="section-head__sub"><SectionIcon name="pricing" size={16} /> 价格写清楚，组合灵活，进度随时看</p>
         </header>
 
         <div ref={gridRef} className="pricing-grid">

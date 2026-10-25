@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { PenTool, Brush, Code, VideoPlay, Mobile, Command, GlobalSearch, Cpu } from 'iconsax-react'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -19,11 +20,10 @@ const services = [
 
 export default function Services() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const cards = gridRef.current.querySelectorAll('.service-card')
     const ctx = gsap.context(() => {
@@ -37,15 +37,14 @@ export default function Services() {
       gsap.set(cards, { y: 40, opacity: 0 })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="services" aria-labelledby="services-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="services" />
-          <h2 id="services-title" className="section-head__title">服务能力</h2>
-          <p className="section-head__sub">能自己做完的部分，才写在这里</p>
+          <h2 id="services-title" className="section-head__title">能做什么</h2>
+          <p className="section-head__sub"><SectionIcon name="services" size={16} /> 列在这里的，都是我们自己手写的部分</p>
         </header>
 
         <div ref={gridRef} className="services-grid">
@@ -53,10 +52,7 @@ export default function Services() {
             const Icon = s.icon
             return (
             <article key={s.title} className="service-card glass-float" style={{ cursor: 'default' }}>
-              <span className="service-card__icon" aria-hidden="true" style={{ transition: 'transform 0.3s var(--ease-out-expo)' }}
-                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.15) rotate(5deg)')}
-                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1) rotate(0deg)')}
-              >
+              <span className="service-card__icon" aria-hidden="true">
                 <Icon size={32} strokeWidth={1.5} />
               </span>
               <h3 className="service-card__title">{s.title}</h3>
@@ -76,7 +72,7 @@ export default function Services() {
           textAlign: 'center',
         }}>
           <a href="#contact" className="btn btn--lg btn--primary glass-btn">
-            <span>开始一个项目</span>
+            <span>留个消息</span>
           </a>
           <p style={{
             fontSize: '14px',

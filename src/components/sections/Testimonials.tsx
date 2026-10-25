@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -47,11 +48,10 @@ const commitments = [
 
 export default function Testimonials() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const cards = gridRef.current.querySelectorAll('.testimonial-card')
     const ctx = gsap.context(() => {
@@ -65,15 +65,14 @@ export default function Testimonials() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="testimonials" aria-labelledby="testimonials-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="testimonials" />
           <h2 id="testimonials-title" className="section-head__title">交付承诺</h2>
-          <p className="section-head__sub">愿意写进合作里的条件，不是口号</p>
+          <p className="section-head__sub"><SectionIcon name="testimonials" size={16} /> 愿意写进合作里的条件，不是口号</p>
         </header>
 
         <div ref={gridRef} style={{

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -38,11 +39,10 @@ const facts = [
 
 export default function About() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const cards = gridRef.current.querySelectorAll('.team-card')
     const ctx = gsap.context(() => {
@@ -56,15 +56,14 @@ export default function About() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="about" aria-labelledby="about-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="about" />
           <h2 id="about-title" className="section-head__title">关于我们</h2>
-          <p className="section-head__sub">人不多，按项目组队</p>
+          <p className="section-head__sub"><SectionIcon name="about" size={16} /> 小团队，按项目组队</p>
         </header>
 
         <div style={{
@@ -88,7 +87,7 @@ export default function About() {
               color: 'var(--c-txt-3)',
               lineHeight: 1.7,
             }}>
-              接的项目主要集中在三块：品牌视觉与官网、需要动效的产品界面、以及把设计稿真正落地成能跑的前端。
+              接的活集中在三块：品牌官网、动效界面、设计稿落地。
               规模不大，所以每个项目都由实际动手的人直接对接，中间不隔一层项目经理。
             </p>
           </div>

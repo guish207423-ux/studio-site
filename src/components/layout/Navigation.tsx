@@ -36,10 +36,10 @@ export default function Navigation() {
 
   const links = [
     { href: '#about', label: '关于我们' },
-    { href: '#services', label: '服务能力' },
-    { href: '#works', label: '开源生态' },
-    { href: '#cases', label: '典型场景' },
-    { href: '#pricing', label: '服务定价' },
+    { href: '#services', label: '能做什么' },
+    { href: '#works', label: '技术资产' },
+    { href: '#cases', label: '做过哪些项目' },
+    { href: '#pricing', label: '价格' },
     { href: '#contact', label: '联系方式' },
   ]
 
@@ -127,7 +127,7 @@ export default function Navigation() {
           </div>
 
           <a href="#contact" className="btn btn--sm btn--secondary nav__cta nav__cta--quiet">
-            <span>开始一个项目</span>
+            <span>留个消息</span>
           </a>
 
           <button

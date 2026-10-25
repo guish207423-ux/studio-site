@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -82,6 +83,7 @@ export default function Works() {
   const gridRef = useRef<HTMLDivElement>(null)
   const [activeCategory, setActiveCategory] = useState('全部')
   const [expanded, setExpanded] = useState<string | null>(null)
+  const reduced = useReducedMotion()
 
   const filtered = activeCategory === '全部'
     ? projects
@@ -89,7 +91,6 @@ export default function Works() {
 
   useEffect(() => {
     if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     const videos = gridRef.current.querySelectorAll<HTMLVideoElement>('video[data-hover-play]')
     let activeVideo: HTMLVideoElement | null = null
@@ -115,7 +116,10 @@ export default function Works() {
         if (activeVideo === v) activeVideo = null
       }
 
-      if (!reduced) {
+      // C2：hover 播放只在「有 hover 能力且未要求减弱动效」时注册；
+      // 触屏与 reduced-motion 都只保留 click 切换（触屏没有 hover，
+      // reduced-motion 下自动播放视频属于「非用户主动触发的动效」）。
+      if (!reduced && window.matchMedia('(hover: hover)').matches) {
         card.addEventListener('mouseenter', playVideo)
         card.addEventListener('mouseleave', pauseVideo)
       }
@@ -133,12 +137,10 @@ export default function Works() {
         card.replaceWith(card.cloneNode(true))
       })
     }
-  }, [filtered])
+  }, [filtered, reduced])
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const cards = gridRef.current.querySelectorAll('.work-card')
     const ctx = gsap.context(() => {
@@ -163,15 +165,14 @@ export default function Works() {
       return () => { gsap.ticker.remove(ticker) }
     })
     return () => ctx.revert()
-  }, [filtered])
+  }, [filtered, reduced])
 
   return (
     <section className="section section--ink2 zone" id="works" aria-labelledby="works-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="works" />
-          <h2 id="works-title" className="section-head__title">开源生态</h2>
-          <p className="section-head__sub">我们日常在用的开源项目 · 视频为真实界面录制 · {filtered.length} 个</p>
+          <h2 id="works-title" className="section-head__title">技术资产</h2>
+          <p className="section-head__sub"><SectionIcon name="works" size={16} /> 长期跟踪、拆解的开源工程。这些项目覆盖的能力，就是我们能接的范围</p>
         </header>
 
         {/* Category filter */}

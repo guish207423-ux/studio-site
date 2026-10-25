@@ -1,20 +1,20 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { useReducedMotion } from '../../lib/motion'
 
 export default function Hero() {
   const panelRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!panelRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!panelRef.current || reduced) return
 
     const ctx = gsap.context(() => {
       gsap.fromTo(panelRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'expo.out' })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -43,7 +43,7 @@ export default function Hero() {
             marginBottom: 'var(--sp-4)',
           }}>
             <span className="pulse-dot" aria-hidden="true" />
-            <span className="label">2026 Q4 档期可接新项目</span>
+            <span className="label">接新项目 · 2026 Q4</span>
           </p>
           <h1 ref={titleRef} id="hero-title" style={{
             fontWeight: 900,
@@ -68,13 +68,13 @@ export default function Hero() {
             lineHeight: 1.65,
             color: 'var(--c-txt-2)',
             marginBottom: 'var(--sp-3)',
-          }}>把设计稿做成能用的界面，<br className="br-mobile" />看得见，也点得动。</p>
+          }}>做界面、做前端、把设计稿变成能跑的代码。</p>
           <p style={{
             fontSize: 'var(--fs-body-sm)',
             color: 'var(--c-txt-2)',
             marginBottom: 'var(--sp-5)',
           }}>
-            一个项目从头到尾由同一批人做完，不转包。页面上的玻璃是真在透背景，不是贴图。
+            一个项目从头到尾由同一批人做完，不转包。玻璃效果是真实 backdrop-filter，不是贴图。
           </p>
           <div className="hero-cta" style={{
             display: 'flex',
@@ -82,10 +82,10 @@ export default function Hero() {
             flexWrap: 'wrap',
           }}>
             <a href="#works" className="btn btn--lg btn--primary">
-              <span>查看作品</span>
+              <span>看我们在用的开源项目</span>
             </a>
             <a href="#services" className="btn btn--lg btn--secondary">
-              服务能力
+              能做什么
             </a>
           </div>
         </div>

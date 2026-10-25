@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -19,11 +20,10 @@ const tools = [
 
 export default function Partners() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const items = gridRef.current.querySelectorAll('.partner-item')
     const ctx = gsap.context(() => {
@@ -37,15 +37,14 @@ export default function Partners() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="partners" aria-labelledby="partners-title" style={{ padding: 'var(--sp-6) 0' }}>
       <div className="container">
         <header className="section-head" style={{ marginBottom: 'var(--sp-5)' }}>
-          <SectionIcon name="partners" />
           <h2 id="partners-title" className="section-head__title" style={{ fontSize: 'var(--fs-h2)' }}>常用工具链</h2>
-          <p className="section-head__sub">这几样几乎每个项目都会用到</p>
+          <p className="section-head__sub"><SectionIcon name="partners" size={16} /> 这几样几乎每个项目都会用到</p>
         </header>
 
         <div ref={gridRef} style={{

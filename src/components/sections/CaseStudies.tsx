@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// 不挂真实公司的名头，也不编数据。这里写的是我们接得住的三种项目形态。
 const cases = [
   {
     title: '品牌官网 / 产品落地页',
@@ -18,7 +18,6 @@ const cases = [
       { value: '上线', label: '域名 · 证书 · 部署' },
     ],
     tags: ['React', 'Vite', 'GSAP', '响应式'],
-    color: '#D4FF3F',
   },
   {
     title: '产品界面的动效升级',
@@ -31,7 +30,6 @@ const cases = [
       { value: '性能', label: '帧预算内运行' },
     ],
     tags: ['React', 'TypeScript', 'SVG', 'CSS'],
-    color: '#7FE3FF',
   },
   {
     title: '设计稿落地 / 前端重构',
@@ -44,17 +42,15 @@ const cases = [
       { value: '交接', label: '文档 + 部署说明' },
     ],
     tags: ['React', 'TypeScript', 'Vite', 'WCAG'],
-    color: '#B47FFF',
   },
 ]
 
 export default function CaseStudies() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const cards = gridRef.current.querySelectorAll('.case-card')
     const ctx = gsap.context(() => {
@@ -68,22 +64,21 @@ export default function CaseStudies() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="cases" aria-labelledby="cases-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="cases" />
-          <h2 id="cases-title" className="section-head__title">典型场景</h2>
-          <p className="section-head__sub">三种我们常接的活，以及怎么拆</p>
+          <h2 id="cases-title" className="section-head__title">做过哪些项目</h2>
+          <p className="section-head__sub"><SectionIcon name="cases" size={16} /> 三种我们常接的活，以及怎么拆</p>
         </header>
 
         <div ref={gridRef} className="cases-grid">
           {cases.map((c) => (
             <article key={c.title} className="case-card glass-float" style={{ cursor: 'default' }}>
               <div className="case-card__header">
-                <span className="case-card__category" style={{ color: c.color }}>{c.category}</span>
+                <span className="case-card__category">{c.category}</span>
                 <span className="case-card__client">{c.scene}</span>
               </div>
               <h3 className="case-card__title">{c.title}</h3>

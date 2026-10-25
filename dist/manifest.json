@@ -1,7 +1,7 @@
 {
   "name": "屿作所 — 综合数字产品工作室",
   "short_name": "屿作所",
-  "description": "以光学与形变，构建数字产品的视觉语言",
+  "description": "做界面、做前端、把设计稿变成能跑的代码",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050505",

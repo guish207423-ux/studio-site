@@ -8,7 +8,9 @@ import App from './App'
 // Lenis smooth scroll integration
 import Lenis from 'lenis'
 
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+import { isReducedMotion } from './lib/motion'
+
+const reduced = isReducedMotion()
 
 if (!reduced) {
   const lenis = new Lenis({
@@ -30,18 +32,26 @@ if (!reduced) {
 
 // Hyalite liquid glass integration.
 // `light` 参与滤镜缓存键，必须在建 watcher 时按当前主题给出 —— 事后改会拿到旧滤镜。
+//
+// 参数档位（v6 增强，数值取自 hyalite 源码 DEFAULTS 与 SKILL 参数表核实值）：
+//   bevel 37→46 / thickness 59→84 / slope 2.7→3.4（>1 = 折叠场，rim 内出现液态漩涡）
+//   dispersion 1.6→2.4（色散通道分离加大）/ shade 0.46→0.62（边缘变暗 = 透射损失）
+//   rim 1.76→2.4（边缘回光）/ edgeW 2.5→4 / sat 1.4→1.9
+//   edge 0.08 保持：均匀白描边是「塑料白圈」来源，边缘交给 shape:lip 的隆起截面
+// 全部玻璃共用这一张表（原为 nav/contact/modal/btn 四张近似表，数值互相矛盾，
+// 且 App.tsx 里的第二份 watch 与本文件重复接线 —— 已删除，见 App.tsx 注释）。
 function hyaliteParams(kind: 'panel' | 'button') {
   const light = hyaliteLightForTheme(currentTheme(), kind)
   if (kind === 'button') {
     return {
-      bevel: 14, thickness: 24, shape: 'squircle', slope: 1.5, blur: 1,
-      dispersion: 1.4, shade: 0.40, rim: 1.5, edgeW: 1.5, sat: 1.3,
+      bevel: 20, thickness: 38, shape: 'squircle', slope: 2.2, blur: 1,
+      dispersion: 2.0, shade: 0.52, rim: 2.1, edgeW: 2.5, sat: 1.7,
       edge: 0.08, light, materialize: 600, settle: 150,
     }
   }
   return {
-    bevel: 37, thickness: 59, shape: 'lip', slope: 2.7, blur: 1,
-    dispersion: 1.6, shade: 0.46, rim: 1.76, edgeW: 2.5, sat: 1.4,
+    bevel: 46, thickness: 84, shape: 'lip', slope: 3.4, blur: 1,
+    dispersion: 2.4, shade: 0.62, rim: 2.4, edgeW: 4, sat: 1.9,
     edge: 0.08, light, materialize: 600, settle: 200,
   }
 }
@@ -50,26 +60,28 @@ const stopWatchers: Array<() => void> = []
 ;(window as any).applyHyalite = applyHyalite;
 
 function applyHyalite() {
-  console.log('applyHyalite called, hyalite=', typeof window.Hyalite); (window as any).__hyaliteType = typeof window.Hyalite;
   try {
-    if (typeof window.Hyalite === 'undefined') { console.log('hyalite undefined'); return; }
-    stopWatchers.forEach((stop) => stop());
-    stopWatchers.length = 0;
-    const mobile = window.matchMedia('(max-width: 767px)').matches;
+    if (typeof window.Hyalite === 'undefined') return
+    stopWatchers.forEach((stop) => stop())
+    stopWatchers.length = 0
+    const mobile = window.matchMedia('(max-width: 767px)').matches
+    // .hero-panel 与 .glass-* 同属「面板」档（thickness/bevel 大、shape:lip），
+    // 但它在 <767px 下短边会被 bevel clamp 削掉大半，所以移动端只挂 nav。
     const panelSelector = mobile
       ? '.glass-nav'
-      : '.glass-nav, .glass-contact, .glass-modal';
-    stopWatchers.push(() => window.Hyalite.watch(document.body, panelSelector, hyaliteParams('panel')).stop());
+      : '.glass-nav, .glass-contact, .glass-modal, .hero-panel'
+    stopWatchers.push(() => window.Hyalite.watch(document.body, panelSelector, hyaliteParams('panel')).stop())
     if (!mobile) {
-      stopWatchers.push(() => window.Hyalite.watch(document.body, '.glass-btn', hyaliteParams('button')).stop());
+      stopWatchers.push(() => window.Hyalite.watch(document.body, '.glass-btn', hyaliteParams('button')).stop())
     }
-    console.log('applyHyalite done');
   } catch(e) {
     console.error('applyHyalite error:', e.message, e.stack);
   }
 }
 
-// Apply hyalite after delay
+// Apply hyalite —— 不在本文件顶层调用：此时 App 尚未渲染，.glass-* 元素还不存在，
+// watcher 会拿到空集合。由 App 挂载后的 'app:booted' 事件驱动（见下方）。
+// 早于渲染的那次调用只作兜底（例如 App 的 effect 因异常没跑）。
 
 
 window.addEventListener('themechange', applyHyalite);
@@ -80,6 +92,12 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 ;(window as any).applyHyalite = applyHyalite;
+
+// ---- 玻璃接线启动 ----
+// main.tsx 在这里执行时 App 尚未渲染，.glass-nav / .glass-btn 都不存在，
+// 现在直接 watch 会得到空集合（玻璃静默失效）。所以由 App 挂载后发 boot 事件驱动。
+window.addEventListener('app:booted', () => { applyHyalite() }, { once: true })
+applyHyalite()
 
 // Service Worker registration for PWA
 if ('serviceWorker' in navigator) {

@@ -4,13 +4,13 @@ import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import { setupMicroInteractions } from './microInteractions'
 import LoadingScreen from './components/ui/LoadingScreen'
+import DynamicLight from './components/ui/DynamicLight'
 import FloatingChat from './components/ui/FloatingChat'
 import ScrollToTop from './components/ui/ScrollToTop'
 import CookieConsent from './components/ui/CookieConsent'
 
 const Services = lazy(() => import('./components/sections/Services'))
 const Works = lazy(() => import('./components/sections/Works'))
-const Stack = lazy(() => import('./components/sections/Stack'))
 const Process = lazy(() => import('./components/sections/Process'))
 const Testimonials = lazy(() => import('./components/sections/Testimonials'))
 const About = lazy(() => import('./components/sections/About'))
@@ -18,8 +18,6 @@ const Partners = lazy(() => import('./components/sections/Partners'))
 const CaseStudies = lazy(() => import('./components/sections/CaseStudies'))
 const Pricing = lazy(() => import('./components/sections/Pricing'))
 const Blog = lazy(() => import('./components/sections/Blog'))
-const Timeline = lazy(() => import('./components/sections/Timeline'))
-const Showcase3D = lazy(() => import('./components/sections/Showcase3D'))
 const Contact = lazy(() => import('./components/sections/Contact'))
 
 function SectionSkeleton() {
@@ -30,6 +28,11 @@ function SectionSkeleton() {
 
 export default function App() {
   useEffect(() => {
+    // 玻璃接线在挂载后才有效：main.tsx 执行时 DOM 里还没有 .glass-* 元素。
+    // 这里等一帧让子组件（导航 / 按钮）完成首次渲染，再触发 watch。
+    const boot = requestAnimationFrame(() => {
+      window.dispatchEvent(new CustomEvent('app:booted'))
+    })
     setupMicroInteractions()
     // Pause heavy animations during scroll for better performance
     let scrollTimer: ReturnType<typeof setTimeout> | null = null
@@ -58,26 +61,11 @@ export default function App() {
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
-    // Apply hyalite
-    if (typeof (window as any).Hyalite !== 'undefined') {
-      const Hyalite = (window as any).Hyalite
-      const mobile = window.matchMedia('(max-width: 767px)').matches
-      const panelSelector = mobile
-        ? '.glass-nav'
-        : '.glass-nav, .glass-contact, .glass-modal'
-      Hyalite.watch(document.body, panelSelector, {
-        bevel: 24, thickness: 36, shape: 'lip', slope: 2.0, blur: 0.5,
-        dispersion: 1.2, shade: 0.46, rim: 1.76, edgeW: 1.5, sat: 1.2,
-        edge: 0.08, light: 1.35, materialize: 400, settle: 150,
-      })
-      if (!mobile) {
-        Hyalite.watch(document.body, '.glass-btn', {
-          bevel: 10, thickness: 16, shape: 'squircle', slope: 1.2, blur: 0.5,
-          dispersion: 1.2, shade: 0.40, rim: 1.5, edgeW: 1.0, sat: 1.2,
-          edge: 0.08, light: 1.35, materialize: 300, settle: 100,
-        })
-      }
-    }
+    // Apply hyalite —— 已移至 src/main.tsx 的 applyHyalite()（全站唯一接线点）。
+    // 原先这里还有第二份 Hyalite.watch：与 main.tsx 的 watcher 盯同一批选择器、
+    // 数值却不同（bevel 24/37、slope 2.0/2.7、light 1.35 vs 主题值），后注册者
+    // 静默覆盖前者，导致「参数改了没生效」的假象。删掉重复接线后，参数档位只有
+    // main.tsx:hyaliteParams 一处真源。
     // 兜底：入场动画（GSAP）万一卡住（标签页失焦/浏览器节流），不能把内容永久留在 opacity:0。
     // 只处理「已在视口内且卡住超过 1.2s」的元素，不影响正常的滚动入场。
     const stuckSeen = new WeakMap<Element, number>()
@@ -112,6 +100,7 @@ export default function App() {
     const watchdogTimer = window.setInterval(revealWatchdog, 400)
 
     return () => {
+      cancelAnimationFrame(boot)
       window.removeEventListener('scroll', onScrollPause)
       window.removeEventListener('scroll', onScroll)
       window.clearInterval(watchdogTimer)
@@ -140,10 +129,7 @@ export default function App() {
       onBlur={e => { e.currentTarget.style.top = '-100%' }}
       >跳转到主要内容</a>
       <LoadingScreen />
-      <div className="refract-blob" aria-hidden="true" />
-      <div className="refract-blob refract-blob--2" aria-hidden="true" />
-      <div className="refract-blob refract-blob--3" aria-hidden="true" />
-      <div className="light-sweep" aria-hidden="true" />
+      <DynamicLight />
       {/* Scroll progress bar */}
       <div id="scroll-progress" style={{
         position: 'fixed',
@@ -171,10 +157,7 @@ export default function App() {
           <Partners />
           <CaseStudies />
           <Pricing />
-          <Timeline />
           <Blog />
-          <Showcase3D />
-          <Stack />
           <Contact />
         </Suspense>
       </main>

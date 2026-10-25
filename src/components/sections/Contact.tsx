@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -11,11 +12,10 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!formRef.current || !sideRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!formRef.current || !sideRef.current || reduced) return
 
     const ctx = gsap.context(() => {
       gsap.fromTo(formRef.current, { y: 40, opacity: 0 }, {
@@ -28,7 +28,7 @@ export default function Contact() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   const validate = () => {
     const newErrors: Record<string, string> = {}
@@ -43,7 +43,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!validate()) {
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!reduced && formRef.current) {
         gsap.to(formRef.current, { x: 3, duration: 0.06, repeat: 5, yoyo: true, ease: 'power1.inOut', clearProps: 'x' })
       }
@@ -90,9 +89,8 @@ export default function Contact() {
       <section className="section section--ink2 zone" id="contact" aria-labelledby="contact-title">
         <div className="container">
           <header className="section-head">
-            <SectionIcon name="contact" />
-          <h2 id="contact-title" className="section-head__title">联系方式</h2>
-            <p className="section-head__sub">留个消息</p>
+            <h2 id="contact-title" className="section-head__title">联系方式</h2>
+            <p className="section-head__sub"><SectionIcon name="contact" size={16} /> 留个消息</p>
           </header>
           <div className="glass glass-contact" style={{
             maxWidth: 600,
@@ -123,7 +121,7 @@ export default function Contact() {
               fontSize: 'var(--fs-body)',
               color: 'var(--c-txt-2)',
               marginBottom: 'var(--sp-5)',
-            }}>收到了，我们会在一天内回复你。</p>
+            }}>感谢您的留言，我们会在 24 小时内回复。</p>
             <button onClick={handleReset} className="btn btn--md btn--secondary">
               再次填写
             </button>
@@ -137,9 +135,8 @@ export default function Contact() {
     <section className="section section--ink2 zone" id="contact" aria-labelledby="contact-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="contact" />
           <h2 id="contact-title" className="section-head__title">联系方式</h2>
-          <p className="section-head__sub">留个消息</p>
+          <p className="section-head__sub"><SectionIcon name="contact" size={16} /> 留个消息</p>
         </header>
 
         <div className="contact-grid">

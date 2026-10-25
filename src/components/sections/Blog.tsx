@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -54,11 +55,10 @@ const notes = [
 
 export default function Blog() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const cards = gridRef.current.querySelectorAll('.blog-card')
     const ctx = gsap.context(() => {
@@ -72,15 +72,14 @@ export default function Blog() {
       })
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="blog" aria-labelledby="blog-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="blog" />
           <h2 id="blog-title" className="section-head__title">工作笔记</h2>
-          <p className="section-head__sub">做项目时随手记的几段，还没整理成文章</p>
+          <p className="section-head__sub"><SectionIcon name="blog" size={16} /> 做项目时随手记的几段，还没整理成文章</p>
         </header>
 
         <div ref={gridRef} className="blog-grid">

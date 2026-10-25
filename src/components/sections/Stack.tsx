@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -30,11 +31,10 @@ const stackGroups = [
 
 export default function Stack() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
+    if (!gridRef.current || reduced) return
 
     const tags = gridRef.current.querySelectorAll('.stack-tag')
     const groupHeads = gridRef.current.querySelectorAll('.stack-group__title')
@@ -80,15 +80,14 @@ export default function Stack() {
       return () => { gsap.ticker.remove(ticker) }
     })
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section zone" id="stack" aria-labelledby="stack-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="stack" />
           <h2 id="stack-title" className="section-head__title">技术栈</h2>
-          <p className="section-head__sub">平时真正在用的工具，没什么神秘</p>
+          <p className="section-head__sub"><SectionIcon name="stack" size={16} /> 平时真正在用的工具，没什么神秘</p>
         </header>
 
         <div ref={gridRef} style={{

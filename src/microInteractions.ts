@@ -4,8 +4,10 @@ import gsap from 'gsap'
 // Micro-interactions — BRAND §3.3 玻璃家族微动效语言
 // ============================================================================
 
+import { isReducedMotion } from './lib/motion'
+
 export function setupMicroInteractions() {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reduced = isReducedMotion()
   const coarse = window.matchMedia('(hover: none)').matches
   if (reduced || coarse) return
 
@@ -156,10 +158,13 @@ export function setupMicroInteractions() {
     })
   })
 
-  // 8. visibilitychange 暂停折射源动画
-  const refractLayers = document.querySelectorAll(".refract-blob")
+  // 8. visibilitychange 暂停背景光层动画（v5 的 .refract-blob 已移除）
+  //    v6：网格 / 直尺与视差层一起暂停，避免标签页不可见时滤镜空转。
+  const driftLayers = document.querySelectorAll(
+    ".light-field__drift, .light-field__grid, .light-field__ruler",
+  )
   function pauseRefractAnimations(hidden: boolean) {
-    refractLayers.forEach(el => {
+    driftLayers.forEach(el => {
       if (hidden) { (el as HTMLElement).style.animationPlayState = "paused"; }
       else { (el as HTMLElement).style.animationPlayState = "running"; }
     })

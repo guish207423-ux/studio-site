@@ -1,14 +1,15 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import SectionIcon from '../ui/SectionIcon'
+import { useReducedMotion } from '../../lib/motion'
 
 export default function Showcase3D() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
     if (!canvasRef.current) return
     const canvas = canvasRef.current
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000)
@@ -80,15 +81,14 @@ export default function Showcase3D() {
       material.dispose()
       renderer.dispose()
     }
-  }, [])
+  }, [reduced])
 
   return (
     <section className="section section--ink2 zone" id="showcase3d" aria-labelledby="showcase3d-title">
       <div className="container">
         <header className="section-head">
-          <SectionIcon name="showcase3d" />
           <h2 id="showcase3d-title" className="section-head__title">3D 展示</h2>
-          <p className="section-head__sub">交互式 3D 作品预览 · 拖拽旋转</p>
+          <p className="section-head__sub"><SectionIcon name="showcase3d" size={16} /> 交互式 3D 作品预览 · 拖拽旋转</p>
         </header>
         <div style={{
           borderRadius: 'var(--r-lg)',
