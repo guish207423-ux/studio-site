@@ -8,31 +8,49 @@ gsap.registerPlugin(ScrollTrigger)
 
 const plans = [
   {
-    name: '起步',
-    price: '¥8,000',
+    name: '设计稿转线上',
+    price: '¥12,000',
     period: '起',
-    desc: '适合个人项目与小型产品',
-    features: ['UI/UX 设计', '响应式前端', '1 轮修改', '2 周交付', '基础 SEO'],
-    cta: '开始项目',
+    desc: '你有 Figma，我们把它做成能点的页面',
+    features: [
+      'Figma 到 React 实现',
+      '响应式与无障碍基线',
+      '交互与动效还原',
+      '含 2 轮修改',
+      '2–3 周交付，源码交付',
+    ],
+    cta: '聊聊这个',
     highlight: false,
   },
   {
-    name: '专业',
+    name: '动效升级',
+    price: '¥15,000',
+    period: '起',
+    desc: '产品已经在线，把关键交互做出手感',
+    features: [
+      '关键路径动效设计',
+      '性能预算与降级方案',
+      '含 2 轮修改',
+      '2–3 周交付，可只做一个模块',
+      '附参数说明，方便你自己改',
+    ],
+    cta: '聊聊这个',
+    highlight: false,
+  },
+  {
+    name: '官网重做',
     price: '¥28,000',
     period: '起',
-    desc: '适合成长型产品与团队',
-    features: ['品牌 VI + 设计系统', '全栈开发', '动效与视频', '3 轮修改', '4-6 周交付', '性能优化', '无障碍审计'],
-    cta: '开始项目',
+    desc: '5–7 个页面，从品牌梳理做到前端上线',
+    features: [
+      '页面结构与视觉设计',
+      '前端实现与交互动效',
+      '含 3 轮修改',
+      '部署上线，基础 SEO',
+      '4–6 周交付，源码 + 使用文档',
+    ],
+    cta: '聊聊这个',
     highlight: true,
-  },
-  {
-    name: '企业',
-    price: '定制',
-    period: '',
-    desc: '适合大型产品与长期合作',
-    features: ['需求梳理与方案', '按阶段交付', '按里程碑多轮修改', '8-12 周交付', '上线后按月维护', '培训与交接'],
-    cta: '联系咨询',
-    highlight: false,
   },
 ]
 
@@ -90,12 +108,22 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p style={{
-          textAlign: 'center',
-          fontSize: '14px',
-          color: 'var(--c-txt-3)',
-          marginTop: 'var(--sp-5)',
-        }}>所有方案包含源码与文档。长期合作有折扣，具体谈。</p>
+        {/* 先把「起」的边界说清，再谈维护；顺序反了会被读成在解释维护价 */}
+        <p className="pricing-note">
+          「起」= 5 页以内、标准交互。超出按页计，报价前会给一张分项单。不含文案撰写、拍摄与第三方服务费用。
+        </p>
+
+        {/* 复购入口：交付之后的事，单独一行，标明不单卖，避免被当成第四个套餐 */}
+        <div className="retainer">
+          <div>
+            <p className="retainer__label">仅限已交付项目</p>
+            <p className="retainer__title">长期维护 · ¥3,500 起 / 月</p>
+            <p className="retainer__desc">
+              缺陷修复、依赖升级、性能与无障碍巡检，每月 4 小时内的小改动。不单独出售。
+            </p>
+          </div>
+          <a href="#contact" className="btn btn--md btn--secondary">问问维护</a>
+        </div>
       </div>
     </section>
   )

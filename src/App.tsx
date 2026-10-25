@@ -28,11 +28,11 @@ function SectionSkeleton() {
 
 export default function App() {
   useEffect(() => {
-    // 玻璃接线在挂载后才有效：main.tsx 执行时 DOM 里还没有 .glass-* 元素。
-    // 这里等一帧让子组件（导航 / 按钮）完成首次渲染，再触发 watch。
-    const boot = requestAnimationFrame(() => {
-      window.dispatchEvent(new CustomEvent('app:booted'))
-    })
+    // 玻璃接线：main.tsx 执行时 .glass-* 元素还不存在，watcher 会拿到空集合。
+    // 这里在 effect 里直接派发（effect 在 DOM 变更 commit 之后运行，此时元素已在文档中）。
+    // 不能用 requestAnimationFrame 包一层：StrictMode 会双调 effect，第一遍的 cleanup
+    // 会把 rAF 取消掉，事件永远不派发 —— 玻璃静默失效（实测 svg filter 数 = 0）。
+    window.dispatchEvent(new CustomEvent('app:booted'))
     setupMicroInteractions()
     // Pause heavy animations during scroll for better performance
     let scrollTimer: ReturnType<typeof setTimeout> | null = null
@@ -100,7 +100,6 @@ export default function App() {
     const watchdogTimer = window.setInterval(revealWatchdog, 400)
 
     return () => {
-      cancelAnimationFrame(boot)
       window.removeEventListener('scroll', onScrollPause)
       window.removeEventListener('scroll', onScroll)
       window.clearInterval(watchdogTimer)

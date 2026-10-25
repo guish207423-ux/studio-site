@@ -9,8 +9,9 @@ import { useEffect, useRef } from 'react'
  *     .light-field__grid  折射源：96px 稀疏网格（直线在玻璃边缘被弯折 = 玻璃里的结构在流动）
  *     .light-field__ruler 折射直尺：288px / 2px 粗线，弯折最可读的一层
  *     .light-field__drift  滚动视差层（vw 幅度）+ CSS 低频自漂移
- *     .light-shadow        暗部层：mix-blend-mode: screen 的补集 —— 用 screen
- *                          叠加一层「反向光」，等价于亮部让位形成阴影
+ *     .light-shadow        暗部层：mix-blend-mode: multiply —— 一层跟随指针的
+ *                          暗色径向压暗，「反向光」即亮部让位形成阴影
+ *                          （screen 只会变亮，做不出暗部，见 globals.css 同处注释）
  *
  * 性能约束（本卡的核心验收项）：
  *   - 一个 rAF 循环同时服务滚动与指针，不在事件里直接写样式

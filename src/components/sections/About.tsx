@@ -63,7 +63,7 @@ export default function About() {
       <div className="container">
         <header className="section-head">
           <h2 id="about-title" className="section-head__title">关于我们</h2>
-          <p className="section-head__sub"><SectionIcon name="about" size={16} /> 小团队，按项目组队</p>
+          <p className="section-head__sub"><SectionIcon name="about" size={16} /> 人不多，按项目组队</p>
         </header>
 
         <div style={{

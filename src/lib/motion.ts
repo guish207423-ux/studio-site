@@ -5,6 +5,46 @@ export function isReducedMotion(): boolean {
 }
 
 /**
+ * 「能否用 hover 做交互」的统一判定（C2）。
+ *
+ * 触屏没有 hover，prefers-reduced-motion 下也不该注册「非用户主动触发的动效」。
+ * 各组件不再各自 matchMedia —— Works 的悬停播放曾经自己判一次，
+ * 判完就定死：用户切回 hover 设备或关掉减弱动效时不会重新注册。
+ */
+export function canHover(): boolean {
+  return (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(hover: hover)').matches &&
+    !isReducedMotion()
+  )
+}
+
+/**
+ * canHover 的反应式版本（C2）。
+ *
+ * 与 useReducedMotion 同构：挂载时读一次不够，用户在系统里切换「减弱动态效果」
+ * 或外接显示器（hover 能力变化）时，已经注册的事件监听不会自己失效。
+ * 订阅 MediaQueryList，变化时刷新 state，让订阅组件重新接线。
+ */
+export function useCanHover(): boolean {
+  const [hoverable, setHoverable] = useState(canHover)
+
+  useEffect(() => {
+    const hoverQuery = window.matchMedia('(hover: hover)')
+    const reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const sync = () => setHoverable(canHover())
+    hoverQuery.addEventListener('change', sync)
+    reduceQuery.addEventListener('change', sync)
+    return () => {
+      hoverQuery.removeEventListener('change', sync)
+      reduceQuery.removeEventListener('change', sync)
+    }
+  }, [])
+
+  return hoverable
+}
+
+/**
  * 统一的 reduced-motion 判定（C7）。
  *
  * 每个组件不再各自 matchMedia：挂载时读一次不够 —— 用户在系统设置里改

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
-import { useReducedMotion } from '../../lib/motion'
+import { useReducedMotion, useCanHover } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -84,16 +84,32 @@ export default function Works() {
   const [activeCategory, setActiveCategory] = useState('全部')
   const [expanded, setExpanded] = useState<string | null>(null)
   const reduced = useReducedMotion()
+  // C2：hover 播放的能力判定走统一 hook（含 reduced-motion），不再自己 matchMedia。
+  const hoverable = useCanHover()
 
   const filtered = activeCategory === '全部'
     ? projects
     : projects.filter(p => p.category === activeCategory)
 
   useEffect(() => {
-    if (!gridRef.current) return
+    const root = gridRef.current
+    if (!root) return
 
-    const videos = gridRef.current.querySelectorAll<HTMLVideoElement>('video[data-hover-play]')
+    const videos = root.querySelectorAll<HTMLVideoElement>('video[data-hover-play]')
     let activeVideo: HTMLVideoElement | null = null
+    const cleanups: Array<() => void> = []
+
+    const playVideo = (v: HTMLVideoElement) => {
+      if (activeVideo && activeVideo !== v) {
+        activeVideo.pause()
+      }
+      v.play().catch(() => {})
+      activeVideo = v
+    }
+    const pauseVideo = (v: HTMLVideoElement) => {
+      v.pause()
+      if (activeVideo === v) activeVideo = null
+    }
 
     videos.forEach(v => {
       v.preload = 'metadata'
@@ -104,40 +120,39 @@ export default function Works() {
       const card = v.closest('.work-card')
       if (!card) return
 
-      const playVideo = () => {
-        if (activeVideo && activeVideo !== v) {
-          activeVideo.pause()
-        }
-        v.play().catch(() => {})
-        activeVideo = v
-      }
-      const pauseVideo = () => {
-        v.pause()
-        if (activeVideo === v) activeVideo = null
-      }
-
       // C2：hover 播放只在「有 hover 能力且未要求减弱动效」时注册；
       // 触屏与 reduced-motion 都只保留 click 切换（触屏没有 hover，
       // reduced-motion 下自动播放视频属于「非用户主动触发的动效」）。
-      if (!reduced && window.matchMedia('(hover: hover)').matches) {
-        card.addEventListener('mouseenter', playVideo)
-        card.addEventListener('mouseleave', pauseVideo)
-      }
+      // hoverable 变化会重跑本 effect，所以偏好切换时监听会自动重接。
+      const onEnter = () => playVideo(v)
+      const onLeave = () => pauseVideo(v)
+      const onClick = () => { if (v.paused) playVideo(v); else pauseVideo(v) }
 
-      card.addEventListener('click', () => {
-        if (v.paused) playVideo()
-        else pauseVideo()
+      if (hoverable) {
+        card.addEventListener('mouseenter', onEnter)
+        card.addEventListener('mouseleave', onLeave)
+      }
+      card.addEventListener('click', onClick)
+
+      // 清理必须用 removeEventListener。原先这里用 card.replaceWith(card.cloneNode(true))
+      // 摘监听：克隆节点不在 React 的 DOM 引用里，过滤切换一次之后 React 再渲染时
+      // 写入的是已脱离文档的旧节点，界面从此不再更新（分类筛选点了没反应）。
+      cleanups.push(() => {
+        card.removeEventListener('mouseenter', onEnter)
+        card.removeEventListener('mouseleave', onLeave)
+        card.removeEventListener('click', onClick)
+        pauseVideo(v)
       })
     })
 
     return () => {
-      videos.forEach(v => {
-        const card = v.closest('.work-card')
-        if (!card) return
-        card.replaceWith(card.cloneNode(true))
-      })
+      cleanups.forEach(fn => fn())
+      if (activeVideo) {
+        activeVideo.pause()
+        activeVideo = null
+      }
     }
-  }, [filtered, reduced])
+  }, [filtered, hoverable])
 
   useEffect(() => {
     if (!gridRef.current || reduced) return
