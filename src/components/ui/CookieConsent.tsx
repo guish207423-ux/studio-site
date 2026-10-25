@@ -88,9 +88,9 @@ export default function CookieConsent() {
         }}>拒绝</button>
         <button onClick={accept} style={{
           ...btnBase,
-          background: 'rgba(212, 255, 63, 0.12)',
-          border: '1px solid var(--c-accent)',
-          color: 'var(--c-accent)',
+          background: 'rgba(255, 255, 255, 0.10)',
+          border: '1px solid var(--c-line-strong)',
+          color: 'var(--c-txt)',
           fontWeight: 600,
         }}>接受</button>
       </div>

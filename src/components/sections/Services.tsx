@@ -6,9 +6,9 @@ import { PenTool, Brush, Code, VideoPlay, Mobile, Command, GlobalSearch, Cpu } f
 gsap.registerPlugin(ScrollTrigger)
 
 const services = [
-  { icon: PenTool, title: 'UI/UX 设计', desc: '从用户研究到高保真原型的全流程界面设计', tags: ['交互原型', '设计系统'] },
+  { icon: PenTool, title: 'UI/UX 设计', desc: '设计界面，从草图到能点的原型', tags: ['交互原型', '设计系统'] },
   { icon: Brush, title: '品牌 VI 设计', desc: '品牌识别系统、视觉语言定义、设计规范', tags: ['标志系统', '视觉规范'] },
-  { icon: Code, title: '前端/全栈开发', desc: '现代前端架构、性能调优、全栈交付', tags: ['React / TS', '性能优化'] },
+  { icon: Code, title: '前端/全栈开发', desc: '把设计稿落成能维护的前端代码', tags: ['React / TS', '性能优化'] },
   { icon: VideoPlay, title: '动效与视频', desc: '交互动效、WebGL 3D、视频制作', tags: ['GSAP', '3D'] },
   { icon: Mobile, title: 'App 开发', desc: '原生与跨平台 App 开发', tags: ['iOS', 'Android'] },
   { icon: Command, title: '自动化脚本', desc: '工作流自动化、数据处理脚本', tags: ['Python', 'Shell'] },

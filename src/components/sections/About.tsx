@@ -62,7 +62,7 @@ export default function About() {
       <div className="container">
         <header className="section-head">
           <h2 id="about-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 关于我们</h2>
-          <p className="section-head__sub">一间工作室，按项目组队</p>
+          <p className="section-head__sub">人不多，按项目组队</p>
         </header>
 
         <div style={{

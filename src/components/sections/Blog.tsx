@@ -4,70 +4,50 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const articles = [
+// 都是做这个站（和开源调研）时真实记下的东西，不是设想中的选题。
+// 还没写成完整文章，所以不标阅读时长、不放全文链接。
+const notes = [
   {
-    title: '液态玻璃的 CSS 实现：从 SVG 滤镜 to Apple 设计语言',
+    title: '液态玻璃在网页里到底怎么做',
     date: '2026-10-15',
     category: '技术',
-    readTime: '8 分钟',
-    excerpt: '探索如何用 SVG feDisplacementMap 实现真实折射效果，以及苹果 Liquid Glass 设计语言的核心原则。',
-    tags: ['CSS', 'SVG', 'Design'],
+    excerpt: '用 SVG feDisplacementMap 做位移折射，backdrop-filter 做兜底。滤镜值调过头会糊成一片，得靠 A/B 对比才看得出差别。',
+    tags: ['CSS', 'SVG'],
   },
   {
-    title: 'GSAP ScrollTrigger 性能优化：避免滚动卡顿的 5 个技巧',
-    date: '2026-10-12',
-    category: '性能',
-    readTime: '6 分钟',
-    excerpt: '从 Lenis 平滑滚动到 content-visibility，系统性优化长页面的滚动性能。',
-    tags: ['GSAP', 'Performance', 'ScrollTrigger'],
+    title: '主卡在手机上把标题挤断行的原因',
+    date: '2026-10-21',
+    category: '前端',
+    excerpt: '卡片内边距写死 104px，390px 的屏上只剩 150px 内容区，三个字的标题被迫拆两行。收到 24px 就正常了。',
+    tags: ['Responsive', 'Layout'],
   },
   {
-    title: '开源选品策略：如何选择有商业价值的终端产品',
-    date: '2026-10-08',
-    category: '策略',
-    readTime: '10 分钟',
-    excerpt: '从开发者工具到终端产品，选品策略的转变如何影响作品展示的质量与商业价值。',
-    tags: ['Open Source', 'Product', 'Strategy'],
+    title: '滚动进场动画会把内容留在看不见的状态',
+    date: '2026-10-22',
+    category: '动效',
+    excerpt: '标签页被节流时 GSAP 的 opacity 补间会停住，卡片永久停在 0。加一个超时兜底，视口内卡住的强制显形。',
+    tags: ['GSAP', 'Motion'],
   },
   {
-    title: 'React 19 + Vite：现代前端架构的最佳实践',
-    date: '2026-10-03',
-    category: '架构',
-    readTime: '12 分钟',
-    excerpt: 'React 19 新特性、Vite 构建优化、代码分割策略，以及如何构建高性能 SPA。',
-    tags: ['React', 'Vite', 'Architecture'],
+    title: '把上百个开源项目筛到十几个的方法',
+    date: '2026-10-18',
+    category: '调研',
+    excerpt: '先看 LICENSE 原文能不能商用，再看最近一次提交，最后才看星数。星数只当热度信号，不当质量证据。',
+    tags: ['Open Source'],
   },
   {
-    title: '无障碍设计实践：WCAG AA 合规指南',
-    date: '2026-09-28',
+    title: '深色底上的灰字，看着够其实不达标',
+    date: '2026-10-24',
     category: '无障碍',
-    readTime: '9 分钟',
-    excerpt: '键盘导航、屏幕阅读器、色彩对比度，构建人人可用的 Web 体验。',
-    tags: ['Accessibility', 'WCAG', 'A11y'],
+    excerpt: '#7A7A7A 压在 #141414 上，对比度只有 4.29，离 AA 要的 4.5 差一点。提到 #828282 才过线。',
+    tags: ['A11y', 'Color'],
   },
   {
-    title: '动效设计心理学：微交互如何影响用户感知',
-    date: '2026-09-22',
-    category: '设计',
-    readTime: '7 分钟',
-    excerpt: '从按钮按压到卡片浮起，微交互如何在潜意识层面塑造品牌印象。',
-    tags: ['Motion', 'UX', 'Psychology'],
-  },
-  {
-    title: 'GitHub Pages 部署陷阱与解决方案',
-    date: '2026-09-18',
-    category: 'DevOps',
-    readTime: '5 分钟',
-    excerpt: 'TLS 连接失败、资源路径、SPA 路由，GitHub Pages 部署的常见问题与解决。',
-    tags: ['GitHub Pages', 'Deploy', 'CI/CD'],
-  },
-  {
-    title: '设计系统从 0 到 1：Token、组件与文档',
-    date: '2026-09-12',
-    category: '设计',
-    readTime: '11 分钟',
-    excerpt: '从色彩 token 到组件库，构建可维护、可扩展的设计系统。',
-    tags: ['Design System', 'Tokens', 'Components'],
+    title: '静态站部署踩过的三个坑',
+    date: '2026-10-22',
+    category: '部署',
+    excerpt: '子路径资源要改成相对路径；主域用 CNAME 会把 MX 顶掉，收信就没了；没有证书时浏览器直接拒绝 HTTP。',
+    tags: ['Deploy', 'DNS'],
   },
 ]
 
@@ -97,17 +77,16 @@ export default function Blog() {
     <section className="section zone" id="blog" aria-labelledby="blog-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="blog-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 洞察与文章</h2>
-          <p className="section-head__sub">平时记的笔记，还没整理成完整文章</p>
+          <h2 id="blog-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 工作笔记</h2>
+          <p className="section-head__sub">做项目时随手记的几段，还没整理成文章</p>
         </header>
 
         <div ref={gridRef} className="blog-grid">
-          {articles.map((a) => (
+          {notes.map((a) => (
             <article key={a.title} className="blog-card glass-float">
               <div className="blog-card__meta">
                 <span className="blog-card__category">{a.category}</span>
                 <span className="blog-card__date">{a.date}</span>
-                <span className="blog-card__read">{a.readTime}</span>
               </div>
               <h3 className="blog-card__title">{a.title}</h3>
               <p className="blog-card__excerpt">{a.excerpt}</p>
@@ -116,7 +95,6 @@ export default function Blog() {
                   <span key={t} className="blog-card__tag">{t}</span>
                 ))}
               </div>
-              <span className="blog-card__link" style={{ opacity: 0.55, cursor: 'default' }}>笔记 · 全文暂未公开</span>
             </article>
           ))}
         </div>

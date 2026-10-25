@@ -137,7 +137,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          <a href="#contact" className="btn btn--sm btn--primary nav__cta">
+          <a href="#contact" className="btn btn--sm btn--secondary nav__cta nav__cta--quiet">
             <span>开始一个项目</span>
           </a>
 

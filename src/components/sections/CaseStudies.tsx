@@ -74,7 +74,7 @@ export default function CaseStudies() {
       <div className="container">
         <header className="section-head">
           <h2 id="cases-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 典型场景</h2>
-          <p className="section-head__sub">几种常见的项目形态，以及大概怎么拆</p>
+          <p className="section-head__sub">三种我们常接的活，以及怎么拆</p>
         </header>
 
         <div ref={gridRef} className="cases-grid">
@@ -89,7 +89,7 @@ export default function CaseStudies() {
               <div className="case-card__metrics">
                 {c.deliverables.map(m => (
                   <div key={m.value} className="case-card__metric">
-                    <span className="case-card__metric-value" style={{ color: c.color }}>{m.value}</span>
+                    <span className="case-card__metric-value">{m.value}</span>
                     <span className="case-card__metric-label">{m.label}</span>
                   </div>
                 ))}

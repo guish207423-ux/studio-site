@@ -23,7 +23,7 @@ export default function Hero() {
           borderRadius: 'var(--r-xl)',
           position: 'relative',
           overflow: 'hidden',
-          background: 'rgba(255, 255, 255, 0.02)',
+          background: 'rgba(255, 255, 255, 0.035)',
           border: '1px solid var(--c-line)',
         }}>
           {/* Animated gradient accent line */}
@@ -43,7 +43,7 @@ export default function Hero() {
             marginBottom: 'var(--sp-4)',
           }}>
             <span className="pulse-dot" aria-hidden="true" />
-            <span className="label">接受委托 · 2026 Q4</span>
+            <span className="label">2026 Q4 档期可接新项目</span>
           </p>
           <h1 ref={titleRef} id="hero-title" style={{
             fontWeight: 900,
@@ -68,13 +68,13 @@ export default function Hero() {
             lineHeight: 1.65,
             color: 'var(--c-txt-2)',
             marginBottom: 'var(--sp-3)',
-          }}>以光学与形变，构建数字产品的视觉语言。</p>
+          }}>把设计稿做成能用的界面，看得见，也点得动。</p>
           <p style={{
             fontSize: 'var(--fs-body-sm)',
             color: 'var(--c-txt-3)',
             marginBottom: 'var(--sp-5)',
           }}>
-            从品牌识别到前端交互，一次做完。页面上的玻璃质感用成熟渲染库实现，不是贴图。
+            一个项目从头到尾由同一批人做完，不转包。页面上的玻璃是真在透背景，不是贴图。
           </p>
           <div className="hero-cta" style={{
             display: 'flex',
@@ -109,8 +109,8 @@ export default function Hero() {
           }}>
             {[
               { value: '4–12', label: '周交付周期' },
-              { value: '3', label: '类主力项目' },
-              { value: '100%', label: '源码交付' },
+              { value: '3', label: '类常见项目' },
+              { value: '0', label: '转包' },
               { value: '24h', label: '内回复' },
             ].map(stat => (
               <div key={stat.label} style={{ textAlign: 'center' }}>
@@ -118,24 +118,24 @@ export default function Hero() {
                   fontFamily: 'var(--font-display)',
                   fontSize: '28px',
                   fontWeight: 900,
-                  color: 'var(--c-accent)',
+                  color: 'var(--c-txt)',
                   lineHeight: 1,
                   marginBottom: '4px',
                 }}>{stat.value}</p>
                 <p style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  color: 'var(--c-txt-3)',
-                  letterSpacing: '0.05em',
+                  fontSize: '12px',
+                  color: 'var(--c-txt-2)',
+                  letterSpacing: '0.04em',
                 }}>{stat.label}</p>
               </div>
             ))}
           </div>
           {[
-            { dt: '交付周期', dd: '4 – 12 周' },
             { dt: '协作方式', dd: '远程 · 每周可见' },
             { dt: '源码归属', dd: '全部交付给你' },
             { dt: '缺陷修复', dd: '上线后 30 天' },
+            { dt: '交付物', dd: '代码 + 使用文档' },
             { dt: '付款节奏', dd: '按里程碑分三次' },
             { dt: '无障碍', dd: 'WCAG AA 基线' },
           ].map(item => (
@@ -145,7 +145,7 @@ export default function Hero() {
               padding: 'var(--sp-3) 0',
               borderBottom: '1px solid var(--c-line)',
             }}>
-              <dt style={{ fontSize: '14px', color: 'var(--c-txt-3)' }}>{item.dt}</dt>
+              <dt style={{ fontSize: '14px', color: 'var(--c-txt-2)' }}>{item.dt}</dt>
               <dd style={{ fontSize: '14px', color: 'var(--c-txt)', fontWeight: 500 }}>{item.dd}</dd>
             </dl>
           ))}

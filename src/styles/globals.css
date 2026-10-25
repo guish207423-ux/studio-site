@@ -369,7 +369,7 @@ html body {
 }
 
 .section-head__prefix {
-  color: var(--c-accent);
+  color: var(--c-txt-3);
   margin-right: var(--sp-2);
   font-weight: 400;
 }
@@ -388,7 +388,7 @@ html body {
   font-size: var(--fs-label);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--c-txt-3);
+  color: var(--c-txt-2);
 }
 
 /* ============================================================================ 
@@ -519,6 +519,16 @@ html body {
 
 .nav__cta {
   display: inline-flex;
+}
+
+/* 首屏只保留一个实心 accent 焦点（Hero「查看作品」），导航 CTA 降为描边 */
+.nav__cta--quiet {
+  border-color: rgba(212, 255, 63, 0.45);
+  color: var(--c-accent);
+}
+.nav__cta--quiet:hover {
+  border-color: var(--c-accent);
+  background: rgba(212, 255, 63, 0.08);
 }
 
 .nav__burger {
@@ -1062,6 +1072,7 @@ body.is-scrolling .glass {
   font-size: 20px;
   font-weight: 900;
   line-height: 1;
+  color: var(--c-txt);
 }
 
 .case-card__metric-label {

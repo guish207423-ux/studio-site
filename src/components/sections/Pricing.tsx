@@ -61,7 +61,7 @@ export default function Pricing() {
       <div className="container">
         <header className="section-head">
           <h2 id="pricing-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 服务定价</h2>
-          <p className="section-head__sub">透明定价 · 灵活组合 · 全程可追</p>
+          <p className="section-head__sub">价格写清楚，组合灵活，进度随时看</p>
         </header>
 
         <div ref={gridRef} className="pricing-grid">
@@ -94,7 +94,7 @@ export default function Pricing() {
           fontSize: '14px',
           color: 'var(--c-txt-3)',
           marginTop: 'var(--sp-5)',
-        }}>所有方案均包含源码交付与文档。长期合作可享折扣。</p>
+        }}>所有方案包含源码与文档。长期合作有折扣，具体谈。</p>
       </div>
     </section>
   )

@@ -90,7 +90,7 @@ export default function Contact() {
         <div className="container">
           <header className="section-head">
             <h2 id="contact-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 联系方式</h2>
-            <p className="section-head__sub">开始一个项目</p>
+            <p className="section-head__sub">留个消息</p>
           </header>
           <div className="glass glass-contact" style={{
             maxWidth: 600,
@@ -121,7 +121,7 @@ export default function Contact() {
               fontSize: 'var(--fs-body)',
               color: 'var(--c-txt-2)',
               marginBottom: 'var(--sp-5)',
-            }}>感谢您的留言，我们会在 24 小时内回复。</p>
+            }}>收到了，我们会在一天内回复你。</p>
             <button onClick={handleReset} className="btn btn--md btn--secondary">
               再次填写
             </button>
@@ -136,7 +136,7 @@ export default function Contact() {
       <div className="container">
         <header className="section-head">
           <h2 id="contact-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 联系方式</h2>
-          <p className="section-head__sub">开始一个项目</p>
+          <p className="section-head__sub">留个消息</p>
         </header>
 
         <div className="contact-grid">
@@ -343,9 +343,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="https://cal.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:3629748383@qq.com?subject=预约沟通&body=方便的时间段：%0A想聊的内容："
               className="btn btn--lg btn--primary glass-btn"
               style={{ width: '100%', justifyContent: 'center' }}
             >
@@ -354,7 +352,7 @@ export default function Contact() {
                   <rect x="3" y="5" width="18" height="16" rx="2" />
                   <path d="M8 3v4M16 3v4M3 11h18" />
                 </svg>
-                预约咨询
+                约个时间聊
               </span>
             </a>
           </div>

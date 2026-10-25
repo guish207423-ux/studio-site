@@ -166,17 +166,17 @@ export default function Footer() {
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
             color: 'var(--c-txt-3)',
-          }}>订阅更新</p>
+          }}>留个邮箱</p>
           <p style={{
             fontSize: '14px',
             color: 'var(--c-txt-2)',
             lineHeight: 1.5,
-          }}>获取最新技术文章、设计洞察与项目动态。</p>
+          }}>有新笔记时给你发一封。不发广告，随时可以喊停。</p>
           <form onSubmit={(e) => {
             e.preventDefault()
             const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value
             if (email) {
-              window.location.href = `mailto:guish207423@gmail.com?subject=Newsletter订阅&body=邮箱: ${encodeURIComponent(email)}`
+              window.location.href = `mailto:guish207423@gmail.com?subject=想收新笔记&body=我的邮箱：${encodeURIComponent(email)}`
             }
           }} style={{
             display: 'flex',
@@ -185,7 +185,8 @@ export default function Footer() {
             <input
               name="email"
               type="email"
-              placeholder="your@email.com"
+              aria-label="你的邮箱地址"
+              placeholder="你的邮箱"
               required
               style={{
                 flex: 1,
