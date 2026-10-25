@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import BrandMark from './BrandMark'
 
 export default function LoadingScreen() {
   const [visible, setVisible] = useState(true)
@@ -29,20 +30,10 @@ export default function LoadingScreen() {
       transition: 'opacity 0.6s var(--ease-out-expo)',
       pointerEvents: opacity === 0 ? 'none' : 'auto',
     }}>
-      <div style={{
-        width: 48,
-        height: 48,
-        borderRadius: 'var(--r-md)',
-        background: 'var(--c-accent)',
-        color: 'var(--c-accent-ink)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontWeight: 900,
-        fontSize: 24,
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.22), 0 6px 18px -6px rgba(0,0,0,0.5)',
-        animation: 'pulse 1.5s var(--ease-in-out-quart) infinite',
-      }}>屿</div>
+      <BrandMark
+        size={52}
+        style={{ color: 'var(--c-accent)', animation: 'pulse 1.5s var(--ease-in-out-quart) infinite' }}
+      />
       <div style={{
         fontFamily: 'var(--font-mono)',
         fontSize: 12,

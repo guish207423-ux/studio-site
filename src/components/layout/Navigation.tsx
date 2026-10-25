@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import BrandMark from '../ui/BrandMark'
 
 
 export default function Navigation() {
@@ -78,19 +79,7 @@ export default function Navigation() {
             gap: 'var(--sp-3)',
             textDecoration: 'none',
           }}>
-            <span className="brand__mark" aria-hidden="true" style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: 'var(--r-md)',
-              background: 'var(--c-accent)',
-              color: 'var(--c-accent-ink)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontWeight: 900,
-              fontSize: '16px',
-              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 2px rgba(0,0,0,0.25)',
-            }}>屿</span>
+            <BrandMark size={32} className="brand__mark" style={{ color: 'var(--c-accent)', flexShrink: 0 }} />
             <span style={{ display: 'flex', flexDirection: 'column' }}>
               <span className="brand__name" style={{
                 fontWeight: 900,

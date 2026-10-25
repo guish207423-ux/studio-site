@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -39,7 +40,8 @@ export default function Timeline() {
     <section className="section section--ink2 zone" id="timeline" aria-labelledby="timeline-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="timeline-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 项目怎么推进</h2>
+          <SectionIcon name="timeline" />
+          <h2 id="timeline-title" className="section-head__title">项目怎么推进</h2>
           <p className="section-head__sub">以 6 周的项目为例，实际大概是这个节奏</p>
         </header>
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -85,7 +86,8 @@ export default function Stack() {
     <section className="section zone" id="stack" aria-labelledby="stack-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="stack-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 技术栈</h2>
+          <SectionIcon name="stack" />
+          <h2 id="stack-title" className="section-head__title">技术栈</h2>
           <p className="section-head__sub">平时真正在用的工具，没什么神秘</p>
         </header>
 

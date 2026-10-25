@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -42,7 +43,8 @@ export default function Partners() {
     <section className="section zone" id="partners" aria-labelledby="partners-title" style={{ padding: 'var(--sp-6) 0' }}>
       <div className="container">
         <header className="section-head" style={{ marginBottom: 'var(--sp-5)' }}>
-          <h2 id="partners-title" className="section-head__title" style={{ fontSize: 'var(--fs-h2)' }}><span className="section-head__prefix">⌁</span> 常用工具链</h2>
+          <SectionIcon name="partners" />
+          <h2 id="partners-title" className="section-head__title" style={{ fontSize: 'var(--fs-h2)' }}>常用工具链</h2>
           <p className="section-head__sub">这几样几乎每个项目都会用到</p>
         </header>
 

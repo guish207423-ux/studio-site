@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -70,7 +71,8 @@ export default function Testimonials() {
     <section className="section zone" id="testimonials" aria-labelledby="testimonials-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="testimonials-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 交付承诺</h2>
+          <SectionIcon name="testimonials" />
+          <h2 id="testimonials-title" className="section-head__title">交付承诺</h2>
           <p className="section-head__sub">愿意写进合作里的条件，不是口号</p>
         </header>
 

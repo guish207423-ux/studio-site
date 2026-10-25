@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -77,7 +78,8 @@ export default function Blog() {
     <section className="section zone" id="blog" aria-labelledby="blog-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="blog-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 工作笔记</h2>
+          <SectionIcon name="blog" />
+          <h2 id="blog-title" className="section-head__title">工作笔记</h2>
           <p className="section-head__sub">做项目时随手记的几段，还没整理成文章</p>
         </header>
 

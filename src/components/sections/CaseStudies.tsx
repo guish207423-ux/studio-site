@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -73,7 +74,8 @@ export default function CaseStudies() {
     <section className="section zone" id="cases" aria-labelledby="cases-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="cases-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 典型场景</h2>
+          <SectionIcon name="cases" />
+          <h2 id="cases-title" className="section-head__title">典型场景</h2>
           <p className="section-head__sub">三种我们常接的活，以及怎么拆</p>
         </header>
 

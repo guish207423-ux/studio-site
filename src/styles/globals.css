@@ -383,6 +383,24 @@ html body {
   font-weight: 400;
 }
 
+/* 区块头部标记（iconsax）——替代原来的「⌁」占位字符。
+   独立一行放在标题上方：不加边框/底色（避免被误认成按钮），
+   标题与副标题因此保持同一条左基线。 */
+.section-head__icon {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+  color: var(--c-txt-3);
+}
+
+.section-head__icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
 .section-head__sub {
   font-size: var(--fs-body);
   color: var(--c-txt-2);

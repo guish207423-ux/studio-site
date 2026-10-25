@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { PenTool, Brush, Code, VideoPlay, Mobile, Command, GlobalSearch, Cpu } from 'iconsax-react'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -42,7 +43,8 @@ export default function Services() {
     <section className="section zone" id="services" aria-labelledby="services-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="services-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 服务能力</h2>
+          <SectionIcon name="services" />
+          <h2 id="services-title" className="section-head__title">服务能力</h2>
           <p className="section-head__sub">能自己做完的部分，才写在这里</p>
         </header>
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -89,7 +90,8 @@ export default function Contact() {
       <section className="section section--ink2 zone" id="contact" aria-labelledby="contact-title">
         <div className="container">
           <header className="section-head">
-            <h2 id="contact-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 联系方式</h2>
+            <SectionIcon name="contact" />
+          <h2 id="contact-title" className="section-head__title">联系方式</h2>
             <p className="section-head__sub">留个消息</p>
           </header>
           <div className="glass glass-contact" style={{
@@ -135,7 +137,8 @@ export default function Contact() {
     <section className="section section--ink2 zone" id="contact" aria-labelledby="contact-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="contact-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 联系方式</h2>
+          <SectionIcon name="contact" />
+          <h2 id="contact-title" className="section-head__title">联系方式</h2>
           <p className="section-head__sub">留个消息</p>
         </header>
 

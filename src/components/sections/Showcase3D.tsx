@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
+import SectionIcon from '../ui/SectionIcon'
 
 export default function Showcase3D() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -85,7 +86,8 @@ export default function Showcase3D() {
     <section className="section section--ink2 zone" id="showcase3d" aria-labelledby="showcase3d-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="showcase3d-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 3D 展示</h2>
+          <SectionIcon name="showcase3d" />
+          <h2 id="showcase3d-title" className="section-head__title">3D 展示</h2>
           <p className="section-head__sub">交互式 3D 作品预览 · 拖拽旋转</p>
         </header>
         <div style={{

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SectionIcon from '../ui/SectionIcon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -168,7 +169,8 @@ export default function Works() {
     <section className="section section--ink2 zone" id="works" aria-labelledby="works-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="works-title" className="section-head__title"><span className="section-head__prefix">⌁</span> 开源生态</h2>
+          <SectionIcon name="works" />
+          <h2 id="works-title" className="section-head__title">开源生态</h2>
           <p className="section-head__sub">我们日常在用的开源项目 · 视频为真实界面录制 · {filtered.length} 个</p>
         </header>
 
