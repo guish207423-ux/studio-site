@@ -439,6 +439,16 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   background: var(--c-ink-2);
 }
 
+.fact-row { align-items: baseline; }
+@media (max-width: 767px) {
+  /* 窄屏把「标签 / 值」改上下两行，值获得整行宽度，不再把词拆开 */
+  .fact-row { flex-direction: column; gap: 2px; }
+  .fact-row > span:last-child { text-align: left; }
+}
+
+/* 锚点跳转时给固定的药丸导航留出空间，避免标题顶到导航底下 */
+.section { scroll-margin-top: 96px; }
+
 .section-head {
   margin-bottom: var(--sp-6);
 }
@@ -781,6 +791,10 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   /* C4/C5/C6：reduced-motion 下停用 hover 动效 */
   .service-card:hover .service-card__icon { transform: none; }
   .pricing-card:hover { transform: none; }
+  /* C7（v6）：所有 hover 浮起/倾斜在减弱动效下停用，与 CSS 侧同一套降级 */
+  .glass-float:hover, .glass-float:active,
+  .work-card:hover, .work-card.glass-float:hover,
+  .work-card:active, .work-card.glass-float:active { transform: none !important; }
   /* B10：减弱动效时字距回落到 0，避免紧排被误读为字形缺陷 */
   html body { letter-spacing: 0; }
 }

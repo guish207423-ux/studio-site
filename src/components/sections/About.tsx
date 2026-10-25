@@ -33,7 +33,7 @@ const principles = [
 const facts = [
   { label: '服务范围', value: '品牌 · 界面 · 前端 · 动效' },
   { label: '交付周期', value: '4–12 周' },
-  { label: '协作方式', value: '远程 · 全程可追' },
+  { label: '协作方式', value: '远程 · 每周可见' },
   { label: '技术栈', value: 'React 19 · Vite · GSAP' },
 ]
 
@@ -99,7 +99,7 @@ export default function About() {
           }}>
             <h3 style={{ fontWeight: 700, fontSize: '18px', color: 'var(--c-txt)', marginBottom: 'var(--sp-3)' }}>工作室概况</h3>
             {facts.map(item => (
-              <div key={item.label} style={{
+              <div key={item.label} className="fact-row" style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 gap: 'var(--sp-3)',

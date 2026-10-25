@@ -11,14 +11,16 @@ export function setupMicroInteractions() {
   const coarse = window.matchMedia('(hover: none)').matches
   if (reduced || coarse) return
 
-  // 1. Card hover lift: translateY(-4px) with spring
+  // 1. Card hover lift —— GSAP 写 inline transform，会盖过 CSS 的
+  //    .glass-float:hover（inline 优先级最高），所以 JS 是卡片浮起的真源。
+  //    幅度与 CSS 侧一致（-10px）：两条路径必须同值，否则「有没有 JS」看起来不一样。
   document.querySelectorAll('.service-card, .work-card').forEach(card => {
     const el = card as HTMLElement
     card.addEventListener('mouseenter', () => {
-      gsap.to(el, { y: -4, duration: 0.3, ease: 'elastic.out(1, 0.45)' })
+      gsap.to(el, { y: -10, z: 14, duration: 0.35, ease: 'elastic.out(1, 0.45)' })
     })
     card.addEventListener('mouseleave', () => {
-      gsap.to(el, { y: 0, duration: 0.3, ease: 'elastic.out(1, 0.45)' })
+      gsap.to(el, { y: 0, z: 0, duration: 0.4, ease: 'elastic.out(1, 0.45)' })
     })
   })
 

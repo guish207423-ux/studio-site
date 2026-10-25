@@ -17,7 +17,7 @@ export default function Hero() {
   }, [reduced])
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section className="hero" id="top" aria-labelledby="hero-title">
       <div className="container hero-grid">
         <div ref={panelRef} className="hero-panel" style={{
           borderRadius: 'var(--r-xl)',
