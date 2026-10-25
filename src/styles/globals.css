@@ -120,6 +120,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* text-wrap: pretty 对中文（无空格）基本无效，需要断行的地方用手动 <br className="br-mobile"> */
+p, li {
+  text-wrap: pretty;
+}
+.br-mobile { display: none; }
+@media (max-width: 767px) {
+  .br-mobile { display: inline; }
+}
+
 html body {
   font-family: var(--font-sans);
   font-size: var(--fs-body);
@@ -308,7 +317,7 @@ html body {
 
 .btn--ghost {
   background: transparent;
-  color: var(--c-txt-2);
+  color: var(--c-txt);
   border: 1px solid var(--c-line-strong);
 }
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function ChatIcon({ size = 22 }: { size?: number }) {
   return (
@@ -19,6 +19,15 @@ function MailIcon({ size = 16 }: { size?: number }) {
 
 export default function FloatingChat() {
   const [open, setOpen] = useState(false)
+  // 首屏不出现，滚过 hero 再淡入：既不挡内容，也不和主 CTA 抢注意力
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 320)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <div className="floating-chat" style={{
@@ -30,6 +39,10 @@ export default function FloatingChat() {
       flexDirection: 'column',
       gap: '8px',
       alignItems: 'flex-end',
+      opacity: scrolled || open ? 1 : 0,
+      transform: scrolled || open ? 'translateY(0)' : 'translateY(10px)',
+      pointerEvents: scrolled || open ? 'auto' : 'none',
+      transition: 'opacity 0.25s ease, transform 0.25s var(--ease-out-expo)',
     }}>
       {open && (
         <div style={{

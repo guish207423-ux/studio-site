@@ -68,10 +68,10 @@ export default function Hero() {
             lineHeight: 1.65,
             color: 'var(--c-txt-2)',
             marginBottom: 'var(--sp-3)',
-          }}>把设计稿做成能用的界面，看得见，也点得动。</p>
+          }}>把设计稿做成能用的界面，<br className="br-mobile" />看得见，也点得动。</p>
           <p style={{
             fontSize: 'var(--fs-body-sm)',
-            color: 'var(--c-txt-3)',
+            color: 'var(--c-txt-2)',
             marginBottom: 'var(--sp-5)',
           }}>
             一个项目从头到尾由同一批人做完，不转包。页面上的玻璃是真在透背景，不是贴图。
