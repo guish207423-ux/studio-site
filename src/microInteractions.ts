@@ -76,20 +76,24 @@ export function setupMicroInteractions() {
     })
   })
 
-  // 4. Panel hover tension: scaleX 1.015 / scaleY 1.01
-  document.querySelectorAll('.glass').forEach(panel => {
+  // 4. Panel hover tension + lift（表面张力微膨胀 + 轻微浮起）
+  //    只作用于「内容面板」：.glass-nav 是 fixed 且靠内联 translateX(-50%) 居中，
+  //    GSAP 写 transform 会把百分比位移换算成 px，导航立刻偏位 —— 必须排除。
+  //    玻璃面板的 hover 浮起只能在 JS 里做（CSS :hover transform 会被这里的
+  //    inline transform 覆盖，inline 优先级最高）。
+  document.querySelectorAll('.glass-contact, .hero-panel').forEach(panel => {
     const el = panel as HTMLElement
     panel.addEventListener('mouseenter', () => {
       gsap.to(el, {
-        scaleX: 1.015, scaleY: 1.01,
-        duration: 0.4,
+        scaleX: 1.015, scaleY: 1.01, y: -6,
+        duration: 0.45,
         ease: 'elastic.out(1, 0.45)',
       })
     })
     panel.addEventListener('mouseleave', () => {
       gsap.to(el, {
-        scaleX: 1, scaleY: 1,
-        duration: 0.4,
+        scaleX: 1, scaleY: 1, y: 0,
+        duration: 0.45,
         ease: 'elastic.out(1, 0.45)',
       })
     })

@@ -363,6 +363,36 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   overflow: hidden;
 }
 
+/* 玻璃按钮（.glass-btn，由 hyalite 接线折射，见 main.tsx）——
+   层级是「厚薄」不是「明暗」：厚玻璃 = blur 档位 + 投影强度 + 字色，
+   主 CTA 升档靠 bevel/thickness 加大 + 投影加深，不靠换背景色。
+   深度同样来自受光/背光落差：顶部内高光 + 底部内阴影 + 两层外投影。 */
+.glass-btn {
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--c-txt);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.24),
+    0 4px 12px rgba(0, 0, 0, 0.24),
+    0 12px 32px -8px rgba(0, 0, 0, 0.42);
+  transition: background-color var(--dur-micro) ease,
+              border-color var(--dur-micro) ease,
+              box-shadow var(--dur-micro) ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--c-line-strong);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.28),
+    0 6px 18px rgba(0, 0, 0, 0.28),
+    0 18px 48px -8px rgba(0, 0, 0, 0.5);
+}
+
 .btn--sm { height: 36px; padding: 0 16px; font-size: 14px; border-radius: var(--r-sm); }
 .btn--md { height: 44px; padding: 0 24px; font-size: 16px; border-radius: var(--r-md); }
 .btn--lg { height: 52px; padding: 0 32px; font-size: 18px; border-radius: var(--r-md); }
@@ -372,9 +402,24 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   color: var(--c-accent-ink);
 }
 
-.btn--primary:hover {
-  background: #E4FF70;
-  box-shadow: var(--sh-2);
+/* 玻璃化主按钮：.btn--primary.glass-btn —— 这个组合才是「主 CTA 的玻璃形态」。
+   主按钮的层级靠 bevel/thickness 加档（见 main.tsx hyaliteParams('button')），
+   着色只在玻璃之上一层半透荧光，不透明会挡住 backdrop-filter 的折射。 */
+.btn--primary.glass-btn {
+  background: rgba(212, 255, 63, 0.26);
+  color: var(--c-accent);
+  border-color: rgba(212, 255, 63, 0.45);
+}
+
+.btn--primary.glass-btn:hover {
+  background: rgba(212, 255, 63, 0.36);
+  border-color: var(--c-accent);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.28),
+    0 6px 18px rgba(0, 0, 0, 0.28),
+    0 18px 48px -8px rgba(0, 0, 0, 0.5);
 }
 
 .btn--secondary {
@@ -791,10 +836,10 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   /* C4/C5/C6：reduced-motion 下停用 hover 动效 */
   .service-card:hover .service-card__icon { transform: none; }
   .pricing-card:hover { transform: none; }
-  /* C7（v6）：所有 hover 浮起/倾斜在减弱动效下停用，与 CSS 侧同一套降级 */
-  .glass-float:hover, .glass-float:active,
-  .work-card:hover, .work-card.glass-float:hover,
-  .work-card:active, .work-card.glass-float:active { transform: none !important; }
+  /* C7（v6）：hover 浮起/按压形变在减弱动效下停用（JS 侧同样提前 return，见 microInteractions.ts） */
+  .glass-float:hover, .glass-float:active { transform: none; }
+  .work-card.glass-float:hover, .work-card.glass-float:active { transform: none; }
+  .btn:active { transform: none; }
   /* B10：减弱动效时字距回落到 0，避免紧排被误读为字形缺陷 */
   html body { letter-spacing: 0; }
 }
@@ -905,7 +950,7 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   gap: var(--sp-2);
 }
 .work-card { transition: transform var(--dur-micro) var(--ease-out-expo), box-shadow var(--dur-micro) var(--ease-out-expo), background-color var(--dur-micro) ease, border-color var(--dur-micro) ease; z-index: var(--z-card); background: var(--c-panel); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
-.work-card.glass-float:hover { transform: translateY(-6px) translateZ(8px) rotateX(1deg) rotateY(-1deg); box-shadow: var(--sh-3); background: var(--c-panel-2); border-color: var(--c-line-strong); }
+.work-card.glass-float:hover { transform: translateY(-10px) translateZ(14px); box-shadow: var(--sh-3); background: var(--c-panel-2); border-color: var(--c-line-strong); }
 .work-card.glass-float:active { transform: translateY(-1px) scale(0.985); box-shadow: var(--sh-1); background: var(--c-panel-2); }
 .work-card:hover { background: var(--c-panel-2); box-shadow: var(--sh-2); }
 .work-card__preview img,
@@ -1007,7 +1052,9 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 
 @media (max-width: 767px) {
   .works-grid { grid-template-columns: 1fr; }
-  .work-card:hover { transform: translateY(-2px); }
+  /* 窄屏浮起幅度收一档：位移过大在小卡片上会读成「跳一下」 */
+  .work-card:hover,
+  .work-card.glass-float:hover { transform: translateY(-6px); }
 }
 
 /* ============================================================================
@@ -1279,7 +1326,7 @@ body.is-scrolling .glass {
   /* C6：轻微上浮，同时给 hover 一个明确的反馈 */
   transition: transform var(--dur-micro) ease, border-color var(--dur-micro) ease, box-shadow var(--dur-micro) ease;
 }
-.pricing-card:hover { transform: translateY(-2px); }
+.pricing-card:hover { transform: translateY(-8px); }
 
 .pricing-card__badge {
   position: absolute;
