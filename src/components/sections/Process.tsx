@@ -70,7 +70,7 @@ export default function Process() {
       <div className="container">
         <header className="section-head">
           <h2 id="process-title" className="section-head__title">工作流程</h2>
-          <p className="section-head__sub"><SectionIcon name="process" size={16} /> 按官网重做（4–6 周）排的节点；设计稿转前端会压到 2–3 周</p>
+          <p className="section-head__sub"><SectionIcon name="process" size={16} /> 按 4–6 周的官网重做排；转前端压到 2–3 周</p>
         </header>
 
         <div ref={gridRef} style={{
