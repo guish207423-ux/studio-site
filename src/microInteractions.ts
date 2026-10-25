@@ -4,7 +4,8 @@
  * 这里原来用 GSAP 逐帧补间（11 处 gsap.to / fromTo）。现在改成
  * 「JS 写 CSS 变量 + CSS transition / keyframes 执行」：主线程只在 pointermove
  * 里算一次坐标，动画本体交给 compositor。gsap 因此从首屏依赖图里彻底消失
- * （它此前挂在 index.tsx → microInteractions.ts 这条链上，见 src/lib/reveal.ts）。
+ * （它此前挂在 index.tsx → microInteractions.ts 这条链上，入场补间见各 section
+ * 组件里的 gsap.context / ScrollTrigger.batch）。
  *
  * 视觉等价性：位移量、时长、激活区间都按原数值保留，缓动从 elastic 换成
  * 等向的 cubic-bezier（elastic 的过冲幅度在 CSS 里没有直接对应，取最接近的一条）。
