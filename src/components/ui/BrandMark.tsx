@@ -1,17 +1,20 @@
 /**
- * 品牌标志：两块错位叠合 + 一处 45° 斜切。
+ * 品牌标志 —— 等高线岛（polish-round3 规格 §一 方案 A）。
  *
- * 立意：后块是设计稿，前块是跑起来的界面——实现比稿子大一圈，
- * 重叠处深一层；前块右下被斜切掉一角，像从稿子里「切」出来的一块。
+ * 立意：把「屿」抽象成一组同心的、略偏心的闭合曲线，像地形等高线，
+ * 暗指「在数字平面上隆起的一块土地」。标志本身就是图形，不是容器里塞一个字。
  *
- * 构造取舍（都经过 16/22/32/64px 实测）：
- * - 不用岛形/山丘：圆顶剪影在 16px 会被读成帐篷或帽子，悬空的水线
- *   会被读成日出；几何叠块没有这种歧义。
- * - 切口必须够大（约 6/32）才能在 16px 存活，直角切口则会被抗锯齿吃掉。
- * - 后块用 0.62 透明度：太低（0.45）在深底上会消失。
+ * 规格（docs/polish-round3.md §一 方案 A）：
+ * - viewBox 0 0 24 24，三条闭合 path
+ * - 半径 10.5 / 7 / 3.5，圆心分别偏移 (12,12) / (11.2,12.4) / (12.6,11.6)
+ * - stroke-width 1.25，fill none，stroke currentColor
+ * - 单色可用；三圈间距 3.5（= 2.33px @16px），缩到 16px 仍能分辨三层
+ *
+ * 几何说明：半径 10.5 的外圈加 1.25 描边后最外缘落在 23.125，仍在 24 内，
+ * 不需要额外留边；三圈偏心量（≤1.4）保证任意角度都不会读成同心圆靶心。
  */
 export default function BrandMark({
-  size = 32,
+  size = 24,
   className,
   style,
   title,
@@ -23,18 +26,25 @@ export default function BrandMark({
 }) {
   return (
     <svg
-      viewBox="0 0 32 32"
+      viewBox="0 0 24 24"
       width={size}
       height={size}
       className={className}
       style={style}
-      fill="currentColor"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.25"
+      strokeLinecap="round"
       role={title ? 'img' : undefined}
       aria-hidden={title ? undefined : true}
     >
       {title ? <title>{title}</title> : null}
-      <rect x="15.8" y="2.6" width="13.8" height="13.8" rx="5" opacity="0.62" />
-      <path d="M6.8 11.4h9.2a3.6 3.6 0 0 1 3.6 3.6v6.6l-6 6H6.8a3.6 3.6 0 0 1-3.6-3.6v-9A3.6 3.6 0 0 1 6.8 11.4z" />
+      {/* 外圈 r=10.5 @ (12,12) */}
+      <path d="M1.5 12a10.5 10.5 0 1 0 21 0a10.5 10.5 0 1 0-21 0" />
+      {/* 中圈 r=7 @ (11.2,12.4) */}
+      <path d="M4.2 12.4a7 7 0 1 0 14 0a7 7 0 1 0-14 0" />
+      {/* 内圈 r=3.5 @ (12.6,11.6) */}
+      <path d="M9.1 11.6a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0-7 0" />
     </svg>
   )
 }

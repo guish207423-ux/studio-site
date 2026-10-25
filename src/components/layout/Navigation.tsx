@@ -79,7 +79,8 @@ export default function Navigation() {
             gap: 'var(--sp-3)',
             textDecoration: 'none',
           }}>
-            <BrandMark size={32} className="brand__mark" style={{ color: 'var(--c-accent)', flexShrink: 0 }} />
+            {/* polish-round3 §一：内联 SVG 标志（无容器背景），24×24，单色 currentColor */}
+            <BrandMark size={24} className="brand__mark" style={{ color: 'var(--c-accent)', flexShrink: 0 }} />
             <span style={{ display: 'flex', flexDirection: 'column' }}>
               <span className="brand__name" style={{
                 fontWeight: 900,

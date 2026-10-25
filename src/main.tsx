@@ -99,9 +99,15 @@ createRoot(document.getElementById('root')!).render(
 window.addEventListener('app:booted', () => { applyHyalite() }, { once: true })
 applyHyalite()
 
-// Service Worker registration for PWA
+// 曾经注册过 sw.js（cache-first，且缓存名从不更新）：
+// 它会让回访用户永远看到第一次加载的 HTML，新版本发布后也刷不出来。
+// 这里改成主动注销 + 清缓存，把这个坑从老用户浏览器里拔掉。
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {})
+    navigator.serviceWorker.getRegistrations()
+      .then((regs) => Promise.all(regs.map((r) => r.unregister())))
+      .then(() => (window.caches ? caches.keys() : Promise.resolve([])))
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('studio-site')).map((k) => caches.delete(k))))
+      .catch(() => {})
   })
 }

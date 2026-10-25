@@ -76,8 +76,8 @@ export default function CookieConsent() {
         gap: 'var(--sp-3)',
       }}>
       <p className="cookie-text" style={{ fontSize: '14px', color: 'var(--c-txt-2)', margin: 0, flex: 1, minWidth: '200px', lineHeight: 1.5 }}>
-        <span className="cookie-text--full">本网站使用 Cookie 提升体验。继续浏览即表示同意。</span>
-        <span className="cookie-text--short">使用 Cookie 提升体验。</span>
+        <span className="cookie-text--full">本站不追踪访客，只用本地存储记住你的选择。</span>
+        <span className="cookie-text--short">只用本地存储，不追踪。</span>
       </p>
       <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
         <button onClick={decline} style={{

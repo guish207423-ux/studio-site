@@ -1,6 +1,6 @@
-@import '@fontsource-variable/noto-sans-sc';
-@import '@fontsource/archivo-black/400.css';
-@import '@fontsource/jetbrains-mono/500.css';
+/* 字体声明独立成 src/styles/fonts.css（按站内用字子集化，见该文件头注释），
+   由 main.tsx 引入；不再从本文件 @import —— @import 要求出现在样式表最前面，
+   追加到 1500+ 行的主表尾部会产出无用的嵌套结构。 */
 
 /* ============================================================================
    设计令牌 — BRAND-t_963484d6.md §1.2
@@ -1633,4 +1633,94 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   .cookie-bar button { min-height: 40px !important; padding: 0 12px !important; font-size: 12px !important; }
 }
 
-@import '@fontsource-variable/noto-sans-sc/latin.css';
+/* ============================================================================
+   滚动入场 —— 替代 GSAP ScrollTrigger（见 src/lib/reveal.ts）
+   JS 只加 .reveal / .is-in 两个类，动画本体在这里，因此 reduced-motion 能一条
+   规则关掉整站入场，不用每个组件各自判断。
+   位移走 CSS 独立属性 translate 而不是 transform：这样
+   .work-card.glass-float:hover / .glass-float:active 这类基于 transform 的
+   规则与入场位移是相乘关系，不会被 .is-in 的 translate: 0 0 压掉。
+   ============================================================================ */
+.reveal {
+  opacity: 0;
+  translate: var(--reveal-translate, 0 40px);
+  transition:
+    opacity var(--reveal-dur, 450ms) var(--ease-out-expo),
+    translate var(--reveal-dur, 450ms) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* ============================================================================
+   微动效 —— 替代 microInteractions.ts 里的 GSAP 补间
+   见该文件顶部说明：JS 只写 CSS 变量，动画交给 compositor。
+   本块必须排在 .reveal 之后：.hero-panel:hover 与 .reveal.is-in 同为 (0,2,0)
+   特异性，靠源序决定胜负，反了会让 hover 浮起失效。
+   ============================================================================ */
+
+/* 涟漪：元素由 JS 按指针位置创建，扩散动画走 keyframes */
+@keyframes btn-ripple {
+  from { transform: scale(0); opacity: 0.5; }
+  to { transform: scale(1.8); opacity: 0; }
+}
+.btn-ripple {
+  animation: btn-ripple 600ms var(--ease-out-quint) forwards;
+}
+
+/* 玻璃面板 hover 张力（表面微膨胀 + 浮起）。
+   排除 .glass-nav：它是 fixed + 内联 translateX(-50%) 居中，改 transform 会偏位。 */
+.glass-contact,
+.hero-panel {
+  transition: translate 450ms cubic-bezier(0.34, 1.4, 0.5, 1),
+              scale 450ms cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+.glass-contact:hover,
+.hero-panel:hover {
+  scale: 1.015 1.01;
+  translate: 0 -6px;
+}
+
+/* 磁吸：JS 把指针相对按钮中心的偏移写进 --mx / --my */
+.btn--primary,
+.nav__cta {
+  translate: var(--mx, 0px) var(--my, 0px);
+  transition: translate 300ms var(--ease-out-expo),
+              background-color var(--dur-micro) ease,
+              border-color var(--dur-micro) ease,
+              color var(--dur-micro) ease,
+              box-shadow var(--dur-micro) ease;
+}
+
+/* 卡面张力：JS 把横向拉伸写进 --sx / --sy */
+.service-card,
+.work-card {
+  scale: var(--sx, 1) var(--sy, 1);
+  transition: scale 400ms var(--ease-out-expo);
+}
+
+/* 表单校验失败：CSS keyframes 取代原来的 GSAP 抖动 */
+@keyframes form-shake {
+  0%, 100% { translate: 0 0; }
+  20% { translate: 3px 0; }
+  40% { translate: -3px 0; }
+  60% { translate: 2px 0; }
+  80% { translate: -1px 0; }
+}
+.is-shaking {
+  animation: form-shake 300ms var(--ease-in-out-quart);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; translate: 0 0; transition: none; }
+  .btn-ripple { animation: none; }
+  .glass-contact:hover,
+  .hero-panel:hover { translate: none; scale: none; }
+  .btn--primary,
+  .nav__cta { translate: none; }
+  .service-card,
+  .work-card { scale: none; transition: none; }
+  .is-shaking { animation: none; }
+}

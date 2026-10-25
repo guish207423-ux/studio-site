@@ -1,13 +1,12 @@
 /**
  * Noto Sans SC —— 按站内实际用字子集化（构建期生成，请勿手改）。
  *
- * 全量引入的代价：@fontsource 默认入口为 101 个 unicode-range 分片各声明
- * 一个 @font-face，合计 4.5MB，其中 97 个是中文分片。站内实际只用到
- * 895 个非 ASCII 字符，落在 26 个分片里 —— 其余分片永远不会被请求，
- * 纯属把体积搬进产物。
+ * @fontsource 默认入口为 101 个 unicode-range 分片各声明一个 @font-face，
+ * 合计 4.29MB，其中 97 个是中文分片。站内实际只用到 890 个非 ASCII 字符，
+ * 落在 26 个分片里（1.29MB）—— 其余分片永远不会被请求，纯属把体积搬进产物。
  *
- * 未被任何分片覆盖的字符回退到 system-ui / PingFang SC / 微软雅黑，
- * 它们就排在 --font-sans 里 Noto Sans SC 之后。
+ * 未被任何分片覆盖的字符回退到 system-ui / PingFang SC / 微软雅黑，它们就排在
+ * --font-sans 里 Noto Sans SC 之后。当前未覆盖：⌁
  *
  * 重新生成：python3 scripts/gen-fonts-css.py
  */

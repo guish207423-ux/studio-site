@@ -1,179 +1,91 @@
-import gsap from 'gsap'
+/**
+ * Micro-interactions — BRAND §3.3 玻璃家族微动效语言
+ *
+ * 这里原来用 GSAP 逐帧补间（11 处 gsap.to / fromTo）。现在改成
+ * 「JS 写 CSS 变量 + CSS transition / keyframes 执行」：主线程只在 pointermove
+ * 里算一次坐标，动画本体交给 compositor。gsap 因此从首屏依赖图里彻底消失
+ * （它此前挂在 index.tsx → microInteractions.ts 这条链上，见 src/lib/reveal.ts）。
+ *
+ * 视觉等价性：位移量、时长、激活区间都按原数值保留，缓动从 elastic 换成
+ * 等向的 cubic-bezier（elastic 的过冲幅度在 CSS 里没有直接对应，取最接近的一条）。
+ */
 
-// ============================================================================
-// Micro-interactions — BRAND §3.3 玻璃家族微动效语言
-// ============================================================================
-
-import { isReducedMotion } from './lib/motion'
+import { canHover } from './lib/motion'
 
 export function setupMicroInteractions() {
-  const reduced = isReducedMotion()
-  const coarse = window.matchMedia('(hover: none)').matches
-  if (reduced || coarse) return
+  // 触屏没有 hover，reduced-motion 下也不该注册「非用户主动触发的动效」。
+  if (!canHover()) return
 
-  // 1. Card hover lift —— GSAP 写 inline transform，会盖过 CSS 的
-  //    .glass-float:hover（inline 优先级最高），所以 JS 是卡片浮起的真源。
-  //    幅度与 CSS 侧一致（-10px）：两条路径必须同值，否则「有没有 JS」看起来不一样。
-  document.querySelectorAll('.service-card, .work-card').forEach(card => {
-    const el = card as HTMLElement
-    card.addEventListener('mouseenter', () => {
-      gsap.to(el, { y: -10, z: 14, duration: 0.35, ease: 'elastic.out(1, 0.45)' })
-    })
-    card.addEventListener('mouseleave', () => {
-      gsap.to(el, { y: 0, z: 0, duration: 0.4, ease: 'elastic.out(1, 0.45)' })
-    })
-  })
+  // 1. 卡片浮起 / 2. 按钮按压 —— 纯 CSS，已分别在 .glass-float:hover 与
+  //    .btn:active 里。原先这里用 gsap.to 写 inline transform 盖住 CSS，
+  //    但两条路径的数值本来就一致（-10px / translateZ(14px)），
+  //    交给 CSS 反而少一次 inline style 与样式表的优先级争夺。
 
-  // 2. Button press: squash + elastic rebound
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('pointerdown', (e: PointerEvent) => {
-      if (e.button !== 0) return
-      gsap.to(btn, {
-        scaleX: 1.06, scaleY: 0.94, y: 1,
-        boxShadow: '0 1px 2px rgba(0,0,0,.3)',
-        duration: 0.1,
-        ease: 'power1.out',
-      })
-    })
-
-    const release = () => {
-      gsap.to(btn, {
-        scaleX: 1, scaleY: 1, y: 0,
-        boxShadow: 'var(--sh-2)',
-        duration: 0.55,
-        ease: 'elastic.out(1, 0.45)',
-      })
-    }
-
-    btn.addEventListener('pointerup', release)
-    btn.addEventListener('pointercancel', release)
-    btn.addEventListener('pointerleave', release)
-  })
-
-  // 3. Click ripple on buttons
-  document.querySelectorAll('.btn').forEach(btn => {
+  // 3. 点击涟漪：元素得由 JS 按指针位置创建，扩散动画走 keyframes。
+  document.querySelectorAll<HTMLElement>('.btn').forEach((btn) => {
     btn.addEventListener('pointerdown', (e: PointerEvent) => {
       if (e.button !== 0) return
       const rect = btn.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-
       const ripple = document.createElement('span')
       ripple.className = 'btn-ripple'
-      ripple.style.left = `${x}px`
-      ripple.style.top = `${y}px`
+      ripple.style.left = `${e.clientX - rect.left}px`
+      ripple.style.top = `${e.clientY - rect.top}px`
       btn.appendChild(ripple)
-
-      gsap.fromTo(ripple,
-        { scale: 0, opacity: 0.5 },
-        {
-          scale: 1.8, opacity: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          onComplete: () => ripple.remove(),
-        }
-      )
+      ripple.addEventListener('animationend', () => ripple.remove(), { once: true })
     })
   })
 
-  // 4. Panel hover tension + lift（表面张力微膨胀 + 轻微浮起）
-  //    只作用于「内容面板」：.glass-nav 是 fixed 且靠内联 translateX(-50%) 居中，
-  //    GSAP 写 transform 会把百分比位移换算成 px，导航立刻偏位 —— 必须排除。
-  //    玻璃面板的 hover 浮起只能在 JS 里做（CSS :hover transform 会被这里的
-  //    inline transform 覆盖，inline 优先级最高）。
-  document.querySelectorAll('.glass-contact, .hero-panel').forEach(panel => {
-    const el = panel as HTMLElement
-    panel.addEventListener('mouseenter', () => {
-      gsap.to(el, {
-        scaleX: 1.015, scaleY: 1.01, y: -6,
-        duration: 0.45,
-        ease: 'elastic.out(1, 0.45)',
-      })
-    })
-    panel.addEventListener('mouseleave', () => {
-      gsap.to(el, {
-        scaleX: 1, scaleY: 1, y: 0,
-        duration: 0.45,
-        ease: 'elastic.out(1, 0.45)',
-      })
-    })
-  })
-
-  // 5. Magnetic effect on nav CTA and primary buttons
-  document.querySelectorAll('.btn--primary, .nav__cta').forEach(btn => {
+  // 4. 磁吸：JS 只把指针相对按钮中心的偏移写进 CSS 变量。
+  document.querySelectorAll<HTMLElement>('.btn--primary, .nav__cta').forEach((btn) => {
     const el = btn as HTMLElement
-    const strength = 0.15
-    btn.addEventListener('mousemove', (e: MouseEvent) => {
+    el.addEventListener('mousemove', (e: MouseEvent) => {
       const rect = el.getBoundingClientRect()
-      const x = e.clientX - rect.left - rect.width / 2
-      const y = e.clientY - rect.top - rect.height / 2
-      gsap.to(el, {
-        x: x * strength,
-        y: y * strength,
-        duration: 0.3,
-        ease: 'power2.out',
-      })
+      const strength = 0.15
+      el.style.setProperty('--mx', `${(e.clientX - rect.left - rect.width / 2) * strength}px`)
+      el.style.setProperty('--my', `${(e.clientY - rect.top - rect.height / 2) * strength}px`)
     })
-    btn.addEventListener('mouseleave', () => {
-      gsap.to(el, {
-        x: 0, y: 0,
-        duration: 0.5,
-        ease: 'elastic.out(1, 0.45)',
-      })
+    el.addEventListener('mouseleave', () => {
+      el.style.removeProperty('--mx')
+      el.style.removeProperty('--my')
     })
   })
 
-  // 6. Directional elastic stretch on cards (200px activation zone)
-  document.querySelectorAll('.service-card, .work-card').forEach(card => {
+  // 5. 卡面张力：横向跟随指针拉伸（200px 激活区），同样只写变量。
+  document.querySelectorAll<HTMLElement>('.service-card, .work-card').forEach((card) => {
     const el = card as HTMLElement
-    card.addEventListener('mousemove', (e: MouseEvent) => {
+    const maxDist = 200
+    el.addEventListener('mousemove', (e: MouseEvent) => {
       const rect = el.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const centerX = rect.width / 2
-      const dist = Math.abs(x - centerX)
-      const maxDist = 200
+      const dist = Math.abs(e.clientX - rect.left - rect.width / 2)
       if (dist > maxDist) return
-
       const stretch = 0.85 + (1 - dist / maxDist) * 0.15
-      gsap.to(el, {
-        scaleX: stretch,
-        scaleY: 2 - stretch,
-        duration: 0.4,
-        ease: 'power2.out',
-        overwrite: 'auto',
-      })
+      el.style.setProperty('--sx', stretch.toFixed(3))
+      el.style.setProperty('--sy', (2 - stretch).toFixed(3))
     })
-    card.addEventListener('mouseleave', () => {
-      gsap.to(el, {
-        scaleX: 1, scaleY: 1,
-        duration: 0.4,
-        ease: 'elastic.out(1, 0.45)',
-      })
+    el.addEventListener('mouseleave', () => {
+      el.style.removeProperty('--sx')
+      el.style.removeProperty('--sy')
     })
   })
 
-  // 7. Button hover halo (触点光晕)
-  document.querySelectorAll('.btn').forEach(btn => {
+  // 6. 触点光晕：只写变量，渐变本体在 CSS 的 .btn::after 里。
+  document.querySelectorAll<HTMLElement>('.btn').forEach((btn) => {
     const el = btn as HTMLElement
-    btn.addEventListener('mousemove', (e: MouseEvent) => {
+    el.addEventListener('mousemove', (e: MouseEvent) => {
       const rect = el.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      el.style.setProperty('--btn-spec-x', `${x}px`)
-      el.style.setProperty('--btn-spec-y', `${y}px`)
+      el.style.setProperty('--btn-spec-x', `${e.clientX - rect.left}px`)
+      el.style.setProperty('--btn-spec-y', `${e.clientY - rect.top}px`)
     })
   })
 
-  // 8. visibilitychange 暂停背景光层动画（v5 的 .refract-blob 已移除）
-  //    v6：网格 / 直尺与视差层一起暂停，避免标签页不可见时滤镜空转。
+  // 7. 标签页不可见时暂停背景光层动画，避免滤镜空转。
   const driftLayers = document.querySelectorAll(
-    ".light-field__drift, .light-field__grid, .light-field__ruler",
+    '.light-field__drift, .light-field__grid, .light-field__ruler',
   )
-  function pauseRefractAnimations(hidden: boolean) {
-    driftLayers.forEach(el => {
-      if (hidden) { (el as HTMLElement).style.animationPlayState = "paused"; }
-      else { (el as HTMLElement).style.animationPlayState = "running"; }
+  const pauseRefractAnimations = (hidden: boolean) => {
+    driftLayers.forEach((el) => {
+      ;(el as HTMLElement).style.animationPlayState = hidden ? 'paused' : 'running'
     })
   }
-  document.addEventListener("visibilitychange", () => pauseRefractAnimations(document.hidden))
+  document.addEventListener('visibilitychange', () => pauseRefractAnimations(document.hidden))
 }
