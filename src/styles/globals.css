@@ -1325,6 +1325,11 @@ body.is-scrolling .glass {
   .cases-grid { grid-template-columns: 1fr; }
 }
 
+/* ---- 移动端抽屉 ---- */
+/* 抽屉打开时隐藏悬浮联系按钮，避免压住菜单最后一项 */
+.floating-chat { transition: opacity 0.2s ease; }
+body.drawer-open .floating-chat { opacity: 0; pointer-events: none; }
+
 /* ---- Cookie 条：手机端压缩成单行，减少遮挡 ---- */
 .cookie-text--short { display: none; }
 @media (max-width: 767px) {

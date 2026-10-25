@@ -21,7 +21,7 @@ export default function FloatingChat() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div style={{
+    <div className="floating-chat" style={{
       position: 'fixed',
       bottom: 'calc(24px + var(--cookie-h, 0px))',
       right: '24px',

@@ -22,7 +22,15 @@ export default function Navigation() {
 
   useEffect(() => {
     document.body.style.overflow = drawerOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    // 抽屉打开时隐藏右下悬浮按钮，避免压住最后一项
+    document.body.classList.toggle('drawer-open', drawerOpen)
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setDrawerOpen(false) }
+    if (drawerOpen) window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      document.body.classList.remove('drawer-open')
+      window.removeEventListener('keydown', onKey)
+    }
   }, [drawerOpen])
 
   const links = [
@@ -167,6 +175,21 @@ export default function Navigation() {
       </header>
 
       {/* Mobile drawer */}
+      {drawerOpen && (
+        <div
+          className="drawer-backdrop"
+          aria-hidden="true"
+          onClick={() => setDrawerOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 98,
+            background: 'rgba(5, 5, 5, 0.62)',
+            WebkitBackdropFilter: 'blur(2px)',
+            backdropFilter: 'blur(2px)',
+          }}
+        />
+      )}
       <nav
         id="drawer"
         className="drawer"
