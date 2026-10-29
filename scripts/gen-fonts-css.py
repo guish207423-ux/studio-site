@@ -61,7 +61,7 @@ def emit(shards):
     out = []
     for s in shards:
         out.append('@font-face {')
-        out.append("  font-family: 'Noto Sans SC Variable';")
+        out.append("  font-family: 'Noto Sans SC';")
         out.append('  font-style: normal;')
         out.append('  font-display: swap;')
         out.append('  font-weight: 100 900;')

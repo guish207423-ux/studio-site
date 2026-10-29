@@ -1,96 +1,79 @@
-# 屿作所 — 交付说明文档
+# 屿作所 YU STUDIO — 交付说明
 
-## 项目概述
+> 最后更新：2026-10-29（上一版写于 10-20，技术栈与指标已大面积失真，本次重写）
 
-**屿作所（YU STUDIO）** — 综合数字产品工作室官网。
+## 是什么
 
-Awwwards 获奖站风格，液态玻璃（Liquid Glass）视觉，React 19 + TypeScript + Vite 5 技术栈。
+综合数字产品工作室官网，线上在 <https://shopforyou.online>（阿里云 ESA Pages 托管，
+DNS 在腾讯云：`@ CNAME → shopforyou.online.a1.initkk.com`）。
 
-## 交付状态
+## 技术栈（以此为准）
 
-| 项目 | 状态 | 备注 |
-|------|------|------|
-| QA v3 验收 | PASS | 5 BLOCKER 全部修复 + 6 非回归项保持 |
-| 构建产物 (dist/) | 完整 | 7.9MB，142 文件，可部署 |
-| 源码 (src/) | 完整 | Vite + React 19 + TypeScript |
-| 响应式 | 通过 | 10 档视口 (280-1440px) 零溢出 |
-| 微动效 | 通过 | 739 监听器，7 组微交互全部生效 |
+| 层 | 实际使用 |
+|---|---|
+| 框架 | React 19.2 + TypeScript 5.6 |
+| 构建 | Vite 7.3（需 Node ≥ 22；本机走 `~/.hermes/tools/node-26.7.0-linux-x64`）+ oxlint |
+| 动效 | GSAP 3.15（唯一引擎）+ Lenis 1.3 平滑滚动 |
+| 液态玻璃 | `public/hyalite.js` 0.5.0（SVG backdrop-filter 折射） |
+| 图标 | iconsax-react（品牌/营销面） |
+| 字体 | 自托管 Geist（仅拉丁）+ JetBrains Mono；**中文走系统栈**（苹方 / HarmonyOS Sans SC / 思源黑体 / 雅黑） |
 
-## 目录结构
+> 已下线：Framer Motion、liquid-glass-react、Archivo Black、Noto Sans SC 打包分片。
+> 决策与理由见 `DESIGN.md` §设计决策记录。
+
+## 目录
 
 ```
-studio-site/
-├── src/                    # 源码
-│   ├── components/         # 组件 (layout/ sections/)
-│   ├── styles/             # 全局样式
-│   ├── App.tsx             # 主应用
-│   ├── main.tsx            # 入口
-│   └── microInteractions.ts # 微动效系统
-├── public/                 # 静态资源 (videos/ hyalite.js icons.svg)
-├── dist/                   # 构建产物 ★ 部署此目录
-│   ├── index.html          # 入口 HTML
-│   ├── assets/             # JS/CSS/字体 (按 chunk 分割)
-│   ├── videos/             # 6 WebM + 6 poster
-│   ├── hyalite.js          # 液态玻璃引擎
-│   └── icons.svg           # 图标雪碧
-├── package.json
-├── vite.config.ts
-└── HANDOFF.md              # 本文档
+src/
+  components/ layout/    Navigation, Footer
+  components/ sections/  Hero, About, Services, Works, Process, CaseStudies, Pricing, Contact
+  components/ ui/        BrandMark, DynamicLight, FloatingToolbar, Marquee, ScrollToTop, SectionIcon
+  styles/                fonts.css（@font-face）、globals.css（唯一样式表，token 见 DESIGN.md）
+  lib/                   motion.ts（reduced-motion）、hyalite.ts（参数档位来源）
+  main.tsx               Lenis / Hyalite 接线 / Service Worker 注销
+  App.tsx                滚动进度、入场看门狗、懒加载区块
+scripts/
+  check-shell.mjs        静态首屏壳 ↔ 组件文案一致性（npm run check:shell）
+  perf-probe.py          零依赖 CDP 探针：LCP / CLS / FCP / DCL（npm run perf）
+  gen-fonts-css.py       中文分片生成器（当前未启用，见 fonts.css 顶部说明）
+public/                  hyalite.js、videos/、og-image.png、sitemap.xml、robots.txt、404.html、manifest.json
+dist/                    构建产物，部署这个目录
 ```
-
-## 技术栈
-
-- **框架**: React 19.2 + TypeScript 5.6
-- **构建**: Vite 5.4 (Oxlint)
-- **动效**: GSAP 3.15 + Lenis 1.3 + Framer Motion 14
-- **液态玻璃**: liquid-glass-react 1.1 + hyalite.js
-- **图标**: iconsax-react + morphicons
-- **字体**: Noto Sans SC (可变) + Archivo Black + JetBrains Mono
 
 ## 构建与部署
 
-### 本地构建
-
 ```bash
-npm install
-npm run build        # 输出 dist/
-npm run preview      # 本地预览
+export PATH=/home/guish/.hermes/tools/node-26.7.0-linux-x64/bin:$PATH   # vite7 要 Node ≥22
+pnpm install
+pnpm build          # tsc -b && vite build → dist/
+python3 scripts/perf-probe.py http://127.0.0.1:4173/ --mobile --slow4g  # 需先起静态服务
 ```
 
-### Vercel 部署
+**生产部署（阿里云 ESA Pages）**：把 `dist/` 打成 zip → 控制台「函数和 Pages」上传 → 触发构建。
+站点本身只是加速层，静态内容必须落在「函数和 Pages」里，再绑定域名。
 
-1. 导入 GitHub 仓库
-2. 构建设置：
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-   - Install Command: `npm install`
-3. 无需额外配置（纯静态 SPA）
+临时预览（3 天过期，非生产）：`npx -y @shipstatic/ship ./dist --json`；
+若 30s 超时用 SDK：`new Ship({timeout:600000, maxRetries:3}).deploy('./dist')`。
 
-### 其他静态托管
+`.github/workflows/deploy.yml` 会把 master 推到 **GitHub Pages**（镜像，不是生产域名）。
 
-`dist/` 为纯静态产物，可直接部署至：
-- Netlify（拖拽 dist/ 即可）
-- GitHub Pages（推送 dist/ 到 gh-pages 分支）
-- 任意 Nginx/Apache 静态目录
+## 验收（2026-10-29 实测）
 
-## 性能与验收指标
+| 项 | 值 | 基准 |
+|---|---|---|
+| LCP | Mobile Slow4G **1672ms** / 本地 176ms | ≤ 2500ms |
+| CLS | 0 – 0.0008 | ≤ 0.1 |
+| axe-core 4.10.2 违例 | **0** | 0 |
+| 文本对比度 | 324 个文本节点 0 处不达 AA | 4.5:1 / 3:1（大字） |
+| 横向溢出 | 0（390 / 1440 实测） | 0 |
+| 构建产物 | 3.4MB（assets 680KB） | — |
 
-| 指标 | 实测值 | 基准 |
-|------|--------|------|
-| LCP | 192ms | < 2500ms |
-| 横向溢出 | 0px (10 档视口) | 0px |
-| 微动效监听器 | 739 个 | 全站覆盖 |
-| 服务图标 | 8/8 SVG | 8/8 |
-| 作品媒体 | 6/6 WebM + poster | 6/6 |
+复验：`npm run check:shell`、`python3 scripts/perf-probe.py <url>`，
+浏览器内注入 axe-core 跑 `axe.run(document)`。完整逐项结论见 `qa-receipt.json`。
 
-## 参考文档
+## 已知限制
 
-- 需求规格: `/home/guish/.omh/specs/studio-site-spec.md`
-- QA 验收报告: `dist/QA-REPORT-t_7795889e.md`
-- 修复历程: 返工 v3 → v4 → v5（见 kanban 任务历史）
-
-## 待补充
-
-- [ ] 联系方式（表单后端 endpoint、邮箱、微信号/二维码）
-- [ ] 自定义域名（如需）
-- [ ]  Analytics（如需）
+- **帧率**在本机无头环境测不出可信值（同一构建在 30/59.9fps 间摆动，关掉全部动画仍 30fps），
+  需真机复测；代码侧保证只动 transform/opacity。
+- 生产推送需要 ESA 控制台登录，仓库内没有 API 凭证，无法脚本化。
+- `docs/` 下多是 10 月的评审/商业计划稿，属过程文档，不代表当前实现。

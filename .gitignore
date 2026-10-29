@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+dist-esa.zip
+
+# 商业/运营内部文档：仓库是 public，这些不进版本库（文件保留在本地磁盘）
+docs/monetization.md
+docs/brief-monetization.md
+docs/software-sales-business-plan.md
+docs/software-sales-research.md
+docs/company-ops.md

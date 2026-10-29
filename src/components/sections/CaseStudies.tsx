@@ -74,27 +74,32 @@ export default function CaseStudies() {
           <p className="section-head__sub"><SectionIcon name="cases" size={16} /> 三种我们常接的活，以及怎么拆</p>
         </header>
 
+        {/* polish-round3 §三：等宽卡片网格 → 交错双栏。
+            每条占一整行、内部两栏；奇数行文字在左、偶数行左右互换（CSS nth-child 翻转）。
+            这里没有配图，所以「图」位放的是该场景的交付物清单，仍然是文字，不假装有图。 */}
         <div ref={gridRef} className="cases-grid">
           {cases.map((c) => (
-            <article key={c.title} className="case-card glass-float" style={{ cursor: 'default' }}>
-              <div className="case-card__header">
+            <article key={c.title} className="case-card" style={{ cursor: 'default' }}>
+              <div className="case-card__text">
                 <span className="case-card__category">{c.category}</span>
+                <h3 className="case-card__title">{c.title}</h3>
+                <p className="case-card__desc">{c.desc}</p>
+                <div className="case-card__tags">
+                  {c.tags.map(t => (
+                    <span key={t} className="case-card__tag">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="case-card__aside">
                 <span className="case-card__client">{c.scene}</span>
-              </div>
-              <h3 className="case-card__title">{c.title}</h3>
-              <p className="case-card__desc">{c.desc}</p>
-              <div className="case-card__metrics">
-                {c.deliverables.map(m => (
-                  <div key={m.value} className="case-card__metric">
-                    <span className="case-card__metric-value">{m.value}</span>
-                    <span className="case-card__metric-label">{m.label}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="case-card__tags">
-                {c.tags.map(t => (
-                  <span key={t} className="case-card__tag">{t}</span>
-                ))}
+                <div className="case-card__metrics">
+                  {c.deliverables.map(m => (
+                    <div key={m.value} className="case-card__metric">
+                      <span className="case-card__metric-value">{m.value}</span>
+                      <span className="case-card__metric-label">{m.label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </article>
           ))}

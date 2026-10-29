@@ -10,23 +10,23 @@ gsap.registerPlugin(ScrollTrigger)
 const principles = [
   {
     mark: '01',
-    title: '先对齐，再动手',
-    desc: '需求、受众、验收标准三件事先讲清楚，再谈方案和报价。含糊的地方当场问，不带着假设开工。',
+    title: '需求先行',
+    desc: '项目启动前明确目标、受众与验收标准，确保双方对交付范围达成一致。',
   },
   {
     mark: '02',
-    title: '每周看得见',
-    desc: '按周给出能点开的进度，不做黑盒，也不等到最后一天才交东西。方向偏了，当周就调。',
+    title: '进度透明',
+    desc: '按周提供可交互的预览版本，方向偏差当周调整，不等到交付末期。',
   },
   {
     mark: '03',
-    title: '交付带文档',
-    desc: '设计稿、组件说明、部署步骤一并留下。后续换人接手或自己改，不用靠猜。',
+    title: '文档交付',
+    desc: '设计稿、组件说明与部署文档一并交付，便于后续维护与交接。',
   },
   {
     mark: '04',
-    title: '做不好就说不',
-    desc: '能力之外的项目直接讲明，不硬接。接下的部分，负责到上线之后。',
+    title: '能力边界',
+    desc: '超出能力范围的项目直接说明，不接无法交付的委托。已接项目负责到上线。',
   },
 ]
 
@@ -37,21 +37,32 @@ const facts = [
   { label: '技术栈', value: 'React 19 · Vite · GSAP' },
 ]
 
+/**
+ * polish-round3 §三：关于我们去卡片化。
+ *
+ * 原来这里是一组等宽卡片（team-card，带 --c-panel 底 + 描边 + 圆角 + 48px 编号块），
+ * 读起来像仪表盘而不像一间工作室的介绍。改成编辑式长文 + 编号列表：
+ * 单栏 680px 最大宽度，段落就是段落，四条原则用 mono 编号 + border-bottom 分隔，
+ * 概况收成一张两列事实行。768px 以下本来就是单栏，不需要额外断点。
+ *
+ * 入场动画的挂钩类从 .team-card 改名为 .principle-item（它不再是卡片），
+ * 同步更新了 src/lib/motion.ts 与 src/App.tsx 里的选择器列表。
+ */
 export default function About() {
-  const gridRef = useRef<HTMLDivElement>(null)
+  const listRef = useRef<HTMLOListElement>(null)
   const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!gridRef.current || reduced) return
+    if (!listRef.current || reduced) return
 
-    const cards = gridRef.current.querySelectorAll('.team-card')
+    const items = listRef.current.querySelectorAll('.principle-item')
     const ctx = gsap.context(() => {
-      gsap.set(cards, { y: 40, opacity: 0 })
-      ScrollTrigger.batch(cards, {
-        start: 'top 85%',
+      gsap.set(items, { y: 24, opacity: 0 })
+      ScrollTrigger.batch(items, {
+        start: 'top 90%',
         once: true,
         onEnter: (batch) => {
-          gsap.to(batch, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'expo.out' })
+          gsap.to(batch, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'expo.out' })
         },
       })
     })
@@ -63,86 +74,39 @@ export default function About() {
       <div className="container">
         <header className="section-head">
           <h2 id="about-title" className="section-head__title">关于我们</h2>
-          <p className="section-head__sub"><SectionIcon name="about" size={16} /> 人不多，按项目组队</p>
+          <p className="section-head__sub"><SectionIcon name="about" size={16} /> 小型数字产品工作室</p>
         </header>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: 'var(--sp-6)',
-          marginBottom: 'var(--sp-6)',
-        }}>
-          <div style={{ gridColumn: 'span 2' }}>
-            <p style={{
-              fontSize: 'var(--fs-body-lg)',
-              color: 'var(--c-txt-2)',
-              lineHeight: 1.8,
-              marginBottom: 'var(--sp-4)',
-            }}>
-              屿作所是一间小型数字产品工作室，做界面与前端。核心的人是固定的，
-              其余按项目找长期合作的伙伴补位，不为撑场面养一支满编团队。
-            </p>
-            <p style={{
-              fontSize: 'var(--fs-body)',
-              color: 'var(--c-txt-3)',
-              lineHeight: 1.7,
-            }}>
-              接的活集中在三块：品牌官网、动效界面、设计稿落地。
-              规模不大，所以每个项目都由实际动手的人直接对接，中间不隔一层项目经理。
-            </p>
-          </div>
-          <div style={{
-            background: 'var(--c-panel)',
-            border: '1px solid var(--c-line)',
-            borderRadius: 'var(--r-lg)',
-            padding: 'var(--sp-5)',
-          }}>
-            <h3 style={{ fontWeight: 700, fontSize: '18px', color: 'var(--c-txt)', marginBottom: 'var(--sp-3)' }}>工作室概况</h3>
+        <div className="about-wrap">
+          <p className="about-lead">
+            屿作所是小型数字产品工作室，专注于界面设计与前端开发。核心团队固定，
+            按项目规模灵活组队，不设冗余岗位。
+          </p>
+          <p className="about-body">
+            主要服务三类项目：品牌官网、动效界面、设计稿落地。每个项目由实际执行人
+            直接对接，无中间管理层。
+          </p>
+
+          <ol ref={listRef} className="principle-list">
+            {principles.map((item) => (
+              <li key={item.mark} className="principle-item">
+                <span className="principle-num">{item.mark}</span>
+                <div>
+                  <h3 className="principle-title">{item.title}</h3>
+                  <p className="principle-desc">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <dl className="fact-list">
             {facts.map(item => (
-              <div key={item.label} className="fact-row" style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                gap: 'var(--sp-3)',
-                padding: 'var(--sp-2) 0',
-                borderBottom: '1px solid var(--c-line)',
-              }}>
-                <span style={{ fontSize: '14px', color: 'var(--c-txt-3)', flexShrink: 0 }}>{item.label}</span>
-                <span style={{ fontSize: '14px', color: 'var(--c-accent)', fontWeight: 600, textAlign: 'right' }}>{item.value}</span>
+              <div key={item.label} className="fact-row">
+                <dt className="fact-label">{item.label}</dt>
+                <dd className="fact-value">{item.value}</dd>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div ref={gridRef} style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: 'var(--sp-4)',
-        }}>
-          {principles.map(item => (
-            <div key={item.mark} className="team-card glass-float" style={{
-              background: 'var(--c-panel)',
-              border: '1px solid var(--c-line)',
-              borderRadius: 'var(--r-lg)',
-              padding: 'var(--sp-5)',
-            }}>
-              <div style={{
-                width: 48,
-                height: 48,
-                borderRadius: 'var(--r-md)',
-                background: 'rgba(212, 255, 63, 0.12)',
-                color: 'var(--c-accent)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 800,
-                fontSize: 15,
-                fontFamily: 'var(--font-mono)',
-                marginBottom: 'var(--sp-3)',
-              }}>{item.mark}</div>
-              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--c-txt)', marginBottom: 'var(--sp-2)' }}>{item.title}</h4>
-              <p style={{ fontSize: '14px', lineHeight: 1.7, color: 'var(--c-txt-3)', margin: 0 }}>{item.desc}</p>
-            </div>
-          ))}
+          </dl>
         </div>
       </div>
     </section>

@@ -2,107 +2,32 @@ export default function Footer() {
   const socials = [
     { label: 'GitHub', href: 'https://github.com/guish207423-ux' },
     { label: 'Email', href: 'mailto:guish207423@gmail.com' },
-    { label: 'WeChat', href: '#' },
+    // 微信没有可指向的公开链接，别留 href="#"（点了没反应 = 死链），直接去联系区看号
+    { label: 'WeChat', href: '#contact' },
   ]
 
   return (
-    <footer className="footer" style={{
-      background: 'var(--c-ink)',
-      borderTop: '1px solid var(--c-line)',
-      padding: 'var(--sp-7) 0 var(--sp-5)',
-      position: 'relative',
-      overflow: 'hidden',
-    }}>
+    <footer className="footer">
       {/* Background accent */}
-      <div aria-hidden="true" style={{
-        position: 'absolute',
-        bottom: '-30%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '80vw',
-        height: '40vw',
-        background: 'radial-gradient(ellipse, rgba(212, 255, 63, 0.06) 0%, transparent 60%)',
-        filter: 'blur(60px)',
-        pointerEvents: 'none',
-      }} />
+      <div aria-hidden="true" className="footer__accent" />
 
-      <div className="container" style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--sp-6)',
-        position: 'relative',
-        zIndex: 1,
-      }}>
+      <div className="container footer__inner">
         {/* Top row */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          flexWrap: 'wrap',
-          gap: 'var(--sp-6)',
-        }}>
-          <div style={{ maxWidth: 400 }}>
-            <p style={{
-              fontWeight: 900,
-              fontSize: 'clamp(36px, 5vw, 56px)',
-              color: 'var(--c-txt)',
-              lineHeight: 1.05,
-              letterSpacing: '-0.02em',
-            }}>屿作所</p>
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '13px',
-              color: 'var(--c-txt-2)',
-              marginTop: 'var(--sp-2)',
-              lineHeight: 1.6,
-            }}>Yu Studio · 综合数字产品工作室<br />做界面、做前端、把设计稿变成能跑的代码</p>
-            <div style={{
-              display: 'flex',
-              gap: 'var(--sp-3)',
-              marginTop: 'var(--sp-4)',
-            }}>
+        <div className="footer__top">
+          <div className="footer__brand">
+            <p className="footer__brand-name">屿作所</p>
+            <p className="footer__brand-desc">Yu Studio · 综合数字产品工作室<br />做界面、做前端、把设计稿变成能跑的代码</p>
+            <div className="footer__socials">
               {socials.map(s => (
-                <a key={s.label} href={s.href} style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '12px',
-                  color: 'var(--c-txt-3)',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  minHeight: '44px',
-                  padding: '0 14px',
-                  borderRadius: 'var(--r-pill)',
-                  border: '1px solid var(--c-line)',
-                  transition: 'color 0.2s ease, border-color 0.2s ease',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.color = 'var(--c-accent)'
-                  e.currentTarget.style.borderColor = 'var(--c-accent)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.color = 'var(--c-txt-3)'
-                  e.currentTarget.style.borderColor = 'var(--c-line)'
-                }}
-                >{s.label}</a>
+                <a key={s.label} href={s.href} className="footer__social-link">{s.label}</a>
               ))}
             </div>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: 'var(--sp-6)',
-          }}>
+          <div className="footer__nav-grid">
             <nav aria-label="页脚导航">
-              <p style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--c-txt-3)',
-                marginBottom: 'var(--sp-3)',
-              }}>导航</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-2)' }}>
+              <p className="footer__nav-title">导航</p>
+              <div className="footer__nav-list">
                 {[
                   { href: '#about', label: '关于我们' },
                   { href: '#services', label: '能做什么' },
@@ -111,94 +36,39 @@ export default function Footer() {
                   { href: '#pricing', label: '价格' },
                   { href: '#contact', label: '联系方式' },
                 ].map(l => (
-                  <a key={l.href} href={l.href} style={{
-                    color: 'var(--c-txt-2)',
-                    textDecoration: 'none',
-                    fontSize: '14px',
-                    transition: 'color 0.2s ease',
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-accent)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-txt-2)')}
-                  >{l.label}</a>
+                  <a key={l.href} href={l.href} className="footer__nav-link">{l.label}</a>
                 ))}
               </div>
             </nav>
 
             <div>
-              <p style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--c-txt-3)',
-                marginBottom: 'var(--sp-3)',
-              }}>联系</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-2)' }}>
-                <a href="mailto:guish207423@gmail.com" style={{
-                  color: 'var(--c-txt-2)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  fontFamily: 'var(--font-mono)',
-                  transition: 'color 0.2s ease',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-accent)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-txt-2)')}
-                >guish207423@gmail.com</a>
-                <p style={{
-                  color: 'var(--c-txt-2)',
-                  fontSize: '14px',
-                  fontFamily: 'var(--font-mono)',
-                }}>微信: qqwwlfy2423</p>
+              <p className="footer__nav-title">联系</p>
+              <div className="footer__nav-list">
+                <a href="mailto:guish207423@gmail.com" className="footer__nav-link footer__contact-text">guish207423@gmail.com</a>
+                <p className="footer__contact-text">微信: qqwwlfy2423</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Newsletter */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--sp-3)',
-          maxWidth: 480,
-        }}>
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '11px',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: 'var(--c-txt-3)',
-          }}>留个邮箱</p>
-          <p style={{
-            fontSize: '14px',
-            color: 'var(--c-txt-2)',
-            lineHeight: 1.5,
-          }}>有新笔记时给你发一封。不发广告，随时可以喊停。</p>
+        <div className="footer__newsletter">
+          <p className="footer__newsletter-title">留个邮箱</p>
+          <p className="footer__newsletter-desc">有新笔记时给你发一封。不发广告，随时可以喊停。</p>
           <form onSubmit={(e) => {
             e.preventDefault()
             const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value
             if (email) {
               window.location.href = `mailto:guish207423@gmail.com?subject=想收新笔记&body=我的邮箱：${encodeURIComponent(email)}`
             }
-          }} style={{
-            display: 'flex',
-            gap: 'var(--sp-2)',
-          }}>
+          }} className="footer__newsletter-form">
             <input
               name="email"
               type="email"
               aria-label="你的邮箱地址"
               placeholder="你的邮箱"
               required
-              style={{
-                flex: 1,
-                padding: '10px 16px',
-                background: 'var(--c-panel)',
-                border: '1px solid var(--c-line)',
-                borderRadius: 'var(--r-pill)',
-                color: 'var(--c-txt)',
-                fontSize: '14px',
-                outline: 'none',
-              }}
+              className="footer__newsletter-input"
             />
             <button type="submit" className="btn btn--sm btn--primary">
               <span>订阅</span>
@@ -206,25 +76,10 @@ export default function Footer() {
           </form>
         </div>
 
-        <hr style={{ border: 'none', borderTop: '1px solid var(--c-line)' }} />
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: 'var(--sp-2)',
-        }}>
-          {/* D7：页脚字号手机 13 / 平板 14，用 CSS 变量接管，便于按断点覆盖 */}
-          <p style={{
-            fontSize: 'var(--fs-footer)',
-            color: 'var(--c-txt-3)',
-            fontFamily: 'var(--font-mono)',
-          }}>© 2026 屿作所 · 保留所有权利</p>
-          <p style={{
-            fontSize: 'var(--fs-footer)',
-            color: 'var(--c-txt-3)',
-            fontFamily: 'var(--font-mono)',
-          }}>Built with React + Vite + hyalite.js</p>
+        <hr className="footer__divider" />
+        <div className="footer__bottom">
+          <p className="footer__copyright">© 2026 屿作所 · 保留所有权利</p>
+          <p className="footer__credit">Built with React + Vite + hyalite.js</p>
         </div>
       </div>
     </footer>

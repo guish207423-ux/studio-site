@@ -80,8 +80,8 @@ export function useReducedMotion(
  */
 function settleRevealedElements() {
   const selector = [
-    '.team-card', '.testimonial-card', '.case-card', '.partner-item',
-    '.service-card', '.pricing-card', '.timeline-item', '.blog-card',
+    '.principle-item', '.case-card',
+    '.service-card', '.pricing-card', '.timeline-item',
     '.stack-tag', '.work-card', '.process-step', '.hero-panel',
   ].join(',')
   document.querySelectorAll<HTMLElement>(selector).forEach((el) => {

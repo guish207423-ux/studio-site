@@ -1,0 +1,84 @@
+{
+  "project": "studio-site (屿作所 shopforyou.online)",
+  "date": "2026-10-29",
+  "scope": "站点优化：静默失效修复 / 可访问性 / LCP / 布局正确性 / 液态玻璃真接线",
+  "gates": {
+    "never_ship_grep": {
+      "result": "PASS",
+      "detail": "transition: all / transition-all / scale(0) / ease-in(非 in-out) 均 0 命中。animation:*infinite 仅剩 4 处环境动画（light-field grid 46s / ruler 68s / breathe 46s、marquee），全部满足豁免条件（≥20s、单一背景层、不与输入交互）",
+      "source": "grep -rn \"transition: all|transition-all|scale(0)|animation:[^;]*infinite\" src/"
+    },
+    "reduced_motion": {
+      "result": "PASS",
+      "detail": "globals.css 内 7 处 prefers-reduced-motion 覆盖（光照层、marquee、入场动效、微交互）",
+      "source": "grep -c prefers-reduced-motion src/styles/globals.css"
+    },
+    "contrast": {
+      "result": "PASS",
+      "detail": "324 个文本节点逐一计算有效背景 → 0 处不达 AA。修复前 44 处（全部源自 --c-txt-3 #7A7A7A 在面板上 4.05–4.47:1）",
+      "threshold": "正文 4.5:1 / 大字 3:1",
+      "source": "DOM 实测量（逐层混合有效背景 + WCAG 相对亮度）"
+    },
+    "non_text_contrast": {
+      "result": "PASS",
+      "detail": "交互控件边界改用 --c-border-ui #666666：在 #0A0A0A/#0F0F0F/#141414/#1A1A1A 上 3.45/3.34/3.21/3.03:1；分割线仍作装饰层，不受 1.4.11 约束",
+      "threshold": "3:1 (WCAG 1.4.11)"
+    },
+    "axe": {
+      "result": "PASS",
+      "detail": "axe-core 4.10.2 对整页跑 axe.run(document) → 0 violation（修复前 1 条 serious：.marquee__item 有效对比度 1.9:1；把 48px/900 的水印条从 opacity 0.3 提到 0.66 后落 3.05:1，过大字 3:1 阈值）",
+      "source": "本地注入 node_modules/axe-core/axe.min.js（jsdelivr 在本机不可达）"
+    },
+    "core_web_vitals": {
+      "result": "PASS",
+      "detail": "LCP：Mobile Slow4G 3612ms → 1616ms；Desktop Slow4G 3696ms → 1656ms；本地 948ms → 176ms。CLS 0–0.0008。LCP 元素 hero-title-editorial，由 HTML 静态壳首帧绘制，不等 JS",
+      "threshold": "LCP ≤2500ms / CLS ≤0.1",
+      "source": "scripts/perf-probe.py（CDP + PerformanceObserver，Slow4G 1.6Mbps/150ms RTT + 4× CPU 降频）"
+    },
+    "frame_rate": {
+      "result": "not-run",
+      "detail": "本机无头环境无法给出可信读数：同一构建在两次测量间于 30fps / 59.9fps 之间摆动，把页面动画全部关掉后仍测到 30fps（= 环境限制，非页面开销）；最新探针里 rAF 只采到 16 帧/4s（合成器不推进）。因此不报数字，也不据此调参",
+      "note": "需真机（有 GPU 的浏览器）复测。代码侧保证：所有动画只动 transform/opacity，光照层为纯 CSS 合成层"
+    },
+    "layout_correctness": {
+      "result": "PASS",
+      "detail": "移除 .section 的 content-visibility:auto + contain-intrinsic-size:auto 600px。移动端文档高 6874px（占位假值）→ 10783px（真实）；区块高度恢复为 700–2445px 各自不同；锚点与 ScrollTrigger 偏移恢复正确",
+      "evidence": "关掉 content-visibility 前后逐区块量高：about 728→1445、cases 728→1427、pricing 728→1214、contact 728→2445"
+    },
+    "fonts_actually_loaded": {
+      "result": "PASS",
+      "detail": "修复前构建产物 @font-face 计数 = 0：fonts.css 从未被 import、内部 @import 位置非法、中文分片族名 'Noto Sans SC Variable' 与令牌 'Noto Sans SC' 不匹配（三重静默失效）。修复后 document.fonts.check('16px Geist')=true、'500 13px JetBrains Mono'=true，hero 计算字体 = Geist, PingFang SC…",
+      "source": "浏览器 document.fonts.check + getComputedStyle；构建产物 grep"
+    },
+    "liquid_glass_actually_wired": {
+      "result": "PASS",
+      "detail": "修复前 DOM 内 filter 元素 = 0：applyHyalite 写的是 stopWatchers.push(() => Hyalite.watch(...).stop())，存进去的是「开启后立刻关闭」的函数，watcher 从未真正启动；且 .glass-btn 没有消费 --hyalite 的 backdrop-filter 声明。修复后 filter=5，.glass-contact 与 .glass-btn 的 backdrop-filter = url(#hyalite-N)。视觉核对：无塑料白圈、无色散碎裂、文字清晰；同时修掉重接导致的滤镜泄漏（7 个玻璃元素曾累积 54 个 <filter>）：applyHyalite 改为幂等守卫，接好即返回，不重建。稳定态 12 个 filter（7 元素 = filter + mask），切主题/滚动后不增不减",
+      "source": "DOM 查询 filter/backdrop-filter + 截图目视 + 主题切换前后计数比对"
+    },
+    "touch_targets": {
+      "result": "PASS",
+      "detail": "pointer:coarse 下 nav__link 48px、burger 48px、works-filter 44px、btn--sm 44px；Cookie 按钮 40px（指针设备，满足 WCAG 2.5.8 的 24px）。桌面导航链接 35px 高：指针设备满足 AA，未按 44px 改，避免破坏药丸导航比例"
+    },
+    "shell_drift_guard": {
+      "result": "PASS",
+      "detail": "npm run check:shell 比对 index.html 静态壳与 Hero/Navigation 的 H1、副标题、导航项、主 CTA；已用注入错字验证会 FAIL",
+      "source": "scripts/check-shell.mjs"
+    },
+    "responsive_overflow": {
+      "result": "PASS",
+      "detail": "8 档视口实测 scrollWidth = clientWidth（溢出 0px）：320 / 360 / 390 / 768 / 1024 / 1440 / 1920 / 2560，且无元素右越界",
+      "source": "CDP setDeviceMetricsOverride + DOM getBoundingClientRect 扫描"
+    }
+  },
+  "artifacts": {
+    "mobile_full_screenshot": "/home/guish/.hermes/cache/scratch/final-mobile-full.jpg",
+    "desktop_first_screen": "/home/guish/.hermes/cache/scratch/fix-top.jpg",
+    "contact_glass": "/home/guish/.hermes/cache/scratch/glass-check.jpg"
+  },
+  "extra_checks": {
+    "reduced_motion_content_visible": "PASS —— 模拟 prefers-reduced-motion: reduce 后 29 个入场目标全部 opacity ≥0.9（没有「动画关掉、元素停在 opacity:0」的老坑），marquee 动画 none，Lenis 不启动",
+    "no_js": "PASS —— 禁用 JS 后 H1 / 6 个导航项 / 主 CTA 仍然可读（静态壳），页面高 861px",
+    "theme_color_consistency": "PASS —— manifest 的 theme_color/background_color 与 index.html 的 theme-color 由旧值（#D4FF3F / #050505）统一到 token 的 #0A0A0A",
+    "video_loading": "PASS —— 6 个作品视频均 preload=\"metadata\" + poster + muted + playsInline + loop，首屏不拉 2.5MB 视频"
+  }
+}

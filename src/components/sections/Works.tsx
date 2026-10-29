@@ -120,6 +120,25 @@ export default function Works() {
       const card = v.closest('.work-card')
       if (!card) return
 
+      // 移动端/触屏：进入视口自动播放预览，离开视口暂停
+      if (!hoverable) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                v.play().catch(() => {})
+              } else {
+                v.pause()
+              }
+            })
+          },
+          { threshold: 0.5 }
+        )
+        io.observe(v)
+        cleanups.push(() => io.disconnect())
+        return
+      }
+
       // C2：hover 播放只在「有 hover 能力且未要求减弱动效」时注册；
       // 触屏与 reduced-motion 都只保留 click 切换（触屏没有 hover，
       // reduced-motion 下自动播放视频属于「非用户主动触发的动效」）。
@@ -186,7 +205,8 @@ export default function Works() {
     <section className="section section--ink2 zone" id="works" aria-labelledby="works-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="works-title" className="section-head__title">技术资产</h2>
+          {/* polish-round3 §三：作品区标题提到 display 字号，作为全站唯一的大字排版区 */}
+          <h2 id="works-title" className="section-head__title" style={{ fontSize: 'var(--fs-display)' }}>技术资产</h2>
           <p className="section-head__sub"><SectionIcon name="works" size={16} /> 长期跟踪、拆解的开源工程。这些项目覆盖的能力，就是我们能接的范围</p>
         </header>
 
@@ -205,6 +225,8 @@ export default function Works() {
           ))}
         </div>
 
+        {/* polish-round3 §三：等宽卡片网格 → 横向滚动。卡片固定宽度排成一行，
+            溢出部分横向滚动并吸附；窄屏（<768px）由 CSS 收回单栏堆叠。 */}
         <div ref={gridRef} className="works-grid perspective-root">
           {filtered.map((p) => (
             <article key={p.name} className="work-card glass-float">
@@ -223,7 +245,12 @@ export default function Works() {
                 {/* Hover overlay */}
                 <div className="work-card__overlay" aria-hidden="true" />
                 <span className="work-card__hint work-card__hint--hover">悬停播放</span>
-                <span className="work-card__hint work-card__hint--touch">点按播放</span>
+                {/* Play button */}
+                <span className="work-card__play" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                </span>
                 {/* Category badge */}
                 <span className="work-card__category">{p.category}</span>
               </div>

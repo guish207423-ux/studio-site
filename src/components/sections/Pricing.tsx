@@ -12,6 +12,7 @@ const plans = [
     price: '¥12,000',
     period: '起',
     desc: '你有 Figma，我们把它做成能点的页面',
+    services: ['UI/UX 设计', '前端/全栈开发'],
     features: [
       'Figma 到 React 实现',
       '响应式与无障碍基线',
@@ -27,6 +28,7 @@ const plans = [
     price: '¥15,000',
     period: '起',
     desc: '产品已经在线，把关键交互做出手感',
+    services: ['动效与视频', '前端/全栈开发'],
     features: [
       '关键路径动效设计',
       '性能预算与降级方案',
@@ -42,6 +44,7 @@ const plans = [
     price: '¥28,000',
     period: '起',
     desc: '5–7 个页面，从品牌梳理做到前端上线',
+    services: ['UI/UX 设计', '品牌 VI 设计', '前端/全栈开发', '动效与视频'],
     features: [
       '页面结构与视觉设计',
       '前端实现与交互动效',
@@ -76,7 +79,7 @@ export default function Pricing() {
   }, [reduced])
 
   return (
-    <section className="section section--ink2 zone" id="pricing" aria-labelledby="pricing-title">
+    <section className="section zone" id="pricing" aria-labelledby="pricing-title">
       <div className="container">
         <header className="section-head">
           <h2 id="pricing-title" className="section-head__title">价格</h2>
@@ -92,6 +95,12 @@ export default function Pricing() {
               <div className="pricing-card__price">
                 <span className="pricing-card__amount">{plan.price}</span>
                 {plan.period && <span className="pricing-card__period">{plan.period}</span>}
+              </div>
+              {/* 包含的服务 */}
+              <div className="pricing-card__services">
+                {plan.services.map(s => (
+                  <span key={s} className="pricing-card__service-tag">{s}</span>
+                ))}
               </div>
               <ul className="pricing-card__features">
                 {plan.features.map(f => (

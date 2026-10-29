@@ -3,26 +3,21 @@ import Navigation from './components/layout/Navigation'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import { setupMicroInteractions } from './microInteractions'
-import LoadingScreen from './components/ui/LoadingScreen'
 import DynamicLight from './components/ui/DynamicLight'
-import FloatingChat from './components/ui/FloatingChat'
-import ScrollToTop from './components/ui/ScrollToTop'
-import CookieConsent from './components/ui/CookieConsent'
+import FloatingToolbar from './components/ui/FloatingToolbar'
+import Marquee from './components/ui/Marquee'
 
 const Services = lazy(() => import('./components/sections/Services'))
 const Works = lazy(() => import('./components/sections/Works'))
 const Process = lazy(() => import('./components/sections/Process'))
-const Testimonials = lazy(() => import('./components/sections/Testimonials'))
 const About = lazy(() => import('./components/sections/About'))
-const Partners = lazy(() => import('./components/sections/Partners'))
 const CaseStudies = lazy(() => import('./components/sections/CaseStudies'))
 const Pricing = lazy(() => import('./components/sections/Pricing'))
-const Blog = lazy(() => import('./components/sections/Blog'))
 const Contact = lazy(() => import('./components/sections/Contact'))
 
 function SectionSkeleton() {
   return (
-    <div style={{ padding: 'var(--sp-7) 0', minHeight: '200px', background: 'var(--c-panel)', borderRadius: 'var(--r-lg)' }} />
+    <div className="section-skeleton" />
   )
 }
 
@@ -72,7 +67,7 @@ export default function App() {
     const revealWatchdog = () => {
       const now = performance.now()
       const vh = window.innerHeight
-      const sel = '.team-card, .testimonial-card, .case-card, .partner-item, .service-card, .pricing-card, .timeline-item, .blog-card, .stack-tag, .work-card'
+      const sel = '.principle-item, .case-card, .service-card, .pricing-card, .process-step, .stack-tag, .work-card'
       document.querySelectorAll<HTMLElement>(sel).forEach(el => {
         const rect = el.getBoundingClientRect()
         // 已经划过屏幕上沿的元素：直接补齐，避免快速滚动时永久停在 opacity:0
@@ -109,42 +104,14 @@ export default function App() {
 
   return (
     <>
-      <a href="#main" className="skip-link" style={{
-        position: 'fixed',
-        top: '-100%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        zIndex: 9999,
-        background: 'var(--c-accent)',
-        color: 'var(--c-accent-ink)',
-        padding: '8px 20px',
-        borderRadius: '0 0 var(--r-md) var(--r-md)',
-        fontSize: '14px',
-        fontWeight: 500,
-        textDecoration: 'none',
-        transition: 'top 0.2s ease',
-      }}
-      onFocus={e => { e.currentTarget.style.top = '0' }}
-      onBlur={e => { e.currentTarget.style.top = '-100%' }}
-      >跳转到主要内容</a>
-      <LoadingScreen />
+      <a href="#main" className="skip-link">跳转到主要内容</a>
       <DynamicLight />
       {/* Scroll progress bar */}
-      <div id="scroll-progress" style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        height: '2px',
-        background: 'var(--c-accent)',
-        zIndex: 200,
-        width: '0%',
-        transition: 'width 0.1s linear',
-        /* 细光，不用霓虹外发光 */
-        boxShadow: '0 0 0 0.5px rgba(212, 255, 63, 0.35)',
-      }} />
+      <div id="scroll-progress" className="scroll-progress" />
       <Navigation />
       <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
         <Hero />
+        <Marquee text="品牌官网 · 动效界面 · 设计稿落地 · 从设计到代码" />
         <Suspense fallback={<SectionSkeleton />}>
           <About />
         </Suspense>
@@ -152,21 +119,15 @@ export default function App() {
           <Services />
           <Works />
           <Process />
-          <Testimonials />
-          <Partners />
           <CaseStudies />
           <Pricing />
-          <Blog />
           <Contact />
         </Suspense>
       </main>
       <Footer />
 
-      {/* Floating chat widget */}
-      <FloatingChat />
-      <ScrollToTop />
-      <CookieConsent />
-      {/* 悬浮联系方式由 FloatingChat 组件统一提供，此处不再重复放置 */}
+      {/* Floating toolbar: contact + back-to-top + cookie consent */}
+      <FloatingToolbar />
     </>
   )
 }
