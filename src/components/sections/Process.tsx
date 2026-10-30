@@ -63,7 +63,26 @@ export default function Process() {
         },
       })
     })
-    return () => ctx.revert()
+    // H2（评审）：原先 5 步各自「从下方 40px 淡入」，动效不携带任何信息。
+    // 这里加一条滚动驱动的进度轨：滚动进入流程区时，左侧竖线按进度被 accent 填满，
+    // 「5 步在推进」直接画出来。动效动词从「淡入」变成「推进」，且只在信息变化时出现。
+    const railCtx = gsap.context(() => {
+      gsap.fromTo(
+        listRef.current,
+        { '--fill': 0 },
+        {
+          '--fill': 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: listRef.current,
+            start: 'top 72%',
+            end: 'bottom 65%',
+            scrub: 0.4,
+          },
+        },
+      )
+    })
+    return () => { ctx.revert(); railCtx.revert() }
   }, [reduced])
 
   return (

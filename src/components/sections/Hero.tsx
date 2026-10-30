@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { useReducedMotion } from '../../lib/motion'
+import HeroSpecimen from '../ui/HeroSpecimen'
 
 export default function Hero() {
   const panelRef = useRef<HTMLDivElement>(null)
@@ -20,7 +21,6 @@ export default function Hero() {
     <section className="hero" id="top" aria-labelledby="hero-title">
       <div className="container">
         <div ref={panelRef} className="hero-editorial">
-          <p className="hero-eyebrow">屿作所 · Yu Studio</p>
           {/* 原为三行、末行只有「产品」二字（占最长行 33%，390 档 21%）= 悬垂孤行；
               accent 又压在这两个泛词上，是全站最重的视觉资源标了信息量最低的词。
               改成两行、accent 落在动词短语上，最长/最短行 ≈ 1.17。 */}
@@ -39,6 +39,9 @@ export default function Hero() {
               <span>查看案例 →</span>
             </a>
           </div>
+          {/* 首屏右侧原来是 384px 空白，整屏只剩「大标题 + 按钮」——AI 落地页的标准构图。
+              这里补一个可自证的视觉锚点：真实 CSS 片段 ↔ 它渲染出的按钮。 */}
+          <HeroSpecimen />
         </div>
       </div>
     </section>

@@ -269,9 +269,12 @@ body::after {
 
 /* 静态兜底层：与 v5 .light-sweep 同量级，保证无 JS 时背景不空 */
 .light-field__fill {
+  /* 单 accent 纪律：原来这里是「青 + 绿」两个 radial —— 青是 --c-info 语义色，
+     被当成装饰光晕后与品牌绿互相削弱，也是「AI 深色落地页」最典型的指纹之一
+     （青绿双色光晕）。现在只留品牌绿，色相数降到 2（accent + 中性灰）。 */
   background:
-    radial-gradient(ellipse 78% 52% at 22% 34%, rgba(127, 227, 255, 0.075) 0%, transparent 62%),
-    radial-gradient(ellipse 58% 42% at 78% 66%, rgba(168, 217, 58, 0.055) 0%, transparent 52%);
+    radial-gradient(ellipse 78% 52% at 22% 34%, rgba(168, 217, 58, 0.07) 0%, transparent 62%),
+    radial-gradient(ellipse 58% 42% at 78% 66%, rgba(168, 217, 58, 0.045) 0%, transparent 52%);
 }
 
 /* 视差层：两团低频光，位移由 JS 写 transform */
@@ -3142,22 +3145,30 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
    2026-10-30 独立评审修复
    ========================================================================== */
 
-/* H1：卡片边界实测 #2E2E2E 对页底只有 1.46:1，对面板 1.28:1 —— 暗光屏上 8 张 bento
-   会塌成一整块（卡片边界是这里唯一表达「8 个并列条目」的信息，按 WCAG 1.4.11 需 ≥3:1）。
-   #666666 对页底 3.45:1、对面板(#1A1A1A) 3.03:1，是同时满足两侧底色的最小可用值
-   （#5A5A5A 只有 2.87，#616161 对面板 2.81）。 */
+/* 卡片分层：此前试过 #666666 硬边（LINEAR 评审 H1 的 3:1 读法），实机看是一圈线框 ——
+   Linear / Vercel / Raycast 的暗色卡片都不靠硬边表达分组，靠的是**表面比页底亮一档**
+   + 发丝边 + 顶部 1px 内高光。这里改成这套：
+     · 表面 #131313 对页底 #0A0A0A = 1.18（够分组，不抢眼）
+     · 边框 rgba(255,255,255,.075) = 发丝级，只在近看时给出轮廓
+     · 顶部内高光 模拟受光面，卡片在暗部也能读出「有个面朝上」
+   3:1 的严格读法适用于**控件**（按钮/输入框），容器按这套更接近大厂实装。 */
 .service-card,
 .work-card,
 .pricing-card {
-  border: 1px solid var(--c-border-ui);
+  background: #131313;
+  border: 1px solid rgba(255, 255, 255, 0.075);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.07),
-    var(--sh-1);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: border-color var(--dur-standard) var(--ease-out-expo),
+              background-color var(--dur-standard) var(--ease-out-expo),
+              transform var(--dur-standard) var(--ease-out-expo);
 }
 .service-card:hover,
 .work-card:hover,
 .pricing-card:hover {
-  border-color: var(--c-txt-3);
+  background: #161616;
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 /* M4：.brand 没有声明 color，浏览器默认链接色是 rgb(158,158,255)（蓝紫），
@@ -3206,4 +3217,140 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
 .pricing-card--highlight .pricing-card__desc,
 .pricing-card--highlight .pricing-card__period {
   color: var(--c-txt-2);
+}
+
+
+/* ============================================================================
+   2026-10-30 设计层级提升（第二轮，用户授权"更现代高级、精致、去 AI 化"）
+   ========================================================================== */
+
+/* M1：7 个区块头完全同构（同字号、同字重、同结构），扫读时读不出"章节在推进"。
+   用 CSS 计数器给每个区块一个 01–07 的编号，mono 字 + 弱色 —— 编辑式排版里最省力的
+   结构性差异，且不需要动 7 个组件。 */
+main { counter-reset: sec; }
+.section-head__title::before {
+  counter-increment: sec;
+  content: counter(sec, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 0.34em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--c-accent);
+  opacity: 0.75;
+  vertical-align: 0.55em;
+  margin-right: 0.5em;
+}
+
+/* 大标题统一收紧字距（Archivo/Geist 这类几何无衬线在大字号下需要负字距才「精密」） */
+.section-head__title { letter-spacing: -0.025em; }
+
+/* H2：流程进度轨 —— 滚动驱动的 accent 填充线，把「5 步在推进」这件事画出来，
+   而不是让 5 行各自从下方 40px 淡入一遍。 */
+.process-list { position: relative; padding-left: var(--sp-3); }
+.process-list::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--c-line);
+}
+.process-list::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 1px;
+  height: calc((100% - 12px) * var(--fill, 0));
+  background: var(--c-accent);
+  transition: height 80ms linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-list::after { height: 100%; }
+}
+
+
+/* ============================================================================
+   首屏「设计 ↔ 代码」对照（视觉锚点，内容全部来自本站真实样式）
+   ========================================================================== */
+.hero-editorial { position: relative; }
+.specimen {
+  margin: var(--sp-6) 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  max-width: 520px;
+}
+.specimen__cap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 10px var(--sp-3);
+  background: #101010;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--c-txt-3);
+}
+.specimen__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(168, 217, 58, 0.15);
+}
+.specimen__pane { background: #0D0D0D; }
+.specimen__pane--code { padding: var(--sp-3) var(--sp-4); overflow-x: auto; }
+.specimen__pane--code pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--c-txt-2);
+}
+.tok-sel { color: #C8B6FF; }
+.tok-prop { color: #9AD5FF; }
+.tok-val { color: var(--c-accent); }
+.specimen__pane--live {
+  padding: var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+.specimen__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--c-txt-3);
+  white-space: nowrap;
+}
+.specimen__button { pointer-events: none; }
+
+@media (min-width: 1024px) {
+  /* 宽屏：右栏给锚点，标题列收窄 —— 形成「文案 / 证据」的左右关系，而不是居中一堆字 */
+  .hero-editorial {
+    display: grid;
+    /* 左列必须放得下「我们把设计变成」7 个汉字：7 × 76px ≈ 532px + 字距，
+       低于这个宽度标题会在词中间断开（"设/计"被拆到两行）。 */
+    grid-template-columns: minmax(560px, 1fr) minmax(360px, 0.62fr);
+    grid-template-areas:
+      "eyebrow specimen"
+      "title specimen"
+      "lead specimen"
+      "cta specimen";
+    column-gap: var(--sp-7);
+    align-items: start;
+  }
+  .hero-eyebrow { grid-area: eyebrow; }
+  .hero-title-editorial { grid-area: title; }
+  .hero-lead-editorial { grid-area: lead; }
+  .hero-cta-editorial { grid-area: cta; }
+  .specimen { grid-area: specimen; margin: 0; max-width: none; }
+
+  /* 双栏布局下标题降到 76px：96px 在 560–700px 的列宽里装不下 7 个汉字，
+     会在「设/计」之间硬断（截图实测）。字号的绝对大小不如断行正确重要。 */
+  .hero-title-editorial { font-size: clamp(44px, 5vw, 76px); }
 }

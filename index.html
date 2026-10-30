@@ -113,13 +113,22 @@
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-editorial">
-            <p class="hero-eyebrow">屿作所 · Yu Studio</p>
             <h1 id="hero-title" class="hero-title-editorial">我们把设计变成<br /><span class="hero-title-accent">能运行的产品</span></h1>
             <p class="hero-lead-editorial">品牌官网、动效界面、设计稿落地——从设计到代码，全程一个团队。</p>
             <div class="hero-cta-editorial">
               <a href="#contact" class="btn btn--lg btn--primary"><span>预约咨询</span></a>
               <a href="#works" class="btn btn--lg btn--ghost"><span>查看案例 →</span></a>
             </div>
+            <figure class="specimen" aria-hidden="true">
+              <figcaption class="specimen__cap"><span class="specimen__dot"></span>本站真实样式 · 就地渲染</figcaption>
+              <div class="specimen__pane specimen__pane--code"><pre><code><span class="tok-sel">.btn--primary</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">var(--c-accent)</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">var(--c-accent-ink)</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">var(--r-md)</span>;
+  <span class="tok-prop">transition</span>: <span class="tok-val">240ms var(--ease-out-expo)</span>;
+}</code></pre></div>
+              <div class="specimen__pane specimen__pane--live"><span class="specimen__label">渲染结果</span><span class="btn btn--lg btn--primary specimen__button"><span>预约咨询</span></span></div>
+            </figure>
           </div>
         </div>
       </section>
