@@ -73,7 +73,7 @@ function applyHyalite() {
     // 结果是主题切换后玻璃凭空消失。既然本站只有一套深色主题，正确解法是
     // **不重建**：接好了就别动，需要换主题时再单独设计重挂流程。
     const targets = Array.from(
-      document.querySelectorAll<HTMLElement>('.glass-contact, .glass-btn, .glass-modal, .hero-panel, .glass-nav'),
+      document.querySelectorAll<HTMLElement>('.glass-contact, .glass-nav'),
     )
     if (targets.length > 0 && targets.every((el) => el.style.getPropertyValue('--hyalite'))) return
 
@@ -85,17 +85,13 @@ function applyHyalite() {
     // 但它在 <767px 下短边会被 bevel clamp 削掉大半，所以移动端只挂 nav。
     const panelSelector = mobile
       ? '.glass-nav'
-      : '.glass-nav, .glass-contact, .glass-modal, .hero-panel'
+      : '.glass-nav, .glass-contact'
     // 注意这个 push 的写法：必须是「现在就 watch，把 stop 存起来」。
     // 原先写的是 stopWatchers.push(() => Hyalite.watch(...).stop()) ——
     // 存进去的是一个「先开启再立刻关闭」的函数，于是这一整段从来没启动过 watcher，
     // 玻璃永远停在 CSS 兜底档（filters=0 也不报错，正是最难查的那种静默失效）。
     const panelHandle = window.Hyalite.watch(document.body, panelSelector, hyaliteParams('panel'))
     stopWatchers.push(() => panelHandle.stop())
-    if (!mobile) {
-      const btnHandle = window.Hyalite.watch(document.body, '.glass-btn', hyaliteParams('button'))
-      stopWatchers.push(() => btnHandle.stop())
-    }
   } catch(e) {
     console.error('applyHyalite error:', e.message, e.stack);
   }
@@ -133,7 +129,7 @@ applyHyalite()
 // 因为重建 = 拆旧滤镜 + 建新滤镜，无条件重跑会把 filter 数量堆成个位数以外的垃圾。
 const needsGlass = () =>
   Array.from(
-    document.querySelectorAll<HTMLElement>('.glass-contact, .glass-btn, .glass-modal, .hero-panel'),
+    document.querySelectorAll<HTMLElement>('.glass-contact, .glass-nav'),
   ).some((el) => !el.style.getPropertyValue('--hyalite'))
 
 let reapplyTimer: number | null = null

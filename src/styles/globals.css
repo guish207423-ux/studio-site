@@ -398,35 +398,24 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
    主 CTA 升档靠 bevel/thickness 加大 + 投影加深，不靠换背景色。
    深度同样来自受光/背光落差：顶部内高光 + 底部内阴影 + 两层外投影。 */
 .glass-btn {
-  /* 这里必须自己消费 --hyalite：main.tsx 的 watcher 会给 .glass-btn 写
-     --hyalite: url(#hyalite-N)，但原先只有 .glass 声明了 backdrop-filter，
-     而按钮的 class 里没有 .glass —— 折射生成了却没人用，按钮一直是纯色块。
-     兜底档位比面板薄（6px），小元素上大 blur 会糊成毛玻璃。 */
-  backdrop-filter: var(--hyalite, blur(6px) saturate(140%));
-  -webkit-backdrop-filter: var(--hyalite, blur(6px) saturate(140%));
-  background: rgba(255, 255, 255, 0.10);
+  /* 2026-10-30 玻璃收敛（评审 C3）：原来全站 7 个元素挂折射、按钮也是玻璃。
+     「哪里都是玻璃」= 没有一处是玻璃 —— 苹果只在导航条和一层模态上用材质，
+     按钮一律实心，否则 CTA 的可点性与层级都被半透明糊掉。
+     现在折射只留 .glass-nav / .glass-contact 两处，按钮回到实心表面。 */
+  background: var(--c-panel-2);
   color: var(--c-txt);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--c-border-ui);
   box-shadow:
-    var(--hyalite-edge, 0 0 0 0 transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.24),
-    0 4px 12px rgba(0, 0, 0, 0.24),
-    0 12px 32px -8px rgba(0, 0, 0, 0.42);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.4);
   transition: background-color var(--dur-micro) ease,
               border-color var(--dur-micro) ease,
               box-shadow var(--dur-micro) ease;
 }
 
 .glass-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: var(--c-line-strong);
-  box-shadow:
-    var(--hyalite-edge, 0 0 0 0 transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.28),
-    0 6px 18px rgba(0, 0, 0, 0.28),
-    0 18px 48px -8px rgba(0, 0, 0, 0.5);
+  background: #1F1F1F;
+  border-color: var(--c-txt-3);
 }
 
 .btn--sm { height: 36px; padding: 0 16px; font-size: 14px; border-radius: var(--r-sm); }
@@ -442,9 +431,9 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
    主按钮的层级靠 bevel/thickness 加档（见 main.tsx hyaliteParams('button')），
    着色只在玻璃之上一层半透荧光，不透明会挡住 backdrop-filter 的折射。 */
 .btn--primary.glass-btn {
-  background: rgba(168, 217, 58, 0.26);
-  color: var(--c-accent);
-  border-color: rgba(168, 217, 58, 0.45);
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+  border-color: var(--c-accent);
   transition: transform var(--dur-micro) var(--ease-out-expo),
               background-color var(--dur-micro) ease,
               border-color var(--dur-micro) ease,
@@ -452,8 +441,8 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 }
 
 .btn--primary.glass-btn:hover {
-  background: rgba(168, 217, 58, 0.36);
-  border-color: var(--c-accent);
+  background: #B8E84A;
+  border-color: #B8E84A;
   box-shadow:
     var(--hyalite-edge, 0 0 0 0 transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.30),
@@ -2957,9 +2946,11 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   left: var(--sp-4);
   bottom: var(--sp-4);
   z-index: var(--z-toast);
-  max-width: 380px;
+  max-width: 360px;
   width: calc(100% - var(--sp-4) * 2);
-  padding: var(--sp-3) var(--sp-4);
+  /* 视觉复核：卡片内部重心不稳 —— 文案区留白偏松、两个按钮大小不等且靠右下。
+     改成：内边距收紧一档、按钮区两等分铺满、与文案左缘对齐。 */
+  padding: var(--sp-3);
   background: rgba(18, 18, 18, 0.94);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--r-md);
@@ -2975,9 +2966,10 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   margin: 0 0 var(--sp-3) 0;
 }
 .cookie-toast__actions {
-  display: flex;
-  gap: 8px;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
 }
 .cookie-toast__btn {
   min-height: 40px;
