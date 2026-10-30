@@ -3295,7 +3295,16 @@ main { counter-reset: sec; }
   box-shadow: 0 0 0 3px rgba(168, 217, 58, 0.15);
 }
 .specimen__pane { background: #0D0D0D; }
-.specimen__pane--code { padding: var(--sp-3) var(--sp-4); overflow-x: auto; }
+.specimen__pane--code {
+  padding: var(--sp-3) var(--sp-4);
+  overflow-x: auto;
+  /* 网格项默认 min-width:auto = min-content，而 <pre> 的 min-content 是「最长那一行代码」的宽度。
+     结果整列被撑开：实测 1024 视口 scrollWidth 1088 > clientWidth 1009（横向溢出 79px）。
+     必须显式 min-width:0 才能让 overflow-x:auto 生效。 */
+  min-width: 0;
+}
+.specimen > * { min-width: 0; }
+.hero-editorial > * { min-width: 0; }
 .specimen__pane--code pre {
   margin: 0;
   font-family: var(--font-mono);
@@ -3321,7 +3330,10 @@ main { counter-reset: sec; }
 }
 .specimen__button { pointer-events: none; }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
+  /* 断点从 1024 提到 1200：1024–1199 的窄桌面装不下 560px 文列 + 360px 面板 + 间距，
+     实测 1024 视口容器被撑到 1028（clientWidth 1009）→ 整页横向溢出。
+     这个区间改为单列（面板落到标题下方，与移动端同构），1200 起才并排。 */
   /* 宽屏：右栏给锚点，标题列收窄 —— 形成「文案 / 证据」的左右关系，而不是居中一堆字 */
   .hero-editorial {
     display: grid;
