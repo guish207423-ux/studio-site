@@ -1,0 +1,163 @@
+{
+ "pricing": [
+  {
+   "key": "0__desc",
+   "card": "设计稿转线上",
+   "cls": "pricing-card__desc",
+   "text": "你有 Figma，我们把它做成能点的页面",
+   "color": "rgb(138, 138, 138)",
+   "fs": 13,
+   "fw": "400",
+   "bgColor": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "bg_px": [
+    20,
+    20,
+    20
+   ],
+   "ratio": 5.34,
+   "pass": true
+  },
+  {
+   "key": "0__period",
+   "card": "设计稿转线上",
+   "cls": "pricing-card__period",
+   "text": "起",
+   "color": "rgb(138, 138, 138)",
+   "fs": 14,
+   "fw": "400",
+   "bgColor": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "bg_px": [
+    20,
+    20,
+    20
+   ],
+   "ratio": 5.34,
+   "pass": true
+  },
+  {
+   "key": "1__desc",
+   "card": "动效升级",
+   "cls": "pricing-card__desc",
+   "text": "产品已经在线，把关键交互做出手感",
+   "color": "rgb(138, 138, 138)",
+   "fs": 13,
+   "fw": "400",
+   "bgColor": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "bg_px": [
+    20,
+    20,
+    20
+   ],
+   "ratio": 5.34,
+   "pass": true
+  },
+  {
+   "key": "1__period",
+   "card": "动效升级",
+   "cls": "pricing-card__period",
+   "text": "起",
+   "color": "rgb(138, 138, 138)",
+   "fs": 14,
+   "fw": "400",
+   "bgColor": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "bg_px": [
+    20,
+    20,
+    20
+   ],
+   "ratio": 5.34,
+   "pass": true
+  },
+  {
+   "key": "2__desc",
+   "card": "官网重做",
+   "cls": "pricing-card__desc",
+   "text": "5–7 个页面，从品牌梳理做到前端上线",
+   "color": "rgb(138, 138, 138)",
+   "fs": 13,
+   "fw": "400",
+   "bgColor": "rgba(0, 0, 0, 0)",
+   "bgImage": "linear-gradient(rgba(255, 255, 255, 0.04) 0%, rgb(26, 26, 26",
+   "bg_px": [
+    37,
+    47,
+    38
+   ],
+   "ratio": 4.02,
+   "pass": false
+  },
+  {
+   "key": "2__period",
+   "card": "官网重做",
+   "cls": "pricing-card__period",
+   "text": "起",
+   "color": "rgb(138, 138, 138)",
+   "fs": 14,
+   "fw": "400",
+   "bgColor": "rgba(0, 0, 0, 0)",
+   "bgImage": "linear-gradient(rgba(255, 255, 255, 0.04) 0%, rgb(26, 26, 26",
+   "bg_px": [
+    36,
+    44,
+    35
+   ],
+   "ratio": 4.17,
+   "pass": false
+  }
+ ],
+ "marquee_reduce": {
+  "els": [
+   {
+    "sel": "div.marquee",
+    "anim": "none",
+    "dur": "1e-05s",
+    "state": "running",
+    "transform": "none"
+   },
+   {
+    "sel": "div.marquee__track",
+    "anim": "none",
+    "dur": "1e-05s",
+    "state": "running",
+    "transform": "none"
+   },
+   {
+    "sel": "span.marquee__item",
+    "anim": "none",
+    "dur": "1e-05s",
+    "state": "running",
+    "transform": "none"
+   },
+   {
+    "sel": "span.marquee__item",
+    "anim": "none",
+    "dur": "1e-05s",
+    "state": "running",
+    "transform": "none"
+   },
+   {
+    "sel": "span.marquee__item",
+    "anim": "none",
+    "dur": "1e-05s",
+    "state": "running",
+    "transform": "none"
+   },
+   {
+    "sel": "span.marquee__item",
+    "anim": "none",
+    "dur": "1e-05s",
+    "state": "running",
+    "transform": "none"
+   }
+  ]
+ },
+ "marquee_moving_under_reduce": false,
+ "pos": [
+  "none",
+  "none"
+ ]
+}

@@ -9,8 +9,8 @@
   /* 色彩 — 暗夜荧光 (品牌默认深色主题) */
   --c-ink: #0A0A0A;
   --c-ink-2: #0F0F0F;
-  --c-panel: #141414;
-  --c-panel-2: #1A1A1A;
+  --c-panel: #1A1A1A;
+  --c-panel-2: #212121;
   --c-line: #2E2E2E;
   --c-line-strong: #3E3E3E;
   /* 交互控件的边界必须自己说得出「这里能点」：WCAG 1.4.11 要求 ≥3:1。
@@ -90,6 +90,9 @@
   --fs-display: clamp(56px, 9.2vw, 132px);
   --fs-h1: clamp(40px, 5.6vw, 76px);
   --fs-h2: clamp(24px, 3.2vw, 36px);
+  /* 区块标题专用级，不与 h1 共用令牌。原先 .section-head__title 取 --fs-h1，
+     390 档实测 h2=40px > h1=39px（层级倒置）。 */
+  --fs-h2-display: clamp(26px, 3.6vw, 44px);
   --fs-h3: 20px;
   --fs-body-lg: clamp(17px, 1.5vw, 21px);
   --fs-body: 16px;
@@ -222,7 +225,9 @@ body::after {
 }
 
 /* 折射直尺：比网格更粗、对比更高的一把「尺子」——弯折最可读的一层。 */
+/* 标尺层是第二层纯装饰网格：不承载任何测量/对齐信息，只增加噪点，关掉。 */
 .light-field__ruler {
+  display: none;
   position: absolute;
   inset: -8vmax;
   background-image: repeating-linear-gradient(90deg,
@@ -507,7 +512,9 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
    区块标题
    ============================================================================ */
 .section {
-  padding: var(--sp-10) 0;
+  /* 原 --sp-10 = 200px：14 屏页面里上下各 200px = 2800px 纯留白，价格被推到第 9 屏。
+     收到 120px（移动 72px）。 */
+  padding: 120px 0;
   position: relative;
   /* 曾用 content-visibility: auto + contain-intrinsic-size: auto 600px 换渲染性能，
      实测代价是错的：区块真实高度 700–2445px，占位值固定 728px，
@@ -537,7 +544,7 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 .section-head__title {
   font-family: var(--font-sans);
   font-weight: 900;
-  font-size: var(--fs-h1);
+  font-size: var(--fs-h2-display);
   line-height: 1.06;
   letter-spacing: -0.02em;
   color: var(--c-txt);
@@ -3100,6 +3107,7 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
 .hero-lead-editorial { font-size: var(--fs-body-lg); color: var(--c-txt-2); line-height: 1.6; max-width: 520px; margin-bottom: var(--sp-6); }
 .hero-cta-editorial { display: flex; gap: var(--sp-3); align-items: center; }
 @media (max-width: 767px) {
+  .section { padding: 72px 0; }
   .hero { padding: calc(72px + var(--sp-5)) 0 var(--sp-5); min-height: auto; }
   .hero-title-editorial { font-size: clamp(36px, 10vw, 48px); }
   .hero-cta-editorial { flex-direction: column; align-items: stretch; }
@@ -3123,4 +3131,67 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   border: 1px solid rgba(168, 217, 58, 0.2);
   color: var(--c-accent);
   letter-spacing: 0.02em;
+}
+
+/* ============================================================================
+   2026-10-30 独立评审修复
+   ========================================================================== */
+
+/* H1：卡片边界实测 #2E2E2E 对页底只有 1.46:1，对面板 1.28:1 —— 暗光屏上 8 张 bento
+   会塌成一整块（卡片边界是这里唯一表达「8 个并列条目」的信息，按 WCAG 1.4.11 需 ≥3:1）。
+   #666666 对页底 3.45:1、对面板(#1A1A1A) 3.03:1，是同时满足两侧底色的最小可用值
+   （#5A5A5A 只有 2.87，#616161 对面板 2.81）。 */
+.service-card,
+.work-card,
+.pricing-card {
+  border: 1px solid var(--c-border-ui);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    var(--sh-1);
+}
+.service-card:hover,
+.work-card:hover,
+.pricing-card:hover {
+  border-color: var(--c-txt-3);
+}
+
+/* M4：.brand 没有声明 color，浏览器默认链接色是 rgb(158,158,255)（蓝紫），
+   现在靠子元素各自覆盖才没露出来 —— 任一子元素样式调整就会露出默认链接色。 */
+.brand { color: inherit; }
+
+/* M6：粗指针设备下页脚导航只有 25px 高（实测），横向可点但纵向过窄，误触率高。 */
+@media (pointer: coarse) {
+  .footer__nav-link { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer__social-link { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* M7：窄屏下服务卡是横向滚动带，但右缘只是被硬切（实测内容在 617px 处截断，视口 390px），
+   没有任何「还能往右滑」的线索。用右缘渐隐替代硬切，把裁切变成可见的延续。 */
+@media (max-width: 767px) {
+  .services-bento {
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 0, #000 88%, transparent 100%);
+  }
+}
+
+/* M5：同意条 10 秒后收成的小胶囊（位置与 FAB 同列，不与内容重叠） */
+.cookie-chip {
+  position: fixed;
+  left: var(--sp-4);
+  bottom: var(--sp-4);
+  z-index: var(--z-toast);
+  padding: 0 14px;
+  min-height: 36px;
+  border-radius: var(--r-pill);
+  background: rgba(18, 18, 18, 0.92);
+  border: 1px solid var(--c-border-ui);
+  color: var(--c-txt-2);
+  font-size: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: color var(--dur-micro) ease, border-color var(--dur-micro) ease;
+}
+.cookie-chip:hover { color: var(--c-txt); border-color: var(--c-txt-3); }
+@media (max-width: 767px) {
+  .cookie-chip { left: var(--sp-3); bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
 }

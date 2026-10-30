@@ -33,6 +33,10 @@ const heroH1 = (hero.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || ''
 if (!shellH1 || !heroH1) problems.push('H1：index.html 或 Hero.tsx 里没找到 h1')
 else if (text(shellH1) !== text(heroH1)) problems.push(`H1 不一致：壳「${text(shellH1)}」 vs 组件「${text(heroH1)}」`)
 
+// 断行数量必须一致：文字相同但 <br> 位置不同，挂载瞬间会重排（用户看得见）
+const brs = (h) => (h.match(/<br\s*\/?>/g) || []).length
+if (brs(shellH1) !== brs(heroH1)) problems.push(`H1 断行数不一致：壳 ${brs(shellH1)} 个 <br> vs 组件 ${brs(heroH1)} 个`)
+
 // 副标题
 compare('Hero 副标题', shell,
   hero, (src) => (src.match(/hero-lead-editorial[^>]*>([\s\S]*?)<\/p>/) || [])[1] || '')

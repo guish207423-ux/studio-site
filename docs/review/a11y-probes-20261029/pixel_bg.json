@@ -1,0 +1,771 @@
+{
+ "studio": [
+  {
+   "idx": 0,
+   "sel": "span.brand__name",
+   "text": "屿作所",
+   "fg": "rgb(240, 240, 240)",
+   "fgA": 1,
+   "fs": 18,
+   "fw": 900,
+   "aria_hidden": false,
+   "bg_px": [
+    17,
+    18,
+    17
+   ],
+   "ratio_px": 16.48,
+   "n_px": 741
+  },
+  {
+   "idx": 1,
+   "sel": "span.brand__latin",
+   "text": "Yu Studio",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 10,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    15,
+    15,
+    15
+   ],
+   "ratio_px": 8.84,
+   "n_px": 627
+  },
+  {
+   "idx": 2,
+   "sel": "a.nav__link",
+   "text": "关于",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 13,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    26,
+    27,
+    26
+   ],
+   "ratio_px": 7.97,
+   "n_px": 902
+  },
+  {
+   "idx": 3,
+   "sel": "a.nav__link",
+   "text": "服务",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 13,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    26,
+    27,
+    26
+   ],
+   "ratio_px": 7.97,
+   "n_px": 902
+  },
+  {
+   "idx": 4,
+   "sel": "a.nav__link",
+   "text": "技术",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 13,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    25,
+    26,
+    25
+   ],
+   "ratio_px": 8.05,
+   "n_px": 902
+  },
+  {
+   "idx": 5,
+   "sel": "a.nav__link",
+   "text": "案例",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 13,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    25,
+    25,
+    25
+   ],
+   "ratio_px": 8.11,
+   "n_px": 902
+  },
+  {
+   "idx": 6,
+   "sel": "a.nav__link",
+   "text": "报价",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 13,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    24,
+    25,
+    25
+   ],
+   "ratio_px": 8.12,
+   "n_px": 902
+  },
+  {
+   "idx": 7,
+   "sel": "a.nav__link",
+   "text": "联系",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 13,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    24,
+    25,
+    25
+   ],
+   "ratio_px": 8.12,
+   "n_px": 902
+  },
+  {
+   "idx": 8,
+   "sel": "span.pricing-card__badge",
+   "text": "推荐",
+   "fg": "rgb(10, 10, 10)",
+   "fgA": 1,
+   "fs": 11,
+   "fw": 700,
+   "aria_hidden": false,
+   "bg_px": [
+    168,
+    217,
+    58
+   ],
+   "ratio_px": 11.93,
+   "n_px": 435
+  },
+  {
+   "idx": 9,
+   "sel": "h3.pricing-card__name",
+   "text": "官网重做",
+   "fg": "rgb(240, 240, 240)",
+   "fgA": 1,
+   "fs": 20,
+   "fw": 700,
+   "aria_hidden": false,
+   "bg_px": [
+    37,
+    45,
+    38
+   ],
+   "ratio_px": 12.43,
+   "n_px": 3927
+  },
+  {
+   "idx": 10,
+   "sel": "p.pricing-card__desc",
+   "text": "5–7 个页面，从品牌梳理做到前端上线",
+   "fg": "rgb(138, 138, 138)",
+   "fgA": 1,
+   "fs": 13,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    36,
+    43,
+    36
+   ],
+   "ratio_px": 4.21,
+   "n_px": 2618
+  },
+  {
+   "idx": 11,
+   "sel": "span.pricing-card__amount",
+   "text": "¥28,000",
+   "fg": "rgb(168, 217, 58)",
+   "fgA": 1,
+   "fs": 32,
+   "fw": 900,
+   "aria_hidden": false,
+   "bg_px": [
+    36,
+    45,
+    39
+   ],
+   "ratio_px": 8.55,
+   "n_px": 2000
+  },
+  {
+   "idx": 12,
+   "sel": "span.pricing-card__period",
+   "text": "起",
+   "fg": "rgb(138, 138, 138)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    33,
+    41,
+    34
+   ],
+   "ratio_px": 4.33,
+   "n_px": 176
+  },
+  {
+   "idx": 13,
+   "sel": "span.pricing-card__service-tag",
+   "text": "UI/UX 设计",
+   "fg": "rgb(168, 217, 58)",
+   "fgA": 1,
+   "fs": 11,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    45,
+    57,
+    39
+   ],
+   "ratio_px": 7.33,
+   "n_px": 969
+  },
+  {
+   "idx": 14,
+   "sel": "span.pricing-card__service-tag",
+   "text": "品牌 VI 设计",
+   "fg": "rgb(168, 217, 58)",
+   "fgA": 1,
+   "fs": 11,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    44,
+    53,
+    35
+   ],
+   "ratio_px": 7.71,
+   "n_px": 1003
+  },
+  {
+   "idx": 15,
+   "sel": "span.pricing-card__service-tag",
+   "text": "前端/全栈开发",
+   "fg": "rgb(168, 217, 58)",
+   "fgA": 1,
+   "fs": 11,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    44,
+    55,
+    38
+   ],
+   "ratio_px": 7.52,
+   "n_px": 1122
+  },
+  {
+   "idx": 16,
+   "sel": "span.pricing-card__service-tag",
+   "text": "动效与视频",
+   "fg": "rgb(168, 217, 58)",
+   "fgA": 1,
+   "fs": 11,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    42,
+    51,
+    35
+   ],
+   "ratio_px": 7.93,
+   "n_px": 952
+  },
+  {
+   "idx": 17,
+   "sel": "span.pricing-card__check",
+   "text": "✓",
+   "fg": "rgb(125, 255, 106)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 700,
+   "aria_hidden": true,
+   "bg_px": [
+    34,
+    39,
+    36
+   ],
+   "ratio_px": 11.84,
+   "n_px": 128
+  },
+  {
+   "idx": 18,
+   "sel": "li.pricing-card__feature",
+   "text": "页面结构与视觉设计",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    32,
+    36,
+    32
+   ],
+   "ratio_px": 7.26,
+   "n_px": 2992
+  },
+  {
+   "idx": 19,
+   "sel": "span.pricing-card__check",
+   "text": "✓",
+   "fg": "rgb(125, 255, 106)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 700,
+   "aria_hidden": true,
+   "bg_px": [
+    33,
+    38,
+    34
+   ],
+   "ratio_px": 12.0,
+   "n_px": 128
+  },
+  {
+   "idx": 20,
+   "sel": "li.pricing-card__feature",
+   "text": "前端实现与交互动效",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    30,
+    35,
+    32
+   ],
+   "ratio_px": 7.36,
+   "n_px": 2992
+  },
+  {
+   "idx": 21,
+   "sel": "span.pricing-card__check",
+   "text": "✓",
+   "fg": "rgb(125, 255, 106)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 700,
+   "aria_hidden": true,
+   "bg_px": [
+    32,
+    36,
+    33
+   ],
+   "ratio_px": 12.27,
+   "n_px": 128
+  },
+  {
+   "idx": 22,
+   "sel": "li.pricing-card__feature",
+   "text": "含 3 轮修改",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    30,
+    33,
+    31
+   ],
+   "ratio_px": 7.49,
+   "n_px": 2992
+  },
+  {
+   "idx": 23,
+   "sel": "span.pricing-card__check",
+   "text": "✓",
+   "fg": "rgb(125, 255, 106)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 700,
+   "aria_hidden": true,
+   "bg_px": [
+    31,
+    34,
+    32
+   ],
+   "ratio_px": 12.53,
+   "n_px": 128
+  },
+  {
+   "idx": 24,
+   "sel": "li.pricing-card__feature",
+   "text": "部署上线，基础 SEO",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    29,
+    32,
+    30
+   ],
+   "ratio_px": 7.58,
+   "n_px": 2992
+  },
+  {
+   "idx": 25,
+   "sel": "span.pricing-card__check",
+   "text": "✓",
+   "fg": "rgb(125, 255, 106)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 700,
+   "aria_hidden": true,
+   "bg_px": [
+    30,
+    32,
+    31
+   ],
+   "ratio_px": 12.78,
+   "n_px": 128
+  },
+  {
+   "idx": 26,
+   "sel": "li.pricing-card__feature",
+   "text": "4–6 周交付，源码 + 使用文档",
+   "fg": "rgb(176, 176, 176)",
+   "fgA": 1,
+   "fs": 14,
+   "fw": 400,
+   "aria_hidden": false,
+   "bg_px": [
+    29,
+    30,
+    29
+   ],
+   "ratio_px": 7.71,
+   "n_px": 2992
+  },
+  {
+   "idx": 27,
+   "sel": "span",
+   "text": "聊聊这个",
+   "fg": "rgb(168, 217, 58)",
+   "fgA": 1,
+   "fs": 18,
+   "fw": 500,
+   "aria_hidden": false,
+   "bg_px": [
+    63,
+    76,
+    35
+   ],
+   "ratio_px": 5.57,
+   "n_px": 969
+  }
+ ],
+ "software": [
+  {
+   "idx": 0,
+   "sel": "div.logo-mark",
+   "text": "S",
+   "fg": "rgb(17, 17, 19)",
+   "fgA": 1,
+   "fs": 15,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    192,
+    142,
+    29
+   ],
+   "ratio_px": 6.4,
+   "n_px": 480
+  },
+  {
+   "idx": 1,
+   "sel": "div.trending-card__icon",
+   "text": "V",
+   "fg": "rgb(255, 255, 255)",
+   "fgA": 1,
+   "fs": 16,
+   "fw": 700,
+   "aria_hidden": false,
+   "bg_px": [
+    27,
+    37,
+    75
+   ],
+   "ratio_px": 14.86,
+   "n_px": 572
+  },
+  {
+   "idx": 2,
+   "sel": "div.trending-card__icon",
+   "text": "G",
+   "fg": "rgb(255, 255, 255)",
+   "fgA": 1,
+   "fs": 16,
+   "fw": 700,
+   "aria_hidden": false,
+   "bg_px": [
+    75,
+    27,
+    46
+   ],
+   "ratio_px": 14.04,
+   "n_px": 572
+  },
+  {
+   "idx": 3,
+   "sel": "div.trending-card__icon",
+   "text": "P",
+   "fg": "rgb(255, 255, 255)",
+   "fgA": 1,
+   "fs": 16,
+   "fw": 700,
+   "aria_hidden": false,
+   "bg_px": [
+    57,
+    27,
+    75
+   ],
+   "ratio_px": 14.66,
+   "n_px": 572
+  },
+  {
+   "idx": 4,
+   "sel": "div.trending-card__icon",
+   "text": "M",
+   "fg": "rgb(255, 255, 255)",
+   "fgA": 1,
+   "fs": 16,
+   "fw": 700,
+   "aria_hidden": false,
+   "bg_px": [
+    67,
+    27,
+    74
+   ],
+   "ratio_px": 14.05,
+   "n_px": 572
+  },
+  {
+   "idx": 5,
+   "sel": "span.software-card__thumb-letter",
+   "text": "V",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    75,
+    27,
+    74
+   ],
+   "ratio_px": 1.15,
+   "n_px": 2886
+  },
+  {
+   "idx": 6,
+   "sel": "span.software-card__thumb-letter",
+   "text": "M",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    75,
+    27,
+    52
+   ],
+   "ratio_px": 1.15,
+   "n_px": 3552
+  },
+  {
+   "idx": 7,
+   "sel": "span.software-card__thumb-letter",
+   "text": "G",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    38,
+    75,
+    27
+   ],
+   "ratio_px": 1.15,
+   "n_px": 3108
+  },
+  {
+   "idx": 8,
+   "sel": "span.software-card__thumb-letter",
+   "text": "O",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    75,
+    62,
+    27
+   ],
+   "ratio_px": 1.16,
+   "n_px": 3108
+  },
+  {
+   "idx": 9,
+   "sel": "span.software-card__thumb-letter",
+   "text": "I",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    27,
+    74,
+    75
+   ],
+   "ratio_px": 1.15,
+   "n_px": 1406
+  },
+  {
+   "idx": 10,
+   "sel": "span.software-card__thumb-letter",
+   "text": "B",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    61,
+    27,
+    75
+   ],
+   "ratio_px": 1.15,
+   "n_px": 2886
+  },
+  {
+   "idx": 11,
+   "sel": "span.software-card__thumb-letter",
+   "text": "O",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    75,
+    62,
+    27
+   ],
+   "ratio_px": 1.16,
+   "n_px": 3108
+  },
+  {
+   "idx": 12,
+   "sel": "span.software-card__thumb-letter",
+   "text": "S",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    27,
+    66,
+    75
+   ],
+   "ratio_px": 1.16,
+   "n_px": 2664
+  },
+  {
+   "idx": 13,
+   "sel": "span.software-card__thumb-letter",
+   "text": "P",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    59,
+    75,
+    27
+   ],
+   "ratio_px": 1.15,
+   "n_px": 2664
+  },
+  {
+   "idx": 14,
+   "sel": "span.software-card__thumb-letter",
+   "text": "H",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    27,
+    75,
+    46
+   ],
+   "ratio_px": 1.15,
+   "n_px": 3108
+  },
+  {
+   "idx": 15,
+   "sel": "span.software-card__thumb-letter",
+   "text": "M",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    75,
+    27,
+    52
+   ],
+   "ratio_px": 1.15,
+   "n_px": 3552
+  },
+  {
+   "idx": 16,
+   "sel": "span.software-card__thumb-letter",
+   "text": "A",
+   "fg": "rgba(255, 255, 255, 0.05)",
+   "fgA": 0.05,
+   "fs": 72,
+   "fw": 800,
+   "aria_hidden": false,
+   "bg_px": [
+    31,
+    27,
+    75
+   ],
+   "ratio_px": 1.15,
+   "n_px": 2886
+  }
+ ]
+}

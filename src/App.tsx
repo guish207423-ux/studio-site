@@ -117,9 +117,11 @@ export default function App() {
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <Services />
+          {/* H3：自己做的案例曾在「技术资产（第三方开源项目录屏）」之后 2767px。
+              采购视角读作「没有自己的代表作」，把 CaseStudies 提到 Works 之前。 */}
+          <CaseStudies />
           <Works />
           <Process />
-          <CaseStudies />
           <Pricing />
           <Contact />
         </Suspense>

@@ -1,0 +1,250 @@
+{
+ "studio": {
+  "fab": {
+   "opacity": "1",
+   "pointerEvents": "none",
+   "visibility": "visible",
+   "transform": "none",
+   "rect": [
+    1372,
+    844,
+    44,
+    44
+   ],
+   "display": "inline-flex",
+   "tabIndex": 0,
+   "ariaExpanded": "false"
+  },
+  "stepTrigger": {
+   "pointerEvents": "none",
+   "cursor": "default",
+   "ariaExpanded": "false",
+   "controls": "process-step-body-0",
+   "role": null,
+   "tag": "BUTTON",
+   "parentPE": "auto",
+   "parentTag": "DIV",
+   "disabled": false
+  },
+  "stepEnter": {
+   "before": "process-step|明确项目目标、预算与上线时间，输出需求说",
+   "after": "process-step process-step--expanded|明确项目目标、预算与上线时间，输出需求说",
+   "changed": true
+  },
+  "hint_noPref": [
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   }
+  ],
+  "hint_reduce": [
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   },
+   {
+    "t": "悬停播放",
+    "op": "1"
+   }
+  ],
+  "zoom_clip_nonmarquee": {
+   "count": 79,
+   "sample": [
+    {
+     "sel": "h3.service-card__title",
+     "t": "前端/全栈开发",
+     "right": 907,
+     "left": 689
+    },
+    {
+     "sel": "p.service-card__desc",
+     "t": "设计稿落地为可维护的生产代码",
+     "right": 907,
+     "left": 689
+    },
+    {
+     "sel": "span.service-card__tag",
+     "t": "React / TS",
+     "right": 784,
+     "left": 689
+    },
+    {
+     "sel": "span.service-card__tag",
+     "t": "性能优化",
+     "right": 873,
+     "left": 792
+    },
+    {
+     "sel": "h3.service-card__title",
+     "t": "动效与视频",
+     "right": 1223,
+     "left": 1005
+    },
+    {
+     "sel": "p.service-card__desc",
+     "t": "交互动效、WebGL 与视频内容制作",
+     "right": 1223,
+     "left": 1005
+    },
+    {
+     "sel": "span.service-card__tag",
+     "t": "GSAP",
+     "right": 1057,
+     "left": 1005
+    },
+    {
+     "sel": "span.service-card__tag",
+     "t": "3D",
+     "right": 1104,
+     "left": 1065
+    },
+    {
+     "sel": "h3.service-card__title",
+     "t": "App 开发",
+     "right": 1539,
+     "left": 1321
+    },
+    {
+     "sel": "p.service-card__desc",
+     "t": "原生与跨平台移动应用开发",
+     "right": 1539,
+     "left": 1321
+    },
+    {
+     "sel": "span.service-card__tag",
+     "t": "iOS",
+     "right": 1366,
+     "left": 1321
+    },
+    {
+     "sel": "span.service-card__tag",
+     "t": "Android",
+     "right": 1448,
+     "left": 1374
+    }
+   ]
+  },
+  "zoom_hscroll": 0,
+  "scrollers": [
+   "div.light-field 720/806",
+   "div.marquee 720/2874",
+   "div.services-bento 688/2512",
+   "div.works-grid 688/1826",
+   "div.pricing-grid 480/932"
+  ],
+  "contrast_rerun": [
+   {
+    "label": "desc",
+    "text": "你有 Figma，我们把它做成能点的页面",
+    "bg": [
+     20,
+     20,
+     20
+    ],
+    "ratio": 5.34,
+    "rect": [
+     213,
+     300,
+     267,
+     23
+    ]
+   },
+   {
+    "label": "period",
+    "text": "起",
+    "bg": [
+     20,
+     20,
+     20
+    ],
+    "ratio": 5.34,
+    "rect": [
+     355,
+     349,
+     14,
+     24
+    ]
+   }
+  ]
+ },
+ "software": {
+  "thumbLetter": {
+   "text": "V",
+   "ariaHiddenAncestor": false,
+   "ownAria": null,
+   "parentClass": "software-card__thumb",
+   "parentAria": null,
+   "parentRole": null,
+   "opacity": "1",
+   "color": "rgba(255, 255, 255, 0.05)"
+  },
+  "ax_static_single_letters": [
+   "S",
+   "共 ",
+   "V",
+   "G",
+   "P",
+   "M",
+   "1",
+   "2",
+   "6",
+   ")",
+   " (",
+   "3",
+   ")",
+   " (",
+   "2"
+  ],
+  "ax_static_count": 300,
+  "searchAX": {
+   "outline": "none 3px",
+   "focusOutline": null,
+   "type": "text",
+   "name": "",
+   "closestLabel": false,
+   "prevText": "收录条目均标注真实许可证与上游仓库地址；下载一律指向官方发布页，本站不代存安装包。",
+   "parentHTML": "<div class=\"search-bar\"><svg class=\"search-bar__icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 "
+  },
+  "searchFocused": {
+   "outline": "none 3px rgb(240, 240, 242)",
+   "boxShadow": "rgba(200, 150, 46, 0.1) 0px 0px 0px 3px",
+   "border": "rgb(200, 150, 46)"
+  }
+ }
+}

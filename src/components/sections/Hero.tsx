@@ -21,10 +21,12 @@ export default function Hero() {
       <div className="container">
         <div ref={panelRef} className="hero-editorial">
           <p className="hero-eyebrow">屿作所 · Yu Studio</p>
+          {/* 原为三行、末行只有「产品」二字（占最长行 33%，390 档 21%）= 悬垂孤行；
+              accent 又压在这两个泛词上，是全站最重的视觉资源标了信息量最低的词。
+              改成两行、accent 落在动词短语上，最长/最短行 ≈ 1.17。 */}
           <h1 id="hero-title" className="hero-title-editorial">
-            我们把设计<br />
-            变成能运行的<br />
-            <span className="hero-title-accent">产品</span>
+            我们把设计变成<br />
+            <span className="hero-title-accent">能运行的产品</span>
           </h1>
           <p className="hero-lead-editorial">
             品牌官网、动效界面、设计稿落地——从设计到代码，全程一个团队。

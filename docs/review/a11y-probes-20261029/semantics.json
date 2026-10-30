@@ -1,0 +1,1281 @@
+{
+ "studio": {
+  "sem": {
+   "heads": [
+    {
+     "lv": 1,
+     "t": "我们把设计\n变成能运行的\n产品",
+     "sel": "h1#hero-title"
+    },
+    {
+     "lv": 2,
+     "t": "关于我们",
+     "sel": "h2#about-title"
+    },
+    {
+     "lv": 3,
+     "t": "需求先行",
+     "sel": "h3.principle-title"
+    },
+    {
+     "lv": 3,
+     "t": "进度透明",
+     "sel": "h3.principle-title"
+    },
+    {
+     "lv": 3,
+     "t": "文档交付",
+     "sel": "h3.principle-title"
+    },
+    {
+     "lv": 3,
+     "t": "能力边界",
+     "sel": "h3.principle-title"
+    },
+    {
+     "lv": 2,
+     "t": "服务范围",
+     "sel": "h2#services-title"
+    },
+    {
+     "lv": 3,
+     "t": "UI/UX 设计",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "品牌 VI 设计",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "前端/全栈开发",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "动效与视频",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "App 开发",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "自动化脚本",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "数据采集",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "AI Agent 开发",
+     "sel": "h3.service-card__title"
+    },
+    {
+     "lv": 2,
+     "t": "技术资产",
+     "sel": "h2#works-title"
+    },
+    {
+     "lv": 2,
+     "t": "项目流程",
+     "sel": "h2#process-title"
+    },
+    {
+     "lv": 3,
+     "t": "需求确认",
+     "sel": "h3.process-step__title"
+    },
+    {
+     "lv": 3,
+     "t": "信息架构",
+     "sel": "h3.process-step__title"
+    },
+    {
+     "lv": 3,
+     "t": "视觉设计",
+     "sel": "h3.process-step__title"
+    },
+    {
+     "lv": 3,
+     "t": "前端开发",
+     "sel": "h3.process-step__title"
+    },
+    {
+     "lv": 3,
+     "t": "上线交付",
+     "sel": "h3.process-step__title"
+    },
+    {
+     "lv": 2,
+     "t": "做过哪些项目",
+     "sel": "h2#cases-title"
+    },
+    {
+     "lv": 3,
+     "t": "品牌官网 / 产品落地页",
+     "sel": "h3.case-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "产品界面的动效升级",
+     "sel": "h3.case-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "设计稿落地 / 前端重构",
+     "sel": "h3.case-card__title"
+    },
+    {
+     "lv": 2,
+     "t": "价格",
+     "sel": "h2#pricing-title"
+    },
+    {
+     "lv": 3,
+     "t": "设计稿转线上",
+     "sel": "h3.pricing-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "动效升级",
+     "sel": "h3.pricing-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "官网重做",
+     "sel": "h3.pricing-card__name"
+    },
+    {
+     "lv": 2,
+     "t": "联系方式",
+     "sel": "h2#contact-title"
+    },
+    {
+     "lv": 3,
+     "t": "邮箱",
+     "sel": "h3.contact-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "微信",
+     "sel": "h3.contact-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "响应时间",
+     "sel": "h3.contact-card__title"
+    },
+    {
+     "lv": 3,
+     "t": "常见问题",
+     "sel": "h3.faq-title"
+    }
+   ],
+   "skips": [],
+   "fields": [
+    {
+     "sel": "input#contact-name",
+     "type": "text",
+     "name": null,
+     "labels": [
+      "姓名"
+     ],
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "title": null,
+     "placeholder": "你的姓名",
+     "required": false,
+     "ariaRequired": null,
+     "id": "contact-name"
+    },
+    {
+     "sel": "input#contact-email",
+     "type": "email",
+     "name": null,
+     "labels": [
+      "邮箱"
+     ],
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "title": null,
+     "placeholder": "你的邮箱",
+     "required": false,
+     "ariaRequired": null,
+     "id": "contact-email"
+    },
+    {
+     "sel": "select#contact-budget",
+     "type": "select-one",
+     "name": null,
+     "labels": [
+      "预算范围（选填，方便直接给方案）"
+     ],
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "title": null,
+     "placeholder": null,
+     "required": false,
+     "ariaRequired": null,
+     "id": "contact-budget"
+    },
+    {
+     "sel": "textarea#contact-message",
+     "type": "textarea",
+     "name": null,
+     "labels": [
+      "留言内容"
+     ],
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "title": null,
+     "placeholder": "请描述你的项目需求…",
+     "required": false,
+     "ariaRequired": null,
+     "id": "contact-message"
+    },
+    {
+     "sel": "input.footer__newsletter-input",
+     "type": "email",
+     "name": "email",
+     "labels": [],
+     "ariaLabel": "你的邮箱地址",
+     "ariaLabelledby": null,
+     "title": null,
+     "placeholder": "你的邮箱",
+     "required": true,
+     "ariaRequired": null,
+     "id": ""
+    }
+   ],
+   "imgs": [],
+   "svgs": [
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": "true",
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    }
+   ],
+   "svgTotal": 31,
+   "landmarks": [
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.nav"
+    },
+    {
+     "tag": "nav",
+     "role": null,
+     "label": "主导航",
+     "sel": "nav.nav__inner"
+    },
+    {
+     "tag": "nav",
+     "role": null,
+     "label": "移动端导航",
+     "sel": "nav#drawer"
+    },
+    {
+     "tag": "main",
+     "role": null,
+     "label": null,
+     "sel": "main#main"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.section-head"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.section-head"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.section-head"
+    },
+    {
+     "tag": "div",
+     "role": "tablist",
+     "label": "开源项目分类",
+     "sel": "div.works-filter"
+    },
+    {
+     "tag": "button",
+     "role": "tab",
+     "label": null,
+     "sel": "button.works-filter__btn.works-filter__btn--active"
+    },
+    {
+     "tag": "button",
+     "role": "tab",
+     "label": null,
+     "sel": "button.works-filter__btn"
+    },
+    {
+     "tag": "button",
+     "role": "tab",
+     "label": null,
+     "sel": "button.works-filter__btn"
+    },
+    {
+     "tag": "button",
+     "role": "tab",
+     "label": null,
+     "sel": "button.works-filter__btn"
+    },
+    {
+     "tag": "button",
+     "role": "tab",
+     "label": null,
+     "sel": "button.works-filter__btn"
+    },
+    {
+     "tag": "button",
+     "role": "tab",
+     "label": null,
+     "sel": "button.works-filter__btn"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.section-head"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.section-head"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.section-head"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.section-head"
+    },
+    {
+     "tag": "footer",
+     "role": null,
+     "label": null,
+     "sel": "footer.footer"
+    },
+    {
+     "tag": "nav",
+     "role": null,
+     "label": "页脚导航",
+     "sel": "nav"
+    },
+    {
+     "tag": "div",
+     "role": "dialog",
+     "label": "Cookie 使用提示",
+     "sel": "div.cookie-toast"
+    }
+   ],
+   "hiddenFocus": [],
+   "pointerNone": [
+    "button.process-step__trigger",
+    "button.process-step__trigger",
+    "button.process-step__trigger",
+    "button.process-step__trigger",
+    "button.process-step__trigger",
+    "button.fab"
+   ],
+   "emptyInteractive": [],
+   "lang": "zh-CN",
+   "title": "屿作所 — 综合数字产品工作室",
+   "viewport": "width=device-width, initial-scale=1.0"
+  },
+  "ax": {
+   "total": 73,
+   "empty": [],
+   "counts": {
+    "link": 45,
+    "button": 17,
+    "tab": 6,
+    "textbox": 4,
+    "combobox": 1
+   }
+  },
+  "reduced": {
+   "invisibleCount": 6,
+   "invisible": [
+    "span.work-card__hint",
+    "span.work-card__hint",
+    "span.work-card__hint",
+    "span.work-card__hint",
+    "span.work-card__hint",
+    "span.work-card__hint"
+   ],
+   "animatingCount": 7,
+   "animating": [
+    "source.",
+    "source.",
+    "source.",
+    "source.",
+    "source.",
+    "source.",
+    "div.cookie-toast"
+   ]
+  },
+  "zoom200": {
+   "hScroll": 0,
+   "scrollW": 720,
+   "winW": 720,
+   "clippedCount": 83,
+   "clipped": [
+    {
+     "sel": "span.marquee__item",
+     "text": "品牌官网 · 动效界面 · 设计稿落地 ",
+     "right": 682
+    },
+    {
+     "sel": "span.marquee__item",
+     "text": "品牌官网 · 动效界面 · 设计稿落地 ",
+     "right": 1400
+    },
+    {
+     "sel": "span.marquee__item",
+     "text": "品牌官网 · 动效界面 · 设计稿落地 ",
+     "right": 2119
+    },
+    {
+     "sel": "span.marquee__item",
+     "text": "品牌官网 · 动效界面 · 设计稿落地 ",
+     "right": 2837
+    },
+    {
+     "sel": "h3.service-card__title",
+     "text": "前端/全栈开发",
+     "right": 907
+    },
+    {
+     "sel": "p.service-card__desc",
+     "text": "设计稿落地为可维护的生产代码",
+     "right": 907
+    },
+    {
+     "sel": "span.service-card__tag",
+     "text": "React / TS",
+     "right": 784
+    },
+    {
+     "sel": "span.service-card__tag",
+     "text": "性能优化",
+     "right": 873
+    },
+    {
+     "sel": "h3.service-card__title",
+     "text": "动效与视频",
+     "right": 1223
+    },
+    {
+     "sel": "p.service-card__desc",
+     "text": "交互动效、WebGL 与视频内容制作",
+     "right": 1223
+    }
+   ]
+  },
+  "cssZoom200": {
+   "hScroll": 230,
+   "bodyScroll": 835,
+   "winW": 1440
+  }
+ },
+ "software": {
+  "sem": {
+   "heads": [
+    {
+     "lv": 1,
+     "t": "开源软件，标注来源",
+     "sel": "h1.catalog-hero__title"
+    },
+    {
+     "lv": 2,
+     "t": "热门开源项目",
+     "sel": "h2.trending-section__title"
+    },
+    {
+     "lv": 3,
+     "t": "VS Code",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "Metabase",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "Grafana",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "OpenShot",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "IINA",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "Blender",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "Obsidian",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "SwitchHosts",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "Penpot",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "HandBrake",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "Motrix",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "Audacity",
+     "sel": "h3.software-card__name"
+    },
+    {
+     "lv": 3,
+     "t": "热门标签",
+     "sel": "h3.sidebar__title"
+    },
+    {
+     "lv": 3,
+     "t": "STARS 榜",
+     "sel": "h3.sidebar__title"
+    },
+    {
+     "lv": 3,
+     "t": "最近更新",
+     "sel": "h3.sidebar__title"
+    },
+    {
+     "lv": 3,
+     "t": "站点统计",
+     "sel": "h3.sidebar__title"
+    },
+    {
+     "lv": 4,
+     "t": "软件目录",
+     "sel": "h4.footer-section__title"
+    },
+    {
+     "lv": 4,
+     "t": "链接",
+     "sel": "h4.footer-section__title"
+    },
+    {
+     "lv": 4,
+     "t": "社区",
+     "sel": "h4.footer-section__title"
+    }
+   ],
+   "skips": [],
+   "fields": [
+    {
+     "sel": "input.search-bar__input",
+     "type": "text",
+     "name": null,
+     "labels": [],
+     "ariaLabel": null,
+     "ariaLabelledby": null,
+     "title": null,
+     "placeholder": "输入软件名称或其他关键词...",
+     "required": false,
+     "ariaRequired": null,
+     "id": ""
+    }
+   ],
+   "imgs": [],
+   "svgs": [
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    },
+    {
+     "sel": "svg.[object.SVGAnimatedString]",
+     "ariaHidden": null,
+     "label": null,
+     "title": false,
+     "role": null,
+     "focusable": null
+    }
+   ],
+   "svgTotal": 43,
+   "landmarks": [
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.header"
+    },
+    {
+     "tag": "nav",
+     "role": null,
+     "label": null,
+     "sel": "nav.header-nav"
+    },
+    {
+     "tag": "main",
+     "role": null,
+     "label": null,
+     "sel": "main.main"
+    },
+    {
+     "tag": "header",
+     "role": null,
+     "label": null,
+     "sel": "header.catalog-hero"
+    },
+    {
+     "tag": "nav",
+     "role": null,
+     "label": "软件分类",
+     "sel": "nav.category-nav"
+    },
+    {
+     "tag": "aside",
+     "role": null,
+     "label": null,
+     "sel": "aside.sidebar"
+    },
+    {
+     "tag": "footer",
+     "role": null,
+     "label": null,
+     "sel": "footer.footer"
+    }
+   ],
+   "hiddenFocus": [],
+   "pointerNone": [],
+   "emptyInteractive": [],
+   "lang": "zh-CN",
+   "title": "软件目录 — 可核验的开源软件索引",
+   "viewport": "width=device-width, initial-scale=1.0"
+  },
+  "ax": {
+   "total": 68,
+   "empty": [],
+   "counts": {
+    "link": 14,
+    "button": 53,
+    "textbox": 1
+   }
+  },
+  "reduced": {
+   "invisibleCount": 0,
+   "invisible": [],
+   "animatingCount": 0,
+   "animating": []
+  },
+  "zoom200": {
+   "hScroll": 0,
+   "scrollW": 720,
+   "winW": 720,
+   "clippedCount": 1,
+   "clipped": [
+    {
+     "sel": "button.category-btn",
+     "text": "编程开发 (3)",
+     "right": 756
+    }
+   ]
+  },
+  "cssZoom200": {
+   "hScroll": 0,
+   "bodyScroll": 720,
+   "winW": 1440
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "studio": {
+  "axe": {
+   "version": "4.10.2",
+   "violations": [],
+   "incomplete": [
+    {
+     "id": "color-contrast",
+     "impact": "serious",
+     "count": 118
+    },
+    {
+     "id": "video-caption",
+     "impact": "critical",
+     "count": 6
+    }
+   ]
+  },
+  "pageerrors": []
+ },
+ "software": {
+  "axe": {
+   "version": "4.10.2",
+   "violations": [],
+   "incomplete": [
+    {
+     "id": "color-contrast",
+     "impact": "serious",
+     "count": 138
+    }
+   ]
+  },
+  "pageerrors": []
+ }
+}

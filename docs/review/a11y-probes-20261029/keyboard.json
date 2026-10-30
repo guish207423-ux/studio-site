@@ -1,0 +1,5954 @@
+{
+ "studio": {
+  "skip": {
+   "firstStop": {
+    "sel": "a.skip-link",
+    "tag": "a",
+    "name": "跳转到主要内容",
+    "href": "#main",
+    "role": null,
+    "type": null,
+    "rect": [
+     651,
+     0,
+     137,
+     41
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(10, 10, 10)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div#root"
+   },
+   "afterEnter": {
+    "hash": "#main",
+    "active": "MAIN#main",
+    "scrollY": 0,
+    "activeText": "屿作所 · YU STUDIO\n\n我们把"
+   },
+   "targetExists": true
+  },
+  "stops": [
+   {
+    "sel": "a.skip-link",
+    "tag": "a",
+    "name": "跳转到主要内容",
+    "href": "#main",
+    "role": null,
+    "type": null,
+    "rect": [
+     651,
+     -178,
+     137,
+     41
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(10, 10, 10)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div#root",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.brand",
+    "tag": "a",
+    "name": "屿作所 首页",
+    "href": "#top",
+    "role": null,
+    "type": null,
+    "rect": [
+     133,
+     33,
+     109,
+     39
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(158, 158, 255)",
+     "color": "rgb(158, 158, 255)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(158, 158, 255)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(158, 158, 255)",
+     "color": "rgb(158, 158, 255)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.nav__inner",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.nav__link",
+    "tag": "a",
+    "name": "关于",
+    "href": "#about",
+    "role": null,
+    "type": null,
+    "rect": [
+     935,
+     36,
+     58,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "rgb(10, 10, 10) 0px 0px 0px 3px, rgb(168, 217, 58) 0px 0px 0px 5px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.nav__links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.nav__link",
+    "tag": "a",
+    "name": "服务",
+    "href": "#services",
+    "role": null,
+    "type": null,
+    "rect": [
+     997,
+     36,
+     58,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "rgb(10, 10, 10) 0px 0px 0px 3px, rgb(168, 217, 58) 0px 0px 0px 5px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.nav__links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.nav__link",
+    "tag": "a",
+    "name": "技术",
+    "href": "#works",
+    "role": null,
+    "type": null,
+    "rect": [
+     1059,
+     36,
+     58,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "rgb(10, 10, 10) 0px 0px 0px 3px, rgb(168, 217, 58) 0px 0px 0px 5px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.nav__links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.nav__link",
+    "tag": "a",
+    "name": "案例",
+    "href": "#cases",
+    "role": null,
+    "type": null,
+    "rect": [
+     1120,
+     36,
+     58,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "rgb(10, 10, 10) 0px 0px 0px 3px, rgb(168, 217, 58) 0px 0px 0px 5px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.nav__links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.nav__link",
+    "tag": "a",
+    "name": "报价",
+    "href": "#pricing",
+    "role": null,
+    "type": null,
+    "rect": [
+     1182,
+     36,
+     58,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "rgb(10, 10, 10) 0px 0px 0px 3px, rgb(168, 217, 58) 0px 0px 0px 5px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.nav__links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.nav__link",
+    "tag": "a",
+    "name": "联系",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     1244,
+     36,
+     58,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "rgb(10, 10, 10) 0px 0px 0px 3px, rgb(168, 217, 58) 0px 0px 0px 5px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.nav__links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.drawer__link",
+    "tag": "a",
+    "name": "关于",
+    "href": "#about",
+    "role": null,
+    "type": null,
+    "rect": [
+     40,
+     940,
+     1360,
+     65
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav#drawer",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.drawer__link",
+    "tag": "a",
+    "name": "服务",
+    "href": "#services",
+    "role": null,
+    "type": null,
+    "rect": [
+     40,
+     1021,
+     1360,
+     65
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav#drawer",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.drawer__link",
+    "tag": "a",
+    "name": "技术",
+    "href": "#works",
+    "role": null,
+    "type": null,
+    "rect": [
+     40,
+     1101,
+     1360,
+     65
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav#drawer",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.drawer__link",
+    "tag": "a",
+    "name": "案例",
+    "href": "#cases",
+    "role": null,
+    "type": null,
+    "rect": [
+     40,
+     1182,
+     1360,
+     65
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav#drawer",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.drawer__link",
+    "tag": "a",
+    "name": "报价",
+    "href": "#pricing",
+    "role": null,
+    "type": null,
+    "rect": [
+     40,
+     1262,
+     1360,
+     65
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav#drawer",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.drawer__link",
+    "tag": "a",
+    "name": "联系",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     40,
+     1343,
+     1360,
+     65
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240) rgb(240, 240, 240) rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav#drawer",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--lg",
+    "tag": "a",
+    "name": "预约咨询",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     441,
+     727,
+     136,
+     52
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(10, 10, 10)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.hero-cta-editorial",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--lg",
+    "tag": "a",
+    "name": "查看案例 →",
+    "href": "#works",
+    "role": null,
+    "type": null,
+    "rect": [
+     592,
+     727,
+     160,
+     52
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.hero-cta-editorial",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--lg",
+    "tag": "a",
+    "name": "联系我们",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     651,
+     424,
+     138,
+     52
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.section-foot",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.works-filter__btn.works-filter__btn--active",
+    "tag": "button",
+    "name": "全部",
+    "href": null,
+    "role": "tab",
+    "type": null,
+    "rect": [
+     172,
+     434,
+     61,
+     31
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(168, 217, 58)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(10, 10, 10)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(168, 217, 58)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.works-filter",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.works-filter__btn",
+    "tag": "button",
+    "name": "3D 创作",
+    "href": null,
+    "role": "tab",
+    "type": null,
+    "rect": [
+     241,
+     434,
+     85,
+     31
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.works-filter",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.works-filter__btn",
+    "tag": "button",
+    "name": "数据可视化",
+    "href": null,
+    "role": "tab",
+    "type": null,
+    "rect": [
+     334,
+     434,
+     108,
+     31
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.works-filter",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.works-filter__btn",
+    "tag": "button",
+    "name": "音频编辑",
+    "href": null,
+    "role": "tab",
+    "type": null,
+    "rect": [
+     450,
+     434,
+     92,
+     31
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.works-filter",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.works-filter__btn",
+    "tag": "button",
+    "name": "设计协作",
+    "href": null,
+    "role": "tab",
+    "type": null,
+    "rect": [
+     550,
+     434,
+     92,
+     31
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.works-filter",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.works-filter__btn",
+    "tag": "button",
+    "name": "视频编辑",
+    "href": null,
+    "role": "tab",
+    "type": null,
+    "rect": [
+     651,
+     434,
+     92,
+     31
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.works-filter",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "GitHub",
+    "href": "https://github.com/blender/blender",
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     840,
+     78,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "官网",
+    "href": "https://www.blender.org",
+    "role": null,
+    "type": null,
+    "rect": [
+     291,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--sm",
+    "tag": "button",
+    "name": "详情",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     369,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "GitHub",
+    "href": "https://github.com/grafana/grafana",
+    "role": null,
+    "type": null,
+    "rect": [
+     581,
+     840,
+     78,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "官网",
+    "href": "https://grafana.com",
+    "role": null,
+    "type": null,
+    "rect": [
+     675,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--sm",
+    "tag": "button",
+    "name": "详情",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     753,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "GitHub",
+    "href": "https://github.com/metabase/metabase",
+    "role": null,
+    "type": null,
+    "rect": [
+     965,
+     864,
+     78,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "官网",
+    "href": "https://www.metabase.com",
+    "role": null,
+    "type": null,
+    "rect": [
+     1059,
+     864,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--sm",
+    "tag": "button",
+    "name": "详情",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1137,
+     864,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "GitHub",
+    "href": "https://github.com/audacity/audacity",
+    "role": null,
+    "type": null,
+    "rect": [
+     581,
+     840,
+     78,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "官网",
+    "href": "https://www.audacityteam.org",
+    "role": null,
+    "type": null,
+    "rect": [
+     675,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--sm",
+    "tag": "button",
+    "name": "详情",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     753,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "GitHub",
+    "href": "https://github.com/penpot/penpot",
+    "role": null,
+    "type": null,
+    "rect": [
+     965,
+     840,
+     78,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "官网",
+    "href": "https://penpot.app",
+    "role": null,
+    "type": null,
+    "rect": [
+     1059,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--sm",
+    "tag": "button",
+    "name": "详情",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1137,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "GitHub",
+    "href": "https://github.com/OpenShot/openshot-qt",
+    "role": null,
+    "type": null,
+    "rect": [
+     933,
+     840,
+     78,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--sm",
+    "tag": "a",
+    "name": "官网",
+    "href": "https://www.openshot.org",
+    "role": null,
+    "type": null,
+    "rect": [
+     1027,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--sm",
+    "tag": "button",
+    "name": "详情",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1105,
+     840,
+     62,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.work-card__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.process-step__trigger",
+    "tag": "button",
+    "name": "需求确认\n1–3 天",
+    "href": null,
+    "role": null,
+    "type": "button",
+    "rect": [
+     276,
+     397,
+     992,
+     43
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.process-step__content",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.process-step__trigger",
+    "tag": "button",
+    "name": "信息架构\n第 1 周",
+    "href": null,
+    "role": null,
+    "type": "button",
+    "rect": [
+     276,
+     611,
+     992,
+     43
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.process-step__content",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.process-step__trigger",
+    "tag": "button",
+    "name": "视觉设计\n第 2–3 周",
+    "href": null,
+    "role": null,
+    "type": "button",
+    "rect": [
+     276,
+     848,
+     992,
+     43
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.process-step__content",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.process-step__trigger",
+    "tag": "button",
+    "name": "前端开发\n第 3–5 周",
+    "href": null,
+    "role": null,
+    "type": "button",
+    "rect": [
+     276,
+     426,
+     992,
+     43
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.process-step__content",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.process-step__trigger",
+    "tag": "button",
+    "name": "上线交付\n第 6 周",
+    "href": null,
+    "role": null,
+    "type": "button",
+    "rect": [
+     276,
+     638,
+     992,
+     43
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div.process-step__content",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--lg",
+    "tag": "a",
+    "name": "聊聊这个",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     213,
+     424,
+     267,
+     52
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.pricing-card.glass-float",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--lg",
+    "tag": "a",
+    "name": "聊聊这个",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     586,
+     398,
+     267,
+     52
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.pricing-card.glass-float",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--lg",
+    "tag": "a",
+    "name": "聊聊这个",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     960,
+     458,
+     267,
+     52
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.pricing-card.glass-float",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--md",
+    "tag": "a",
+    "name": "问问维护",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     1113,
+     662,
+     114,
+     44
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.retainer",
+    "visibleFocus": true
+   },
+   {
+    "sel": "input#contact-name",
+    "tag": "input",
+    "name": "",
+    "href": null,
+    "role": null,
+    "type": "text",
+    "rect": [
+     237,
+     390,
+     504,
+     48
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "rgba(10, 10, 10, 0.576) 0px 0px 0px 1.72848px, rgba(168, 217, 58, 0.576) 0px 0px 0px 2.8808px",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(123, 151, 60)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(62, 62, 62)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.form-group",
+    "visibleFocus": true
+   },
+   {
+    "sel": "input#contact-email",
+    "tag": "input",
+    "name": "",
+    "href": null,
+    "role": null,
+    "type": "email",
+    "rect": [
+     237,
+     490,
+     504,
+     48
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(62, 62, 62)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(62, 62, 62)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.form-group",
+    "visibleFocus": true
+   },
+   {
+    "sel": "select#contact-budget",
+    "tag": "select",
+    "name": "还没定\n1 万以内\n1–3 万\n3–5 万\n5 万以上",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     237,
+     595,
+     504,
+     48
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(62, 62, 62)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(62, 62, 62)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.form-group",
+    "visibleFocus": true
+   },
+   {
+    "sel": "textarea#contact-message",
+    "tag": "textarea",
+    "name": "",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     237,
+     699,
+     504,
+     139
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(62, 62, 62)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 26)",
+     "borderColor": "rgb(62, 62, 62)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.form-group",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--md",
+    "tag": "button",
+    "name": "提交留言",
+    "href": null,
+    "role": null,
+    "type": "submit",
+    "rect": [
+     237,
+     857,
+     114,
+     44
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.form-actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.btn.btn--md",
+    "tag": "button",
+    "name": "清空",
+    "href": null,
+    "role": null,
+    "type": "button",
+    "rect": [
+     367,
+     857,
+     82,
+     44
+    ],
+    "inViewport": false,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.form-actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.contact-card__value",
+    "tag": "a",
+    "name": "guish207423@gmail.com",
+    "href": "mailto:guish207423@gmail.com",
+    "role": null,
+    "type": null,
+    "rect": [
+     887,
+     368,
+     175,
+     18
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 217, 58)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 217, 58)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.contact-card",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--lg",
+    "tag": "a",
+    "name": "约个时间聊",
+    "href": "mailto:3629748383@qq.com?subject=预约沟通&body=方便的时间段：%0A想聊的内容：",
+    "role": null,
+    "type": null,
+    "rect": [
+     846,
+     835,
+     422,
+     52
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(255, 255, 255, 0.06) 0px 0px 0px 0.5px inset, rgba(255, 255, 255, 0.043) -0.87px 0.5px 0px 0.5px inset, rgba(0, 0, 0, 0.01) 0px 0px 0px 1.5px inset, rgba(255, 255, 255, 0.008) 0px 0px 6px 2px inset, rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.24) 0px 4px 12px 0px, rgba(0, 0, 0, 0.42) 0px 12px 32px -8px",
+     "backgroundColor": "rgba(168, 217, 58, 0.26)",
+     "borderColor": "rgba(168, 217, 58, 0.45)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.contact-side",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "项目周期一般多长？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     432,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "是否支持远程协作？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     525,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "如何保证项目质量？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     618,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "是否提供售后支持？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     711,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "定价是否可议？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     804,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "是否支持分期付款？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     865,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "源码是否交付？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     432,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "summary.faq-question",
+    "tag": "summary",
+    "name": "是否可以只做设计不开发？\n+",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     197,
+     525,
+     1046,
+     35
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 240)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "details.faq-item",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__social-link",
+    "tag": "a",
+    "name": "GitHub",
+    "href": "https://github.com/guish207423-ux",
+    "role": null,
+    "type": null,
+    "rect": [
+     172,
+     446,
+     73,
+     44
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(138, 138, 138)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 138)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(138, 138, 138)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__socials",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__social-link",
+    "tag": "a",
+    "name": "Email",
+    "href": "mailto:guish207423@gmail.com",
+    "role": null,
+    "type": null,
+    "rect": [
+     261,
+     446,
+     66,
+     44
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(138, 138, 138)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 138)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(138, 138, 138)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__socials",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__social-link",
+    "tag": "a",
+    "name": "WeChat",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     342,
+     446,
+     73,
+     44
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(138, 138, 138)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 138)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(138, 138, 138)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__socials",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__nav-link",
+    "tag": "a",
+    "name": "关于我们",
+    "href": "#about",
+    "role": null,
+    "type": null,
+    "rect": [
+     855,
+     348,
+     175,
+     25
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__nav-list",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__nav-link",
+    "tag": "a",
+    "name": "能做什么",
+    "href": "#services",
+    "role": null,
+    "type": null,
+    "rect": [
+     855,
+     381,
+     175,
+     25
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__nav-list",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__nav-link",
+    "tag": "a",
+    "name": "技术资产",
+    "href": "#works",
+    "role": null,
+    "type": null,
+    "rect": [
+     855,
+     413,
+     175,
+     25
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__nav-list",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__nav-link",
+    "tag": "a",
+    "name": "做过哪些项目",
+    "href": "#cases",
+    "role": null,
+    "type": null,
+    "rect": [
+     855,
+     446,
+     175,
+     25
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__nav-list",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__nav-link",
+    "tag": "a",
+    "name": "价格",
+    "href": "#pricing",
+    "role": null,
+    "type": null,
+    "rect": [
+     855,
+     478,
+     175,
+     25
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__nav-list",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__nav-link",
+    "tag": "a",
+    "name": "联系方式",
+    "href": "#contact",
+    "role": null,
+    "type": null,
+    "rect": [
+     855,
+     511,
+     175,
+     25
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__nav-list",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.footer__nav-link.footer__contact-text",
+    "tag": "a",
+    "name": "guish207423@gmail.com",
+    "href": "mailto:guish207423@gmail.com",
+    "role": null,
+    "type": null,
+    "rect": [
+     1093,
+     348,
+     175,
+     25
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(176, 176, 176)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer__nav-list",
+    "visibleFocus": true
+   },
+   {
+    "sel": "input.footer__newsletter-input",
+    "tag": "input",
+    "name": "你的邮箱地址",
+    "href": null,
+    "role": null,
+    "type": "email",
+    "rect": [
+     172,
+     672,
+     412,
+     38
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(20, 20, 20)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(20, 20, 20)",
+     "borderColor": "rgb(46, 46, 46)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "form.footer__newsletter-form",
+    "visibleFocus": false
+   },
+   {
+    "sel": "button.btn.btn--sm",
+    "tag": "button",
+    "name": "订阅",
+    "href": null,
+    "role": null,
+    "type": "submit",
+    "rect": [
+     592,
+     672,
+     60,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(10, 10, 10)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(168, 217, 58)",
+     "borderColor": "rgb(10, 10, 10)",
+     "color": "rgb(10, 10, 10)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "form.footer__newsletter-form",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.cookie-toast__btn.cookie-toast__btn--secondary",
+    "tag": "button",
+    "name": "拒绝",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     251,
+     819,
+     60,
+     40
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.cookie-toast__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.cookie-toast__btn.cookie-toast__btn--primary",
+    "tag": "button",
+    "name": "接受",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     319,
+     819,
+     60,
+     40
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(255, 255, 255, 0.1)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 240)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(255, 255, 255, 0.1)",
+     "borderColor": "rgb(102, 102, 102)",
+     "color": "rgb(240, 240, 240)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.cookie-toast__actions",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.fab-to-top",
+    "tag": "button",
+    "name": "回到顶部",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1376,
+     784,
+     40,
+     40
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(0, 0, 0, 0.3) 0px 4px 12px 0px",
+     "backgroundColor": "rgba(18, 18, 18, 0.85)",
+     "borderColor": "rgba(255, 255, 255, 0.1)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(176, 176, 176)",
+     "boxShadow": "rgba(0, 0, 0, 0.3) 0px 4px 12px 0px",
+     "backgroundColor": "rgba(18, 18, 18, 0.85)",
+     "borderColor": "rgba(255, 255, 255, 0.1)",
+     "color": "rgb(176, 176, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.fab-group.fab-group--visible",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.fab",
+    "tag": "button",
+    "name": "打开联系方式",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1372,
+     832,
+     44,
+     44
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(0, 0, 0, 0.4) 0px 4px 16px 0px",
+     "backgroundColor": "rgba(18, 18, 18, 0.92)",
+     "borderColor": "rgba(168, 217, 58, 0.35)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 217, 58)",
+     "boxShadow": "rgba(0, 0, 0, 0.4) 0px 4px 16px 0px",
+     "backgroundColor": "rgba(18, 18, 18, 0.92)",
+     "borderColor": "rgba(168, 217, 58, 0.35)",
+     "color": "rgb(168, 217, 58)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": "false",
+    "parentLabel": "div",
+    "visibleFocus": true
+   }
+  ]
+ },
+ "software": {
+  "skip": {
+   "firstStop": {
+    "sel": "a.logo",
+    "tag": "a",
+    "name": "S\n软件目录",
+    "href": "/",
+    "role": null,
+    "type": null,
+    "rect": [
+     140,
+     16,
+     118,
+     32
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 242)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 242)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 242)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.header-inner"
+   },
+   "afterEnter": {
+    "hash": "",
+    "active": "A#",
+    "scrollY": 0,
+    "activeText": "S\n软件目录"
+   },
+   "targetExists": "invalid"
+  },
+  "stops": [
+   {
+    "sel": "a.logo",
+    "tag": "a",
+    "name": "S\n软件目录",
+    "href": "/",
+    "role": null,
+    "type": null,
+    "rect": [
+     140,
+     16,
+     118,
+     32
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 242)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 242)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(240, 240, 242)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.header-inner",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.active",
+    "tag": "a",
+    "name": "首页",
+    "href": "/",
+    "role": null,
+    "type": null,
+    "rect": [
+     278,
+     21,
+     26,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(200, 150, 46)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(200, 150, 46)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.header-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "服务",
+    "href": "/services",
+    "role": null,
+    "type": null,
+    "rect": [
+     320,
+     21,
+     26,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.header-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "数据",
+    "href": "/stats",
+    "role": null,
+    "type": null,
+    "rect": [
+     362,
+     21,
+     26,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.header-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "收藏",
+    "href": "/favorites",
+    "role": null,
+    "type": null,
+    "rect": [
+     404,
+     21,
+     26,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.header-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "下载",
+    "href": "/downloads",
+    "role": null,
+    "type": null,
+    "rect": [
+     446,
+     21,
+     26,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.header-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "input.search-bar__input",
+    "tag": "input",
+    "name": "",
+    "href": null,
+    "role": null,
+    "type": "text",
+    "rect": [
+     148,
+     466,
+     640,
+     46
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 242)",
+     "boxShadow": "rgba(200, 150, 46, 0.06) 0px 0px 0px 1.73115px",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(135, 106, 48)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 242)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.search-bar",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "VS Code",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     221,
+     532,
+     76,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "Obsidian",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     305,
+     532,
+     84,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "Blender",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     397,
+     532,
+     76,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "Audacity",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     481,
+     532,
+     84,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "Motrix",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     573,
+     532,
+     69,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "Raycast",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     650,
+     532,
+     76,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "Typora",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     735,
+     532,
+     69,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "IINA",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     812,
+     532,
+     55,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "HandBrake",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     875,
+     532,
+     91,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.popular-searches__tag",
+    "tag": "button",
+    "name": "Penpot",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     148,
+     566,
+     69,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.popular-searches",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.category-btn.active",
+    "tag": "button",
+    "name": "全部 (15)",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     148,
+     612,
+     86,
+     37
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(200, 150, 46)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(200, 150, 46)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.category-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.category-btn",
+    "tag": "button",
+    "name": "系统工具 (3)",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     238,
+     612,
+     103,
+     37
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.category-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.category-btn",
+    "tag": "button",
+    "name": "应用软件 (2)",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     345,
+     612,
+     103,
+     37
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.category-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.category-btn",
+    "tag": "button",
+    "name": "图形设计 (2)",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     452,
+     612,
+     103,
+     37
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.category-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.category-btn",
+    "tag": "button",
+    "name": "网络工具 (1)",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     559,
+     612,
+     103,
+     37
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.category-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.category-btn",
+    "tag": "button",
+    "name": "媒体工具 (4)",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     666,
+     612,
+     103,
+     37
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.category-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.category-btn",
+    "tag": "button",
+    "name": "编程开发 (3)",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     773,
+     612,
+     103,
+     37
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(168, 168, 176) rgb(168, 168, 176) rgba(0, 0, 0, 0)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "nav.category-nav",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sort-btn.active",
+    "tag": "button",
+    "name": "最近更新",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     195,
+     677,
+     76,
+     27
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(200, 150, 46, 0.1)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(200, 150, 46)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(200, 150, 46, 0.1)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(200, 150, 46)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sort-bar",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sort-btn",
+    "tag": "button",
+    "name": "Stars",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     279,
+     677,
+     54,
+     27
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sort-bar",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sort-btn",
+    "tag": "button",
+    "name": "名称",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     341,
+     677,
+     50,
+     27
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sort-bar",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sort-btn",
+    "tag": "button",
+    "name": "随机",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     399,
+     677,
+     50,
+     27
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sort-bar",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 VS Code",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     360,
+     452,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 Metabase",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     802,
+     455,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 Grafana",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     392,
+     791,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 OpenShot",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     802,
+     789,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 IINA",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     368,
+     452,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 Blender",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     810,
+     455,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 Obsidian",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     169,
+     828,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 SwitchHosts",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     833,
+     789,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 Penpot",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     384,
+     452,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 HandBrake",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     810,
+     453,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 Motrix",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     353,
+     789,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.software-card__fav-btn",
+    "tag": "button",
+    "name": "收藏 Audacity",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     810,
+     787,
+     24,
+     20
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.software-card__stats",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.page-btn.active",
+    "tag": "button",
+    "name": "1",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     526,
+     864,
+     36,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(200, 150, 46)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(17, 17, 19)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(17, 17, 19)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(200, 150, 46)",
+     "borderColor": "rgb(200, 150, 46)",
+     "color": "rgb(17, 17, 19)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.pagination",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.page-btn",
+    "tag": "button",
+    "name": "2",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     570,
+     864,
+     36,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.pagination",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.page-btn.page-btn--next",
+    "tag": "button",
+    "name": "下一页",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     614,
+     864,
+     73,
+     36
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(26, 26, 29)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.pagination",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "显示管理",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1033,
+     144,
+     80,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "亮度调节",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1121,
+     144,
+     80,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "DDC",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1208,
+     144,
+     44,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "菜单栏",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1033,
+     178,
+     65,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "Hosts",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1106,
+     178,
+     58,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "网络",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1172,
+     178,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "开发工具",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1033,
+     212,
+     80,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "设计",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1121,
+     212,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "原型",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1179,
+     212,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "协作",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1033,
+     246,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "矢量",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1092,
+     246,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "监控",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1151,
+     246,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "可视化",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1033,
+     280,
+     65,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "仪表盘",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1106,
+     280,
+     65,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "数据",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1179,
+     280,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.sidebar__tag",
+    "tag": "button",
+    "name": "音频",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1033,
+     314,
+     51,
+     26
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgba(255, 255, 255, 0.04)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.sidebar__tags",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "首页",
+    "href": "/",
+    "role": null,
+    "type": null,
+    "rect": [
+     720,
+     555,
+     276,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "服务",
+    "href": "/services",
+    "role": null,
+    "type": null,
+    "rect": [
+     720,
+     586,
+     276,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "数据",
+    "href": "/stats",
+    "role": null,
+    "type": null,
+    "rect": [
+     720,
+     616,
+     276,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "关于",
+    "href": "/about",
+    "role": null,
+    "type": null,
+    "rect": [
+     720,
+     646,
+     276,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "Telegram 频道",
+    "href": "https://t.me/software_catalog",
+    "role": null,
+    "type": null,
+    "rect": [
+     1024,
+     555,
+     276,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "Telegram 交流群",
+    "href": "https://t.me/software_chat",
+    "role": null,
+    "type": null,
+    "rect": [
+     1024,
+     586,
+     276,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a",
+    "tag": "a",
+    "name": "邮箱联系",
+    "href": "mailto:3629748383@qq.com",
+    "role": null,
+    "type": null,
+    "rect": [
+     1024,
+     616,
+     276,
+     22
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(138, 138, 148)",
+     "boxShadow": "none",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "borderColor": "rgb(138, 138, 148)",
+     "color": "rgb(138, 138, 148)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-links",
+    "visibleFocus": true
+   },
+   {
+    "sel": "a.btn.btn--secondary",
+    "tag": "a",
+    "name": "捐赠",
+    "href": "mailto:3629748383@qq.com",
+    "role": null,
+    "type": null,
+    "rect": [
+     695,
+     751,
+     50,
+     38
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(240, 240, 242)",
+     "boxShadow": "none",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(240, 240, 242)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.footer-donation",
+    "visibleFocus": true
+   },
+   {
+    "sel": "button.back-to-top",
+    "tag": "button",
+    "name": "回到顶部",
+    "href": null,
+    "role": null,
+    "type": null,
+    "rect": [
+     1368,
+     828,
+     44,
+     44
+    ],
+    "inViewport": true,
+    "visible": true,
+    "style": {
+     "outlineStyle": "solid",
+     "outlineWidth": "2px",
+     "outlineColor": "rgb(200, 150, 46)",
+     "boxShadow": "rgba(0, 0, 0, 0.2) 0px 8px 24px 0px, rgba(0, 0, 0, 0.15) 0px 4px 12px 0px",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "base": {
+     "outlineStyle": "none",
+     "outlineWidth": "3px",
+     "outlineColor": "rgb(168, 168, 176)",
+     "boxShadow": "rgba(0, 0, 0, 0.2) 0px 8px 24px 0px, rgba(0, 0, 0, 0.15) 0px 4px 12px 0px",
+     "backgroundColor": "rgb(34, 34, 38)",
+     "borderColor": "rgb(46, 46, 51)",
+     "color": "rgb(168, 168, 176)",
+     "textDecorationLine": "none"
+    },
+    "ariaExpanded": null,
+    "parentLabel": "div.app",
+    "visibleFocus": true
+   }
+  ]
+ }
+}

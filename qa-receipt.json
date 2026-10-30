@@ -31,7 +31,7 @@
     },
     "core_web_vitals": {
       "result": "PASS",
-      "detail": "LCP：Mobile Slow4G 3612ms → 1616ms；Desktop Slow4G 3696ms → 1656ms；本地 948ms → 176ms。CLS 0–0.0008。LCP 元素 hero-title-editorial，由 HTML 静态壳首帧绘制，不等 JS",
+      "detail": "LCP：Mobile Slow4G 3612ms（本轮前）→ 1616ms（静态壳）→ **700ms**（hero 改两行 + 区块留白收敛）；Desktop 本地 948 → 176 → 128ms 量级。CLS 0–0.0008。LCP 元素 hero-title-editorial，由 HTML 静态壳首帧绘制",
       "threshold": "LCP ≤2500ms / CLS ≤0.1",
       "source": "scripts/perf-probe.py（CDP + PerformanceObserver，Slow4G 1.6Mbps/150ms RTT + 4× CPU 降频）"
     },
@@ -42,7 +42,7 @@
     },
     "layout_correctness": {
       "result": "PASS",
-      "detail": "移除 .section 的 content-visibility:auto + contain-intrinsic-size:auto 600px。移动端文档高 6874px（占位假值）→ 10783px（真实）；区块高度恢复为 700–2445px 各自不同；锚点与 ScrollTrigger 偏移恢复正确",
+      "detail": "移除 .section 的 content-visibility:auto + contain-intrinsic-size:auto 600px。移动端文档高 6874px（占位假值）→ 10783px（真实）；区块高度恢复为 700–2445px 各自不同；锚点与 ScrollTrigger 偏移恢复正确；本轮再把 .section 上下留白 200→120px（移动 72px），桌面文档高 12569→11389px（-9.4%）",
       "evidence": "关掉 content-visibility 前后逐区块量高：about 728→1445、cases 728→1427、pricing 728→1214、contact 728→2445"
     },
     "fonts_actually_loaded": {
@@ -80,5 +80,35 @@
     "no_js": "PASS —— 禁用 JS 后 H1 / 6 个导航项 / 主 CTA 仍然可读（静态壳），页面高 861px",
     "theme_color_consistency": "PASS —— manifest 的 theme_color/background_color 与 index.html 的 theme-color 由旧值（#D4FF3F / #050505）统一到 token 的 #0A0A0A",
     "video_loading": "PASS —— 6 个作品视频均 preload=\"metadata\" + poster + muted + playsInline + loop，首屏不拉 2.5MB 视频"
+  },
+  "round_20261030_independent_review": {
+    "source": "docs/review/CRAFT-20261029.md（design-critic）、docs/review/A11Y-20261029.md（design-accessibility），均为独立 worker 产出",
+    "Critical_fixed": [
+      "C1 移动端标题层级倒置：.section-head__title 误用 --fs-h1（390 档 h2 40px > h1 39px）→ 新建 --fs-h2-display；实测 h1/h2 = 1440 档 2.18、390 档 1.50（判据 ≥1.4）",
+      "C2 Hero 末行悬垂孤行：三行断行末行「产品」只占 33%（390 档 21%）→ 改两行，accent 落在「能运行的产品」"
+    ],
+    "High_fixed": [
+      "H1 卡片边界 1.46:1（暗屏塌成一块）→ --c-panel #141414→#1A1A1A、卡片边框接 --c-border-ui #666666（对页底 3.45/对面板 3.03），实测 computed border = rgb(102,102,102)",
+      "H3 第三方项目录屏排在自己案例之前 2767px → App 路由顺序改成 CaseStudies → Works，实测区块序 top/about/services/cases/works/process/pricing/contact",
+      "H4 14 屏过长、纯留白 2800px → .section 200→120px（移动 72px），桌面文档高 12569→11389px"
+    ],
+    "Medium_fixed": [
+      "M4 .brand 未声明 color（裸露浏览器默认链接色 rgb(158,158,255)）→ color: inherit",
+      "M5 同意条常驻压住内容 → 10 秒后收成 .cookie-chip 胶囊，可点开（实测 2s toast / 11s chip / 点击后回到 toast）",
+      "M6 粗指针下页脚导航仅 25px → min-height 44px",
+      "M7 移动端横向滚动带右缘硬切无线索 → mask-image 右缘渐隐"
+    ],
+    "not_fixed_and_why": [
+      "C3 同质化七件套：只做了低风险两项（关掉纯装饰的 .light-field__ruler、去掉填充层里的青色）。网格本身是 hyalite 折射的采样源，删掉会让玻璃退化成灰白塑料；玻璃收敛到「导航+联系卡」属于视觉方向决策，留给设计总监/用户裁定",
+      "H2 动效语言单一：需要新增承载信息的动效（流程进度线/价格 count-up），属于设计提案，未在本轮自行决定",
+      "M1/M2/M3/M8/M9：排版与圆角体系调整，涉及全站视觉基调"
+    ],
+    "verification_after_fix": {
+      "axe_core_4.10.2": "0 violation（322 个文本节点）",
+      "contrast": "0/322 不达 AA（面板改亮后重算）",
+      "lcp_mobile_slow4g": "700ms",
+      "cls": "0.0008",
+      "doc_height_desktop": "11389px（评审前 12569px）"
+    }
   }
 }

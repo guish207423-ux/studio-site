@@ -21,10 +21,18 @@ export default function FloatingToolbar() {
   const [scrolled, setScrolled] = useState(false)
   const [showTop, setShowTop] = useState(false)
   const [cookieVisible, setCookieVisible] = useState(false)
+  // M5：常驻的同意条会长期压住内容（1440 档盖住第一张价格卡）。10 秒后收成一枚
+  // 小胶囊，想改主意还能点开 —— 既不是「悄悄消失」，也不常驻遮挡。
+  const [cookieCollapsed, setCookieCollapsed] = useState(false)
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent')
     if (!consent) setCookieVisible(true)
+
+    if (!consent) {
+      const t = window.setTimeout(() => setCookieCollapsed(true), 10000)
+      return () => window.clearTimeout(t)
+    }
 
     const onScroll = () => {
       setScrolled(window.scrollY > 320)
@@ -51,7 +59,13 @@ export default function FloatingToolbar() {
 
   return (
     <>
-      {cookieVisible && (
+      {cookieVisible && cookieCollapsed && (
+        <button className="cookie-chip" onClick={() => setCookieCollapsed(false)}>
+          Cookie 设置
+        </button>
+      )}
+
+      {cookieVisible && !cookieCollapsed && (
         <div role="dialog" aria-label="Cookie 使用提示" className="cookie-toast">
           <p className="cookie-toast__text">
             本站不追踪访客，仅使用本地存储记住您的选择。
