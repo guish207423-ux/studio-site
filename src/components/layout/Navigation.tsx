@@ -87,7 +87,15 @@ export default function Navigation() {
       {drawerOpen && (
         <div className="drawer-backdrop" aria-hidden="true" onClick={() => setDrawerOpen(false)} />
       )}
-      <nav id="drawer" className={`drawer ${drawerOpen ? 'drawer--open' : ''}`} aria-label="移动端导航">
+      <nav
+        id="drawer"
+        className={`drawer ${drawerOpen ? 'drawer--open' : ''}`}
+        aria-label="移动端导航"
+        /* 关闭态必须登出可访问性树与 Tab 序列：原来只做 translateY(100%)，
+           焦点仍会停在视口外 6 个 .drawer__link 上（a11y 评审 S1）。 */
+        aria-hidden={!drawerOpen}
+        inert={!drawerOpen}
+      >
         {links.map(l => (
           <a key={l.href} href={l.href} onClick={() => setDrawerOpen(false)} className="drawer__link">{l.label}</a>
         ))}
