@@ -59,6 +59,7 @@ const plans = [
 
 export default function Pricing() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const priceRef = useRef<HTMLSpanElement>(null)
   const reduced = useReducedMotion()
 
   useEffect(() => {
@@ -72,6 +73,29 @@ export default function Pricing() {
         once: true,
         onEnter: (batch) => {
           gsap.to(batch, { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'expo.out' })
+        },
+      })
+    })
+    return () => ctx.revert()
+  }, [reduced])
+
+  useEffect(() => {
+    if (!priceRef.current || reduced) return
+    const el = priceRef.current
+    const target = 3500
+    const obj = { v: 0 }
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(obj, {
+            v: target,
+            duration: 1.2,
+            ease: 'expo.out',
+            onUpdate: () => { el.textContent = Math.round(obj.v).toLocaleString('zh-CN') },
+          })
         },
       })
     })
@@ -126,7 +150,7 @@ export default function Pricing() {
         <div className="retainer">
           <div>
             <p className="retainer__label">仅限已交付项目</p>
-            <p className="retainer__title">长期维护 · ¥3,500 起 / 月</p>
+            <p className="retainer__title">长期维护 · ¥<span ref={priceRef}>0</span> 起 / 月</p>
             <p className="retainer__desc">
               缺陷修复、依赖升级、性能与无障碍巡检，每月 4 小时内的小改动。不单独出售。
             </p>
