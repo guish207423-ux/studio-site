@@ -2862,8 +2862,6 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: transform var(--dur-micro) var(--ease-out-expo),
               box-shadow var(--dur-micro) var(--ease-out-expo),
               background-color var(--dur-micro) ease,
@@ -2889,8 +2887,6 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: var(--r-lg);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   animation: fade-in-up 0.2s var(--ease-out-expo);
 }
 .fab-menu__title {
@@ -2926,8 +2922,6 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: transform var(--dur-micro) var(--ease-out-expo),
               color var(--dur-micro) var(--ease-out-expo);
 }
@@ -2955,8 +2949,6 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--r-md);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   animation: fade-in-up 0.3s var(--ease-out-expo);
 }
 .cookie-toast__text {
@@ -3196,7 +3188,6 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   color: var(--c-txt-2);
   font-size: 12px;
   cursor: pointer;
-  backdrop-filter: blur(8px);
   transition: color var(--dur-micro) ease, border-color var(--dur-micro) ease;
 }
 .cookie-chip:hover { color: var(--c-txt); border-color: var(--c-txt-3); }
