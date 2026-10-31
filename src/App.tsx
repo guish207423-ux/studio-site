@@ -14,6 +14,7 @@ const About = lazy(() => import('./components/sections/About'))
 const CaseStudies = lazy(() => import('./components/sections/CaseStudies'))
 const Pricing = lazy(() => import('./components/sections/Pricing'))
 const Contact = lazy(() => import('./components/sections/Contact'))
+const Partners = lazy(() => import('./components/sections/Partners'))
 
 function SectionSkeleton() {
   return (
@@ -122,6 +123,7 @@ export default function App() {
           <CaseStudies />
           <Works />
           <Process />
+          <Partners />
           <Pricing />
           <Contact />
         </Suspense>

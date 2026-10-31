@@ -3353,3 +3353,27 @@ main { counter-reset: sec; }
      会在「设/计」之间硬断（截图实测）。字号的绝对大小不如断行正确重要。 */
   .hero-title-editorial { font-size: clamp(44px, 5vw, 76px); }
 }
+
+/* ===== Partners strip (polish-round3 §三) ===== */
+.partners-strip {
+  display: flex;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--sp-2);
+  -webkit-overflow-scrolling: touch;
+}
+.partner-chip {
+  flex: 0 0 auto;
+  min-width: 160px;
+  padding: var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  background: var(--c-panel);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+.partner-chip__name { font-weight: 600; color: var(--c-txt); }
+.partner-chip__note { font-size: 12px; color: var(--c-txt-3); }
