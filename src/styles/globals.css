@@ -3094,7 +3094,7 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
 .hero { padding: calc(72px + var(--sp-7)) 0 var(--sp-7); min-height: 100dvh; display: flex; align-items: center; }
 .hero-editorial { max-width: 900px; }
 .hero-eyebrow { font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-txt-3); margin-bottom: var(--sp-5); }
-.hero-title-editorial { font-family: var(--font-display); font-size: clamp(48px, 8vw, 96px); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: var(--c-txt); margin-bottom: var(--sp-5); }
+.hero-title-editorial { font-family: var(--font-display); font-size: clamp(48px, 8vw, 96px); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: var(--c-txt); margin-bottom: var(--sp-5); text-wrap: balance; }
 .hero-title-accent { color: var(--c-accent); }
 .hero-lead-editorial { font-size: var(--fs-body-lg); color: var(--c-txt-2); line-height: 1.6; max-width: 520px; margin-bottom: var(--sp-6); }
 .hero-cta-editorial { display: flex; gap: var(--sp-3); align-items: center; }
