@@ -2453,23 +2453,27 @@ body.is-scrolling .glass {
   color: var(--c-txt-3);
 }
 
-.pricing-card__price {
-  display: flex;
-  align-items: baseline;
-  gap: var(--sp-2);
-}
-
 .pricing-card__amount {
   font-family: var(--font-display);
   font-size: 32px;
   font-weight: 900;
   color: var(--c-accent);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 .pricing-card__period {
   font-size: 14px;
   color: var(--c-txt-3);
+  white-space: nowrap;
+}
+
+.pricing-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  white-space: nowrap;
 }
 
 .pricing-card__features {
