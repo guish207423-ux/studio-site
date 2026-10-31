@@ -62,8 +62,8 @@ export default function Services() {
     <section className="section zone" id="services" aria-labelledby="services-title">
       <div className="container">
         <header className="section-head">
-          <h2 id="services-title" className="section-head__title">服务范围</h2>
-          <p className="section-head__sub"><SectionIcon name="services" size={16} /> 八项核心服务能力，可单独委托或组合交付</p>
+          <h2 id="services-title" className="section-head__title">能做什么</h2>
+          <p className="section-head__sub"><SectionIcon name="services" size={16} /> 列出的都是我们自己手写的部分</p>
         </header>
 
         <div ref={gridRef} className="services-bento">
