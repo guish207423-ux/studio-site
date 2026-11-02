@@ -189,6 +189,26 @@ EXTERNAL_404_ALL_PASS=YES
 站内链接逐个 HTTP 复核：`/studio-site/` → 200、`/studio-site/#works` → 200、
 `/studio-site/#contact` → 200。
 
+### 5.3 第三方 vantage（r.jina.ai，与 GitHub 网络完全无关）
+
+用 r.jina.ai 抓同一路径（新的一条不存在路径，避开缓存），返回：
+
+```
+Warning: Target URL returned error 404: Not Found
+Title: 页面不存在 · 404 — 屿作所 YU STUDIO
+Markdown Content:
+Error 404
+## 这一页不存在。
+链接可能已经改版，或者地址拼错了一位。回到首页继续浏览，也可以直接找我们。
+[返回首页](https://guish207423-ux.github.io/studio-site/)
+[看作品](…/studio-site/#works) [联系我们](…/studio-site/#contact)
+请求路径 `/studio-site/this-path-does-not-exist-703efef3-final`
+```
+
+第三方 vantage 同时确认了三件事：HTTP 404、HTML body 有中文内容、内联脚本回显了真实请求路径
+（说明页面不依赖任何外部资源即可执行）。可用的 curl 抓取器（Keyless Keenable）对该 URL 返回
+401/404 错误体，也是「它确实是 404」的旁证。
+
 ## 6. 关于「控制台 0 报错」这条口径
 
 探针记录了 **1 条** 控制台条目：
