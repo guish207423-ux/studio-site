@@ -9,6 +9,12 @@
   /* 色彩 — 暗夜荧光 (品牌默认深色主题) */
   --c-ink: #0A0A0A;
   --c-ink-2: #0F0F0F;
+  /* ink2 区块的「纱幕」版本：55% 的 ink2 叠在光场上。
+     不透明的区块底会做两件坏事：把动态光影背景切成一段一段（实测 contact/works 两屏
+     A/B 差分 = 0.00%，光场完全看不见），以及让玻璃面板背后没有折射源（技能纪律 2：
+     纯色背后没有可弯折结构，玻璃必然退化成灰白塑料）。0.55 仍保住区块明度交替
+     （#0E0E0E vs 基底 #0A0A0A）。 */
+  --c-ink-2-veil: rgba(15, 15, 15, 0.55);
   --c-panel: #1A1A1A;
   --c-panel-2: #212121;
   --c-line: #2E2E2E;
@@ -29,6 +35,26 @@
   --c-warn: #FFB020;
   --c-err: #FF4D6D;
   --c-info: #7FE3FF;
+
+  /* 折射源大气色层 — 光影载体，不是强调色（DESIGN-TOKENS §1.2 / t_c3e71c8f）
+     三条都是「近黑的有彩色」：在 ink 上最大通道抬升 ~20/255，读起来是冷色环境光，
+     不是第二强调色。纪律：不承载文字、不与 --c-accent 竞争、只服务折射。 */
+  --c-atm-blue: #0D1220;     /* 深靛蓝 · 冷光环境 */
+  --c-atm-purple: #100A1A;   /* 深紫 · 紫外色偏 */
+  --c-atm-teal: #0C1815;     /* 深青 · 青瓷反光 */
+  /* 同色的 RGB 三元组：CSS 没法给 hex 自定义属性加 alpha（本站不用 color-mix，
+     避免把支持的浏览器面收窄）。图层里写 rgba(var(--c-atm-blue-rgb), 0.88)，
+     保证颜色只有一处字面值 —— 改色只改这三行。 */
+  --c-atm-blue-rgb: 13, 18, 32;
+  --c-atm-purple-rgb: 16, 10, 26;
+  --c-atm-teal-rgb: 12, 24, 21;
+
+  /* 背景层周期 — 三层互不同步（liquid-glass-ui「多层漂移周期必须互不同步」）。
+     46 / 62 / 34 两两比值 23:31 / 17:23 / 17:31，无 1:1 也无 2:1 谐波，
+     周期序列见 docs/verify-atmosphere-t_dec95ed7.md 实测表。 */
+  --dur-grid-drift: 46s;
+  --dur-atm-drift: 62s;
+  --dur-halo: 34s;
 
   /* 字体 */
   /* 拉丁走 Geist（自托管，unicode-range 仅拉丁），中文交给系统 CJK 栈：
@@ -191,13 +217,19 @@ body::after {
  * 动态光影背景 —— 滚动/指针视差（替代 v5 的纯 CSS 自漂移 .refract-blob）
  *
  * 三层，全部 fixed + z-index:-1 + pointer-events:none：
- *   .light-field        容器，仅作语义与定位锚点
- *   .light-field__fill  静态兜底渐变 —— 无 JS / reduced-motion 时仍是完整背景
- *   .light-field__drift 滚动视差层 + CSS 低频自漂移（自漂移写在这里，不进 rAF）
- *   .light-shadow       暗部层 —— screen 合成下的「反向光」，随指针平移，亮部让位
+ *   .light-field            容器，仅作语义与定位锚点
+ *   .light-field__atmosphere 大气色层 —— 三色近黑径向渐变，给折射提供「色彩信息」
+ *   .light-field__fill      静态兜底渐变 —— 无 JS / reduced-motion 时仍是完整背景
+ *   .light-field__grid      折射源网格 —— 给折射提供「弯折结构」（直线在玻璃边缘被弯折）
+ *   .light-field__drift     滚动视差层 + CSS 低频光晕呼吸
+ *   .light-shadow           暗部层 —— multiply 合成下的「反向光」，随指针平移，亮部让位
  *
- * 亮度纪律（承 v5「禁霓虹外发光」）：三层 alpha 之和 ≤ 0.30，且只用语义色
- * --c-info / --c-accent 的低透明度版本，不新增色相、不加 box-shadow 外发光。
+ * 三层周期互不同步（46s 网格 / 62s 大气 / 34s 呼吸）：同频 = 整屏一起动，
+ * 且所有 backdrop-filter 同时重采样 = 背景一起变脏。相位独立才有「光在流动」。
+ *
+ * 亮度纪律（承 v5「禁霓虹外发光」）：光层 alpha 之和 ≤ 0.30，且只用语义色
+ * --c-info / --c-accent 的低透明度版本；大气层是三条近黑的有彩色（Δ最大通道 ≈20/255），
+ * 只做冷色环境光，不新增强调色、不加 box-shadow 外发光。
  * ========================================================================== */
 .light-field {
   position: fixed;
@@ -205,6 +237,28 @@ body::after {
   z-index: var(--z-bg);
   pointer-events: none;
   overflow: clip;
+}
+
+/* 大气色层 —— 折射源的「色彩信息」那一半（网格负责「结构」）。
+   纯 #0A0A0A 背后没有可弯折结构、也没有可色散的颜色，玻璃必然退化成灰白塑料；
+   三色近黑径向给玻璃边缘提供可被 dispersion 拆开的入射色。
+   单图层多径向（skill 纪律 10：减法优先），只动 transform，reduced-motion 全局覆盖。 */
+.light-field__atmosphere {
+  position: absolute;
+  /* 漂移余量：inset 大于视口，平移 30px 也不会露边；容器 overflow: clip 收口 */
+  inset: -12vmax;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 70% at 25% 20%, rgba(var(--c-atm-blue-rgb), 0.88) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 60% at 78% 74%, rgba(var(--c-atm-purple-rgb), 0.78) 0%, transparent 60%),
+    radial-gradient(ellipse 62% 52% at 52% 52%, rgba(var(--c-atm-teal-rgb), 0.72) 0%, transparent 55%);
+  /* 右上漂移：与网格的右下反向，第三方向避免「两层反向 = 对称呆板」 */
+  animation: light-field-atm-drift var(--dur-atm-drift) var(--ease-in-out-quart) infinite;
+}
+
+@keyframes light-field-atm-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(30px, -30px, 0); }
 }
 
 /* 折射源（v6）—— 玻璃是「对背后内容的加工」，纯色 #050505 背后没有可弯折结构，
@@ -234,11 +288,11 @@ body::after {
     rgba(127, 227, 255, 0.20) 0 2px, transparent 2px 288px);
 }
 
-/* 网格 + 直尺的慢速漂移：周期与幅度独立于全局呼吸，避免同频死板。
-   两层用同一组 background-position（两层各自只有一张背景图，写在一起仍逐层对应），
-   与 .light-field__drift 的视差 transform 不冲突。 */
+/* 网格慢速漂移：只动 transform（合成器，不重绘）。改前用 background-position ——
+   那是逐帧重绘整张渐变，和视差层的 blur 一样是「全屏 paint per frame」的来源。
+   位移 30/18px 远小于 inset 的 -8vmax 余量，不会露边。 */
 .light-field__grid {
-  animation: light-field-grid-drift 46s var(--ease-in-out-quart) infinite;
+  animation: light-field-grid-drift var(--dur-grid-drift) var(--ease-in-out-quart) infinite;
 }
 .light-field__ruler {
   /* 直尺用更小幅度：它是「弯折最可读」的那一层，幅度过大会让弯折糊成一片 */
@@ -246,13 +300,13 @@ body::after {
 }
 
 @keyframes light-field-grid-drift {
-  0%, 100% { background-position: 0 0, 0 0; }
-  50%      { background-position: 30px 18px, 30px 18px; }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(30px, 18px, 0); }
 }
 
 @keyframes light-field-ruler-drift {
-  0%, 100% { background-position: 0 0; }
-  50%      { background-position: 22px 0; }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(22px, 0, 0); }
 }
 
 /* 视差层：位移由 JS 写 transform —— 只有它需要 will-change。
@@ -285,13 +339,15 @@ body::after {
   background-position: 18% 30%, 82% 72%;
   background-repeat: no-repeat;
   filter: blur(28px);
-  /* 自漂移：与 JS 写的 transform 不冲突（JS 写的是 translate3d，这里是 background-position） */
-  animation: light-field-breathe 46s var(--ease-in-out-quart) infinite;
+  /* 光晕呼吸：只动 opacity（合成器）。改前动的是 background-position ——
+     那是每帧重绘一遍全屏 blur(28px) 层，实测是最贵的一项；
+     现在呼吸只改合成不透明度，滚动视差的 transform 仍由 JS 独占写入。 */
+  animation: light-field-breathe var(--dur-halo) ease-in-out infinite;
 }
 
 @keyframes light-field-breathe {
-  0%, 100% { background-position: 18% 30%, 82% 72%; }
-  50%      { background-position: 26% 42%, 74% 60%; }
+  0%, 100% { opacity: 0.82; }
+  50%      { opacity: 1; }
 }
 
 /* 暗部层：multiply 合成下，一层跟随指针的暗色径向 = 亮部让位形成阴影。
@@ -310,9 +366,24 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 @media (max-width: 767px) {
   /* 触屏无指针视差，保留滚动视差但去掉 blur 开销最大的一层的一半幅度 */
   .light-field__drift { filter: blur(22px); }
+  /* 大气层移动端降级：3→2 条径向（少一次全屏渐变合成）、周期 +50%（62s→92s）、
+     位移缩到 22px（触屏视口小，30px 的漂移比例上更晃） */
+  .light-field__atmosphere {
+    background:
+      radial-gradient(ellipse 82% 62% at 30% 24%, rgba(var(--c-atm-blue-rgb), 0.88) 0%, transparent 62%),
+      radial-gradient(ellipse 66% 54% at 72% 72%, rgba(var(--c-atm-purple-rgb), 0.78) 0%, transparent 56%);
+    animation: light-field-atm-drift-mobile 92s var(--ease-in-out-quart) infinite;
+  }
+  .light-field__grid { animation-duration: 69s; }
+}
+
+@keyframes light-field-atm-drift-mobile {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(22px, -22px, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .light-field__atmosphere { animation: none; }
   .light-field__drift { animation: none; }
   .light-field__grid { animation: none; }
   .light-field__ruler { animation: none; }
@@ -320,10 +391,14 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 }
 
 @media (prefers-contrast: more) {
-  /* 高对比模式下背景装饰不参与阅读，整体压暗 */
-  .light-field__drift, .light-shadow { opacity: 0.5; }
+  /* 高对比模式下背景装饰不参与阅读，整体压暗。
+     drift 的 opacity 由呼吸动画写入，animation 会盖过普通声明 —— 必须同时停动画，
+     否则这里的 0.5 是死代码（实测过：改前就已是死代码）。 */
+  .light-field__drift { animation: none; opacity: 0.5; }
+  .light-shadow { opacity: 0.5; }
   /* 折射源在高对比模式下同时压暗：它必须留在玻璃背后才能被折射，不能删 */
   .light-field__grid, .light-field__ruler { opacity: 0.45; }
+  .light-field__atmosphere { animation: none; opacity: 0.5; }
 }
 
 /* ============================================================================
@@ -516,8 +591,16 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 }
 
 .section--ink2 {
-  background: var(--c-ink-2);
+  /* 纱幕而不是实底：见 --c-ink-2-veil 的注释（光场连续 + 玻璃背后有折射源） */
+  background: var(--c-ink-2-veil);
 }
+
+/* 试过、已否决：给 .section--ink2 加区级 64px 折射直尺（::before, alpha 0.30×0.5）。
+   实测（verify_refraction_ab.py --no-ruler 对照，同帧同滚动位）：
+     rim 22.62% / max 69  →  加直尺后 22.76% / max 68（边缘可读性零提升）
+     center 4.68% / max 7 →  加直尺后 9.83% / max 11（中心多出一层纹理噪声）
+   即它只往玻璃里加噪声，没让弯折更可读 —— 按纪律 10「先做减法、禁止再加层」删除。
+   全局 96px 网格 + 大气色层已经够玻璃用。 */
 
 .fact-row { align-items: baseline; }
 @media (max-width: 767px) {
@@ -1016,7 +1099,8 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 
 /* ---- Footer ---- */
 .footer {
-  background: var(--c-ink);
+  /* 与 body 同色，写透明只是让光场继续铺到页脚（写 var(--c-ink) 会把最后一屏切断） */
+  background: transparent;
   border-top: 1px solid var(--c-line);
   padding: var(--sp-7) 0 var(--sp-5);
   position: relative;

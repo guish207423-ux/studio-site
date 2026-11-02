@@ -5,10 +5,11 @@ import { useEffect, useRef } from 'react'
  *
  * 结构（沿用站内「暗夜荧光」配色，见 src/styles/globals.css 的 .refract-blob）：
  *   .light-field        固定层，pointer-events: none，不拦截任何交互
+ *     .light-field__atmosphere 大气色层：三色近黑径向 —— 折射源的「色彩信息」
  *     .light-field__fill   静态兜底渐变：无 JS / reduced-motion 时仍然是完整背景
  *     .light-field__grid  折射源：96px 稀疏网格（直线在玻璃边缘被弯折 = 玻璃里的结构在流动）
- *     .light-field__ruler 折射直尺：288px / 2px 粗线，弯折最可读的一层
- *     .light-field__drift  滚动视差层（vw 幅度）+ CSS 低频自漂移
+ *     .light-field__ruler 折射直尺：288px / 2px 粗线（当前 display:none，见 globals.css）
+ *     .light-field__drift  滚动视差层（vw 幅度）+ CSS 光晕呼吸（opacity）
  *     .light-shadow        暗部层：mix-blend-mode: multiply —— 一层跟随指针的
  *                          暗色径向压暗，「反向光」即亮部让位形成阴影
  *                          （screen 只会变亮，做不出暗部，见 globals.css 同处注释）
@@ -258,6 +259,7 @@ export default function DynamicLight() {
 
   return (
     <div ref={rootRef} className="light-field" aria-hidden="true">
+      <div className="light-field__atmosphere" />
       <div className="light-field__fill" />
       <div className="light-field__grid" />
       <div className="light-field__ruler" />
