@@ -75,10 +75,10 @@
       "inLanguage": "zh-CN"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-C0_DRvSo.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-BDbW-k0Q.js">
-    <link rel="modulepreload" crossorigin href="/assets/gsap-a3sj5zmn.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-odkqqXtw.css">
+    <script type="module" crossorigin src="/studio-site/assets/index-CPQCBR80.js"></script>
+    <link rel="modulepreload" crossorigin href="/studio-site/assets/vendor-BDbW-k0Q.js">
+    <link rel="modulepreload" crossorigin href="/studio-site/assets/gsap-a3sj5zmn.js">
+    <link rel="stylesheet" crossorigin href="/studio-site/assets/index-CB6Tu7K9.css">
   </head>
   <body>
     <div id="root">
@@ -87,7 +87,10 @@
            在 Slow 4G 上要 3.4s 才 DCL —— 期间 HTML 里有真实标题，Google 与用户都不必等 JS。
            内容必须与 src/components/sections/Hero.tsx、layout/Navigation.tsx 一致；
            改文案请两边同步，npm run check:shell 会比对标题与副标题。 -->
-      <header class="nav">
+      <!-- 静态首屏壳：类名必须与 Navigation.tsx 一致（glass-nav = 玻璃材质，材质在
+           globals.css）。壳里先按 CSS 兜底模糊渲染，hyalite 接上后换真折射，
+           两者的视觉落差远小于「实底 → 半透明」的跳变。 -->
+      <header class="nav glass-nav">
         <nav class="nav__inner" aria-label="主导航">
           <a class="brand" href="#top" aria-label="屿作所 首页">
             <svg class="brand__mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true">
