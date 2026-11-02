@@ -2,13 +2,14 @@
   "name": "屿作所 — 综合数字产品工作室",
   "short_name": "屿作所",
   "description": "做界面、做前端、把设计稿变成能跑的代码",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0A0A0A",
   "theme_color": "#0A0A0A",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "./favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
