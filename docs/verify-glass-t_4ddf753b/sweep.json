@@ -1,0 +1,305 @@
+{
+ "candidates": {
+  "old_46_84_3.4": {
+   "backdropFilter": "url(\"#hyalite-10\")",
+   "control": "blur(16px) saturate(1.6) brightness(1.08)",
+   "params": {
+    "bevel": 46,
+    "thickness": 84,
+    "shape": "lip",
+    "slope": 3.4,
+    "dispersion": 2.4,
+    "shade": 0.62,
+    "rim": 2.4,
+    "edgeW": 4,
+    "sat": 1.9,
+    "edge": 0.08
+   },
+   "bands": {
+    "0-4": {
+     "pixels": 2536,
+     "changed_pct": 26.62,
+     "max_delta": 48,
+     "mean_delta": 6.84
+    },
+    "4-10": {
+     "pixels": 3804,
+     "changed_pct": 0.5,
+     "max_delta": 60,
+     "mean_delta": 0.95
+    },
+    "10-20": {
+     "pixels": 6340,
+     "changed_pct": 0.36,
+     "max_delta": 64,
+     "mean_delta": 0.54
+    },
+    "20-40": {
+     "pixels": 12680,
+     "changed_pct": 0.55,
+     "max_delta": 31,
+     "mean_delta": 1.0
+    },
+    "40-70": {
+     "pixels": 19020,
+     "changed_pct": 0.63,
+     "max_delta": 51,
+     "mean_delta": 1.12
+    }
+   },
+   "center": {
+    "pixels": 70612,
+    "changed_pct": 0.0,
+    "max_delta": 1,
+    "mean_delta": 0.4
+   },
+   "control_really_off": true,
+   "rim_max": 48,
+   "mid_mean": 0.83,
+   "center_max": 1
+  },
+  "new_56_118_3.6": {
+   "backdropFilter": "url(\"#hyalite-12\")",
+   "control": "blur(16px) saturate(1.6) brightness(1.08)",
+   "params": {
+    "bevel": 56,
+    "thickness": 118,
+    "shape": "lip",
+    "slope": 3.6,
+    "dispersion": 3.1,
+    "shade": 0.68,
+    "rim": 2.75,
+    "edgeW": 5,
+    "sat": 2.1,
+    "edge": 0.08
+   },
+   "bands": {
+    "0-4": {
+     "pixels": 2536,
+     "changed_pct": 48.19,
+     "max_delta": 61,
+     "mean_delta": 10.12
+    },
+    "4-10": {
+     "pixels": 3804,
+     "changed_pct": 0.58,
+     "max_delta": 72,
+     "mean_delta": 1.03
+    },
+    "10-20": {
+     "pixels": 6340,
+     "changed_pct": 0.41,
+     "max_delta": 76,
+     "mean_delta": 0.58
+    },
+    "20-40": {
+     "pixels": 12680,
+     "changed_pct": 0.62,
+     "max_delta": 46,
+     "mean_delta": 1.09
+    },
+    "40-70": {
+     "pixels": 19020,
+     "changed_pct": 0.63,
+     "max_delta": 67,
+     "mean_delta": 1.13
+    }
+   },
+   "center": {
+    "pixels": 70612,
+    "changed_pct": 0.0,
+    "max_delta": 1,
+    "mean_delta": 0.4
+   },
+   "control_really_off": true,
+   "rim_max": 61,
+   "mid_mean": 0.9,
+   "center_max": 1
+  },
+  "wide_62_150_2.9": {
+   "backdropFilter": "url(\"#hyalite-14\")",
+   "control": "blur(16px) saturate(1.6) brightness(1.08)",
+   "params": {
+    "bevel": 62,
+    "thickness": 150,
+    "shape": "lip",
+    "slope": 2.9,
+    "dispersion": 3.0,
+    "shade": 0.68,
+    "rim": 2.75,
+    "edgeW": 5,
+    "sat": 2.1,
+    "edge": 0.08
+   },
+   "bands": {
+    "0-4": {
+     "pixels": 2536,
+     "changed_pct": 48.19,
+     "max_delta": 63,
+     "mean_delta": 10.63
+    },
+    "4-10": {
+     "pixels": 3804,
+     "changed_pct": 0.63,
+     "max_delta": 74,
+     "mean_delta": 1.16
+    },
+    "10-20": {
+     "pixels": 6340,
+     "changed_pct": 0.41,
+     "max_delta": 78,
+     "mean_delta": 0.58
+    },
+    "20-40": {
+     "pixels": 12680,
+     "changed_pct": 0.62,
+     "max_delta": 50,
+     "mean_delta": 1.1
+    },
+    "40-70": {
+     "pixels": 19020,
+     "changed_pct": 0.63,
+     "max_delta": 65,
+     "mean_delta": 1.08
+    }
+   },
+   "center": {
+    "pixels": 70612,
+    "changed_pct": 0.0,
+    "max_delta": 1,
+    "mean_delta": 0.4
+   },
+   "control_really_off": true,
+   "rim_max": 63,
+   "mid_mean": 0.95,
+   "center_max": 1
+  },
+  "wide_58_132_2.4": {
+   "backdropFilter": "url(\"#hyalite-16\")",
+   "control": "blur(16px) saturate(1.6) brightness(1.08)",
+   "params": {
+    "bevel": 58,
+    "thickness": 132,
+    "shape": "lip",
+    "slope": 2.4,
+    "dispersion": 2.8,
+    "shade": 0.66,
+    "rim": 2.7,
+    "edgeW": 5,
+    "sat": 2.0,
+    "edge": 0.08
+   },
+   "bands": {
+    "0-4": {
+     "pixels": 2536,
+     "changed_pct": 48.19,
+     "max_delta": 60,
+     "mean_delta": 10.13
+    },
+    "4-10": {
+     "pixels": 3804,
+     "changed_pct": 0.63,
+     "max_delta": 72,
+     "mean_delta": 1.15
+    },
+    "10-20": {
+     "pixels": 6340,
+     "changed_pct": 0.41,
+     "max_delta": 76,
+     "mean_delta": 0.58
+    },
+    "20-40": {
+     "pixels": 12680,
+     "changed_pct": 0.62,
+     "max_delta": 46,
+     "mean_delta": 1.09
+    },
+    "40-70": {
+     "pixels": 19020,
+     "changed_pct": 0.63,
+     "max_delta": 66,
+     "mean_delta": 1.15
+    }
+   },
+   "center": {
+    "pixels": 70612,
+    "changed_pct": 0.0,
+    "max_delta": 1,
+    "mean_delta": 0.4
+   },
+   "control_really_off": true,
+   "rim_max": 60,
+   "mid_mean": 0.94,
+   "center_max": 1
+  },
+  "deep_70_160_2.6": {
+   "backdropFilter": "url(\"#hyalite-18\")",
+   "control": "blur(16px) saturate(1.6) brightness(1.08)",
+   "params": {
+    "bevel": 70,
+    "thickness": 160,
+    "shape": "lip",
+    "slope": 2.6,
+    "dispersion": 3.2,
+    "shade": 0.7,
+    "rim": 2.8,
+    "edgeW": 5,
+    "sat": 2.1,
+    "edge": 0.08
+   },
+   "bands": {
+    "0-4": {
+     "pixels": 2536,
+     "changed_pct": 48.26,
+     "max_delta": 66,
+     "mean_delta": 11.17
+    },
+    "4-10": {
+     "pixels": 3804,
+     "changed_pct": 0.68,
+     "max_delta": 75,
+     "mean_delta": 1.06
+    },
+    "10-20": {
+     "pixels": 6340,
+     "changed_pct": 0.44,
+     "max_delta": 81,
+     "mean_delta": 0.66
+    },
+    "20-40": {
+     "pixels": 12680,
+     "changed_pct": 0.62,
+     "max_delta": 53,
+     "mean_delta": 1.1
+    },
+    "40-70": {
+     "pixels": 19020,
+     "changed_pct": 0.64,
+     "max_delta": 62,
+     "mean_delta": 1.16
+    }
+   },
+   "center": {
+    "pixels": 70612,
+    "changed_pct": 0.0,
+    "max_delta": 1,
+    "mean_delta": 0.4
+   },
+   "control_really_off": true,
+   "rim_max": 66,
+   "mid_mean": 0.94,
+   "center_max": 1
+  }
+ },
+ "docH": 11743,
+ "scroll": {
+  "ok": true,
+  "scrollY": 9208,
+  "rect": {
+   "x": 172,
+   "y": 104,
+   "w": 634,
+   "h": 692
+  }
+ }
+}

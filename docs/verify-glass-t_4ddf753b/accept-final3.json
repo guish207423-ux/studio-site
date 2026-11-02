@@ -1,0 +1,70 @@
+{
+ "desktop": {
+  "instances": 2,
+  "selectors": [
+   "nav glass-nav",
+   "glass glass-contact"
+  ],
+  "filterNodes": 2,
+  "overflowX": 0,
+  "navBF": "url(\"#hyalite-1\")",
+  "contactBF": "url(\"#hyalite-3\")",
+  "linkColor": "rgb(176, 176, 176)",
+  "reduced": false
+ },
+ "nav_contrast": {
+  "fg_rgb": [
+   176,
+   176,
+   176
+  ],
+  "bg_darkest_px": [
+   19,
+   19,
+   19
+  ],
+  "bg_lightest_px": [
+   25,
+   27,
+   25
+  ],
+  "contrast_vs_darkest": 8.57,
+  "contrast_vs_lightest": 7.99,
+  "nav_rect": {
+   "x": 108,
+   "y": 20,
+   "w": 1224,
+   "h": 66
+  }
+ },
+ "mobile": {
+  "instances": 1,
+  "selectors": [
+   "nav glass-nav"
+  ],
+  "filterNodes": 1,
+  "overflowX": 0,
+  "navBF": "url(\"#hyalite-1\")",
+  "contactBF": "blur(16px) saturate(1.6) brightness(1.08)",
+  "linkColor": "rgb(176, 176, 176)",
+  "reduced": false
+ },
+ "reduced_before": {
+  "instances": 2,
+  "selectors": [
+   "nav glass-nav",
+   "glass glass-contact"
+  ],
+  "filterNodes": 2,
+  "overflowX": 0,
+  "navBF": "url(\"#hyalite-1\")",
+  "contactBF": "url(\"#hyalite-2\")",
+  "linkColor": "rgb(176, 176, 176)",
+  "reduced": true
+ },
+ "reduced_hover": {
+  "translate": "none",
+  "scale": "none",
+  "hovered": true
+ }
+}

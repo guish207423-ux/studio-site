@@ -1,0 +1,65 @@
+{
+ "docH": 11815,
+ "scroll": {
+  "ok": true,
+  "scrollY": 9208,
+  "rect": {
+   "x": 172,
+   "y": 104,
+   "w": 634,
+   "h": 692
+  }
+ },
+ "refraction_on": {
+  "bf": "url(\"#hyalite-3\")",
+  "hyalite": "url(#hyalite-3)"
+ },
+ "refraction_off": {
+  "bf": "blur(16px) saturate(1.6) brightness(1.08)",
+  "hyalite": "blur(16px) saturate(160%) brightness(108%)"
+ },
+ "bands": {
+  "0-4": {
+   "pixels": 2536,
+   "changed_pct": 50.87,
+   "max_delta": 64,
+   "mean_delta": 11.73
+  },
+  "4-10": {
+   "pixels": 3804,
+   "changed_pct": 3.97,
+   "max_delta": 74,
+   "mean_delta": 2.68
+  },
+  "10-20": {
+   "pixels": 6340,
+   "changed_pct": 1.85,
+   "max_delta": 77,
+   "mean_delta": 2.05
+  },
+  "20-40": {
+   "pixels": 12680,
+   "changed_pct": 0.95,
+   "max_delta": 50,
+   "mean_delta": 2.43
+  },
+  "40-70": {
+   "pixels": 19020,
+   "changed_pct": 1.05,
+   "max_delta": 63,
+   "mean_delta": 2.42
+  }
+ },
+ "center": {
+  "pixels": 70612,
+  "changed_pct": 4.95,
+  "max_delta": 7,
+  "mean_delta": 1.42
+ },
+ "bg_band": {
+  "pixels": 67800,
+  "changed_pct": 0.0,
+  "max_delta": 0,
+  "mean_delta": 0.0
+ }
+}
