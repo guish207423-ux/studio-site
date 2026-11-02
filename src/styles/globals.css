@@ -421,29 +421,48 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   backdrop-filter: var(--hyalite, var(--glass-blur));
   -webkit-backdrop-filter: var(--hyalite, var(--glass-blur));
   contain: layout style paint;
-  /* 深度 = 顶部内高光（受光）+ 底部内阴影（背光）+ 两层外投影（贴地 / 扩散）。
-     玻璃靠「受光与背光的落差」被读成有厚度的物体，不是靠模糊强度。 */
+  /* 深度 = 受光面 + 厚度剖面 + 体吸收 + 接触影 + 扩散影。玻璃靠「受光与背光的
+     落差」被读成有厚度的物体，不是靠模糊强度；层数才是厚度语义。
+     2026-11-02 增强：从 5 层加到 7 层，补上「内环剖面」（inset 0 0 0 1px）与
+     「底部体吸收」（inset 负偏移大模糊）——少这两层时玻璃看起来是贴在背景上的
+     一张半透明纸，不是一块有厚度的板。 */
   box-shadow:
     var(--hyalite-edge, 0 0 0 0 transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.22),
-    inset 0 8px 16px -10px rgba(255, 255, 255, 0.06),
-    0 4px 12px rgba(0, 0, 0, 0.22),
-    0 16px 48px -8px rgba(0, 0, 0, 0.42);
-  background: var(--glass-bg);
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),            /* 顶棱受光：1px 硬高光 */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),          /* 内环剖面：板厚的内切边 */
+    inset 0 -2px 1px rgba(0, 0, 0, 0.30),               /* 底棱背光 */
+    inset 0 14px 24px -14px rgba(255, 255, 255, 0.10),  /* 顶面漫射受光 */
+    inset 0 -20px 30px -24px rgba(0, 0, 0, 0.55),       /* 底部体吸收：光线在板内衰减 */
+    0 2px 4px rgba(0, 0, 0, 0.30),                      /* 接触影：贴地那一线 */
+    0 14px 32px -8px rgba(0, 0, 0, 0.46),               /* 近场扩散 */
+    0 36px 90px -20px rgba(0, 0, 0, 0.55);              /* 远场环境影 */
+  /* 着色走 background-color（可插值），纹理走 background-image（不可插值）。
+     混写 `background:` 会让 hover 的 shorthand 把 background-image 一起重置掉，
+     顶面高光在 hover 瞬间消失 —— 这正是技能里「hover 加深必须走 background-color」
+     那条纪律要防的写法。 */
+  background-color: var(--glass-bg);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.055) 0%, transparent 42%);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--r-lg);
+  position: relative;
+  transition: background-color var(--dur-micro) ease,
+              border-color var(--dur-micro) ease,
+              box-shadow var(--dur-micro) var(--ease-out-expo);
 }
 
 .glass:hover {
-  background: var(--glass-bg-hover);
+  background-color: var(--glass-bg-hover);
+  border-color: rgba(255, 255, 255, 0.22);
   box-shadow:
     var(--hyalite-edge, 0 0 0 0 transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.26),
-    inset 0 10px 20px -10px rgba(255, 255, 255, 0.08),
-    0 8px 24px rgba(0, 0, 0, 0.28),
-    0 24px 64px -8px rgba(0, 0, 0, 0.5);
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 1px rgba(0, 0, 0, 0.34),
+    inset 0 16px 28px -14px rgba(255, 255, 255, 0.13),
+    inset 0 -22px 34px -24px rgba(0, 0, 0, 0.60),
+    0 4px 8px rgba(0, 0, 0, 0.32),
+    0 22px 48px -10px rgba(0, 0, 0, 0.52),
+    0 48px 110px -24px rgba(0, 0, 0, 0.60);
 }
 
 /* ============================================================================
@@ -1551,8 +1570,51 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
     0 8px 32px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: var(--hyalite, blur(8px) saturate(120%));
+  -webkit-backdrop-filter: var(--hyalite, blur(8px) saturate(120%));
+}
+
+/* ============================================================================
+   玻璃导航条 —— DECISIONS §7 的第二处折射
+   决策记录写的是「hyalite 折射保留 .glass-nav + .glass-contact」（filter 12→2），
+   但 537b0ec 重写导航时把 `glass glass-nav` 类名一起丢了（类名只剩 .nav），
+   而 main.tsx 的 panelSelector 与 needsGlass() 仍在找 .glass-nav —— 于是全站实际
+   只剩 1 个折射实例，决策里说好的两处只剩一处，静默失效没有任何报错。
+   这里把材质接回来：半透明底（原来的 .88/.92 不透明度会把背后的折射源挡死，
+   backdrop-filter 采不到东西就退化成灰白塑料）+ hyalite 折射 + 受光/背光棱。
+
+   折射参数走 main.tsx 的 hyaliteParams('nav')：导航只有 66px 高，bevel 会被
+   clamp 到短边一半（33px），用面板档的 56 会让整条导航都落在弯折带里、文字被
+   拉扯 —— 所以单独给一档窄 bevel（18px）。 */
+.glass-nav {
+  background-color: rgba(16, 16, 16, 0.55);
+  background-image: linear-gradient(180deg, rgba(28, 28, 28, 0.52) 0%, rgba(8, 8, 8, 0.62) 100%);
+  backdrop-filter: var(--hyalite, blur(14px) saturate(150%) brightness(105%));
+  -webkit-backdrop-filter: var(--hyalite, blur(14px) saturate(150%) brightness(105%));
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+    0 6px 24px rgba(0, 0, 0, 0.42),
+    0 18px 60px -18px rgba(0, 0, 0, 0.55);
+}
+
+/* 滚动后收窄：透明度加深一档保证文字可读（内容在下面流过去，折射照旧）。
+   选择器带 .nav--scrolled 是因为 .nav--scrolled 与 .glass-nav 同特异性、
+   且它的实底渐变写在更前面 —— 不加权重的话滚动态会被 .nav--scrolled 的
+   .95/.98 实底覆盖回去，折射又看不见了。 */
+.glass-nav.nav--scrolled {
+  background-color: rgba(8, 8, 8, 0.66);
+  background-image: linear-gradient(180deg, rgba(20, 20, 20, 0.62) 0%, rgba(6, 6, 6, 0.72) 100%);
+  backdrop-filter: var(--hyalite, blur(10px) saturate(135%));
+  -webkit-backdrop-filter: var(--hyalite, blur(10px) saturate(135%));
+  box-shadow:
+    var(--hyalite-edge, 0 0 0 0 transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.50),
+    0 10px 36px rgba(0, 0, 0, 0.46),
+    0 24px 70px -20px rgba(0, 0, 0, 0.58);
 }
 
 .nav__link:active {
@@ -3132,17 +3194,36 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   animation: btn-ripple 600ms var(--ease-out-quint) forwards;
 }
 
-/* 玻璃面板 hover 张力（表面微膨胀 + 浮起）。
-   排除 .glass-nav：它是 fixed + 内联 translateX(-50%) 居中，改 transform 会偏位。 */
+/* 玻璃面板 hover 张力（表面微膨胀 + 浮起 + 投影收拢加深）。
+   排除 .glass-nav：它是 fixed + transform: translateX(-50%) 居中，改 translate/scale
+   会与 applyHyalite 无关但会与居中的 transform 叠加出偏位 —— 导航的 hover 只走
+   着色与投影（.glass-nav 自身没有 hover 形变）。
+
+   2026-11-02 增强：浮起 -6px → -10px、scale 1.015/1.01 → 1.02/1.012，并把
+   box-shadow / background-color / border-color 一并挂进 transition —— 原来只过渡
+   translate/scale，hover 时投影是「啪」地跳变（.glass 自己定义了过渡，但这条
+   规则整体覆盖了 .glass 的 transition，投影过渡就此丢掉）。 */
 .glass-contact,
 .hero-panel {
   transition: translate 450ms cubic-bezier(0.34, 1.4, 0.5, 1),
-              scale 450ms cubic-bezier(0.34, 1.4, 0.5, 1);
+              scale 450ms cubic-bezier(0.34, 1.4, 0.5, 1),
+              box-shadow var(--dur-micro) var(--ease-out-expo),
+              background-color var(--dur-micro) ease,
+              border-color var(--dur-micro) ease;
 }
 .glass-contact:hover,
 .hero-panel:hover {
-  scale: 1.015 1.01;
-  translate: 0 -6px;
+  /* !important 不是图省事，是这条浮起唯一能生效的写法：
+     Contact.tsx 的入场是 gsap.fromTo(formRef, { y: 40, opacity: 0 }, ...)，GSAP 在
+     被补间的元素上会写内联 `translate: none; rotate: none; scale: none`，用来中和 CSS
+     单属性变换（它自己走 transform 矩阵）。内联样式优先级高于任何选择器 —— 所以不加
+     !important 时这条 hover 浮起从来没生效过：实测 getComputedStyle().translate 恒为
+     none，而 el.style.translate === 'none'。这正是「代码在、grep 得到、就是不工作」
+     那类伪修复；本次实测才发现，之前 -6px 的版本同样是死的。
+     GSAP 不驱动 translate/scale 这两个属性本身（它写 transform），两者在同一个元素上
+     各自独立叠加，因此强制它们不会与入场补间打架。 */
+  scale: 1.02 1.012 !important;
+  translate: 0 -10px !important;
 }
 
 /* 磁吸：JS 把指针相对按钮中心的偏移写进 --mx / --my */
@@ -3177,8 +3258,10 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
 
 @media (prefers-reduced-motion: reduce) {
   .btn-ripple { animation: none; }
+  /* 同样要 !important：上面 hover 用 !important 抢回被 GSAP 内联中和的 translate/scale，
+     这里的降级必须同权重、且更靠后，才能把浮起真正关掉。 */
   .glass-contact:hover,
-  .hero-panel:hover { translate: none; scale: none; }
+  .hero-panel:hover { translate: none !important; scale: none !important; }
   .btn--primary,
   .nav__cta { translate: none; }
   .service-card,

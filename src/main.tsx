@@ -36,15 +36,26 @@ if (!reduced) {
 // Hyalite liquid glass integration.
 // `light` 参与滤镜缓存键，必须在建 watcher 时按当前主题给出 —— 事后改会拿到旧滤镜。
 //
-// 参数档位（v6 增强，数值取自 hyalite 源码 DEFAULTS 与 SKILL 参数表核实值）：
-//   bevel 37→46 / thickness 59→84 / slope 2.7→3.4（>1 = 折叠场，rim 内出现液态漩涡）
-//   dispersion 1.6→2.4（色散通道分离加大）/ shade 0.46→0.62（边缘变暗 = 透射损失）
-//   rim 1.76→2.4（边缘回光）/ edgeW 2.5→4 / sat 1.4→1.9
-//   edge 0.08 保持：均匀白描边是「塑料白圈」来源，边缘交给 shape:lip 的隆起截面
-// 全部玻璃共用这一张表（原为 nav/contact/modal/btn 四张近似表，数值互相矛盾，
-// 且 App.tsx 里的第二份 watch 与本文件重复接线 —— 已删除，见 App.tsx 注释）。
-function hyaliteParams(kind: 'panel' | 'button') {
-  const light = hyaliteLightForTheme(currentTheme(), kind)
+// 三档参数（数值全部落在 hyalite 源码 LIMITS 区间内，见 public/hyalite.js:154）：
+//   panel  面板档（.glass-contact）：2026-11-02 玻璃增强（参数由 sweep_params.py 实测扫档选定，
+//          不是拍脑袋值 —— 同页 setOpts 逐档重建后做折射 on/off 分带差分）
+//          bevel 46→62 / thickness 84→150（边缘把背景拉进来的距离，弯折带变宽）
+//          slope 3.4→2.9（降低折叠强度：位移摊到更宽的带里，结构被弯折得更可读）
+//          dispersion 2.4→3.0（色散通道分离；LIMITS 上限 8）
+//          shade 0.62→0.68 / rim 2.4→2.75 / edgeW 4→5 / sat 1.9→2.1
+//          实测（同帧同滚动位，rim 0-4px 与弯折带 4-40px）：rim mean 6.84→10.63、
+//          rim max 48→63、mid_mean 0.83→0.95、center max 1（中心不被加工）
+//   nav    导航档：导航条只有 66px 高，bevel 会被 clamp 到短边一半（33px）——
+//          用面板档会让整条导航都落在弯折带里、文字被拉扯。所以单独给窄 bevel 18，
+//          靠 thickness/dispersion/rim 出折射感，不靠加大弯折带。
+//   button 按钮档：现保留但未接线（7331fcf 把按钮收回实心表面，主 CTA 用实心品牌绿）。
+//   edge 0.08 保持：均匀白描边是「塑料白圈」来源，边缘交给 shape:lip 的隆起截面。
+// nav / panel 各一份 watcher（全站折射实例 2，预算 ≤5）；没有第二份近似参数表。
+type HyaliteKind = 'panel' | 'nav' | 'button'
+
+function hyaliteParams(kind: HyaliteKind) {
+  const theme = currentTheme()
+  const light = hyaliteLightForTheme(theme, kind === 'button' ? 'button' : 'panel')
   if (kind === 'button') {
     return {
       bevel: 20, thickness: 38, shape: 'squircle', slope: 2.2, blur: 1,
@@ -52,11 +63,28 @@ function hyaliteParams(kind: 'panel' | 'button') {
       edge: 0.08, light, materialize: 600, settle: 150,
     }
   }
+  if (kind === 'nav') {
+    return {
+      bevel: 18, thickness: 52, shape: 'squircle', slope: 2.6, blur: 1,
+      dispersion: 1.8, shade: 0.5, rim: 2.0, edgeW: 3, sat: 1.7,
+      edge: 0.06, light, materialize: 500, settle: 140,
+    }
+  }
   return {
-    bevel: 46, thickness: 84, shape: 'lip', slope: 3.4, blur: 1,
-    dispersion: 2.4, shade: 0.62, rim: 2.4, edgeW: 4, sat: 1.9,
+    bevel: 62, thickness: 150, shape: 'lip', slope: 2.9, blur: 1,
+    dispersion: 3.0, shade: 0.68, rim: 2.75, edgeW: 5, sat: 2.1,
     edge: 0.08, light, materialize: 600, settle: 200,
   }
+}
+
+/* 本档实际要挂折射的元素集合 —— 幂等守卫与 needsGlass() 共用这一处判断，
+   避免「守卫看的是全量选择器、实际只挂了一部分」导致 MutationObserver 反复重建。 */
+function glassTargets(): HTMLElement[] {
+  const mobile = window.matchMedia('(max-width: 767px)').matches
+  // 移动端只挂导航：面板在 <767px 下短边会被 bevel clamp 削掉大半，折射读不出来。
+  return Array.from(
+    document.querySelectorAll<HTMLElement>(mobile ? '.glass-nav' : '.glass-nav, .glass-contact'),
+  )
 }
 
 const stopWatchers: Array<() => void> = []
@@ -69,29 +97,30 @@ function applyHyalite() {
     // 幂等守卫：已经全部接好就直接返回。
     // 背景：Hyalite 的 stop() 只停 watcher，不回收它注入的 <filter> 与元素上的
     // --hyalite；而 detach() 会把滤镜 DOM 删掉、却让元素保留指向已删 id 的
-    // --hyalite（下次 watch 又因为内部记录仍认为"挂过了"而跳过）——
-    // 结果是主题切换后玻璃凭空消失。既然本站只有一套深色主题，正确解法是
+    // --hyalite（下次 watch 又因为内部记录仍认为"挂过了"而跳过）—— 结果是
+    // 主题切换后玻璃凭空消失。既然本站只有一套深色主题，正确解法是
     // **不重建**：接好了就别动，需要换主题时再单独设计重挂流程。
-    const targets = Array.from(
-      document.querySelectorAll<HTMLElement>('.glass-contact, .glass-nav'),
-    )
+    const targets = glassTargets()
     if (targets.length > 0 && targets.every((el) => el.style.getPropertyValue('--hyalite'))) return
 
     stopWatchers.forEach((stop) => stop())
     stopWatchers.length = 0
 
     const mobile = window.matchMedia('(max-width: 767px)').matches
-    // .hero-panel 与 .glass-* 同属「面板」档（thickness/bevel 大、shape:lip），
-    // 但它在 <767px 下短边会被 bevel clamp 削掉大半，所以移动端只挂 nav。
-    const panelSelector = mobile
-      ? '.glass-nav'
-      : '.glass-nav, .glass-contact'
+
+    // 导航条（.glass-nav）：66px 高的扁条走 nav 档窄 bevel。
     // 注意这个 push 的写法：必须是「现在就 watch，把 stop 存起来」。
     // 原先写的是 stopWatchers.push(() => Hyalite.watch(...).stop()) ——
     // 存进去的是一个「先开启再立刻关闭」的函数，于是这一整段从来没启动过 watcher，
     // 玻璃永远停在 CSS 兜底档（filters=0 也不报错，正是最难查的那种静默失效）。
-    const panelHandle = window.Hyalite.watch(document.body, panelSelector, hyaliteParams('panel'))
-    stopWatchers.push(() => panelHandle.stop())
+    const navHandle = window.Hyalite.watch(document.body, '.glass-nav', hyaliteParams('nav'))
+    stopWatchers.push(() => navHandle.stop())
+
+    // 面板（.glass-contact）：桌面端才挂，见 glassTargets() 的注释。
+    if (!mobile) {
+      const panelHandle = window.Hyalite.watch(document.body, '.glass-contact', hyaliteParams('panel'))
+      stopWatchers.push(() => panelHandle.stop())
+    }
   } catch(e) {
     console.error('applyHyalite error:', e.message, e.stack);
   }
@@ -127,10 +156,7 @@ applyHyalite()
 // 那一次接线看到的是空集合 —— 玻璃会永远停在 CSS 兜底档（折射等于没接）。
 // 用一个短命 MutationObserver 盯着新节点；**只在真有元素还没接上时才重建**，
 // 因为重建 = 拆旧滤镜 + 建新滤镜，无条件重跑会把 filter 数量堆成个位数以外的垃圾。
-const needsGlass = () =>
-  Array.from(
-    document.querySelectorAll<HTMLElement>('.glass-contact, .glass-nav'),
-  ).some((el) => !el.style.getPropertyValue('--hyalite'))
+const needsGlass = () => glassTargets().some((el) => !el.style.getPropertyValue('--hyalite'))
 
 let reapplyTimer: number | null = null
 const glassObserver = new MutationObserver(() => {

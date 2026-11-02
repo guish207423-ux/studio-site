@@ -62,7 +62,9 @@ export default function Navigation() {
 
   return (
     <>
-      <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+      {/* glass-nav：DECISIONS §7 的两处折射之一（537b0ec 重写导航时丢了这个类名，
+          全站折射实例曾因此从 2 掉到 1）。材质在 globals.css 的 .glass-nav 里。 */}
+      <header className={`nav glass-nav ${scrolled ? 'nav--scrolled' : ''}`}>
         <nav className="nav__inner" aria-label="主导航">
           <a className="brand" href="#top" aria-label="屿作所 首页">
             <BrandMark size={20} className="brand__mark" />
