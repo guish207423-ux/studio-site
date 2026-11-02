@@ -5,17 +5,144 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>屿作所 — 综合数字产品工作室</title>
-    <meta name="description" content="屿作所 YU STUDIO，以光学与形变构建数字产品的视觉语言。UI/UX 设计、品牌 VI、前端全栈、动效视频、App 开发、自动化、数据采集与 Agent 开发。" />
-    <link rel="preload" href="./assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="./assets/fonts/archivo-black-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
-    <script type="module" crossorigin src="/studio-site/assets/index-CE04wNIs.js"></script>
-    <link rel="modulepreload" crossorigin href="/studio-site/assets/vendor-CvHvVa2d.js">
-    <link rel="modulepreload" crossorigin href="/studio-site/assets/gsap-CiEuWA-R.js">
-    <link rel="modulepreload" crossorigin href="/studio-site/assets/lenis-9qxpAu3p.js">
-    <link rel="stylesheet" crossorigin href="/studio-site/assets/index-B5KgBGLT.css">
+    <meta name="description" content="屿作所 YU STUDIO —— 做界面、做前端、把设计稿变成能跑的代码。官网重做、设计稿转前端、界面动效升级。两人团队，全程一个对接人，交付源码。" />
+    <meta name="keywords" content="数字产品工作室, 官网设计, 前端开发, 设计稿转代码, 界面动效, 液态玻璃" />
+    <meta name="author" content="屿作所 YU STUDIO" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="canonical" href="https://shopforyou.online/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="屿作所 — 综合数字产品工作室" />
+    <meta property="og:description" content="做界面、做前端、把设计稿变成能跑的代码。官网重做、设计稿转前端、界面动效升级。两人团队，全程一个对接人，交付源码。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:url" content="https://shopforyou.online/" />
+    <meta property="og:site_name" content="屿作所 YU STUDIO" />
+    <meta property="og:image" content="https://shopforyou.online/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="屿作所 — 综合数字产品工作室" />
+    <meta name="twitter:description" content="做界面、做前端、把设计稿变成能跑的代码。" />
+    <meta name="twitter:image" content="https://shopforyou.online/og-image.png" />
+
+    <!-- 颜色方案：只有深色。不给 color-scheme 时浏览器会按浅色渲染
+         自动表单控件（select / scroll-track），在 #0E0E0E 的表单上变成白底 -->
+    <meta name="color-scheme" content="dark" />
+  <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html,body{margin:0;padding:0}</style>
+
+    <!-- 统计：defer 不阻塞渲染；offline 排除本地开发，避免把 localhost 流量算进真实数据。
+         （原文件里这行是一个没有 src 的空 script —— 注释写着 Plausible，实际什么都没加载，
+          等于统计从来没接上。） -->
+    <script defer data-domain="shopforyou.online" data-exclude="offline,/**" src="https://plausible.io/js/script.js"></script>
+
+    <!-- 组织 / 站点结构化数据。原先 index.html 里有两份 @type Organization：
+         一份 name=屿作所（sameAs: []），一份 name=屿作所 YU STUDIO（含 logo/offers）。
+         Google 的富媒体结果取信息更全的那一份，但被同名另一份稀释。
+         这里合并成一份，描述与 og:description 保持一致（同一事实两处写会漂移）。 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "屿作所 YU STUDIO",
+      "alternateName": "屿作所",
+      "url": "https://shopforyou.online/",
+      "logo": "https://shopforyou.online/favicon.svg",
+      "description": "做界面、做前端、把设计稿变成能跑的代码。官网重做、设计稿转前端、界面动效升级。两人团队，全程一个对接人，交付源码。",
+      "email": "3629748383@qq.com",
+      "sameAs": [
+        "https://github.com/guish207423-ux"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 6,
+        "lowPrice": "15000",
+        "highPrice": "80000",
+        "priceCurrency": "CNY"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "屿作所",
+      "url": "https://shopforyou.online/",
+      "inLanguage": "zh-CN"
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-C0_DRvSo.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-BDbW-k0Q.js">
+    <link rel="modulepreload" crossorigin href="/assets/gsap-a3sj5zmn.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-odkqqXtw.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script src="./hyalite.js"></script>
+    <div id="root">
+      <!-- 静态首屏壳：React 挂载时 createRoot().render() 会整体替换这块。
+           存在意义 = LCP 与 SEO。这个站是纯客户端渲染，首屏 JS 有 147KB(gzip)，
+           在 Slow 4G 上要 3.4s 才 DCL —— 期间 HTML 里有真实标题，Google 与用户都不必等 JS。
+           内容必须与 src/components/sections/Hero.tsx、layout/Navigation.tsx 一致；
+           改文案请两边同步，npm run check:shell 会比对标题与副标题。 -->
+      <header class="nav">
+        <nav class="nav__inner" aria-label="主导航">
+          <a class="brand" href="#top" aria-label="屿作所 首页">
+            <svg class="brand__mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true">
+              <path d="M1.5 12a10.5 10.5 0 1 0 21 0a10.5 10.5 0 1 0-21 0" />
+              <path d="M4.2 12.4a7 7 0 1 0 14 0a7 7 0 1 0-14 0" />
+              <path d="M9.1 11.6a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0-7 0" />
+            </svg>
+            <span class="brand__text">
+              <span class="brand__name">屿作所</span>
+              <span class="brand__latin">Yu Studio</span>
+            </span>
+          </a>
+          <div class="nav__links">
+            <a href="#about" class="nav__link">关于</a>
+            <a href="#services" class="nav__link">服务</a>
+            <a href="#works" class="nav__link">技术</a>
+            <a href="#cases" class="nav__link">案例</a>
+            <a href="#pricing" class="nav__link">报价</a>
+            <a href="#contact" class="nav__link">联系</a>
+          </div>
+          <button class="nav__burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="打开导航菜单">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </nav>
+      </header>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-editorial">
+            <h1 id="hero-title" class="hero-title-editorial">我们把设计变成<br /><span class="hero-title-accent">能运行的产品</span></h1>
+            <p class="hero-lead-editorial">品牌官网、动效界面、设计稿落地——从设计到代码，全程一个团队。</p>
+            <div class="hero-cta-editorial">
+              <a href="#contact" class="btn btn--lg btn--primary"><span>预约咨询</span></a>
+              <a href="#works" class="btn btn--lg btn--ghost"><span>查看案例 →</span></a>
+            </div>
+            <figure class="specimen" aria-hidden="true">
+              <figcaption class="specimen__cap"><span class="specimen__dot"></span>本站真实样式 · 就地渲染</figcaption>
+              <div class="specimen__pane specimen__pane--code"><pre><code><span class="tok-sel">.btn--primary</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">var(--c-accent)</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">var(--c-accent-ink)</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">var(--r-md)</span>;
+  <span class="tok-prop">transition</span>: <span class="tok-val">240ms var(--ease-out-expo)</span>;
+}</code></pre></div>
+              <div class="specimen__pane specimen__pane--live"><span class="specimen__label">渲染结果</span><span class="btn btn--lg btn--primary specimen__button"><span>预约咨询</span></span></div>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- hyalite.js（51KB）原先在这里以普通 <script> 同步加载：它排在 module 图之前，
+         浏览器要完整下载+解析这 51KB 之后才能并行发现 /assets/vendor-*.js 等关键 chunk
+         （实测首屏多等一整轮）。玻璃接线只需要 window.Hyalite 存在（见 main.tsx 的
+         applyHyalite 与 'app:booted' 事件），所以移到 module 之后并加 defer：
+         HTML 解析完就并行取所有 chunk，hyalite 仍在 DOMContentLoaded 前到位，语义不变。 -->
+    <script defer src="./hyalite.js"></script>
   </body>
 </html>
