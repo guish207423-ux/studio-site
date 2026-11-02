@@ -36,7 +36,8 @@ scripts/
   check-shell.mjs        静态首屏壳 ↔ 组件文案一致性（npm run check:shell）
   perf-probe.py          零依赖 CDP 探针：LCP / CLS / FCP / DCL（npm run perf）
   gen-fonts-css.py       中文分片生成器（当前未启用，见 fonts.css 顶部说明）
-public/                  hyalite.js、videos/、og-image.png、sitemap.xml、robots.txt、404.html、manifest.json
+public/                  hyalite.js、videos/、og-image.png、sitemap.xml、robots.txt、manifest.json
+templates/404.html       404 页模板（全内联）；vite.config.ts 的 studio-pages-404 插件把 %BASE% 换成本次 base 后写 dist/404.html
 dist/                    构建产物，部署这个目录
 ```
 
