@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionIcon from '../ui/SectionIcon'
-import { useReducedMotion } from '../../lib/motion'
+import { useReducedMotion, useMediaQuery } from '../../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -48,6 +48,8 @@ export default function Process() {
   const listRef = useRef<HTMLOListElement>(null)
   const reduced = useReducedMotion()
   const [expanded, setExpanded] = useState<number | null>(null)
+  // ≤767px 才是真折叠（CSS 同步：这档才有 max-height 过渡）；桌面端内容常驻展开。
+  const isNarrow = useMediaQuery('(max-width: 767px)')
 
   useEffect(() => {
     if (!listRef.current || reduced) return
@@ -94,37 +96,49 @@ export default function Process() {
         </header>
 
         <ol ref={listRef} className="process-list">
-          {steps.map((step, i) => (
-            <li key={step.num} className={`process-step${expanded === i ? ' process-step--expanded' : ''}`}>
-              <span className="process-step__num" aria-hidden="true">{step.num}</span>
-              <div className="process-step__content">
-                <button
-                  type="button"
-                  className="process-step__trigger"
-                  onClick={() => setExpanded(expanded === i ? null : i)}
-                  aria-expanded={expanded === i}
-                  aria-controls={`process-step-body-${i}`}
-                >
-                  <div className="process-step__head">
-                    <h3 className="process-step__title">{step.title}</h3>
-                    <span className="process-step__time">{step.time}</span>
-                  </div>
-                  <span className="process-step__chevron" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </span>
-                </button>
-                <div
-                  id={`process-step-body-${i}`}
-                  className="process-step__body"
-                >
-                  <p className="process-step__desc">{step.desc}</p>
-                  <p className="process-step__need">{step.need}</p>
+          {steps.map((step, i) => {
+            // 桌面端内容常驻展开：这个 button 没有可做的事（CSS 已 pointer-events:none），
+            // 却仍占一个 Tab 停靠点 —— 实测 5 个「能聚焦、点不动」的停靠点。
+            // 只在折叠真实存在的 ≤767px 档渲染成按钮，桌面端渲染同结构的静态 div。
+            const inner = (
+              <>
+                <div className="process-step__head">
+                  <h3 className="process-step__title">{step.title}</h3>
+                  <span className="process-step__time">{step.time}</span>
                 </div>
-              </div>
-            </li>
-          ))}
+                <span className="process-step__chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </>
+            )
+            return (
+              <li key={step.num} className={`process-step${expanded === i ? ' process-step--expanded' : ''}`}>
+                <span className="process-step__num" aria-hidden="true">{step.num}</span>
+                <div className="process-step__content">
+                  {isNarrow ? (
+                    <button
+                      type="button"
+                      className="process-step__trigger"
+                      onClick={() => setExpanded(expanded === i ? null : i)}
+                      aria-expanded={expanded === i}
+                      aria-controls={`process-step-body-${i}`}
+                    >{inner}</button>
+                  ) : (
+                    <div className="process-step__trigger">{inner}</div>
+                  )}
+                  <div
+                    id={`process-step-body-${i}`}
+                    className="process-step__body"
+                  >
+                    <p className="process-step__desc">{step.desc}</p>
+                    <p className="process-step__need">{step.need}</p>
+                  </div>
+                </div>
+              </li>
+            )
+          })}
         </ol>
       </div>
     </section>

@@ -30,3 +30,8 @@ docs/brief-monetization.md
 docs/software-sales-business-plan.md
 docs/software-sales-research.md
 docs/company-ops.md
+
+# Python 取证脚本的字节码缓存
+docs/review/**/__pycache__/
+*.pyc
+

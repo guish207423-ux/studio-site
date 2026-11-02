@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import BrandMark from '../ui/BrandMark'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const burgerRef = useRef<HTMLButtonElement>(null)
+  const firstLinkRef = useRef<HTMLAnchorElement>(null)
+  // 焦点归还只在「确实开过」时做 —— 否则首屏挂载就会把焦点抢到汉堡按钮上。
+  const hasOpened = useRef(false)
 
   useEffect(() => {
     let ticking = false
@@ -23,7 +27,23 @@ export default function Navigation() {
     document.body.style.overflow = drawerOpen ? 'hidden' : ''
     document.body.classList.toggle('drawer-open', drawerOpen)
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setDrawerOpen(false) }
-    if (drawerOpen) window.addEventListener('keydown', onKey)
+    if (drawerOpen) {
+      hasOpened.current = true
+      window.addEventListener('keydown', onKey)
+      // 打开即把焦点移进抽屉：原来焦点留在汉堡按钮上，第一个 Tab 会跳到页面主体
+      // （评审 S4）。聚焦用 rAF：此时抽屉刚从 [inert] 解除，同步 focus 会被浏览器忽略。
+      const raf = requestAnimationFrame(() => {
+        firstLinkRef.current?.focus()
+      })
+      return () => {
+        cancelAnimationFrame(raf)
+        document.body.style.overflow = ''
+        document.body.classList.remove('drawer-open')
+        window.removeEventListener('keydown', onKey)
+      }
+    }
+    // 关闭后把焦点还给汉堡按钮，避免焦点落在已 inert 的抽屉里被浏览器弹到 body。
+    if (hasOpened.current) burgerRef.current?.focus()
     return () => {
       document.body.style.overflow = ''
       document.body.classList.remove('drawer-open')
@@ -59,11 +79,12 @@ export default function Navigation() {
           </div>
 
           <button
+            ref={burgerRef}
             className="nav__burger"
             type="button"
             aria-expanded={drawerOpen}
             aria-controls="drawer"
-            aria-label="打开导航菜单"
+            aria-label={drawerOpen ? '关闭导航菜单' : '打开导航菜单'}
             onClick={() => setDrawerOpen(!drawerOpen)}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -96,8 +117,14 @@ export default function Navigation() {
         aria-hidden={!drawerOpen}
         inert={!drawerOpen}
       >
-        {links.map(l => (
-          <a key={l.href} href={l.href} onClick={() => setDrawerOpen(false)} className="drawer__link">{l.label}</a>
+        {links.map((l, i) => (
+          <a
+            key={l.href}
+            href={l.href}
+            ref={i === 0 ? firstLinkRef : undefined}
+            onClick={() => setDrawerOpen(false)}
+            className="drawer__link"
+          >{l.label}</a>
         ))}
       </nav>
     </>

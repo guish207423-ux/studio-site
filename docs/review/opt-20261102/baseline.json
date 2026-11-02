@@ -1,0 +1,798 @@
+{
+ "label": "baseline",
+ "url": "http://127.0.0.1:4173/",
+ "perf": {
+  "fcp": 116,
+  "lcp": 116,
+  "lcpEl": "hero-title-editorial",
+  "cls": 0.0003132716049382716
+ },
+ "network": {
+  "byType": {
+   "script": 45235,
+   "other": 140838,
+   "link": 11777,
+   "css": 51832,
+   "video": 186359
+  },
+  "entries": [
+   {
+    "url": "https://plausible.io/js/script.js",
+    "type": "script",
+    "size": 0,
+    "duration": 785
+   },
+   {
+    "url": "/assets/index-CBdSFMpM.js",
+    "type": "script",
+    "size": 8581,
+    "duration": 11
+   },
+   {
+    "url": "/assets/vendor-BDbW-k0Q.js",
+    "type": "other",
+    "size": 94483,
+    "duration": 23
+   },
+   {
+    "url": "/assets/index-0ZR4tYWb.css",
+    "type": "link",
+    "size": 11777,
+    "duration": 10
+   },
+   {
+    "url": "/hyalite.js",
+    "type": "script",
+    "size": 18416,
+    "duration": 13
+   },
+   {
+    "url": "/assets/gsap-a3sj5zmn.js",
+    "type": "other",
+    "size": 45246,
+    "duration": 16
+   },
+   {
+    "url": "/assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
+    "type": "css",
+    "size": 22132,
+    "duration": 64
+   },
+   {
+    "url": "/assets/geist-latin-wght-normal-BgDaEnEv.woff2",
+    "type": "css",
+    "size": 29700,
+    "duration": 60
+   },
+   {
+    "url": "/assets/About-DU5sXpgO.js",
+    "type": "script",
+    "size": 1774,
+    "duration": 4
+   },
+   {
+    "url": "/assets/SectionIcon-BX0AwFl-.js",
+    "type": "script",
+    "size": 767,
+    "duration": 3
+   },
+   {
+    "url": "/assets/Services-vvuThhAl.js",
+    "type": "script",
+    "size": 1938,
+    "duration": 3
+   },
+   {
+    "url": "/favicon.svg",
+    "type": "other",
+    "size": 1109,
+    "duration": 2
+   },
+   {
+    "url": "/assets/CaseStudies-TNNEUz8d.js",
+    "type": "script",
+    "size": 1997,
+    "duration": 3
+   },
+   {
+    "url": "/assets/Works-RRNoyQTn.js",
+    "type": "script",
+    "size": 3108,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Process-DLyaLgAG.js",
+    "type": "script",
+    "size": 1963,
+    "duration": 4
+   },
+   {
+    "url": "/videos/blender-poster.jpg",
+    "type": "video",
+    "size": 24047,
+    "duration": 3
+   },
+   {
+    "url": "/videos/grafana-poster.jpg",
+    "type": "video",
+    "size": 35132,
+    "duration": 4
+   },
+   {
+    "url": "/videos/metabase-poster.jpg",
+    "type": "video",
+    "size": 14261,
+    "duration": 5
+   },
+   {
+    "url": "/videos/audacity-poster.jpg",
+    "type": "video",
+    "size": 39693,
+    "duration": 5
+   },
+   {
+    "url": "/videos/penpot-poster.jpg",
+    "type": "video",
+    "size": 32769,
+    "duration": 5
+   },
+   {
+    "url": "/videos/openshot-poster.jpg",
+    "type": "video",
+    "size": 38657,
+    "duration": 5
+   },
+   {
+    "url": "/videos/blender.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/grafana.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/metabase.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/audacity.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/penpot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/openshot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/assets/Partners-CWvRJ3HQ.js",
+    "type": "script",
+    "size": 951,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Pricing-DMx0bln8.js",
+    "type": "script",
+    "size": 2360,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Contact-yxb6yfHE.js",
+    "type": "script",
+    "size": 3380,
+    "duration": 2
+   }
+  ],
+  "counts": {
+   "script": 12,
+   "other": 3,
+   "link": 1,
+   "css": 2,
+   "video": 12
+  },
+  "nav": {
+   "dcl": 813,
+   "load": 814,
+   "transferSize": 3836
+  },
+  "videoRequests": [
+   {
+    "url": "/videos/blender.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/grafana.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/metabase.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/audacity.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/penpot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/openshot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   }
+  ],
+  "videoBytes": 1800,
+  "jsBytes": 45235,
+  "jsCount": 12,
+  "cssBytes": 11777,
+  "fontBytes": 51832,
+  "imgBytes": 0,
+  "totalBytes": 439877,
+  "requestCount": 31,
+  "preloads": [
+   "/assets/vendor-BDbW-k0Q.js",
+   "/assets/gsap-a3sj5zmn.js",
+   "/assets/About-DU5sXpgO.js",
+   "/assets/SectionIcon-BX0AwFl-.js",
+   "/assets/Services-vvuThhAl.js",
+   "/assets/CaseStudies-TNNEUz8d.js",
+   "/assets/Works-RRNoyQTn.js",
+   "/assets/Process-DLyaLgAG.js",
+   "/assets/Partners-CWvRJ3HQ.js",
+   "/assets/Pricing-DMx0bln8.js",
+   "/assets/Contact-yxb6yfHE.js"
+  ]
+ },
+ "network_after_scroll": {
+  "byType": {
+   "script": 45235,
+   "other": 140838,
+   "link": 11777,
+   "css": 51832,
+   "video": 186359
+  },
+  "entries": [
+   {
+    "url": "https://plausible.io/js/script.js",
+    "type": "script",
+    "size": 0,
+    "duration": 785
+   },
+   {
+    "url": "/assets/index-CBdSFMpM.js",
+    "type": "script",
+    "size": 8581,
+    "duration": 11
+   },
+   {
+    "url": "/assets/vendor-BDbW-k0Q.js",
+    "type": "other",
+    "size": 94483,
+    "duration": 23
+   },
+   {
+    "url": "/assets/index-0ZR4tYWb.css",
+    "type": "link",
+    "size": 11777,
+    "duration": 10
+   },
+   {
+    "url": "/hyalite.js",
+    "type": "script",
+    "size": 18416,
+    "duration": 13
+   },
+   {
+    "url": "/assets/gsap-a3sj5zmn.js",
+    "type": "other",
+    "size": 45246,
+    "duration": 16
+   },
+   {
+    "url": "/assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
+    "type": "css",
+    "size": 22132,
+    "duration": 64
+   },
+   {
+    "url": "/assets/geist-latin-wght-normal-BgDaEnEv.woff2",
+    "type": "css",
+    "size": 29700,
+    "duration": 60
+   },
+   {
+    "url": "/assets/About-DU5sXpgO.js",
+    "type": "script",
+    "size": 1774,
+    "duration": 4
+   },
+   {
+    "url": "/assets/SectionIcon-BX0AwFl-.js",
+    "type": "script",
+    "size": 767,
+    "duration": 3
+   },
+   {
+    "url": "/assets/Services-vvuThhAl.js",
+    "type": "script",
+    "size": 1938,
+    "duration": 3
+   },
+   {
+    "url": "/favicon.svg",
+    "type": "other",
+    "size": 1109,
+    "duration": 2
+   },
+   {
+    "url": "/assets/CaseStudies-TNNEUz8d.js",
+    "type": "script",
+    "size": 1997,
+    "duration": 3
+   },
+   {
+    "url": "/assets/Works-RRNoyQTn.js",
+    "type": "script",
+    "size": 3108,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Process-DLyaLgAG.js",
+    "type": "script",
+    "size": 1963,
+    "duration": 4
+   },
+   {
+    "url": "/videos/blender-poster.jpg",
+    "type": "video",
+    "size": 24047,
+    "duration": 3
+   },
+   {
+    "url": "/videos/grafana-poster.jpg",
+    "type": "video",
+    "size": 35132,
+    "duration": 4
+   },
+   {
+    "url": "/videos/metabase-poster.jpg",
+    "type": "video",
+    "size": 14261,
+    "duration": 5
+   },
+   {
+    "url": "/videos/audacity-poster.jpg",
+    "type": "video",
+    "size": 39693,
+    "duration": 5
+   },
+   {
+    "url": "/videos/penpot-poster.jpg",
+    "type": "video",
+    "size": 32769,
+    "duration": 5
+   },
+   {
+    "url": "/videos/openshot-poster.jpg",
+    "type": "video",
+    "size": 38657,
+    "duration": 5
+   },
+   {
+    "url": "/videos/blender.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/grafana.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/metabase.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/audacity.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/penpot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/openshot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/assets/Partners-CWvRJ3HQ.js",
+    "type": "script",
+    "size": 951,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Pricing-DMx0bln8.js",
+    "type": "script",
+    "size": 2360,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Contact-yxb6yfHE.js",
+    "type": "script",
+    "size": 3380,
+    "duration": 2
+   }
+  ],
+  "counts": {
+   "script": 12,
+   "other": 3,
+   "link": 1,
+   "css": 2,
+   "video": 12
+  },
+  "nav": {
+   "dcl": 813,
+   "load": 814,
+   "transferSize": 3836
+  },
+  "videoRequests": [
+   {
+    "url": "/videos/blender.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/grafana.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/metabase.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/audacity.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 18
+   },
+   {
+    "url": "/videos/penpot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   },
+   {
+    "url": "/videos/openshot.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 17
+   }
+  ],
+  "videoBytes": 1800,
+  "jsBytes": 45235,
+  "jsCount": 12,
+  "cssBytes": 11777,
+  "fontBytes": 51832,
+  "imgBytes": 0,
+  "totalBytes": 439877,
+  "requestCount": 31,
+  "preloads": [
+   "/assets/vendor-BDbW-k0Q.js",
+   "/assets/gsap-a3sj5zmn.js",
+   "/assets/About-DU5sXpgO.js",
+   "/assets/SectionIcon-BX0AwFl-.js",
+   "/assets/Services-vvuThhAl.js",
+   "/assets/CaseStudies-TNNEUz8d.js",
+   "/assets/Works-RRNoyQTn.js",
+   "/assets/Process-DLyaLgAG.js",
+   "/assets/Partners-CWvRJ3HQ.js",
+   "/assets/Pricing-DMx0bln8.js",
+   "/assets/Contact-yxb6yfHE.js"
+  ]
+ },
+ "axe": {
+  "version": "4.13.0",
+  "violations": [
+   {
+    "id": "scrollable-region-focusable",
+    "impact": "serious",
+    "help": "Scrollable region must have keyboard access",
+    "targets": [
+     ".partners-strip"
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "count": 126
+   },
+   {
+    "id": "video-caption",
+    "impact": "critical",
+    "count": 6
+   }
+  ]
+ },
+ "tabwalk_1440": {
+  "count": 73,
+  "invisible": [
+   {
+    "tag": "a",
+    "cls": "skip-link",
+    "text": "跳转到主要内容",
+    "rect": [
+     651,
+     -900,
+     137,
+     41
+    ],
+    "inViewport": false,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "inertAnc": false
+   },
+   {
+    "tag": "button",
+    "cls": "process-step__trigger",
+    "text": "需求确认\n1–3 天",
+    "rect": [
+     292,
+     428,
+     976,
+     43
+    ],
+    "inViewport": true,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "none",
+    "inertAnc": false
+   },
+   {
+    "tag": "button",
+    "cls": "process-step__trigger",
+    "text": "信息架构\n第 1 周",
+    "rect": [
+     292,
+     638,
+     976,
+     43
+    ],
+    "inViewport": true,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "none",
+    "inertAnc": false
+   },
+   {
+    "tag": "button",
+    "cls": "process-step__trigger",
+    "text": "视觉设计\n第 2–3 周",
+    "rect": [
+     292,
+     847,
+     976,
+     43
+    ],
+    "inViewport": true,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "none",
+    "inertAnc": false
+   },
+   {
+    "tag": "button",
+    "cls": "process-step__trigger",
+    "text": "前端开发\n第 3–5 周",
+    "rect": [
+     292,
+     429,
+     976,
+     43
+    ],
+    "inViewport": true,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "none",
+    "inertAnc": false
+   },
+   {
+    "tag": "button",
+    "cls": "process-step__trigger",
+    "text": "上线交付\n第 6 周",
+    "rect": [
+     292,
+     639,
+     976,
+     43
+    ],
+    "inViewport": true,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "none",
+    "inertAnc": false
+   },
+   {
+    "tag": "button",
+    "cls": "fab",
+    "text": "打开联系方式",
+    "rect": [
+     1372,
+     844,
+     44,
+     44
+    ],
+    "inViewport": true,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "none",
+    "inertAnc": false
+   }
+  ]
+ },
+ "newsletter_focus": {
+  "outlineStyle": "solid",
+  "outlineWidth": "2px",
+  "boxShadow": "none",
+  "borderColor": "rgb(46, 46, 46)"
+ },
+ "pricing_contrast": [
+  {
+   "sel": ".pricing-card--highlight .pricing-card__desc",
+   "text": "5–7 个页面，从品牌梳理做到前端上线",
+   "color": "rgb(176, 176, 176)",
+   "fontSize": "13px",
+   "fontWeight": "400",
+   "box": [
+    959.65625,
+    438.359375,
+    267.34375,
+    22.75
+   ],
+   "bgPixel": [
+    19,
+    19,
+    19
+   ],
+   "ratio": 8.57
+  },
+  {
+   "sel": ".pricing-card--highlight .pricing-card__period",
+   "text": "起",
+   "color": "rgb(176, 176, 176)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "box": [
+    1098.484375,
+    438.109375,
+    13.921875,
+    24.5
+   ],
+   "bgPixel": [
+    19,
+    19,
+    19
+   ],
+   "ratio": 8.57
+  },
+  {
+   "sel": ".pricing-card:not(.pricing-card--highlight) .pricing-card__desc",
+   "text": "你有 Figma，我们把它做成能点的页面",
+   "color": "rgb(138, 138, 138)",
+   "fontSize": "13px",
+   "fontWeight": "400",
+   "box": [
+    213,
+    438.359375,
+    267.328125,
+    22.75
+   ],
+   "bgPixel": [
+    19,
+    19,
+    19
+   ],
+   "ratio": 5.38
+  }
+ ],
+ "mobile_cookie": {
+  "activeEl": "BODY.",
+  "rect": [
+   16,
+   627,
+   302,
+   129
+  ],
+  "buttons": [
+   {
+    "text": "拒绝",
+    "w": 130,
+    "h": 40
+   },
+   {
+    "text": "接受",
+    "w": 130,
+    "h": 40
+   }
+  ]
+ },
+ "mobile_drawer": {
+  "after_open": {
+   "open": true,
+   "inert": false,
+   "activeEl": "button.nav__burger",
+   "activeInDrawer": false
+  },
+  "after_escape": {
+   "open": false,
+   "inert": true,
+   "activeEl": "button.nav__burger",
+   "activeY": 29,
+   "inViewport": true
+  }
+ },
+ "mobile_fab": {
+  "groupOpacity": "0",
+  "groupPointerEvents": "none",
+  "borderRadius": "50%",
+  "open": "false",
+  "tabbable": true,
+  "after_escape_expanded": "false"
+ },
+ "tap_targets_390": {
+  "total": 83,
+  "small": 18,
+  "agg": {
+   "a.skip-link": 1,
+   "a.brand": 1,
+   "button.process-step__trigger": 5,
+   "a.contact-card__value": 1,
+   "summary.faq-question": 8,
+   "button.cookie-toast__btn": 2
+  }
+ },
+ "pageerrors": []
+}

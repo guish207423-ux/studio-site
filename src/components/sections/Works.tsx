@@ -99,6 +99,22 @@ export default function Works() {
     let activeVideo: HTMLVideoElement | null = null
     const cleanups: Array<() => void> = []
 
+    // 预载升级：卡片进入「视口外 400px」时才允许取 metadata（preload="none" → "metadata"）。
+    // 这样首屏 0 条视频请求，而悬停时首帧已经就位；用一次即解除观察，不重复触发。
+    const warmObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          const v = entry.target as HTMLVideoElement
+          if (v.preload === 'none') v.preload = 'metadata'
+          warmObserver.unobserve(v)
+        })
+      },
+      { rootMargin: '400px 0px' },
+    )
+    videos.forEach((v) => warmObserver.observe(v))
+    cleanups.push(() => warmObserver.disconnect())
+
     const playVideo = (v: HTMLVideoElement) => {
       if (activeVideo && activeVideo !== v) {
         activeVideo.pause()
@@ -112,7 +128,10 @@ export default function Works() {
     }
 
     videos.forEach(v => {
-      v.preload = 'metadata'
+      // 首帧不做任何视频请求：6 张卡各打一次 metadata 请求（实测 6 条 / 首屏）
+      // 只为了「悬停时快一点」，而它们全在首屏之外。改成 preload="none"，
+      // 由下面的 IntersectionObserver 在卡片接近视口时才升级到 metadata。
+      v.preload = 'none'
       v.muted = true
       v.loop = true
       v.playsInline = true
@@ -210,13 +229,15 @@ export default function Works() {
           <p className="section-head__sub"><SectionIcon name="works" size={16} /> 长期跟踪、拆解的开源工程。这些项目覆盖的能力，就是我们能接的范围</p>
         </header>
 
-        {/* Category filter */}
-        <div className="works-filter" role="tablist" aria-label="开源项目分类">
+        {/* Category filter —— 用一组 aria-pressed 切换按钮，不是 tablist。
+            原先写 role="tablist"/role="tab"，但没有 tabpanel、没有左右方向键切换，
+            读屏会宣称「选项卡 1/6」再等一个不存在的面板。切换按钮语义才与行为一致。 */}
+        <div className="works-filter" role="group" aria-label="开源项目分类">
           {categories.map(cat => (
             <button
               key={cat}
-              role="tab"
-              aria-selected={activeCategory === cat}
+              type="button"
+              aria-pressed={activeCategory === cat}
               className={`works-filter__btn ${activeCategory === cat ? 'works-filter__btn--active' : ''}`}
               onClick={() => setActiveCategory(cat)}
             >
@@ -224,6 +245,9 @@ export default function Works() {
             </button>
           ))}
         </div>
+        <p className="sr-only" role="status">
+          {activeCategory === '全部' ? `全部 ${filtered.length} 个项目` : `${activeCategory}分类 ${filtered.length} 个项目`}
+        </p>
 
         {/* polish-round3 §三：等宽卡片网格 → 横向滚动。卡片固定宽度排成一行，
             溢出部分横向滚动并吸附；窄屏（<768px）由 CSS 收回单栏堆叠。 */}
@@ -232,13 +256,18 @@ export default function Works() {
             <article key={p.name} className="work-card glass-float">
               {/* Preview area with real video */}
               <div className="work-card__preview">
+                {/* 装饰性预览（无声循环录屏）：preload="none" 让首屏不发视频请求，
+                    进入视口外 400px 才由 IntersectionObserver 升级；aria-hidden + tabIndex=-1
+                    让它不进无障碍树、不进 Tab 序列（悬停/点击播放由外层卡片处理）。 */}
                 <video
                   data-hover-play
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   poster={p.poster}
+                  aria-hidden="true"
+                  tabIndex={-1}
                 >
                   <source src={p.video} type="video/webm" />
                 </video>

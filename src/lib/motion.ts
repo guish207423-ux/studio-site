@@ -45,6 +45,29 @@ export function useCanHover(): boolean {
 }
 
 /**
+ * 反应式媒体查询。
+ *
+ * 只读一次 matchMedia 会在旋转屏幕 / 拖动窗口跨断点时失效（组件仍按旧断点渲染）。
+ * Process 的折叠按钮就是靠它决定「是不是该是一个按钮」：桌面端内容常驻展开，
+ * 那个 button 既点不动（pointer-events:none）又占一个 Tab 停靠点，属于纯噪声。
+ */
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(() =>
+    typeof window === 'undefined' ? false : window.matchMedia(query).matches,
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia(query)
+    const sync = () => setMatches(mq.matches)
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [query])
+
+  return matches
+}
+
+/**
  * 统一的 reduced-motion 判定（C7）。
  *
  * 每个组件不再各自 matchMedia：挂载时读一次不够 —— 用户在系统设置里改

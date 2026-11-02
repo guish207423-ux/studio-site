@@ -947,6 +947,9 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
   justify-content: space-between;
   align-items: center;
   margin: 0;
+  /* 触控目标：实测 8 个 <summary> 只有 35px 高（<44px 建议下限）。
+     只加最小高度，不加内边距 —— 视觉行距不变，只是可点区域变大。 */
+  min-height: 44px;
 }
 .faq-question::-webkit-details-marker {
   display: none;
@@ -1834,6 +1837,19 @@ body.is-scrolling .light-shadow { opacity: 0 !important; }
 }
 .skip-link:focus {
   top: 0 !important;
+}
+
+/* 视觉隐藏但读屏可见（筛选结果播报等）。clip 旧写法保留作兜底。 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Section skeleton */
@@ -2854,6 +2870,9 @@ body.is-scrolling .glass {
   .process-step__trigger {
     cursor: pointer;
     pointer-events: auto;
+    /* 触控目标：390 实测可点区只有 43px 高，差 1px 就到 44px 下限。
+       只加最小高度，不改变排版节奏。 */
+    min-height: 44px;
   }
   .process-step__body {
     max-height: 0;
@@ -3052,7 +3071,7 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
   margin-top: var(--sp-3);
 }
 .cookie-toast__btn {
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 16px;
   border-radius: var(--r-sm);
   font-size: 13px;
@@ -3251,6 +3270,12 @@ body.drawer-open .floating-chat { opacity: 0 !important; pointer-events: none !i
 @media (pointer: coarse) {
   .footer__nav-link { display: inline-flex; align-items: center; min-height: 44px; }
   .footer__social-link { min-height: 44px; display: inline-flex; align-items: center; }
+  /* 390 实测仍在 <44px 的三个：品牌链接（26×22 的可点区）、联系信息链接、skip-link。 */
+  .brand { min-height: 44px; }
+  .contact-card__value { display: inline-flex; align-items: center; min-height: 44px; }
+  .skip-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .cookie-chip { min-height: 44px; }
+  .fab-to-top { width: 44px; height: 44px; }
 }
 
 /* M7：窄屏下服务卡是横向滚动带，但右缘只是被硬切（实测内容在 617px 处截断，视口 390px），
@@ -3446,6 +3471,13 @@ main { counter-reset: sec; }
   scroll-snap-type: x mandatory;
   padding-bottom: var(--sp-2);
   -webkit-overflow-scrolling: touch;
+}
+/* 横向滚动容器必须能聚焦，否则键盘用户无法滚动它（axe: scrollable-region-focusable）。
+   聚焦就必须有可见指示，否则等于把 S3 那个「无焦点环」换个位置重犯。 */
+.partners-strip:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 4px;
+  border-radius: var(--r-sm);
 }
 .partner-chip {
   flex: 0 0 auto;

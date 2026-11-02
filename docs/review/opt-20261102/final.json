@@ -1,0 +1,608 @@
+{
+ "label": "final",
+ "url": "http://127.0.0.1:4173/",
+ "perf": {
+  "fcp": 120,
+  "lcp": 120,
+  "lcpEl": "hero-title-editorial",
+  "cls": 0.0003132716049382716
+ },
+ "network": {
+  "byType": {
+   "script": 45670,
+   "other": 140838,
+   "link": 11856,
+   "css": 51832,
+   "video": 184559
+  },
+  "entries": [
+   {
+    "url": "https://plausible.io/js/script.js",
+    "type": "script",
+    "size": 0,
+    "duration": 415
+   },
+   {
+    "url": "/assets/index-CuzyVzPO.js",
+    "type": "script",
+    "size": 8791,
+    "duration": 8
+   },
+   {
+    "url": "/assets/vendor-BDbW-k0Q.js",
+    "type": "other",
+    "size": 94483,
+    "duration": 20
+   },
+   {
+    "url": "/assets/gsap-a3sj5zmn.js",
+    "type": "other",
+    "size": 45246,
+    "duration": 12
+   },
+   {
+    "url": "/assets/index-Bz7RBaKn.css",
+    "type": "link",
+    "size": 11856,
+    "duration": 7
+   },
+   {
+    "url": "/hyalite.js",
+    "type": "script",
+    "size": 18416,
+    "duration": 10
+   },
+   {
+    "url": "/assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
+    "type": "css",
+    "size": 22132,
+    "duration": 76
+   },
+   {
+    "url": "/assets/geist-latin-wght-normal-BgDaEnEv.woff2",
+    "type": "css",
+    "size": 29700,
+    "duration": 72
+   },
+   {
+    "url": "/assets/About-BIRzDbkX.js",
+    "type": "script",
+    "size": 1774,
+    "duration": 4
+   },
+   {
+    "url": "/assets/SectionIcon-BX0AwFl-.js",
+    "type": "script",
+    "size": 767,
+    "duration": 4
+   },
+   {
+    "url": "/assets/Services-CPsVA1p6.js",
+    "type": "script",
+    "size": 1938,
+    "duration": 3
+   },
+   {
+    "url": "/favicon.svg",
+    "type": "other",
+    "size": 1109,
+    "duration": 3
+   },
+   {
+    "url": "/assets/CaseStudies-gPVxyoVk.js",
+    "type": "script",
+    "size": 1996,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Works-Dq8C6lSx.js",
+    "type": "script",
+    "size": 3253,
+    "duration": 3
+   },
+   {
+    "url": "/assets/Process-SIM1Q86N.js",
+    "type": "script",
+    "size": 2025,
+    "duration": 4
+   },
+   {
+    "url": "/videos/blender-poster.jpg",
+    "type": "video",
+    "size": 24047,
+    "duration": 7
+   },
+   {
+    "url": "/videos/grafana-poster.jpg",
+    "type": "video",
+    "size": 35132,
+    "duration": 7
+   },
+   {
+    "url": "/videos/metabase-poster.jpg",
+    "type": "video",
+    "size": 14261,
+    "duration": 7
+   },
+   {
+    "url": "/videos/audacity-poster.jpg",
+    "type": "video",
+    "size": 39693,
+    "duration": 7
+   },
+   {
+    "url": "/videos/penpot-poster.jpg",
+    "type": "video",
+    "size": 32769,
+    "duration": 7
+   },
+   {
+    "url": "/videos/openshot-poster.jpg",
+    "type": "video",
+    "size": 38657,
+    "duration": 8
+   },
+   {
+    "url": "/assets/Partners-DPdvBOGy.js",
+    "type": "script",
+    "size": 971,
+    "duration": 1
+   },
+   {
+    "url": "/assets/Pricing-C9LYtYHn.js",
+    "type": "script",
+    "size": 2360,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Contact-CWvhxCOl.js",
+    "type": "script",
+    "size": 3379,
+    "duration": 2
+   }
+  ],
+  "counts": {
+   "script": 12,
+   "other": 3,
+   "link": 1,
+   "css": 2,
+   "video": 6
+  },
+  "nav": {
+   "dcl": 447,
+   "load": 448,
+   "transferSize": 3836
+  },
+  "videoRequests": [],
+  "videoBytes": 0,
+  "jsBytes": 45670,
+  "jsCount": 12,
+  "cssBytes": 11856,
+  "fontBytes": 51832,
+  "imgBytes": 0,
+  "totalBytes": 438591,
+  "requestCount": 25,
+  "preloads": [
+   "/assets/vendor-BDbW-k0Q.js",
+   "/assets/gsap-a3sj5zmn.js",
+   "/assets/About-BIRzDbkX.js",
+   "/assets/SectionIcon-BX0AwFl-.js",
+   "/assets/Services-CPsVA1p6.js",
+   "/assets/CaseStudies-gPVxyoVk.js",
+   "/assets/Works-Dq8C6lSx.js",
+   "/assets/Process-SIM1Q86N.js",
+   "/assets/Partners-DPdvBOGy.js",
+   "/assets/Pricing-C9LYtYHn.js",
+   "/assets/Contact-CWvhxCOl.js"
+  ]
+ },
+ "network_after_scroll": {
+  "byType": {
+   "script": 45670,
+   "other": 140838,
+   "link": 11856,
+   "css": 51832,
+   "video": 185459
+  },
+  "entries": [
+   {
+    "url": "https://plausible.io/js/script.js",
+    "type": "script",
+    "size": 0,
+    "duration": 415
+   },
+   {
+    "url": "/assets/index-CuzyVzPO.js",
+    "type": "script",
+    "size": 8791,
+    "duration": 8
+   },
+   {
+    "url": "/assets/vendor-BDbW-k0Q.js",
+    "type": "other",
+    "size": 94483,
+    "duration": 20
+   },
+   {
+    "url": "/assets/gsap-a3sj5zmn.js",
+    "type": "other",
+    "size": 45246,
+    "duration": 12
+   },
+   {
+    "url": "/assets/index-Bz7RBaKn.css",
+    "type": "link",
+    "size": 11856,
+    "duration": 7
+   },
+   {
+    "url": "/hyalite.js",
+    "type": "script",
+    "size": 18416,
+    "duration": 10
+   },
+   {
+    "url": "/assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
+    "type": "css",
+    "size": 22132,
+    "duration": 76
+   },
+   {
+    "url": "/assets/geist-latin-wght-normal-BgDaEnEv.woff2",
+    "type": "css",
+    "size": 29700,
+    "duration": 72
+   },
+   {
+    "url": "/assets/About-BIRzDbkX.js",
+    "type": "script",
+    "size": 1774,
+    "duration": 4
+   },
+   {
+    "url": "/assets/SectionIcon-BX0AwFl-.js",
+    "type": "script",
+    "size": 767,
+    "duration": 4
+   },
+   {
+    "url": "/assets/Services-CPsVA1p6.js",
+    "type": "script",
+    "size": 1938,
+    "duration": 3
+   },
+   {
+    "url": "/favicon.svg",
+    "type": "other",
+    "size": 1109,
+    "duration": 3
+   },
+   {
+    "url": "/assets/CaseStudies-gPVxyoVk.js",
+    "type": "script",
+    "size": 1996,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Works-Dq8C6lSx.js",
+    "type": "script",
+    "size": 3253,
+    "duration": 3
+   },
+   {
+    "url": "/assets/Process-SIM1Q86N.js",
+    "type": "script",
+    "size": 2025,
+    "duration": 4
+   },
+   {
+    "url": "/videos/blender-poster.jpg",
+    "type": "video",
+    "size": 24047,
+    "duration": 7
+   },
+   {
+    "url": "/videos/grafana-poster.jpg",
+    "type": "video",
+    "size": 35132,
+    "duration": 7
+   },
+   {
+    "url": "/videos/metabase-poster.jpg",
+    "type": "video",
+    "size": 14261,
+    "duration": 7
+   },
+   {
+    "url": "/videos/audacity-poster.jpg",
+    "type": "video",
+    "size": 39693,
+    "duration": 7
+   },
+   {
+    "url": "/videos/penpot-poster.jpg",
+    "type": "video",
+    "size": 32769,
+    "duration": 7
+   },
+   {
+    "url": "/videos/openshot-poster.jpg",
+    "type": "video",
+    "size": 38657,
+    "duration": 8
+   },
+   {
+    "url": "/assets/Partners-DPdvBOGy.js",
+    "type": "script",
+    "size": 971,
+    "duration": 1
+   },
+   {
+    "url": "/assets/Pricing-C9LYtYHn.js",
+    "type": "script",
+    "size": 2360,
+    "duration": 2
+   },
+   {
+    "url": "/assets/Contact-CWvhxCOl.js",
+    "type": "script",
+    "size": 3379,
+    "duration": 2
+   },
+   {
+    "url": "/videos/blender.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 5
+   },
+   {
+    "url": "/videos/grafana.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 5
+   },
+   {
+    "url": "/videos/metabase.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 4
+   }
+  ],
+  "counts": {
+   "script": 12,
+   "other": 3,
+   "link": 1,
+   "css": 2,
+   "video": 9
+  },
+  "nav": {
+   "dcl": 447,
+   "load": 448,
+   "transferSize": 3836
+  },
+  "videoRequests": [
+   {
+    "url": "/videos/blender.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 5
+   },
+   {
+    "url": "/videos/grafana.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 5
+   },
+   {
+    "url": "/videos/metabase.webm",
+    "type": "video",
+    "size": 300,
+    "duration": 4
+   }
+  ],
+  "videoBytes": 900,
+  "jsBytes": 45670,
+  "jsCount": 12,
+  "cssBytes": 11856,
+  "fontBytes": 51832,
+  "imgBytes": 0,
+  "totalBytes": 439491,
+  "requestCount": 28,
+  "preloads": [
+   "/assets/vendor-BDbW-k0Q.js",
+   "/assets/gsap-a3sj5zmn.js",
+   "/assets/About-BIRzDbkX.js",
+   "/assets/SectionIcon-BX0AwFl-.js",
+   "/assets/Services-CPsVA1p6.js",
+   "/assets/CaseStudies-gPVxyoVk.js",
+   "/assets/Works-Dq8C6lSx.js",
+   "/assets/Process-SIM1Q86N.js",
+   "/assets/Partners-DPdvBOGy.js",
+   "/assets/Pricing-C9LYtYHn.js",
+   "/assets/Contact-CWvhxCOl.js"
+  ]
+ },
+ "axe": {
+  "version": "4.13.0",
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "count": 126
+   }
+  ]
+ },
+ "tabwalk_1440": {
+  "count": 68,
+  "invisible": [
+   {
+    "tag": "a",
+    "cls": "skip-link",
+    "text": "跳转到主要内容",
+    "rect": [
+     651,
+     -900,
+     137,
+     41
+    ],
+    "inViewport": false,
+    "opacity": "1",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "inertAnc": false
+   }
+  ]
+ },
+ "newsletter_focus": {
+  "outlineStyle": "solid",
+  "outlineWidth": "2px",
+  "boxShadow": "none",
+  "borderColor": "rgb(46, 46, 46)"
+ },
+ "desktop_process_trigger": {
+  "count": 5,
+  "tags": [
+   "div"
+  ],
+  "buttonsInTabOrder": 0
+ },
+ "pricing_contrast": [
+  {
+   "sel": ".pricing-card--highlight .pricing-card__desc",
+   "text": "5–7 个页面，从品牌梳理做到前端上线",
+   "color": "rgb(176, 176, 176)",
+   "fontSize": "13px",
+   "fontWeight": "400",
+   "box": [
+    959.65625,
+    438.359375,
+    267.34375,
+    22.75
+   ],
+   "bgPixel": [
+    19,
+    19,
+    19
+   ],
+   "ratio": 8.57
+  },
+  {
+   "sel": ".pricing-card--highlight .pricing-card__period",
+   "text": "起",
+   "color": "rgb(176, 176, 176)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "box": [
+    1098.484375,
+    438.109375,
+    13.921875,
+    24.5
+   ],
+   "bgPixel": [
+    19,
+    19,
+    19
+   ],
+   "ratio": 8.57
+  },
+  {
+   "sel": ".pricing-card:not(.pricing-card--highlight) .pricing-card__desc",
+   "text": "你有 Figma，我们把它做成能点的页面",
+   "color": "rgb(138, 138, 138)",
+   "fontSize": "13px",
+   "fontWeight": "400",
+   "box": [
+    213,
+    438.359375,
+    267.328125,
+    22.75
+   ],
+   "bgPixel": [
+    19,
+    19,
+    19
+   ],
+   "ratio": 5.38
+  }
+ ],
+ "mobile_cookie": {
+  "activeEl": "BODY.",
+  "rect": [
+   16,
+   623,
+   302,
+   133
+  ],
+  "buttons": [
+   {
+    "text": "拒绝",
+    "w": 130,
+    "h": 44
+   },
+   {
+    "text": "接受",
+    "w": 130,
+    "h": 44
+   }
+  ]
+ },
+ "mobile_drawer": {
+  "after_open": {
+   "open": true,
+   "inert": false,
+   "activeEl": "a.drawer__link",
+   "activeInDrawer": true
+  },
+  "after_escape": {
+   "open": false,
+   "inert": true,
+   "activeEl": "button.nav__burger",
+   "activeY": 29,
+   "inViewport": true
+  }
+ },
+ "mobile_fab_hidden": {
+  "groupOpacity": "0",
+  "groupPointerEvents": "none",
+  "groupInert": true,
+  "tabbable": false
+ },
+ "mobile_fab": {
+  "groupOpacity": "1",
+  "groupInert": false,
+  "expandedAfterOpen": "true",
+  "menuVisible": true,
+  "activeEl": "button.fab",
+  "expandedAfterEscape": "false",
+  "menuAfterEscape": false,
+  "activeAfterEscape": "button.fab"
+ },
+ "semantics": {
+  "roleTabCount": 0,
+  "pressedCount": 6,
+  "videoPreload": [
+   "none",
+   "none",
+   "none",
+   "none",
+   "none",
+   "none"
+  ],
+  "videoAriaHidden": [
+   "true",
+   "true",
+   "true",
+   "true",
+   "true",
+   "true"
+  ],
+  "partnersTabindex": "0"
+ },
+ "tap_targets_390": {
+  "total": 84,
+  "small": 0,
+  "agg": {}
+ },
+ "pageerrors": []
+}

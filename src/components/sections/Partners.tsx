@@ -20,7 +20,7 @@ export default function Partners() {
           <p className="section-head__sub"><SectionIcon name="partners" size={16} /> 我们实际在用的栈，不是罗列 buzzword</p>
         </header>
 
-        <div className="partners-strip" role="list" aria-label="技术栈">
+        <div className="partners-strip" role="list" aria-label="技术栈（横向滚动）" tabIndex={0}>
           {tools.map((t) => (
             <div key={t.name} className="partner-chip" role="listitem">
               <span className="partner-chip__name">{t.name}</span>
